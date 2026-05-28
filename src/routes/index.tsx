@@ -871,18 +871,12 @@ function ImportanceDots({ value }: { value: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className="block h-1.5 w-1.5 rounded-full"
-          style={{
-            backgroundColor: i < v ? ACCENT : undefined,
-          }}
-          {...(i < v
-            ? {}
-            : { "data-empty": true })}
-        >
-          {i >= v && (
-            <span className="block h-1.5 w-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-          )}
-        </span>
+          className={
+            "block h-1.5 w-1.5 rounded-full " +
+            (i < v ? "" : "bg-neutral-300 dark:bg-neutral-700")
+          }
+          style={i < v ? { backgroundColor: ACCENT } : undefined}
+        />
       ))}
     </div>
   );

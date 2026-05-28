@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Daybreak - Tech Digest" },
+      { name: "description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Daybreak - Tech Digest" },
+      { property: "og:description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Daybreak - Tech Digest" },
+      { name: "twitter:description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04beffe3-a2fa-4a6f-9bf5-dec7601df62a/id-preview-ab46d8a6--ea6db3e6-4cad-4ca3-8a70-104f031997d6.lovable.app-1779933618279.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04beffe3-a2fa-4a6f-9bf5-dec7601df62a/id-preview-ab46d8a6--ea6db3e6-4cad-4ca3-8a70-104f031997d6.lovable.app-1779933618279.png" },
     ],
     links: [
       {

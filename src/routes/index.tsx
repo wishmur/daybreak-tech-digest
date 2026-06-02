@@ -526,7 +526,6 @@ function TechDigestPage() {
               filters={filters}
               setFilters={setFilters}
               companyOptions={companyOptions}
-              topicOptions={topicOptions}
               sourceOptions={sourceOptions}
               onReset={resetFilters}
               showReset={hasAnyFilter}

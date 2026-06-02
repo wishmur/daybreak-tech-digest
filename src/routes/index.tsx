@@ -1,22 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import daybreakLogo from "@/assets/daybreak-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tech Digest — Daily AI & tech news for PMs" },
+      { title: "Daybreak — Daily AI & tech digest for PMs" },
       {
         name: "description",
         content:
-          "A curated daily digest of AI and tech news for product managers. Filter by company, topic, tag, source, and importance.",
+          "A small script reads my feeds every morning, asks Claude what actually matters to a PM today, and posts the top ten here by 10 AM ET.",
       },
-      { property: "og:title", content: "Tech Digest" },
+      { property: "og:title", content: "Daybreak" },
       {
         property: "og:description",
-        content: "Daily curated AI & tech news for product managers.",
+        content:
+          "Daily curated AI & tech news for product managers, posted by 10 AM ET.",
       },
+      { property: "og:image", content: daybreakLogo.url },
+      { name: "twitter:image", content: daybreakLogo.url },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: daybreakLogo.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
@@ -88,7 +93,7 @@ const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const ACCENT = "#2D55FF";
 
-type DateRange = "today" | "7d" | "30d" | "all";
+type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;
 
 type Filters = {
@@ -102,7 +107,7 @@ type Filters = {
 };
 
 const DEFAULT_FILTERS: Filters = {
-  range: "today",
+  range: "latest",
   companies: [],
   topics: [],
   tags: [],
@@ -117,7 +122,7 @@ function readFiltersFromURL(): Partial<Filters> {
   const p = new URLSearchParams(window.location.search);
   const out: Partial<Filters> = {};
   const range = p.get("range");
-  if (range === "today" || range === "7d" || range === "30d" || range === "all")
+  if (range === "latest" || range === "7d" || range === "30d" || range === "all")
     out.range = range;
   const multi = (k: string) => {
     const v = p.get(k);
@@ -276,15 +281,18 @@ function TechDigestPage() {
 
   const dateCutoff = useMemo<Date | null>(() => {
     const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    if (filters.range === "today") return now;
+    if (filters.range === "latest") {
+      return new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    }
+    const midnight = new Date(now);
+    midnight.setHours(0, 0, 0, 0);
     if (filters.range === "7d") {
-      const d = new Date(now);
+      const d = new Date(midnight);
       d.setDate(d.getDate() - 6);
       return d;
     }
     if (filters.range === "30d") {
-      const d = new Date(now);
+      const d = new Date(midnight);
       d.setDate(d.getDate() - 29);
       return d;
     }
@@ -293,8 +301,16 @@ function TechDigestPage() {
 
   const itemsInRange = useMemo(() => {
     if (!dateCutoff) return allItems;
+    if (filters.range === "latest") {
+      return allItems.filter((it) => {
+        const ts = it.publishedAt ? new Date(it.publishedAt).getTime() : NaN;
+        if (!Number.isNaN(ts)) return ts >= dateCutoff.getTime();
+        // fallback to addedOn date when publishedAt is missing
+        return parseYMD(it.addedOn) >= dateCutoff;
+      });
+    }
     return allItems.filter((it) => parseYMD(it.addedOn) >= dateCutoff);
-  }, [allItems, dateCutoff]);
+  }, [allItems, dateCutoff, filters.range]);
 
   // Filter option lists (derived from items-in-range, like the spec says)
   const companyOptions = useMemo(() => {
@@ -365,7 +381,7 @@ function TechDigestPage() {
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
   const hasAnyFilter =
-    filters.range !== "today" ||
+    filters.range !== "latest" ||
     filters.companies.length > 0 ||
     filters.topics.length > 0 ||
     filters.tags.length > 0 ||
@@ -381,22 +397,36 @@ function TechDigestPage() {
       {/* Top bar */}
       <header className="mx-auto max-w-5xl px-4 pt-8 pb-4 sm:px-6">
         <div className="flex items-start justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Tech Digest
-            </h1>
-            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-              {loading && !digest
-                ? "Loading…"
-                : digest?.lastUpdated
-                  ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
-                  : "—"}
-            </p>
+          <div className="flex items-start gap-3 sm:gap-4">
+            <img
+              src={daybreakLogo.url}
+              alt="Daybreak logo"
+              width={56}
+              height={56}
+              className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14"
+            />
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                Daybreak
+              </h1>
+              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                A small script reads my feeds every morning, asks Claude what
+                actually matters to a PM today, and posts the top ten here by
+                10 AM ET. Built because I was losing mornings to the firehose.
+              </p>
+              <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+                {loading && !digest
+                  ? "Loading…"
+                  : digest?.lastUpdated
+                    ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
+                    : "—"}
+              </p>
+            </div>
           </div>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
           >
             {theme === "dark" ? "Light" : "Dark"} mode
           </button>
@@ -431,7 +461,7 @@ function TechDigestPage() {
             style={{ borderLeftColor: ACCENT, borderLeftWidth: 4 }}
           >
             <div className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-              Today's Brief · {shortDate(todayBrief.date)}
+              Latest Brief · {shortDate(todayBrief.date)}
             </div>
             <p className="mt-2 text-lg leading-relaxed text-neutral-900 dark:text-neutral-100 sm:text-xl">
               {todayBrief.summary}
@@ -591,7 +621,7 @@ function FilterBar({
         value={filters.range}
         onChange={(v) => setFilters({ ...filters, range: v as DateRange })}
         options={[
-          { value: "today", label: "Today" },
+          { value: "latest", label: "Latest 24h" },
           { value: "7d", label: "Last 7 days" },
           { value: "30d", label: "Last 30 days" },
           { value: "all", label: "All time" },

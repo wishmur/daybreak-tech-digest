@@ -1,22 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import daybreakLogo from "@/assets/daybreak-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tech Digest — Daily AI & tech news for PMs" },
+      { title: "Daybreak — Daily AI & tech digest for PMs" },
       {
         name: "description",
         content:
-          "A curated daily digest of AI and tech news for product managers. Filter by company, topic, tag, source, and importance.",
+          "A small script reads my feeds every morning, asks Claude what actually matters to a PM today, and posts the top ten here by 10 AM ET.",
       },
-      { property: "og:title", content: "Tech Digest" },
+      { property: "og:title", content: "Daybreak" },
       {
         property: "og:description",
-        content: "Daily curated AI & tech news for product managers.",
+        content:
+          "Daily curated AI & tech news for product managers, posted by 10 AM ET.",
       },
+      { property: "og:image", content: daybreakLogo.url },
+      { name: "twitter:image", content: daybreakLogo.url },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: daybreakLogo.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {

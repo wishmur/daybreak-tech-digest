@@ -122,7 +122,7 @@ function readFiltersFromURL(): Partial<Filters> {
   const p = new URLSearchParams(window.location.search);
   const out: Partial<Filters> = {};
   const range = p.get("range");
-  if (range === "today" || range === "7d" || range === "30d" || range === "all")
+  if (range === "latest" || range === "7d" || range === "30d" || range === "all")
     out.range = range;
   const multi = (k: string) => {
     const v = p.get(k);

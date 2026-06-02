@@ -461,7 +461,7 @@ function TechDigestPage() {
             style={{ borderLeftColor: ACCENT, borderLeftWidth: 4 }}
           >
             <div className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-              Today's Brief · {shortDate(todayBrief.date)}
+              Latest Brief · {shortDate(todayBrief.date)}
             </div>
             <p className="mt-2 text-lg leading-relaxed text-neutral-900 dark:text-neutral-100 sm:text-xl">
               {todayBrief.summary}

@@ -615,7 +615,6 @@ function FilterBar({
   filters,
   setFilters,
   companyOptions,
-  topicOptions,
   sourceOptions,
   onReset,
   showReset,
@@ -624,7 +623,6 @@ function FilterBar({
   filters: Filters;
   setFilters: (f: Filters) => void;
   companyOptions: string[];
-  topicOptions: string[];
   sourceOptions: string[];
   onReset: () => void;
   showReset: boolean;
@@ -654,30 +652,12 @@ function FilterBar({
         onChange={(v) => setFilters({ ...filters, companies: v })}
       />
       <MultiSelect
-        label="Topic"
-        options={topicOptions}
-        value={filters.topics}
-        onChange={(v) => setFilters({ ...filters, topics: v })}
-      />
-      <MultiSelect
         label="Source"
         options={sourceOptions}
         value={filters.sources}
         onChange={(v) => setFilters({ ...filters, sources: v })}
       />
-      <Segmented
-        value={String(filters.importance)}
-        onChange={(v) =>
-          setFilters({ ...filters, importance: Number(v) as ImportanceMin })
-        }
-        options={[
-          { value: "0", label: "All" },
-          { value: "3", label: "3+" },
-          { value: "4", label: "4+" },
-          { value: "5", label: "Must-read" },
-        ]}
-      />
-      <TagChipGroup
+      <TagDropdown
         value={filters.tags}
         onChange={(v) => setFilters({ ...filters, tags: v })}
       />

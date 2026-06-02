@@ -397,22 +397,36 @@ function TechDigestPage() {
       {/* Top bar */}
       <header className="mx-auto max-w-5xl px-4 pt-8 pb-4 sm:px-6">
         <div className="flex items-start justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Tech Digest
-            </h1>
-            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-              {loading && !digest
-                ? "Loading…"
-                : digest?.lastUpdated
-                  ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
-                  : "—"}
-            </p>
+          <div className="flex items-start gap-3 sm:gap-4">
+            <img
+              src={daybreakLogo.url}
+              alt="Daybreak logo"
+              width={56}
+              height={56}
+              className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14"
+            />
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                Daybreak
+              </h1>
+              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                A small script reads my feeds every morning, asks Claude what
+                actually matters to a PM today, and posts the top ten here by
+                10 AM ET. Built because I was losing mornings to the firehose.
+              </p>
+              <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+                {loading && !digest
+                  ? "Loading…"
+                  : digest?.lastUpdated
+                    ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
+                    : "—"}
+              </p>
+            </div>
           </div>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
           >
             {theme === "dark" ? "Light" : "Dark"} mode
           </button>

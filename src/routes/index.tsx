@@ -93,7 +93,7 @@ const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const ACCENT = "#2D55FF";
 
-type DateRange = "today" | "7d" | "30d" | "all";
+type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;
 
 type Filters = {
@@ -107,7 +107,7 @@ type Filters = {
 };
 
 const DEFAULT_FILTERS: Filters = {
-  range: "today",
+  range: "latest",
   companies: [],
   topics: [],
   tags: [],

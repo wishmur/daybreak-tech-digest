@@ -59,6 +59,27 @@ const TAG_VOCAB: Tag[] = [
   "tooling",
 ];
 
+// Per-tag visual style: dot color + chip bg/text (light & dark).
+// Keeps #2D55FF as the primary brand accent; tag colors are muted supporting hues.
+const TAG_STYLES: Record<string, { dot: string; chip: string; label?: string }> = {
+  launch:       { dot: "#2D55FF", chip: "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300", label: "Launch" },
+  funding:      { dot: "#10B981", chip: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300", label: "Funding" },
+  leadership:   { dot: "#8B5CF6", chip: "bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-300", label: "Leadership" },
+  regulation:   { dot: "#F59E0B", chip: "bg-amber-50 text-amber-800 dark:bg-amber-500/10 dark:text-amber-300", label: "Regulation" },
+  "open-source":{ dot: "#14B8A6", chip: "bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300", label: "Open source" },
+  competitive:  { dot: "#EF4444", chip: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-300", label: "Competitive" },
+  research:     { dot: "#6366F1", chip: "bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300", label: "Research" },
+  product:      { dot: "#0EA5E9", chip: "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300", label: "Product" },
+  infra:        { dot: "#64748B", chip: "bg-slate-100 text-slate-700 dark:bg-slate-500/15 dark:text-slate-300", label: "Infra" },
+  tooling:      { dot: "#A855F7", chip: "bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-500/10 dark:text-fuchsia-300", label: "Tooling" },
+};
+function tagStyle(t: string) {
+  return TAG_STYLES[t] ?? { dot: "#9CA3AF", chip: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300", label: t };
+}
+function tagLabel(t: string) {
+  return tagStyle(t).label ?? t;
+}
+
 type Item = {
   id: string;
   title: string;

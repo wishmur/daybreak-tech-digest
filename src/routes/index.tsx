@@ -381,7 +381,7 @@ function TechDigestPage() {
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
   const hasAnyFilter =
-    filters.range !== "today" ||
+    filters.range !== "latest" ||
     filters.companies.length > 0 ||
     filters.topics.length > 0 ||
     filters.tags.length > 0 ||

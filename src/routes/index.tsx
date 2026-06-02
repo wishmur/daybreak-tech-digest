@@ -281,15 +281,18 @@ function TechDigestPage() {
 
   const dateCutoff = useMemo<Date | null>(() => {
     const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    if (filters.range === "today") return now;
+    if (filters.range === "latest") {
+      return new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    }
+    const midnight = new Date(now);
+    midnight.setHours(0, 0, 0, 0);
     if (filters.range === "7d") {
-      const d = new Date(now);
+      const d = new Date(midnight);
       d.setDate(d.getDate() - 6);
       return d;
     }
     if (filters.range === "30d") {
-      const d = new Date(now);
+      const d = new Date(midnight);
       d.setDate(d.getDate() - 29);
       return d;
     }
@@ -298,8 +301,16 @@ function TechDigestPage() {
 
   const itemsInRange = useMemo(() => {
     if (!dateCutoff) return allItems;
+    if (filters.range === "latest") {
+      return allItems.filter((it) => {
+        const ts = it.publishedAt ? new Date(it.publishedAt).getTime() : NaN;
+        if (!Number.isNaN(ts)) return ts >= dateCutoff.getTime();
+        // fallback to addedOn date when publishedAt is missing
+        return parseYMD(it.addedOn) >= dateCutoff;
+      });
+    }
     return allItems.filter((it) => parseYMD(it.addedOn) >= dateCutoff);
-  }, [allItems, dateCutoff]);
+  }, [allItems, dateCutoff, filters.range]);
 
   // Filter option lists (derived from items-in-range, like the spec says)
   const companyOptions = useMemo(() => {

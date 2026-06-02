@@ -526,7 +526,6 @@ function TechDigestPage() {
               filters={filters}
               setFilters={setFilters}
               companyOptions={companyOptions}
-              topicOptions={topicOptions}
               sourceOptions={sourceOptions}
               onReset={resetFilters}
               showReset={hasAnyFilter}
@@ -557,7 +556,6 @@ function TechDigestPage() {
               filters={filters}
               setFilters={setFilters}
               companyOptions={companyOptions}
-              topicOptions={topicOptions}
               sourceOptions={sourceOptions}
               onReset={resetFilters}
               showReset={hasAnyFilter}
@@ -615,7 +613,6 @@ function FilterBar({
   filters,
   setFilters,
   companyOptions,
-  topicOptions,
   sourceOptions,
   onReset,
   showReset,
@@ -624,7 +621,6 @@ function FilterBar({
   filters: Filters;
   setFilters: (f: Filters) => void;
   companyOptions: string[];
-  topicOptions: string[];
   sourceOptions: string[];
   onReset: () => void;
   showReset: boolean;
@@ -654,30 +650,12 @@ function FilterBar({
         onChange={(v) => setFilters({ ...filters, companies: v })}
       />
       <MultiSelect
-        label="Topic"
-        options={topicOptions}
-        value={filters.topics}
-        onChange={(v) => setFilters({ ...filters, topics: v })}
-      />
-      <MultiSelect
         label="Source"
         options={sourceOptions}
         value={filters.sources}
         onChange={(v) => setFilters({ ...filters, sources: v })}
       />
-      <Segmented
-        value={String(filters.importance)}
-        onChange={(v) =>
-          setFilters({ ...filters, importance: Number(v) as ImportanceMin })
-        }
-        options={[
-          { value: "0", label: "All" },
-          { value: "3", label: "3+" },
-          { value: "4", label: "4+" },
-          { value: "5", label: "Must-read" },
-        ]}
-      />
-      <TagChipGroup
+      <TagDropdown
         value={filters.tags}
         onChange={(v) => setFilters({ ...filters, tags: v })}
       />
@@ -810,42 +788,73 @@ function MultiSelect({
   );
 }
 
-function TagChipGroup({
+function TagDropdown({
   value,
   onChange,
 }: {
   value: string[];
   onChange: (v: string[]) => void;
 }) {
-  const toggle = (t: string) => {
-    onChange(value.includes(t) ? value.filter((v) => v !== t) : [...value, t]);
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    function onDoc(e: MouseEvent) {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    }
+    if (open) document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, [open]);
+
+  const toggle = (tag: string) => {
+    onChange(value.includes(tag) ? value.filter((v) => v !== tag) : [...value, tag]);
   };
+
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      {TAG_VOCAB.map((t) => {
-        const active = value.includes(t);
-        const st = tagStyle(t);
-        return (
-          <button
-            key={t}
-            onClick={() => toggle(t)}
-            aria-pressed={active}
-            className={
-              "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-medium transition " +
-              (active
-                ? "border-transparent text-white shadow-sm"
-                : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 dark:border-neutral-800 dark:bg-transparent dark:text-neutral-300 dark:hover:border-neutral-700")
-            }
-            style={active ? { backgroundColor: st.dot } : undefined}
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center gap-1 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+      >
+        Tags
+        {value.length > 0 && (
+          <span
+            className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[10px] font-semibold text-white"
+            style={{ backgroundColor: ACCENT }}
           >
-            <span
-              className="inline-block h-1.5 w-1.5 rounded-full"
-              style={{ backgroundColor: active ? "rgba(255,255,255,0.9)" : st.dot }}
-            />
-            {tagLabel(t)}
-          </button>
-        );
-      })}
+            {value.length}
+          </span>
+        )}
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute left-0 z-30 mt-1 max-h-72 w-56 overflow-y-auto rounded-md border border-neutral-200 bg-white p-1 shadow-lg dark:border-neutral-800 dark:bg-neutral-900">
+          {TAG_VOCAB.map((t) => {
+            const checked = value.includes(t);
+            const st = tagStyle(t);
+            return (
+              <label
+                key={t}
+                className="flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-xs hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              >
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => toggle(t)}
+                  className="h-3.5 w-3.5 shrink-0"
+                  style={{ accentColor: ACCENT }}
+                />
+                <span
+                  className="inline-block h-2 w-2 shrink-0 rounded-full"
+                  style={{ backgroundColor: st.dot }}
+                />
+                <span>{tagLabel(t)}</span>
+              </label>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

@@ -821,26 +821,28 @@ function TagChipGroup({
     onChange(value.includes(t) ? value.filter((v) => v !== t) : [...value, t]);
   };
   return (
-    <div className="flex flex-wrap items-center gap-1">
+    <div className="flex flex-wrap items-center gap-1.5">
       {TAG_VOCAB.map((t) => {
         const active = value.includes(t);
+        const st = tagStyle(t);
         return (
           <button
             key={t}
             onClick={() => toggle(t)}
+            aria-pressed={active}
             className={
-              "rounded-full border px-2 py-0.5 text-[11px] font-medium transition " +
+              "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-medium transition " +
               (active
-                ? "text-white"
-                : "border-neutral-200 text-neutral-600 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900")
+                ? "border-transparent text-white shadow-sm"
+                : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 dark:border-neutral-800 dark:bg-transparent dark:text-neutral-300 dark:hover:border-neutral-700")
             }
-            style={
-              active
-                ? { backgroundColor: ACCENT, borderColor: ACCENT }
-                : undefined
-            }
+            style={active ? { backgroundColor: st.dot } : undefined}
           >
-            {t}
+            <span
+              className="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ backgroundColor: active ? "rgba(255,255,255,0.9)" : st.dot }}
+            />
+            {tagLabel(t)}
           </button>
         );
       })}
@@ -850,10 +852,17 @@ function TagChipGroup({
 
 function ItemCard({ item }: { item: Item }) {
   const secondary = (item.secondaryCompanies ?? []).slice(0, 2);
+  const tags = item.tags ?? [];
   return (
-    <article className="group rounded-lg border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-1.5">
+    <article className="group relative flex gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition hover:border-neutral-300 hover:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.12)] dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700">
+      {/* Left rail: vertical importance */}
+      <div className="flex shrink-0 flex-col items-center gap-1 pt-1">
+        <ImportanceBar value={item.importance} />
+      </div>
+
+      <div className="min-w-0 flex-1">
+        {/* Header row: company + secondary + date */}
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
           {item.company && (
             <span
               className="rounded-md px-2 py-0.5 text-[11px] font-semibold text-white"
@@ -870,44 +879,83 @@ function ItemCard({ item }: { item: Item }) {
               {c}
             </span>
           ))}
+          {item.topic && (
+            <span className="text-neutral-500 dark:text-neutral-400">
+              · {item.topic}
+            </span>
+          )}
+          <span className="ml-auto text-neutral-400 dark:text-neutral-500">
+            {shortDate(item.addedOn)}
+          </span>
         </div>
-        <ImportanceDots value={item.importance} />
-      </div>
 
-      <h4 className="mt-2 text-[15px] font-semibold leading-snug">
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline"
-        >
-          {item.title}
-        </a>
-      </h4>
-      {item.summary && (
-        <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-300">
-          {item.summary}
-        </p>
-      )}
-
-      <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-        <span className="text-neutral-500 dark:text-neutral-400">{item.source}</span>
-        {item.topic && (
-          <span className="rounded-full bg-neutral-100 px-2 py-0.5 font-medium text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
-            {item.topic}
-          </span>
-        )}
-        {(item.tags ?? []).map((t) => (
-          <span
-            key={t}
-            className="rounded-full border border-neutral-200 px-1.5 py-0.5 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+        {/* Title */}
+        <h4 className="mt-2 text-[15px] font-semibold leading-snug">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="decoration-neutral-300 underline-offset-4 hover:underline dark:decoration-neutral-600"
           >
-            {t}
+            {item.title}
+          </a>
+        </h4>
+
+        {/* Summary */}
+        {item.summary && (
+          <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+            {item.summary}
+          </p>
+        )}
+
+        {/* Footer: source + colored tag chips */}
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-[11px] uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
+            {item.source}
           </span>
-        ))}
-        <span className="ml-auto text-neutral-400">{shortDate(item.addedOn)}</span>
+          {tags.map((t) => {
+            const st = tagStyle(t);
+            return (
+              <span
+                key={t}
+                className={
+                  "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10.5px] font-medium " +
+                  st.chip
+                }
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: st.dot }}
+                />
+                {tagLabel(t)}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </article>
+  );
+}
+
+function ImportanceBar({ value }: { value: number }) {
+  const v = Math.max(0, Math.min(5, value || 0));
+  return (
+    <div
+      className="flex flex-col-reverse items-center gap-1"
+      aria-label={`Importance ${v} of 5`}
+      title={`Importance ${v} / 5`}
+    >
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span
+          key={i}
+          className={
+            "block h-1.5 w-1.5 rounded-full " +
+            (i < v ? "" : "bg-neutral-200 dark:bg-neutral-700")
+          }
+          style={i < v ? { backgroundColor: ACCENT } : undefined}
+        />
+      ))}
+    </div>
   );
 }
 

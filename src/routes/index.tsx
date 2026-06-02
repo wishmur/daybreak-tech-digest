@@ -959,26 +959,6 @@ function ImportanceBar({ value }: { value: number }) {
   );
 }
 
-function ImportanceDots({ value }: { value: number }) {
-  const v = Math.max(0, Math.min(5, value || 0));
-  return (
-    <div
-      className="flex shrink-0 items-center gap-1"
-      aria-label={`Importance ${v} of 5`}
-    >
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span
-          key={i}
-          className={
-            "block h-1.5 w-1.5 rounded-full " +
-            (i < v ? "" : "bg-neutral-300 dark:bg-neutral-700")
-          }
-          style={i < v ? { backgroundColor: ACCENT } : undefined}
-        />
-      ))}
-    </div>
-  );
-}
 
 function BriefSkeleton() {
   return (

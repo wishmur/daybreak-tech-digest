@@ -621,10 +621,9 @@ function FilterBar({
         value={filters.range}
         onChange={(v) => setFilters({ ...filters, range: v as DateRange })}
         options={[
-          { value: "latest", label: "Latest 24h" },
+          { value: "latest", label: "Latest" },
           { value: "7d", label: "Last 7 days" },
           { value: "30d", label: "Last 30 days" },
-          { value: "all", label: "All time" },
         ]}
       />
       <MultiSelect

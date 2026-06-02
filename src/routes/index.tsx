@@ -59,6 +59,27 @@ const TAG_VOCAB: Tag[] = [
   "tooling",
 ];
 
+// Per-tag visual style: dot color + chip bg/text (light & dark).
+// Keeps #2D55FF as the primary brand accent; tag colors are muted supporting hues.
+const TAG_STYLES: Record<string, { dot: string; chip: string; label?: string }> = {
+  launch:       { dot: "#2D55FF", chip: "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300", label: "Launch" },
+  funding:      { dot: "#10B981", chip: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300", label: "Funding" },
+  leadership:   { dot: "#8B5CF6", chip: "bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-300", label: "Leadership" },
+  regulation:   { dot: "#F59E0B", chip: "bg-amber-50 text-amber-800 dark:bg-amber-500/10 dark:text-amber-300", label: "Regulation" },
+  "open-source":{ dot: "#14B8A6", chip: "bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300", label: "Open source" },
+  competitive:  { dot: "#EF4444", chip: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-300", label: "Competitive" },
+  research:     { dot: "#6366F1", chip: "bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300", label: "Research" },
+  product:      { dot: "#0EA5E9", chip: "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300", label: "Product" },
+  infra:        { dot: "#64748B", chip: "bg-slate-100 text-slate-700 dark:bg-slate-500/15 dark:text-slate-300", label: "Infra" },
+  tooling:      { dot: "#A855F7", chip: "bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-500/10 dark:text-fuchsia-300", label: "Tooling" },
+};
+function tagStyle(t: string) {
+  return TAG_STYLES[t] ?? { dot: "#9CA3AF", chip: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300", label: t };
+}
+function tagLabel(t: string) {
+  return tagStyle(t).label ?? t;
+}
+
 type Item = {
   id: string;
   title: string;
@@ -621,10 +642,9 @@ function FilterBar({
         value={filters.range}
         onChange={(v) => setFilters({ ...filters, range: v as DateRange })}
         options={[
-          { value: "latest", label: "Latest 24h" },
+          { value: "latest", label: "Latest" },
           { value: "7d", label: "Last 7 days" },
           { value: "30d", label: "Last 30 days" },
-          { value: "all", label: "All time" },
         ]}
       />
       <MultiSelect
@@ -801,26 +821,28 @@ function TagChipGroup({
     onChange(value.includes(t) ? value.filter((v) => v !== t) : [...value, t]);
   };
   return (
-    <div className="flex flex-wrap items-center gap-1">
+    <div className="flex flex-wrap items-center gap-1.5">
       {TAG_VOCAB.map((t) => {
         const active = value.includes(t);
+        const st = tagStyle(t);
         return (
           <button
             key={t}
             onClick={() => toggle(t)}
+            aria-pressed={active}
             className={
-              "rounded-full border px-2 py-0.5 text-[11px] font-medium transition " +
+              "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-medium transition " +
               (active
-                ? "text-white"
-                : "border-neutral-200 text-neutral-600 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900")
+                ? "border-transparent text-white shadow-sm"
+                : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 dark:border-neutral-800 dark:bg-transparent dark:text-neutral-300 dark:hover:border-neutral-700")
             }
-            style={
-              active
-                ? { backgroundColor: ACCENT, borderColor: ACCENT }
-                : undefined
-            }
+            style={active ? { backgroundColor: st.dot } : undefined}
           >
-            {t}
+            <span
+              className="inline-block h-1.5 w-1.5 rounded-full"
+              style={{ backgroundColor: active ? "rgba(255,255,255,0.9)" : st.dot }}
+            />
+            {tagLabel(t)}
           </button>
         );
       })}
@@ -830,10 +852,17 @@ function TagChipGroup({
 
 function ItemCard({ item }: { item: Item }) {
   const secondary = (item.secondaryCompanies ?? []).slice(0, 2);
+  const tags = item.tags ?? [];
   return (
-    <article className="group rounded-lg border border-neutral-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-1.5">
+    <article className="group relative flex gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition hover:border-neutral-300 hover:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.12)] dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700">
+      {/* Left rail: vertical importance */}
+      <div className="flex shrink-0 flex-col items-center gap-1 pt-1">
+        <ImportanceBar value={item.importance} />
+      </div>
+
+      <div className="min-w-0 flex-1">
+        {/* Header row: company + secondary + date */}
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
           {item.company && (
             <span
               className="rounded-md px-2 py-0.5 text-[11px] font-semibold text-white"
@@ -850,60 +879,78 @@ function ItemCard({ item }: { item: Item }) {
               {c}
             </span>
           ))}
+          {item.topic && (
+            <span className="text-neutral-500 dark:text-neutral-400">
+              · {item.topic}
+            </span>
+          )}
+          <span className="ml-auto text-neutral-400 dark:text-neutral-500">
+            {shortDate(item.addedOn)}
+          </span>
         </div>
-        <ImportanceDots value={item.importance} />
-      </div>
 
-      <h4 className="mt-2 text-[15px] font-semibold leading-snug">
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline"
-        >
-          {item.title}
-        </a>
-      </h4>
-      {item.summary && (
-        <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-300">
-          {item.summary}
-        </p>
-      )}
-
-      <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-        <span className="text-neutral-500 dark:text-neutral-400">{item.source}</span>
-        {item.topic && (
-          <span className="rounded-full bg-neutral-100 px-2 py-0.5 font-medium text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
-            {item.topic}
-          </span>
-        )}
-        {(item.tags ?? []).map((t) => (
-          <span
-            key={t}
-            className="rounded-full border border-neutral-200 px-1.5 py-0.5 text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+        {/* Title */}
+        <h4 className="mt-2 text-[15px] font-semibold leading-snug">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="decoration-neutral-300 underline-offset-4 hover:underline dark:decoration-neutral-600"
           >
-            {t}
+            {item.title}
+          </a>
+        </h4>
+
+        {/* Summary */}
+        {item.summary && (
+          <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+            {item.summary}
+          </p>
+        )}
+
+        {/* Footer: source + colored tag chips */}
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <span className="mr-1 text-[11px] uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
+            {item.source}
           </span>
-        ))}
-        <span className="ml-auto text-neutral-400">{shortDate(item.addedOn)}</span>
+          {tags.map((t) => {
+            const st = tagStyle(t);
+            return (
+              <span
+                key={t}
+                className={
+                  "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10.5px] font-medium " +
+                  st.chip
+                }
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: st.dot }}
+                />
+                {tagLabel(t)}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </article>
   );
 }
 
-function ImportanceDots({ value }: { value: number }) {
+function ImportanceBar({ value }: { value: number }) {
   const v = Math.max(0, Math.min(5, value || 0));
   return (
     <div
-      className="flex shrink-0 items-center gap-1"
+      className="flex flex-col-reverse items-center gap-1"
       aria-label={`Importance ${v} of 5`}
+      title={`Importance ${v} / 5`}
     >
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
           className={
             "block h-1.5 w-1.5 rounded-full " +
-            (i < v ? "" : "bg-neutral-300 dark:bg-neutral-700")
+            (i < v ? "" : "bg-neutral-200 dark:bg-neutral-700")
           }
           style={i < v ? { backgroundColor: ACCENT } : undefined}
         />
@@ -911,6 +958,7 @@ function ImportanceDots({ value }: { value: number }) {
     </div>
   );
 }
+
 
 function BriefSkeleton() {
   return (

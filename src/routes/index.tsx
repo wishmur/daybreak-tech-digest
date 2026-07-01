@@ -1554,50 +1554,49 @@ function MatrixView({ items, loading }: { items: Item[]; loading: boolean }) {
               {pairs.map(({ a, b, items: pi }) => {
                 const key = `${a}||${b}`;
                 const isOpen = expanded === key;
-                  <FragmentWithKey key={key}>
-                    <tr className="border-t border-neutral-200 dark:border-neutral-800">
-
-                      <td className="px-4 py-2 font-medium">
-                        {a} <span className="text-neutral-400">vs</span> {b}
-                      </td>
-                      <td className="px-4 py-2 text-right tabular-nums">{pi.length}</td>
-                      <td className="px-4 py-2 text-right">
-                        <button
-                          onClick={() => setExpanded(isOpen ? null : key)}
-                          className="text-xs font-medium"
-                          style={{ color: ACCENT }}
-                        >
-                          {isOpen ? "Hide" : "View"}
-                        </button>
+                return [
+                  <tr key={key} className="border-t border-neutral-200 dark:border-neutral-800">
+                    <td className="px-4 py-2 font-medium">
+                      {a} <span className="text-neutral-400">vs</span> {b}
+                    </td>
+                    <td className="px-4 py-2 text-right tabular-nums">{pi.length}</td>
+                    <td className="px-4 py-2 text-right">
+                      <button
+                        onClick={() => setExpanded(isOpen ? null : key)}
+                        className="text-xs font-medium"
+                        style={{ color: ACCENT }}
+                      >
+                        {isOpen ? "Hide" : "View"}
+                      </button>
+                    </td>
+                  </tr>,
+                  isOpen ? (
+                    <tr key={key + ":d"} className="bg-neutral-50/50 dark:bg-neutral-900/50">
+                      <td colSpan={3} className="px-4 py-3">
+                        <ul className="space-y-2">
+                          {pi
+                            .sort((x, y) => itemTs(y) - itemTs(x))
+                            .map((it) => (
+                              <li key={it.id} className="text-sm">
+                                <span className="text-[11px] uppercase tracking-wide text-neutral-400">
+                                  {shortDate(it.addedOn)}
+                                </span>{" "}
+                                <a
+                                  href={it.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="font-medium hover:underline"
+                                >
+                                  {it.title}
+                                </a>
+                              </li>
+                            ))}
+                        </ul>
                       </td>
                     </tr>
-                    {isOpen && (
-                      <tr className="bg-neutral-50/50 dark:bg-neutral-900/50">
-                        <td colSpan={3} className="px-4 py-3">
-                          <ul className="space-y-2">
-                            {pi
-                              .sort((x, y) => itemTs(y) - itemTs(x))
-                              .map((it) => (
-                                <li key={it.id} className="text-sm">
-                                  <span className="text-[11px] uppercase tracking-wide text-neutral-400">
-                                    {shortDate(it.addedOn)}
-                                  </span>{" "}
-                                  <a
-                                    href={it.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-medium hover:underline"
-                                  >
-                                    {it.title}
-                                  </a>
-                                </li>
-                              ))}
-                          </ul>
-                        </td>
-                      </tr>
-                    )}
-                  </>
-                );
+                  ) : null,
+                ];
+
               })}
             </tbody>
           </table>

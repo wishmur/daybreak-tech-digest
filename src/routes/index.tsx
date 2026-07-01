@@ -1554,9 +1554,9 @@ function MatrixView({ items, loading }: { items: Item[]; loading: boolean }) {
               {pairs.map(({ a, b, items: pi }) => {
                 const key = `${a}||${b}`;
                 const isOpen = expanded === key;
-                return (
-                  <>
-                    <tr key={key} className="border-t border-neutral-200 dark:border-neutral-800">
+                  <FragmentWithKey key={key}>
+                    <tr className="border-t border-neutral-200 dark:border-neutral-800">
+
                       <td className="px-4 py-2 font-medium">
                         {a} <span className="text-neutral-400">vs</span> {b}
                       </td>

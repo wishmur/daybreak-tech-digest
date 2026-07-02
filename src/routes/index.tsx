@@ -1302,7 +1302,7 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-600"
+      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
       style={{
         borderRadius: 6,
         ...(isTop

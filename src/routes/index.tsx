@@ -1675,12 +1675,11 @@ function StatusBar({
 }) {
   const sync = lastUpdated
     ? new Date(lastUpdated).toLocaleTimeString(undefined, {
-        hour: "2-digit",
+        hour: "numeric",
         minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
+        hour12: true,
       })
-    : "--:--:--";
+    : "—";
   const sansMeta = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' } as const;
   return (
     <div

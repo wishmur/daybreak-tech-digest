@@ -626,7 +626,7 @@ function TechDigestPage() {
         <div className="flex flex-wrap gap-1 border-b border-neutral-200 dark:border-neutral-800">
           {[
             { k: "digest", label: "Digest" },
-            { k: "threads", label: "Story threads" },
+            
             { k: "companies", label: "Companies" },
             { k: "matrix", label: "Competitive matrix" },
             { k: "trends", label: "Trends" },

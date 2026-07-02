@@ -2713,7 +2713,7 @@ function CommandPalette({
     else if (r.kind === "story") { window.open(r.link, "_blank", "noopener,noreferrer"); onClose(); }
   };
 
-  const onKey = (e: React.KeyboardEvent) => {
+  const onKey = (e: import("react").KeyboardEvent) => {
     if (e.key === "ArrowDown") { e.preventDefault(); setIdx((i) => Math.min(rows.length - 1, i + 1)); }
     else if (e.key === "ArrowUp") { e.preventDefault(); setIdx((i) => Math.max(0, i - 1)); }
     else if (e.key === "Enter") { e.preventDefault(); if (rows[idx]) select(rows[idx]); }

@@ -270,6 +270,13 @@ function TechDigestPage() {
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [kbdIdx, setKbdIdx] = useState<number>(-1);
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 20;
+
+  // Reset pagination whenever the filter set or view changes.
+  useEffect(() => {
+    setPage(1);
+  }, [filters, view]);
   const hydrated = useRef(false);
 
   // Cmd/Ctrl+K palette + j/k keyboard navigation across visible stories
@@ -387,28 +394,31 @@ function TechDigestPage() {
     [digest],
   );
 
-  // Latest brief regenerated from top 3 items by importance for the most recent day
+  // Editorial lede pulled directly from the day's JSON `summary` field.
   const latestDay = digest?.days?.[0];
   const generatedBrief = useMemo(() => {
     if (!latestDay) return null;
+    const s = (latestDay.summary || "").trim();
+    if (s) return s;
+    // Fallback: synthesize a one-liner from top items if the day is missing a summary.
     const top = [...latestDay.items]
       .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
       .slice(0, 3);
-    if (top.length === 0) return latestDay.summary || null;
-    const parts = top.map((it) => {
-      const who = it.company || it.source;
-      const what = it.title.replace(/[.!?]+$/, "");
-      return `${who}: ${what}`;
-    });
-    return parts.join(" · ");
+    if (top.length === 0) return null;
+    return top
+      .map((it) => `${it.company || it.source}: ${it.title.replace(/[.!?]+$/, "")}`)
+      .join(" · ");
   }, [latestDay]);
 
-  // Top 3-5 highest-importance items from the latest day (for featured cards)
+  // Top stories for the latest day: importance 4-5, or top 10 by importance if fewer than 10 qualify.
   const topStories = useMemo<Item[]>(() => {
     if (!latestDay) return [];
-    return [...latestDay.items]
-      .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
-      .slice(0, 5);
+    const sorted = [...latestDay.items].sort(
+      (a, b) => b.importance - a.importance || itemTs(b) - itemTs(a),
+    );
+    const high = sorted.filter((it) => (it.importance ?? 0) >= 4);
+    const pool = high.length > 0 ? high : sorted;
+    return pool.slice(0, 10);
   }, [latestDay]);
 
   // Brief automation caption metadata: unique sources in latest day + last generation time
@@ -812,19 +822,19 @@ function TechDigestPage() {
 
                 {topStories.length > 0 && (
                   <div className="mt-10">
-                    <div className="mb-4 flex items-baseline justify-between">
+                    <div className="mb-4 flex items-baseline justify-between border-b border-[#DDD8CC] pb-2 dark:border-neutral-800">
                       <h2
                         className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
                         style={MONO_STYLE}
                       >
-                        Top stories · {latestDay.items.length} items today
+                        Top stories · {topStories.length} item{topStories.length === 1 ? "" : "s"} today
                       </h2>
                     </div>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    <ol className="divide-y divide-[#DDD8CC] dark:divide-neutral-800">
                       {topStories.map((it, i) => (
                         <FeaturedStoryCard key={it.id} item={it} rank={i + 1} />
                       ))}
-                    </div>
+                    </ol>
                   </div>
                 )}
               </>
@@ -905,39 +915,97 @@ function TechDigestPage() {
           )}
 
           <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-            {loading && !digest ? (
-              <ListSkeleton />
-            ) : (isLatest ? latestSorted.length === 0 : groups.length === 0) ? (
-              <EmptyState onReset={resetFilters} />
-            ) : isLatest ? (
-              <section>
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                  Latest — ranked by importance & recency
-                </h3>
-                <div className="space-y-3">
-                  {latestSorted.map((it) => (
-                    <ItemCard key={it.id} item={it} />
-                  ))}
-                </div>
-              </section>
-            ) : (
-              <div className="space-y-8">
-                {groups.map(([day, items]) => (
-                  <section key={day}>
-                    <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                      {friendlyGroupLabel(day)}
+            {(() => {
+              // Total items across current view for pagination.
+              const totalItems = isLatest
+                ? latestSorted.length
+                : groups.reduce((n, [, arr]) => n + arr.length, 0);
+              const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+              const currentPage = Math.min(page, totalPages);
+              const start = (currentPage - 1) * PAGE_SIZE;
+              const end = start + PAGE_SIZE;
+
+              if (loading && !digest) return <ListSkeleton />;
+              if (totalItems === 0) return <EmptyState onReset={resetFilters} />;
+
+              let content: React.ReactNode;
+              if (isLatest) {
+                const pageItems = latestSorted.slice(start, end);
+                content = (
+                  <section>
+                    <h3
+                      className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                      style={MONO_STYLE}
+                    >
+                      Latest — ranked by importance &amp; recency
                     </h3>
                     <div className="space-y-3">
-                      {items.map((it) => (
+                      {pageItems.map((it) => (
                         <ItemCard key={it.id} item={it} />
                       ))}
                     </div>
                   </section>
-                ))}
-              </div>
-            )}
+                );
+              } else {
+                // Walk groups and slice the flat window [start, end).
+                let cursor = 0;
+                const sliced: [string, Item[]][] = [];
+                for (const [day, arr] of groups) {
+                  const groupStart = cursor;
+                  const groupEnd = cursor + arr.length;
+                  if (groupEnd <= start || groupStart >= end) {
+                    cursor = groupEnd;
+                    continue;
+                  }
+                  const s = Math.max(0, start - groupStart);
+                  const e = Math.min(arr.length, end - groupStart);
+                  sliced.push([day, arr.slice(s, e)]);
+                  cursor = groupEnd;
+                }
+                content = (
+                  <div className="space-y-8">
+                    {sliced.map(([day, items]) => (
+                      <section key={day}>
+                        <h3
+                          className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                          style={MONO_STYLE}
+                        >
+                          {friendlyGroupLabel(day)}
+                        </h3>
+                        <div className="space-y-3">
+                          {items.map((it) => (
+                            <ItemCard key={it.id} item={it} />
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                );
+              }
+
+              return (
+                <>
+                  {content}
+                  {totalPages > 1 && (
+                    <Pagination
+                      page={currentPage}
+                      totalPages={totalPages}
+                      total={totalItems}
+                      pageSize={PAGE_SIZE}
+                      onChange={(p) => {
+                        setPage(p);
+                        if (typeof window !== "undefined") {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
+                    />
+                  )}
+                </>
+              );
+            })()}
           </main>
         </>
+
       )}
 
       {view === "threads" && (
@@ -1080,6 +1148,98 @@ function FilterBar({
   );
 }
 
+function Pagination({
+  page,
+  totalPages,
+  total,
+  pageSize,
+  onChange,
+}: {
+  page: number;
+  totalPages: number;
+  total: number;
+  pageSize: number;
+  onChange: (p: number) => void;
+}) {
+  // Build a compact window of page numbers with ellipses for large ranges.
+  const pages: (number | "…")[] = [];
+  const push = (n: number | "…") => {
+    if (pages[pages.length - 1] !== n) pages.push(n);
+  };
+  const window = 1;
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 ||
+      i === totalPages ||
+      (i >= page - window && i <= page + window)
+    ) {
+      push(i);
+    } else if (i < page) {
+      push("…");
+    } else if (i > page) {
+      push("…");
+      // skip forward
+      i = totalPages - 1;
+    }
+  }
+
+  const start = (page - 1) * pageSize + 1;
+  const end = Math.min(total, page * pageSize);
+  const btn =
+    "border border-[#DDD8CC] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 dark:border-neutral-800";
+  const active = "border-[#B3261E] text-[#B3261E]";
+  const inactive =
+    "text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
+  const disabled = "opacity-40 cursor-not-allowed";
+
+  return (
+    <nav
+      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#DDD8CC] pt-5 dark:border-neutral-800"
+      aria-label="Pagination"
+      style={MONO_STYLE}
+    >
+      <span className="text-[11px] uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-500">
+        {start}–{end} of {total}
+      </span>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <button
+          onClick={() => onChange(Math.max(1, page - 1))}
+          disabled={page <= 1}
+          className={`${btn} ${page <= 1 ? disabled : inactive}`}
+        >
+          ← Prev
+        </button>
+        {pages.map((p, i) =>
+          p === "…" ? (
+            <span
+              key={`e-${i}`}
+              className="px-1 text-[11px] uppercase tracking-[0.14em] text-neutral-400 dark:text-neutral-600"
+            >
+              …
+            </span>
+          ) : (
+            <button
+              key={p}
+              onClick={() => onChange(p)}
+              aria-current={p === page ? "page" : undefined}
+              className={`${btn} tabular-nums ${p === page ? active : inactive}`}
+            >
+              {String(p).padStart(2, "0")}
+            </button>
+          ),
+        )}
+        <button
+          onClick={() => onChange(Math.min(totalPages, page + 1))}
+          disabled={page >= totalPages}
+          className={`${btn} ${page >= totalPages ? disabled : inactive}`}
+        >
+          Next →
+        </button>
+      </div>
+    </nav>
+  );
+}
+
 function Segmented({
   value,
   onChange,
@@ -1090,7 +1250,7 @@ function Segmented({
   options: { value: string; label: string }[];
 }) {
   return (
-    <div className="inline-flex rounded-md border border-neutral-200 p-0.5 dark:border-neutral-800">
+    <div className="inline-flex gap-1">
       {options.map((o) => {
         const active = o.value === value;
         return (
@@ -1098,12 +1258,12 @@ function Segmented({
             key={o.value}
             onClick={() => onChange(o.value)}
             className={
-              "rounded-[5px] px-2.5 py-1 text-xs font-medium transition " +
+              "border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 " +
               (active
-                ? "text-white"
-                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100")
+                ? "border-[#B3261E] text-[#B3261E] bg-transparent"
+                : "border-[#DDD8CC] text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100")
             }
-            style={active ? { backgroundColor: ACCENT } : undefined}
+            style={MONO_STYLE}
           >
             {o.label}
           </button>
@@ -1145,17 +1305,16 @@ function MultiSelect({
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+        className={
+          "inline-flex items-center gap-1 border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 " +
+          (value.length > 0
+            ? "border-[#B3261E] text-[#B3261E]"
+            : "border-[#DDD8CC] text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100")
+        }
+        style={MONO_STYLE}
       >
         {label}
-        {value.length > 0 && (
-          <span
-            className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[10px] font-semibold text-white"
-            style={{ backgroundColor: ACCENT }}
-          >
-            {value.length}
-          </span>
-        )}
+        {value.length > 0 && <span className="tabular-nums">· {value.length}</span>}
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
           <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" />
         </svg>
@@ -1364,79 +1523,55 @@ function TypedBrief({ text }: { text: string }) {
   );
 }
 
-// Featured card for the top stories of the day
+// Editorial top-stories row: text-first, no colored avatar, no card shadow, hairline rule below.
 function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
-  const label = (item.company || item.source || "?").trim();
-  const initial = label.charAt(0).toUpperCase();
-  const imp = Math.max(0, Math.min(5, item.importance || 0));
-  const isTop = imp >= 5;
+  const company = (item.company || item.source || "").trim();
+  const topic = (item.topic || "").trim();
   return (
-    <a
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
-      style={{
-        borderRadius: 6,
-        ...(isTop
-          ? {
-              borderLeft: `2px solid ${ACCENT}`,
-              boxShadow: `0 0 0 1px ${ACCENT}22, 0 0 24px -8px ${ACCENT}55`,
-            }
-          : {}),
-      }}
-    >
-      <div className="flex items-center gap-3">
+    <li>
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block py-5 pr-2 pl-8 transition-colors duration-150 ease-out hover:bg-[#F3EFE7]/60 dark:hover:bg-neutral-900/40"
+      >
         <span
-          className="flex h-9 w-9 shrink-0 items-center justify-center text-[15px] font-semibold text-white"
-          style={{
-            backgroundColor: ACCENT,
-            borderRadius: 4,
-            fontFamily: "Inter, ui-sans-serif, system-ui",
-          }}
-          aria-hidden
-        >
-          {initial}
-        </span>
-        <div className="min-w-0 flex-1">
-          <div
-            className="truncate text-[11px] font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-200"
-            style={MONO_STYLE}
-          >
-            {label}
-          </div>
-          <div
-            className="truncate text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
-            style={MONO_STYLE}
-          >
-            {item.topic || item.source}
-          </div>
-        </div>
-        <span
-          className="shrink-0 text-[10px] tabular-nums text-neutral-400 dark:text-neutral-600"
+          className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400 tabular-nums dark:text-neutral-600"
           style={MONO_STYLE}
+          aria-hidden
         >
           {String(rank).padStart(2, "0")}
         </span>
-      </div>
-      <h3 className="text-[15px] font-semibold leading-snug text-neutral-900 group-hover:underline dark:text-neutral-50">
-        {item.title}
-      </h3>
-      {item.summary && (
-        <p className="line-clamp-3 text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-300">
-          {item.summary}
-        </p>
-      )}
-      <div className="mt-auto flex items-center justify-between pt-1">
-        <span
-          className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+        <div
+          className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400"
           style={MONO_STYLE}
         >
-          {item.source}
-        </span>
-        <ImportanceBadge value={item.importance} />
-      </div>
-    </a>
+          {company && <span className="text-neutral-700 dark:text-neutral-200">{company}</span>}
+          {company && topic && <span className="text-neutral-300 dark:text-neutral-700">·</span>}
+          {topic && <span>{topic}</span>}
+          {item.importance >= 5 && (
+            <>
+              <span className="text-neutral-300 dark:text-neutral-700">·</span>
+              <span style={{ color: ACCENT }}>Must-read</span>
+            </>
+          )}
+        </div>
+        <h3
+          className="text-[22px] font-semibold leading-[1.2] tracking-tight text-neutral-900 group-hover:underline decoration-[#B3261E] underline-offset-4 dark:text-neutral-50 sm:text-[24px]"
+          style={{ fontFamily: "'Source Serif 4', 'Source Serif Pro', Georgia, serif" }}
+        >
+          {item.title}
+        </h3>
+        {item.summary && (
+          <p
+            className="mt-1.5 line-clamp-2 text-[15px] leading-snug text-neutral-600 dark:text-neutral-300"
+            style={{ fontFamily: "'Source Serif 4', 'Source Serif Pro', Georgia, serif" }}
+          >
+            {item.summary}
+          </p>
+        )}
+      </a>
+    </li>
   );
 }
 

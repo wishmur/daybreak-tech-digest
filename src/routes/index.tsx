@@ -997,15 +997,7 @@ function FilterBar({
 }) {
   return (
     <div className={stacked ? "flex flex-col gap-3" : "flex flex-wrap items-center gap-2 py-2.5"}>
-      <Segmented
-        value={filters.range}
-        onChange={(v) => setFilters({ ...filters, range: v as DateRange })}
-        options={[
-          { value: "latest", label: "Latest" },
-          { value: "7d", label: "Last 7 days" },
-          { value: "30d", label: "Last 30 days" },
-        ]}
-      />
+      {/* Time range buttons removed — list is chronological by default */}
       <MultiSelect
         label="Company"
         options={companyOptions}

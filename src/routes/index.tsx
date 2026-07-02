@@ -1158,7 +1158,7 @@ function Segmented({
   options: { value: string; label: string }[];
 }) {
   return (
-    <div className="inline-flex rounded-md border border-neutral-200 p-0.5 dark:border-neutral-800">
+    <div className="inline-flex gap-1">
       {options.map((o) => {
         const active = o.value === value;
         return (
@@ -1166,12 +1166,12 @@ function Segmented({
             key={o.value}
             onClick={() => onChange(o.value)}
             className={
-              "rounded-[5px] px-2.5 py-1 text-xs font-medium transition " +
+              "border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 " +
               (active
-                ? "text-white"
-                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100")
+                ? "border-[#B3261E] text-[#B3261E] bg-transparent"
+                : "border-[#DDD8CC] text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100")
             }
-            style={active ? { backgroundColor: ACCENT } : undefined}
+            style={MONO_STYLE}
           >
             {o.label}
           </button>

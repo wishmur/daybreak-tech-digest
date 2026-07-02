@@ -1439,11 +1439,13 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
   const isHero = tier === "hero";
   return (
     <article
+      data-story
+      data-story-link={item.link}
       className={
-        "group relative flex gap-4 border bg-white transition dark:bg-neutral-900 " +
+        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:bg-neutral-900 " +
         (isHero
           ? "border-neutral-200 dark:border-neutral-800 p-5"
-          : "border-neutral-200 dark:border-neutral-800 p-4 hover:border-neutral-300 dark:hover:border-neutral-700")
+          : "border-neutral-200 dark:border-neutral-800 p-4")
       }
       style={{
         borderRadius: 6,
@@ -1455,6 +1457,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
           : {}),
       }}
     >
+
       <div className="flex shrink-0 flex-col items-center gap-1 pt-1">
         <ImportanceBar value={item.importance} />
       </div>

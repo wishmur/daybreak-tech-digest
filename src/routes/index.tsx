@@ -910,39 +910,97 @@ function TechDigestPage() {
           )}
 
           <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-            {loading && !digest ? (
-              <ListSkeleton />
-            ) : (isLatest ? latestSorted.length === 0 : groups.length === 0) ? (
-              <EmptyState onReset={resetFilters} />
-            ) : isLatest ? (
-              <section>
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                  Latest — ranked by importance & recency
-                </h3>
-                <div className="space-y-3">
-                  {latestSorted.map((it) => (
-                    <ItemCard key={it.id} item={it} />
-                  ))}
-                </div>
-              </section>
-            ) : (
-              <div className="space-y-8">
-                {groups.map(([day, items]) => (
-                  <section key={day}>
-                    <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                      {friendlyGroupLabel(day)}
+            {(() => {
+              // Total items across current view for pagination.
+              const totalItems = isLatest
+                ? latestSorted.length
+                : groups.reduce((n, [, arr]) => n + arr.length, 0);
+              const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+              const currentPage = Math.min(page, totalPages);
+              const start = (currentPage - 1) * PAGE_SIZE;
+              const end = start + PAGE_SIZE;
+
+              if (loading && !digest) return <ListSkeleton />;
+              if (totalItems === 0) return <EmptyState onReset={resetFilters} />;
+
+              let content: React.ReactNode;
+              if (isLatest) {
+                const pageItems = latestSorted.slice(start, end);
+                content = (
+                  <section>
+                    <h3
+                      className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                      style={MONO_STYLE}
+                    >
+                      Latest — ranked by importance &amp; recency
                     </h3>
                     <div className="space-y-3">
-                      {items.map((it) => (
+                      {pageItems.map((it) => (
                         <ItemCard key={it.id} item={it} />
                       ))}
                     </div>
                   </section>
-                ))}
-              </div>
-            )}
+                );
+              } else {
+                // Walk groups and slice the flat window [start, end).
+                let cursor = 0;
+                const sliced: [string, Item[]][] = [];
+                for (const [day, arr] of groups) {
+                  const groupStart = cursor;
+                  const groupEnd = cursor + arr.length;
+                  if (groupEnd <= start || groupStart >= end) {
+                    cursor = groupEnd;
+                    continue;
+                  }
+                  const s = Math.max(0, start - groupStart);
+                  const e = Math.min(arr.length, end - groupStart);
+                  sliced.push([day, arr.slice(s, e)]);
+                  cursor = groupEnd;
+                }
+                content = (
+                  <div className="space-y-8">
+                    {sliced.map(([day, items]) => (
+                      <section key={day}>
+                        <h3
+                          className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                          style={MONO_STYLE}
+                        >
+                          {friendlyGroupLabel(day)}
+                        </h3>
+                        <div className="space-y-3">
+                          {items.map((it) => (
+                            <ItemCard key={it.id} item={it} />
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                );
+              }
+
+              return (
+                <>
+                  {content}
+                  {totalPages > 1 && (
+                    <Pagination
+                      page={currentPage}
+                      totalPages={totalPages}
+                      total={totalItems}
+                      pageSize={PAGE_SIZE}
+                      onChange={(p) => {
+                        setPage(p);
+                        if (typeof window !== "undefined") {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
+                    />
+                  )}
+                </>
+              );
+            })()}
           </main>
         </>
+
       )}
 
       {view === "threads" && (

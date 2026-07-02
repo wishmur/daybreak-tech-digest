@@ -271,7 +271,7 @@ function TechDigestPage() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [kbdIdx, setKbdIdx] = useState<number>(-1);
   const [page, setPage] = useState(1);
-  const PAGE_SIZE = 20;
+  const PAGE_SIZE = 10;
 
   // Reset pagination whenever the filter set or view changes.
   useEffect(() => {
@@ -410,15 +410,13 @@ function TechDigestPage() {
       .join(" · ");
   }, [latestDay]);
 
-  // Top stories for the latest day: importance 4-5, or top 10 by importance if fewer than 10 qualify.
+  // Top stories for the latest day: exactly the 3 highest-importance items.
   const topStories = useMemo<Item[]>(() => {
     if (!latestDay) return [];
     const sorted = [...latestDay.items].sort(
       (a, b) => b.importance - a.importance || itemTs(b) - itemTs(a),
     );
-    const high = sorted.filter((it) => (it.importance ?? 0) >= 4);
-    const pool = high.length > 0 ? high : sorted;
-    return pool.slice(0, 10);
+    return sorted.slice(0, 3);
   }, [latestDay]);
 
   // Brief automation caption metadata: unique sources in latest day + last generation time

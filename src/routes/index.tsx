@@ -185,7 +185,7 @@ function writeFiltersToURL(f: Filters, view: ViewKey) {
 function readViewFromURL(): ViewKey {
   if (typeof window === "undefined") return "digest";
   const v = new URLSearchParams(window.location.search).get("view");
-  if (v === "threads" || v === "companies" || v === "matrix" || v === "trends") return v;
+  if (v === "companies" || v === "matrix" || v === "trends") return v;
   return "digest";
 }
 

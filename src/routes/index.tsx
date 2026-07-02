@@ -2244,24 +2244,25 @@ function TerminalTooltip({ active, payload, label, valueFormatter }: {
   if (!active || !payload || !payload.length) return null;
   return (
     <div
-      className="rounded-md border px-3 py-2 text-[11px] shadow-lg"
-      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
+      className="border px-3 py-2 text-[11px] shadow-sm"
+      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)", borderRadius: 2 }}
     >
       {label !== undefined && (
-        <div className="mb-1 uppercase tracking-wide text-neutral-400">{String(label)}</div>
+        <div className="mb-1 uppercase tracking-wide text-neutral-500">{String(label)}</div>
       )}
       <div className="space-y-0.5">
         {payload.filter((p) => p && (p.value ?? 0) !== 0).map((p, i) => (
           <div key={i} className="flex items-center gap-2">
-            <span className="inline-block h-2 w-2 rounded-sm" style={{ background: p.color ?? p.stroke ?? p.fill ?? "#666" }} />
-            <span className="text-neutral-300">{p.name ?? p.dataKey}</span>
-            <span className="ml-auto tabular-nums text-neutral-100">
+            <span className="inline-block h-2 w-2" style={{ background: p.color ?? p.stroke ?? p.fill ?? "#666" }} />
+            <span className="text-neutral-600">{p.name ?? p.dataKey}</span>
+            <span className="ml-auto tabular-nums text-neutral-900">
               {valueFormatter ? valueFormatter(Number(p.value ?? 0)) : Number(p.value ?? 0).toLocaleString()}
             </span>
           </div>
         ))}
       </div>
     </div>
+
   );
 }
 

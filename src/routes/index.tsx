@@ -904,9 +904,6 @@ function TechDigestPage() {
 
       )}
 
-      {view === "threads" && (
-        <ThreadsView items={allItems} loading={loading && !digest} />
-      )}
       {view === "companies" && (
         <CompaniesView
           items={allItems}

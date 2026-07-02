@@ -604,7 +604,7 @@ function TechDigestPage() {
               src={daybreakLogo.url}
               alt=""
               aria-hidden="true"
-              className="h-14 w-14 rounded-sm opacity-90"
+              className="h-14 w-14 rounded-lg opacity-90"
             />
             <Link
               to="/how-it-works"
@@ -672,21 +672,21 @@ function TechDigestPage() {
       {/* Digest view */}
       {view === "digest" && (
         <>
-          <section className="mx-auto max-w-6xl px-4 pt-6 sm:px-6 sm:pt-10">
+          <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-12">
             {loading && !digest ? (
               <BriefSkeleton />
             ) : latestDay ? (
               <>
                 <div className="flex items-baseline gap-3">
                   <span
-                    className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                    className="text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-500 dark:text-neutral-400"
                     style={MONO_STYLE}
                   >
                     <span
                       className="mr-2 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full align-middle"
                       style={{ backgroundColor: ACCENT }}
                     />
-                    LATEST BRIEF
+                    Latest brief
                   </span>
                 </div>
                 <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
@@ -695,7 +695,7 @@ function TechDigestPage() {
 
                 {latestDay.summary && (
                   <p
-                    className="mt-4 max-w-3xl text-lg leading-relaxed text-[#2E2A24] sm:text-xl"
+                    className="mt-4 text-lg leading-relaxed text-[#2E2A24] sm:text-xl"
                     style={{ fontFamily: "Source Serif 4, ui-serif, Georgia, serif" }}
                   >
                     {latestDay.summary}
@@ -724,16 +724,16 @@ function TechDigestPage() {
 
 
                 {topStories.length > 0 && (
-                  <div className="mt-10">
-                    <div className="mb-4 flex items-baseline justify-between border-b border-[#DDD8CC] pb-2 dark:border-neutral-800">
+                  <div className="mt-14">
+                    <div className="mb-5 flex items-baseline justify-between border-b border-[#E8E2D2] pb-2 dark:border-neutral-800">
                       <h2
-                        className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+                        className="text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-500 dark:text-neutral-400"
                         style={MONO_STYLE}
                       >
                         Top stories · {topStories.length} item{topStories.length === 1 ? "" : "s"} today
                       </h2>
                     </div>
-                    <ol className="divide-y divide-[#DDD8CC] dark:divide-neutral-800">
+                    <ol className="divide-y divide-[#E8E2D2] dark:divide-neutral-800">
                       {topStories.map((it, i) => (
                         <FeaturedStoryCard key={it.id} item={it} rank={i + 1} />
                       ))}
@@ -748,7 +748,7 @@ function TechDigestPage() {
 
           {/* Sticky filter bar */}
           {showFilterBar && (
-            <div className="sticky top-[30px] z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
+            <div className="sticky top-[30px] z-20 mt-8 border-t border-[#E8E2D2] bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="flex items-center justify-between gap-2 py-2 md:hidden">
                   <button
@@ -1086,7 +1086,7 @@ function Pagination({
   const start = (page - 1) * pageSize + 1;
   const end = Math.min(total, page * pageSize);
   const btn =
-    "border border-[#DDD8CC] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 dark:border-neutral-800";
+    "border border-[#E8E2D2] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] transition-colors duration-150 dark:border-neutral-800";
   const active = "border-[#B3261E] text-[#B3261E]";
   const inactive =
     "text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
@@ -1094,7 +1094,7 @@ function Pagination({
 
   return (
     <nav
-      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#DDD8CC] pt-5 dark:border-neutral-800"
+      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#E8E2D2] pt-5 dark:border-neutral-800"
       aria-label="Pagination"
       style={MONO_STYLE}
     >
@@ -1380,7 +1380,8 @@ function SavedViewsControl({
 
 // ---------- Item Card (importance-tiered) ----------
 const MONO_STYLE: React.CSSProperties = {
-  fontFamily: "JetBrains Mono, ui-monospace, SFMono-Regular, monospace",
+  fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+  letterSpacing: "0.02em",
 };
 
 // Typing / reveal animation for the daily brief. Runs once per unique text.
@@ -1436,14 +1437,14 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
         className="group relative block py-5 pr-2 pl-8 transition-colors duration-150 ease-out hover:bg-[#F3EFE7]/60 dark:hover:bg-neutral-900/40"
       >
         <span
-          className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400 tabular-nums dark:text-neutral-600"
+          className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.06em] text-neutral-400 tabular-nums dark:text-neutral-600"
           style={MONO_STYLE}
           aria-hidden
         >
           {String(rank).padStart(2, "0")}
         </span>
         <div
-          className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400"
+          className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400"
           style={MONO_STYLE}
         >
           {company && <span className="text-neutral-700 dark:text-neutral-200">{company}</span>}
@@ -1491,8 +1492,8 @@ function ItemRow({ item }: { item: Item }) {
       rel="noopener noreferrer"
       data-story
       data-story-link={item.link}
-      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] focus:outline-none focus-visible:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
-      style={{ borderRadius: 4 }}
+      className="group flex items-center gap-3 border border-[#E8E2D2] bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] hover:bg-[#FDFCF8] focus:outline-none focus-visible:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
+      style={{ borderRadius: 8 }}
     >
 
       <span
@@ -1556,7 +1557,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
           : "border-neutral-200 dark:border-neutral-800 p-4")
       }
       style={{
-        borderRadius: 6,
+        borderRadius: 10,
         ...(isHero
           ? {
               borderLeft: `2px solid ${ACCENT}`,
@@ -1577,8 +1578,8 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
               style={{
                 ...MONO_STYLE,
                 backgroundColor: ACCENT,
-                padding: "2px 6px",
-                borderRadius: 3,
+                padding: "2px 8px",
+                borderRadius: 5,
                 letterSpacing: "0.02em",
               }}
             >
@@ -1589,7 +1590,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
             <span
               key={c}
               className="border border-neutral-300 text-[10px] font-medium text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
-              style={{ ...MONO_STYLE, padding: "1px 5px", borderRadius: 3 }}
+              style={{ ...MONO_STYLE, padding: "1px 6px", borderRadius: 5 }}
             >
               {c.toUpperCase()}
             </span>
@@ -1652,8 +1653,8 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
                   className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-300"
                   style={{
                     ...MONO_STYLE,
-                    padding: "2px 6px",
-                    borderRadius: 3,
+                    padding: "2px 8px",
+                    borderRadius: 5,
                     border: "1px solid",
                     borderColor: "currentColor",
                     opacity: 0.85,

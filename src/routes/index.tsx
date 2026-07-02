@@ -533,8 +533,16 @@ function TechDigestPage() {
       className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
       style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
     >
+      {/* Persistent terminal status bar */}
+      <StatusBar
+        lastUpdated={digest?.lastUpdated}
+        totalItems={allItems.length}
+        dayN={digest?.days?.length ?? 0}
+        loading={loading && !digest}
+      />
+
       {/* Top bar */}
-      <header className="mx-auto max-w-6xl px-4 pt-8 pb-4 sm:px-6">
+      <header className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3 sm:gap-4">
             <img
@@ -551,21 +559,15 @@ function TechDigestPage() {
                 actually matters to a PM today, and posts the top ten here by
                 10 AM ET. Built because I was losing mornings to the firehose.
               </p>
-              <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400">
-                {loading && !digest
-                  ? "Loading…"
-                  : digest?.lastUpdated
-                    ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
-                    : "—"}
-              </p>
             </div>
           </div>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
           >
-            {theme === "dark" ? "Light" : "Dark"} mode
+            {theme === "dark" ? "LIGHT" : "DARK"}
           </button>
         </div>
       </header>

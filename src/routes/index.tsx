@@ -389,28 +389,31 @@ function TechDigestPage() {
     [digest],
   );
 
-  // Latest brief regenerated from top 3 items by importance for the most recent day
+  // Editorial lede pulled directly from the day's JSON `summary` field.
   const latestDay = digest?.days?.[0];
   const generatedBrief = useMemo(() => {
     if (!latestDay) return null;
+    const s = (latestDay.summary || "").trim();
+    if (s) return s;
+    // Fallback: synthesize a one-liner from top items if the day is missing a summary.
     const top = [...latestDay.items]
       .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
       .slice(0, 3);
-    if (top.length === 0) return latestDay.summary || null;
-    const parts = top.map((it) => {
-      const who = it.company || it.source;
-      const what = it.title.replace(/[.!?]+$/, "");
-      return `${who}: ${what}`;
-    });
-    return parts.join(" · ");
+    if (top.length === 0) return null;
+    return top
+      .map((it) => `${it.company || it.source}: ${it.title.replace(/[.!?]+$/, "")}`)
+      .join(" · ");
   }, [latestDay]);
 
-  // Top 3-5 highest-importance items from the latest day (for featured cards)
+  // Top stories for the latest day: importance 4-5, or top 10 by importance if fewer than 10 qualify.
   const topStories = useMemo<Item[]>(() => {
     if (!latestDay) return [];
-    return [...latestDay.items]
-      .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
-      .slice(0, 5);
+    const sorted = [...latestDay.items].sort(
+      (a, b) => b.importance - a.importance || itemTs(b) - itemTs(a),
+    );
+    const high = sorted.filter((it) => (it.importance ?? 0) >= 4);
+    const pool = high.length > 0 ? high : sorted;
+    return pool.slice(0, 10);
   }, [latestDay]);
 
   // Brief automation caption metadata: unique sources in latest day + last generation time

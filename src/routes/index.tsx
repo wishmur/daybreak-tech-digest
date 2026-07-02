@@ -890,7 +890,7 @@ function TechDigestPage() {
           <span className="uppercase tracking-wider">
             Built by{" "}
             <a
-              href="https://shailvi.com"
+              href="https://shailvikumar.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#B3261E] dark:text-neutral-200 dark:hover:text-[#B3261E]"

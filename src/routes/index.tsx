@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap",
       },
     ],
   }),
@@ -60,17 +60,19 @@ const TAG_VOCAB = [
   "tooling",
 ];
 
+// Editorial tag styling — no colored chips; hairline uppercase labels.
+// The single accent (masthead red) is reserved for Must-read badges only.
 const TAG_STYLES: Record<string, { dot: string; chip: string; label?: string }> = {
-  launch:       { dot: "#2D55FF", chip: "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300", label: "Launch" },
-  funding:      { dot: "#10B981", chip: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300", label: "Funding" },
-  leadership:   { dot: "#8B5CF6", chip: "bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-300", label: "Leadership" },
-  regulation:   { dot: "#F59E0B", chip: "bg-amber-50 text-amber-800 dark:bg-amber-500/10 dark:text-amber-300", label: "Regulation" },
-  "open-source":{ dot: "#14B8A6", chip: "bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-300", label: "Open source" },
-  competitive:  { dot: "#EF4444", chip: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-300", label: "Competitive" },
-  research:     { dot: "#6366F1", chip: "bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300", label: "Research" },
-  product:      { dot: "#0EA5E9", chip: "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300", label: "Product" },
-  infra:        { dot: "#64748B", chip: "bg-slate-100 text-slate-700 dark:bg-slate-500/15 dark:text-slate-300", label: "Infra" },
-  tooling:      { dot: "#A855F7", chip: "bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-500/10 dark:text-fuchsia-300", label: "Tooling" },
+  launch:        { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Launch" },
+  funding:       { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Funding" },
+  leadership:    { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Leadership" },
+  regulation:    { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Regulation" },
+  "open-source": { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Open source" },
+  competitive:   { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Competitive" },
+  research:      { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Research" },
+  product:       { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Product" },
+  infra:         { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Infra" },
+  tooling:       { dot: "#1A1A1A", chip: "border border-[#DDD8CC] text-[#2E2A24]", label: "Tooling" },
 };
 function tagStyle(t: string) {
   return TAG_STYLES[t] ?? { dot: "#9CA3AF", chip: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300", label: t };
@@ -112,7 +114,7 @@ const LS_CACHE = "techDigest:cache";
 const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const LS_VIEWS = "techDigest:savedViews";
-const ACCENT = "#0066FF";
+const ACCENT = "#B3261E";
 
 type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;
@@ -248,7 +250,7 @@ function isoWeek(d: Date): string {
 
 // A stable palette used for trend chart / company chips
 const COMPANY_PALETTE = [
-  "#2D55FF", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6",
+  "#3F3A2E", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6",
   "#0EA5E9", "#EC4899", "#14B8A6", "#F97316", "#6366F1",
 ];
 function companyColor(idx: number) {
@@ -318,19 +320,13 @@ function TechDigestPage() {
   }, [paletteOpen, kbdIdx]);
 
 
-  // Theme
+  // Theme — editorial light is the default; night edition can be toggled later.
   useEffect(() => {
-    const stored = localStorage.getItem(LS_THEME) as "light" | "dark" | null;
-    const initial = stored ?? "dark";
-    setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
+    setTheme("light");
+    document.documentElement.classList.remove("dark");
+    try { localStorage.setItem(LS_THEME, "light"); } catch {}
   }, []);
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.toggle("dark", next === "dark");
-    localStorage.setItem(LS_THEME, next);
-  };
+  const toggleTheme = () => { /* night edition disabled for now */ };
 
   // Hydrate filters & view
   useEffect(() => {
@@ -633,10 +629,10 @@ function TechDigestPage() {
 
   return (
     <div
-      className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
-      style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
+      className="min-h-screen"
+      style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif', backgroundColor: '#FAF7F2', color: '#1A1A1A' }}
     >
-      {/* Persistent terminal status bar */}
+      {/* Editorial masthead */}
       <StatusBar
         lastUpdated={digest?.lastUpdated}
         totalItems={allItems.length}
@@ -644,44 +640,42 @@ function TechDigestPage() {
         loading={loading && !digest}
       />
 
-      {/* Top bar */}
-      <header className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-start gap-3 sm:gap-4">
+      <header className="mx-auto max-w-6xl px-4 pt-8 pb-6 sm:px-6 sm:pt-10">
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0 flex-1">
+            <h1
+              className="font-bold leading-[0.9] tracking-[-0.02em]"
+              style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif', fontSize: 'clamp(48px, 9vw, 96px)', color: '#1A1A1A' }}
+            >
+              Daybreak
+            </h1>
+            <p
+              className="mt-4 max-w-2xl text-[15px] leading-[1.55] text-[#2E2A24]"
+              style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif' }}
+            >
+              A small script reads the feeds every morning, asks Claude what
+              actually matters to a PM today, and posts the top ten by 10 AM ET.
+              Built because I was losing mornings to the firehose.
+            </p>
+          </div>
+          <div className="hidden shrink-0 items-center gap-4 sm:flex">
             <img
               src={daybreakLogo.url}
-              alt="Daybreak logo"
-              width={56}
-              height={56}
-              className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14"
+              alt=""
+              aria-hidden="true"
+              className="h-14 w-14 rounded-sm opacity-90"
             />
-            <div>
-              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Daybreak</h1>
-              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-                A small script reads my feeds every morning, asks Claude what
-                actually matters to a PM today, and posts the top ten here by
-                10 AM ET. Built because I was losing mornings to the firehose.
-              </p>
-            </div>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
             <Link
               to="/how-it-works"
-              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
-              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
+              className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#56504A] underline-offset-[6px] hover:text-[#1A1A1A] hover:underline"
+              style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
             >
               System
             </Link>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
-              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
-            >
-              {theme === "dark" ? "LIGHT" : "DARK"}
-            </button>
           </div>
         </div>
+        {/* thin editorial rule */}
+        <div className="mt-6 h-px w-full" style={{ backgroundColor: '#DDD8CC' }} />
       </header>
 
       {/* View tabs */}
@@ -971,7 +965,7 @@ function TechDigestPage() {
               href="https://shailvi.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#0066FF] dark:text-neutral-200 dark:hover:text-[#0066FF]"
+              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#B3261E] dark:text-neutral-200 dark:hover:text-[#B3261E]"
             >
               Shailvi Kumar
             </a>
@@ -1381,7 +1375,7 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
+      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
       style={{
         borderRadius: 6,
         ...(isTop
@@ -1462,7 +1456,7 @@ function ItemRow({ item }: { item: Item }) {
       rel="noopener noreferrer"
       data-story
       data-story-link={item.link}
-      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] focus:outline-none focus-visible:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
+      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] focus:outline-none focus-visible:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
       style={{ borderRadius: 4 }}
     >
 
@@ -1521,7 +1515,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
       data-story
       data-story-link={item.link}
       className={
-        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:bg-neutral-900 " +
+        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:bg-neutral-900 " +
         (isHero
           ? "border-neutral-200 dark:border-neutral-800 p-5"
           : "border-neutral-200 dark:border-neutral-800 p-4")
@@ -1681,41 +1675,35 @@ function StatusBar({
 }) {
   const sync = lastUpdated
     ? new Date(lastUpdated).toLocaleTimeString(undefined, {
-        hour: "2-digit",
+        hour: "numeric",
         minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
+        hour12: true,
       })
-    : "--:--:--";
+    : "—";
+  const sansMeta = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' } as const;
   return (
     <div
-      className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95"
-      style={MONO_STYLE}
+      className="sticky top-0 z-40 backdrop-blur"
+      style={{ backgroundColor: 'rgba(250, 247, 242, 0.92)', borderBottom: '1px solid #DDD8CC' }}
     >
-      <div className="mx-auto flex max-w-6xl items-center gap-4 overflow-x-auto whitespace-nowrap px-4 py-1.5 text-[10.5px] uppercase tracking-wider text-neutral-500 sm:px-6 dark:text-neutral-400">
-        <span className="flex items-center gap-1.5">
+      <div
+        className="mx-auto flex max-w-6xl items-center justify-between gap-4 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#7A7568] sm:px-6"
+        style={sansMeta}
+      >
+        <span className="flex items-center gap-2">
           <span
-            className={"inline-block h-2 w-2 rounded-full " + (loading ? "" : "terminal-live-dot")}
-            style={{ backgroundColor: loading ? "#eab308" : "#22c55e" }}
+            className={"inline-block h-1.5 w-1.5 rounded-full " + (loading ? "" : "terminal-live-dot")}
+            style={{ backgroundColor: loading ? '#B08A00' : '#B3261E' }}
+            aria-hidden="true"
           />
-          <span className="font-semibold text-neutral-700 dark:text-neutral-200">
-            {loading ? "SYNCING" : "LIVE"}
+          <span className="font-medium text-[#1A1A1A]">
+            Issue No. <span className="tabular-nums">{dayN || '—'}</span>
           </span>
+          <span aria-hidden="true" className="text-[#B4AE9C]">·</span>
+          <span>Updated <span className="tabular-nums text-[#2E2A24]">{sync}</span> ET</span>
         </span>
-        <span className="opacity-60">|</span>
-        <span>
-          LAST SYNC <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{sync}</span>
-        </span>
-        <span className="opacity-60">|</span>
-        <span>
-          ITEMS <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{totalItems.toLocaleString()}</span>
-        </span>
-        <span className="opacity-60">|</span>
-        <span>
-          DAY <span className="tabular-nums" style={{ color: ACCENT }}>{dayN || "—"}</span>
-        </span>
-        <span className="ml-auto hidden sm:inline text-neutral-400 dark:text-neutral-600">
-          DAYBREAK://PIPELINE
+        <span className="hidden items-center gap-2 sm:flex">
+          <span>{totalItems.toLocaleString()} items indexed</span>
         </span>
       </div>
     </div>
@@ -2245,7 +2233,7 @@ function TerminalTooltip({ active, payload, label, valueFormatter }: {
   return (
     <div
       className="rounded-md border px-3 py-2 text-[11px] shadow-lg"
-      style={{ background: "#0A0A0A", borderColor: "#232323", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
+      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
     >
       {label !== undefined && (
         <div className="mb-1 uppercase tracking-wide text-neutral-400">{String(label)}</div>
@@ -2519,7 +2507,7 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
   if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
 
   const axisStyle = { fontSize: 10, fill: "#8A93A6", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" };
-  const gridColor = "#1a1a1a";
+  const gridColor = "#DDD8CC";
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6">

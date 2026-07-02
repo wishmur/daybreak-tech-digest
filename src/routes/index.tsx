@@ -99,7 +99,7 @@ const LS_CACHE = "techDigest:cache";
 const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const LS_VIEWS = "techDigest:savedViews";
-const ACCENT = "#2D55FF";
+const ACCENT = "#0066FF";
 
 type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;

@@ -84,6 +84,55 @@ function itemTs(it: Item): number {
   return parseYMD(it.addedOn).getTime();
 }
 
+// ---------- Status Bar ----------
+function StatusBar({
+  lastUpdated,
+  totalItems,
+  dayN,
+  loading,
+}: {
+  lastUpdated?: string;
+  totalItems: number;
+  dayN: number;
+  loading: boolean;
+}) {
+  const sync = lastUpdated
+    ? new Date(lastUpdated).toLocaleTimeString(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      })
+    : "—";
+  const sansMeta = { fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" } as const;
+  return (
+    <div
+      className="sticky top-0 z-40 backdrop-blur"
+      style={{ backgroundColor: "rgba(250, 247, 242, 0.92)", borderBottom: "1px solid #DDD8CC" }}
+    >
+      <div
+        className="mx-auto flex max-w-6xl items-center justify-between gap-4 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#7A7568] sm:px-6"
+        style={sansMeta}
+      >
+        <span className="flex items-center gap-2">
+          <span
+            className={"inline-block h-1.5 w-1.5 rounded-full " + (loading ? "" : "terminal-live-dot")}
+            style={{ backgroundColor: loading ? "#B08A00" : "#B3261E" }}
+            aria-hidden="true"
+          />
+          <span className="font-medium text-[#1A1A1A]">
+            Issue No. <span className="tabular-nums">{dayN || "—"}</span>
+          </span>
+          <span aria-hidden="true" className="text-[#B4AE9C]">·</span>
+          <span>Updated <span className="tabular-nums text-[#2E2A24]">{sync}</span> ET</span>
+        </span>
+        <span className="hidden items-center gap-2 sm:flex">
+          <span>{totalItems.toLocaleString()} items indexed</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ---------- Page ----------
 function ArchivePage() {
   const [digest, setDigest] = useState<Digest | null>(null);

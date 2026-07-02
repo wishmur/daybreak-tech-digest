@@ -679,7 +679,7 @@ function TechDigestPage() {
 
           {/* Sticky filter bar */}
           {showFilterBar && (
-            <div className="sticky top-0 z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
+            <div className="sticky top-[30px] z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="flex items-center justify-between gap-2 py-2 md:hidden">
                   <button

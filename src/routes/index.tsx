@@ -320,19 +320,13 @@ function TechDigestPage() {
   }, [paletteOpen, kbdIdx]);
 
 
-  // Theme
+  // Theme — editorial light is the default; night edition can be toggled later.
   useEffect(() => {
-    const stored = localStorage.getItem(LS_THEME) as "light" | "dark" | null;
-    const initial = stored ?? "dark";
-    setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
+    setTheme("light");
+    document.documentElement.classList.remove("dark");
+    try { localStorage.setItem(LS_THEME, "light"); } catch {}
   }, []);
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.toggle("dark", next === "dark");
-    localStorage.setItem(LS_THEME, next);
-  };
+  const toggleTheme = () => { /* night edition disabled for now */ };
 
   // Hydrate filters & view
   useEffect(() => {

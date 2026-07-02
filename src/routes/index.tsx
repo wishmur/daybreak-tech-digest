@@ -1148,6 +1148,98 @@ function FilterBar({
   );
 }
 
+function Pagination({
+  page,
+  totalPages,
+  total,
+  pageSize,
+  onChange,
+}: {
+  page: number;
+  totalPages: number;
+  total: number;
+  pageSize: number;
+  onChange: (p: number) => void;
+}) {
+  // Build a compact window of page numbers with ellipses for large ranges.
+  const pages: (number | "…")[] = [];
+  const push = (n: number | "…") => {
+    if (pages[pages.length - 1] !== n) pages.push(n);
+  };
+  const window = 1;
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 ||
+      i === totalPages ||
+      (i >= page - window && i <= page + window)
+    ) {
+      push(i);
+    } else if (i < page) {
+      push("…");
+    } else if (i > page) {
+      push("…");
+      // skip forward
+      i = totalPages - 1;
+    }
+  }
+
+  const start = (page - 1) * pageSize + 1;
+  const end = Math.min(total, page * pageSize);
+  const btn =
+    "border border-[#DDD8CC] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 dark:border-neutral-800";
+  const active = "border-[#B3261E] text-[#B3261E]";
+  const inactive =
+    "text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
+  const disabled = "opacity-40 cursor-not-allowed";
+
+  return (
+    <nav
+      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#DDD8CC] pt-5 dark:border-neutral-800"
+      aria-label="Pagination"
+      style={MONO_STYLE}
+    >
+      <span className="text-[11px] uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-500">
+        {start}–{end} of {total}
+      </span>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <button
+          onClick={() => onChange(Math.max(1, page - 1))}
+          disabled={page <= 1}
+          className={`${btn} ${page <= 1 ? disabled : inactive}`}
+        >
+          ← Prev
+        </button>
+        {pages.map((p, i) =>
+          p === "…" ? (
+            <span
+              key={`e-${i}`}
+              className="px-1 text-[11px] uppercase tracking-[0.14em] text-neutral-400 dark:text-neutral-600"
+            >
+              …
+            </span>
+          ) : (
+            <button
+              key={p}
+              onClick={() => onChange(p)}
+              aria-current={p === page ? "page" : undefined}
+              className={`${btn} tabular-nums ${p === page ? active : inactive}`}
+            >
+              {String(p).padStart(2, "0")}
+            </button>
+          ),
+        )}
+        <button
+          onClick={() => onChange(Math.min(totalPages, page + 1))}
+          disabled={page >= totalPages}
+          className={`${btn} ${page >= totalPages ? disabled : inactive}`}
+        >
+          Next →
+        </button>
+      </div>
+    </nav>
+  );
+}
+
 function Segmented({
   value,
   onChange,

@@ -1381,9 +1381,12 @@ function ItemRow({ item }: { item: Item }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
+      data-story
+      data-story-link={item.link}
+      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] focus:outline-none focus-visible:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
       style={{ borderRadius: 4 }}
     >
+
       <span
         className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
         style={MONO_STYLE}

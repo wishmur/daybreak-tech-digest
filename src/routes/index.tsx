@@ -270,6 +270,8 @@ function TechDigestPage() {
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [kbdIdx, setKbdIdx] = useState<number>(-1);
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 20;
   const hydrated = useRef(false);
 
   // Cmd/Ctrl+K palette + j/k keyboard navigation across visible stories

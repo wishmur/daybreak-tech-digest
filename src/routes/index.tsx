@@ -733,11 +733,11 @@ function TechDigestPage() {
                         Top stories · {topStories.length} item{topStories.length === 1 ? "" : "s"} today
                       </h2>
                     </div>
-                    <ol className="divide-y divide-[#E8E2D2] dark:divide-neutral-800">
-                      {topStories.map((it, i) => (
-                        <FeaturedStoryCard key={it.id} item={it} rank={i + 1} />
+                    <div className="space-y-3">
+                      {topStories.map((it) => (
+                        <ItemCard key={it.id} item={it} />
                       ))}
-                    </ol>
+                    </div>
                   </div>
                 )}
               </>

@@ -782,43 +782,6 @@ function TechDigestPage() {
                   </figcaption>
                 </figure>
 
-                {storylines.length > 0 && (
-                  <div className="mt-6 border-t border-neutral-200 pt-4 dark:border-neutral-800">
-                    <div
-                      className="text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400"
-                      style={MONO_STYLE}
-                    >
-                      Storylines in progress
-                    </div>
-                    <ul className="mt-2 flex flex-wrap gap-1.5">
-                      {storylines.map((s) => (
-                        <li key={s.key}>
-                          <button
-                            onClick={() => {
-                              if (s.kind === "company") {
-                                setFilters({ ...DEFAULT_FILTERS, range: "30d", companies: [s.label] });
-                                setView("companies");
-                              } else {
-                                setFilters({ ...DEFAULT_FILTERS, range: "30d", topics: [s.label] });
-                                setView("digest");
-                              }
-                            }}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-xs font-medium text-neutral-700 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
-                          >
-                            <span
-                              className="inline-block h-1.5 w-1.5 rounded-full"
-                              style={{ backgroundColor: ACCENT }}
-                            />
-                            {s.label}
-                            <span className="text-neutral-400 dark:text-neutral-500">
-                              · Day {s.days}
-                            </span>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
 
                 {topStories.length > 0 && (
                   <div className="mt-10">

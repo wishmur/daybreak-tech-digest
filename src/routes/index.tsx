@@ -714,17 +714,6 @@ function TechDigestPage() {
                   </p>
                 )}
 
-                <figure
-                  className="relative mt-6 border-l bg-transparent pl-5 sm:mt-8 sm:pl-8"
-                  style={{ borderLeftColor: ACCENT, borderLeftWidth: 3 }}
-                >
-                  <blockquote
-                    className="text-[22px] font-normal leading-[1.45] text-neutral-900 dark:text-neutral-100 sm:text-[30px] sm:leading-[1.35]"
-                    style={{ fontFamily: "Inter, ui-sans-serif, system-ui", letterSpacing: "-0.01em" }}
-                  >
-                    <TypedBrief text={generatedBrief ?? ""} />
-                  </blockquote>
-                </figure>
 
 
                 {topStories.length > 0 && (

@@ -396,19 +396,6 @@ function TechDigestPage() {
 
   // Editorial lede pulled directly from the day's JSON `summary` field.
   const latestDay = digest?.days?.[0];
-  const generatedBrief = useMemo(() => {
-    if (!latestDay) return null;
-    const s = (latestDay.summary || "").trim();
-    if (s) return s;
-    // Fallback: synthesize a one-liner from top items if the day is missing a summary.
-    const top = [...latestDay.items]
-      .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
-      .slice(0, 3);
-    if (top.length === 0) return null;
-    return top
-      .map((it) => `${it.company || it.source}: ${it.title.replace(/[.!?]+$/, "")}`)
-      .join(" · ");
-  }, [latestDay]);
 
   // Top stories for the latest day: exactly the 3 highest-importance items.
   const topStories = useMemo<Item[]>(() => {
@@ -418,26 +405,6 @@ function TechDigestPage() {
     );
     return sorted.slice(0, 3);
   }, [latestDay]);
-
-  // Brief automation caption metadata: unique sources in latest day + last generation time
-  const briefMeta = useMemo(() => {
-    if (!latestDay) return { sourceCount: 0, generatedAt: "" };
-    const sources = new Set<string>();
-    for (const it of latestDay.items) if (it.source) sources.add(it.source);
-    let generatedAt = "";
-    const iso = digest?.lastUpdated;
-    if (iso) {
-      try {
-        generatedAt = new Date(iso).toLocaleTimeString(undefined, {
-          hour: "numeric",
-          minute: "2-digit",
-        });
-      } catch {
-        generatedAt = "";
-      }
-    }
-    return { sourceCount: sources.size, generatedAt };
-  }, [latestDay, digest?.lastUpdated]);
 
   // Full editorial-style date header for the latest brief
   const latestDayLongDate = useMemo(() => {

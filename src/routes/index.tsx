@@ -2759,7 +2759,7 @@ function CommandPalette({
       const label = r === "latest" ? "Latest" : r === "all" ? "All time" : `Last ${r}`;
       if (match(label) || match("range") || match("date")) out.push({ kind: "range", label, hint: "DATE RANGE", value: r });
     });
-    (["digest", "threads", "companies", "matrix", "trends"] as ViewKey[]).forEach((v) => {
+    (["digest", "companies", "matrix", "trends"] as ViewKey[]).forEach((v) => {
       const label = v.charAt(0).toUpperCase() + v.slice(1);
       if (match(label) || match("view") || match("go to")) out.push({ kind: "view", label: `Go to ${label}`, hint: "VIEW", value: v });
     });

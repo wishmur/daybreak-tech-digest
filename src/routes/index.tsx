@@ -817,19 +817,19 @@ function TechDigestPage() {
 
                 {topStories.length > 0 && (
                   <div className="mt-10">
-                    <div className="mb-4 flex items-baseline justify-between">
+                    <div className="mb-4 flex items-baseline justify-between border-b border-[#DDD8CC] pb-2 dark:border-neutral-800">
                       <h2
                         className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
                         style={MONO_STYLE}
                       >
-                        Top stories · {latestDay.items.length} items today
+                        Top stories · {topStories.length} item{topStories.length === 1 ? "" : "s"} today
                       </h2>
                     </div>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    <ol className="divide-y divide-[#DDD8CC] dark:divide-neutral-800">
                       {topStories.map((it, i) => (
                         <FeaturedStoryCard key={it.id} item={it} rank={i + 1} />
                       ))}
-                    </div>
+                    </ol>
                   </div>
                 )}
               </>

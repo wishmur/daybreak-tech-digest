@@ -1425,7 +1425,7 @@ function TypedBrief({ text }: { text: string }) {
 }
 
 // Editorial top-stories row: text-first, no colored avatar, no card shadow, hairline rule below.
-function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
+function FeaturedStoryCard({ item, rank }: { item: Item; rank?: number }) {
   const company = (item.company || item.source || "").trim();
   const topic = (item.topic || "").trim();
   return (
@@ -1434,15 +1434,20 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
         href={item.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative block py-5 pr-2 pl-8 transition-colors duration-150 ease-out hover:bg-[#F3EFE7]/60 dark:hover:bg-neutral-900/40"
+        className={
+          "group relative block py-5 pr-2 transition-colors duration-150 ease-out hover:bg-[#F3EFE7]/60 dark:hover:bg-neutral-900/40 " +
+          (rank != null ? "pl-8" : "pl-2")
+        }
       >
-        <span
-          className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.06em] text-neutral-400 tabular-nums dark:text-neutral-600"
-          style={MONO_STYLE}
-          aria-hidden
-        >
-          {String(rank).padStart(2, "0")}
-        </span>
+        {rank != null && (
+          <span
+            className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.06em] text-neutral-400 tabular-nums dark:text-neutral-600"
+            style={MONO_STYLE}
+            aria-hidden
+          >
+            {String(rank).padStart(2, "0")}
+          </span>
+        )}
         <div
           className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400"
           style={MONO_STYLE}

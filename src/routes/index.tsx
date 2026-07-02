@@ -266,7 +266,57 @@ function TechDigestPage() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [view, setView] = useState<ViewKey>("digest");
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [kbdIdx, setKbdIdx] = useState<number>(-1);
   const hydrated = useRef(false);
+
+  // Cmd/Ctrl+K palette + j/k keyboard navigation across visible stories
+  useEffect(() => {
+    const isTypingTarget = (el: EventTarget | null) => {
+      if (!(el instanceof HTMLElement)) return false;
+      const tag = el.tagName;
+      return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable;
+    };
+    const onKey = (e: KeyboardEvent) => {
+      const mod = e.metaKey || e.ctrlKey;
+      if (mod && (e.key === "k" || e.key === "K")) {
+        e.preventDefault();
+        setPaletteOpen((v) => !v);
+        return;
+      }
+      if (e.key === "Escape" && paletteOpen) {
+        setPaletteOpen(false);
+        return;
+      }
+      if (paletteOpen) return;
+      if (isTypingTarget(e.target)) return;
+      if (e.key === "j" || e.key === "k") {
+        const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-story]"));
+        if (!nodes.length) return;
+        e.preventDefault();
+        setKbdIdx((i) => {
+          const next = e.key === "j" ? Math.min(nodes.length - 1, i + 1) : Math.max(0, i - 1);
+          const target = nodes[next];
+          if (target) {
+            nodes.forEach((n, ni) => n.setAttribute("data-kbd-active", ni === next ? "true" : "false"));
+            target.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+          return next;
+        });
+      } else if (e.key === "Enter" && kbdIdx >= 0) {
+        const nodes = document.querySelectorAll<HTMLElement>("[data-story]");
+        const target = nodes[kbdIdx];
+        const link = target?.getAttribute("data-story-link");
+        if (link) {
+          e.preventDefault();
+          window.open(link, "_blank", "noopener,noreferrer");
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [paletteOpen, kbdIdx]);
+
 
   // Theme
   useEffect(() => {
@@ -913,12 +963,41 @@ function TechDigestPage() {
         <TrendsView items={allItems} loading={loading && !digest} />
       )}
 
-      <footer className="mx-auto max-w-6xl px-4 pb-10 pt-4 text-xs text-neutral-400 sm:px-6">
-        Auto-refreshes every 10 minutes.
+      <footer className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6">
+        <div className="flex flex-col gap-2 border-t border-neutral-200 pt-4 text-[11px] text-neutral-500 sm:flex-row sm:items-center sm:justify-between dark:border-neutral-800 dark:text-neutral-500" style={MONO_STYLE}>
+          <span className="uppercase tracking-wider">
+            Built by{" "}
+            <a
+              href="https://shailvi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#0066FF] dark:text-neutral-200 dark:hover:text-[#0066FF]"
+            >
+              Shailvi Kumar
+            </a>
+            {" "}— GitHub Actions + Claude API + Supabase + Lovable
+          </span>
+          <span className="uppercase tracking-wider text-neutral-400 dark:text-neutral-600">
+            <kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">⌘K</kbd> palette · <kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">j</kbd>/<kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">k</kbd> nav · auto-refresh 10m
+          </span>
+        </div>
       </footer>
+
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        items={allItems}
+        companyOptions={companyOptions}
+        topicOptions={topicOptions}
+        onSelectCompany={(c) => { setFilters({ ...DEFAULT_FILTERS, range: "30d", companies: [c] }); setView("digest"); setPaletteOpen(false); }}
+        onSelectTopic={(t) => { setFilters({ ...DEFAULT_FILTERS, range: "30d", topics: [t] }); setView("digest"); setPaletteOpen(false); }}
+        onSelectRange={(r) => { setFilters({ ...filters, range: r }); setView("digest"); setPaletteOpen(false); }}
+        onSelectView={(v) => { setView(v); setPaletteOpen(false); }}
+      />
     </div>
   );
 }
+
 
 // ---------- Filter Bar ----------
 function FilterBar({
@@ -1302,7 +1381,7 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-600"
+      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
       style={{
         borderRadius: 6,
         ...(isTop
@@ -1381,9 +1460,12 @@ function ItemRow({ item }: { item: Item }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
+      data-story
+      data-story-link={item.link}
+      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] focus:outline-none focus-visible:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
       style={{ borderRadius: 4 }}
     >
+
       <span
         className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
         style={MONO_STYLE}
@@ -1436,11 +1518,13 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
   const isHero = tier === "hero";
   return (
     <article
+      data-story
+      data-story-link={item.link}
       className={
-        "group relative flex gap-4 border bg-white transition dark:bg-neutral-900 " +
+        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:bg-neutral-900 " +
         (isHero
           ? "border-neutral-200 dark:border-neutral-800 p-5"
-          : "border-neutral-200 dark:border-neutral-800 p-4 hover:border-neutral-300 dark:hover:border-neutral-700")
+          : "border-neutral-200 dark:border-neutral-800 p-4")
       }
       style={{
         borderRadius: 6,
@@ -1452,6 +1536,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
           : {}),
       }}
     >
+
       <div className="flex shrink-0 flex-col items-center gap-1 pt-1">
         <ImportanceBar value={item.importance} />
       </div>
@@ -2547,5 +2632,132 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
         </div>
       </section>
     </main>
+  );
+}
+
+// ---------- Command Palette ----------
+function CommandPalette({
+  open,
+  onClose,
+  items,
+  companyOptions,
+  topicOptions,
+  onSelectCompany,
+  onSelectTopic,
+  onSelectRange,
+  onSelectView,
+}: {
+  open: boolean;
+  onClose: () => void;
+  items: Item[];
+  companyOptions: string[];
+  topicOptions: string[];
+  onSelectCompany: (c: string) => void;
+  onSelectTopic: (t: string) => void;
+  onSelectRange: (r: DateRange) => void;
+  onSelectView: (v: ViewKey) => void;
+}) {
+  const [q, setQ] = useState("");
+  const [idx, setIdx] = useState(0);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (open) {
+      setQ("");
+      setIdx(0);
+      setTimeout(() => inputRef.current?.focus(), 10);
+    }
+  }, [open]);
+
+  type Row =
+    | { kind: "range"; label: string; hint: string; value: DateRange }
+    | { kind: "view"; label: string; hint: string; value: ViewKey }
+    | { kind: "company"; label: string; hint: string }
+    | { kind: "topic"; label: string; hint: string }
+    | { kind: "story"; label: string; hint: string; link: string };
+
+  const rows = useMemo<Row[]>(() => {
+    const query = q.trim().toLowerCase();
+    const match = (s: string) => !query || s.toLowerCase().includes(query);
+    const out: Row[] = [];
+    (["latest", "7d", "30d", "all"] as DateRange[]).forEach((r) => {
+      const label = r === "latest" ? "Latest" : r === "all" ? "All time" : `Last ${r}`;
+      if (match(label) || match("range") || match("date")) out.push({ kind: "range", label, hint: "DATE RANGE", value: r });
+    });
+    (["digest", "threads", "companies", "matrix", "trends"] as ViewKey[]).forEach((v) => {
+      const label = v.charAt(0).toUpperCase() + v.slice(1);
+      if (match(label) || match("view") || match("go to")) out.push({ kind: "view", label: `Go to ${label}`, hint: "VIEW", value: v });
+    });
+    for (const c of companyOptions) if (match(c)) out.push({ kind: "company", label: c, hint: "COMPANY" });
+    for (const t of topicOptions) if (match(t)) out.push({ kind: "topic", label: t, hint: "TOPIC" });
+    if (query.length >= 2) {
+      for (const it of items) {
+        if (it.title.toLowerCase().includes(query)) {
+          out.push({ kind: "story", label: it.title, hint: `${it.company || it.source} · ${shortDate(it.addedOn)}`, link: it.link });
+          if (out.filter((r) => r.kind === "story").length >= 8) break;
+        }
+      }
+    }
+    return out.slice(0, 40);
+  }, [q, items, companyOptions, topicOptions]);
+
+  useEffect(() => { setIdx(0); }, [q]);
+
+  if (!open) return null;
+
+  const select = (r: Row) => {
+    if (r.kind === "range") onSelectRange(r.value);
+    else if (r.kind === "view") onSelectView(r.value);
+    else if (r.kind === "company") onSelectCompany(r.label);
+    else if (r.kind === "topic") onSelectTopic(r.label);
+    else if (r.kind === "story") { window.open(r.link, "_blank", "noopener,noreferrer"); onClose(); }
+  };
+
+  const onKey = (e: import("react").KeyboardEvent) => {
+    if (e.key === "ArrowDown") { e.preventDefault(); setIdx((i) => Math.min(rows.length - 1, i + 1)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); setIdx((i) => Math.max(0, i - 1)); }
+    else if (e.key === "Enter") { e.preventDefault(); if (rows[idx]) select(rows[idx]); }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[10vh]" role="dialog" aria-modal="true">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="relative w-full max-w-xl overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 shadow-2xl"
+        style={{ boxShadow: `0 0 0 1px ${ACCENT}22, 0 20px 60px -10px rgba(0,0,0,0.8)` }}
+      >
+        <div className="flex items-center gap-2 border-b border-neutral-800 px-3 py-2.5">
+          <span className="text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>⌘K</span>
+          <input
+            ref={inputRef}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            onKeyDown={onKey}
+            placeholder="Jump to company, topic, story, or view…"
+            className="flex-1 bg-transparent text-sm text-neutral-100 placeholder:text-neutral-500 focus:outline-none"
+            style={{ caretColor: ACCENT }}
+          />
+          <span className="text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>ESC</span>
+        </div>
+        <ul className="max-h-[50vh] overflow-y-auto py-1">
+          {rows.length === 0 ? (
+            <li className="px-3 py-6 text-center text-xs text-neutral-500">No matches</li>
+          ) : rows.map((r, i) => (
+            <li key={`${r.kind}-${r.label}-${i}`}>
+              <button
+                onMouseEnter={() => setIdx(i)}
+                onClick={() => select(r)}
+                className="flex w-full items-center gap-3 px-3 py-2 text-left text-sm text-neutral-200"
+                style={{ background: i === idx ? "rgba(0,102,255,0.12)" : "transparent" }}
+              >
+                <span className="w-16 shrink-0 text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>{r.hint}</span>
+                <span className="min-w-0 flex-1 truncate">{r.label}</span>
+                {i === idx && <span className="text-[10px] uppercase tracking-wider" style={{ ...MONO_STYLE, color: ACCENT }}>↵</span>}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

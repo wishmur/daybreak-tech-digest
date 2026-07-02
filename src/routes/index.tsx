@@ -657,6 +657,12 @@ function TechDigestPage() {
               </button>
             );
           })}
+          <Link
+            to="/archive"
+            className="relative -mb-px px-3 py-2 text-sm font-medium text-neutral-500 transition hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+          >
+            Archive
+          </Link>
         </div>
       </nav>
 

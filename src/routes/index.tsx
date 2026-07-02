@@ -2634,3 +2634,130 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
     </main>
   );
 }
+
+// ---------- Command Palette ----------
+function CommandPalette({
+  open,
+  onClose,
+  items,
+  companyOptions,
+  topicOptions,
+  onSelectCompany,
+  onSelectTopic,
+  onSelectRange,
+  onSelectView,
+}: {
+  open: boolean;
+  onClose: () => void;
+  items: Item[];
+  companyOptions: string[];
+  topicOptions: string[];
+  onSelectCompany: (c: string) => void;
+  onSelectTopic: (t: string) => void;
+  onSelectRange: (r: DateRange) => void;
+  onSelectView: (v: ViewKey) => void;
+}) {
+  const [q, setQ] = useState("");
+  const [idx, setIdx] = useState(0);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (open) {
+      setQ("");
+      setIdx(0);
+      setTimeout(() => inputRef.current?.focus(), 10);
+    }
+  }, [open]);
+
+  type Row =
+    | { kind: "range"; label: string; hint: string; value: DateRange }
+    | { kind: "view"; label: string; hint: string; value: ViewKey }
+    | { kind: "company"; label: string; hint: string }
+    | { kind: "topic"; label: string; hint: string }
+    | { kind: "story"; label: string; hint: string; link: string };
+
+  const rows = useMemo<Row[]>(() => {
+    const query = q.trim().toLowerCase();
+    const match = (s: string) => !query || s.toLowerCase().includes(query);
+    const out: Row[] = [];
+    (["latest", "7d", "30d", "all"] as DateRange[]).forEach((r) => {
+      const label = r === "latest" ? "Latest" : r === "all" ? "All time" : `Last ${r}`;
+      if (match(label) || match("range") || match("date")) out.push({ kind: "range", label, hint: "DATE RANGE", value: r });
+    });
+    (["digest", "threads", "companies", "matrix", "trends"] as ViewKey[]).forEach((v) => {
+      const label = v.charAt(0).toUpperCase() + v.slice(1);
+      if (match(label) || match("view") || match("go to")) out.push({ kind: "view", label: `Go to ${label}`, hint: "VIEW", value: v });
+    });
+    for (const c of companyOptions) if (match(c)) out.push({ kind: "company", label: c, hint: "COMPANY" });
+    for (const t of topicOptions) if (match(t)) out.push({ kind: "topic", label: t, hint: "TOPIC" });
+    if (query.length >= 2) {
+      for (const it of items) {
+        if (it.title.toLowerCase().includes(query)) {
+          out.push({ kind: "story", label: it.title, hint: `${it.company || it.source} · ${shortDate(it.addedOn)}`, link: it.link });
+          if (out.filter((r) => r.kind === "story").length >= 8) break;
+        }
+      }
+    }
+    return out.slice(0, 40);
+  }, [q, items, companyOptions, topicOptions]);
+
+  useEffect(() => { setIdx(0); }, [q]);
+
+  if (!open) return null;
+
+  const select = (r: Row) => {
+    if (r.kind === "range") onSelectRange(r.value);
+    else if (r.kind === "view") onSelectView(r.value);
+    else if (r.kind === "company") onSelectCompany(r.label);
+    else if (r.kind === "topic") onSelectTopic(r.label);
+    else if (r.kind === "story") { window.open(r.link, "_blank", "noopener,noreferrer"); onClose(); }
+  };
+
+  const onKey = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowDown") { e.preventDefault(); setIdx((i) => Math.min(rows.length - 1, i + 1)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); setIdx((i) => Math.max(0, i - 1)); }
+    else if (e.key === "Enter") { e.preventDefault(); if (rows[idx]) select(rows[idx]); }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[10vh]" role="dialog" aria-modal="true">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="relative w-full max-w-xl overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 shadow-2xl"
+        style={{ boxShadow: `0 0 0 1px ${ACCENT}22, 0 20px 60px -10px rgba(0,0,0,0.8)` }}
+      >
+        <div className="flex items-center gap-2 border-b border-neutral-800 px-3 py-2.5">
+          <span className="text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>⌘K</span>
+          <input
+            ref={inputRef}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            onKeyDown={onKey}
+            placeholder="Jump to company, topic, story, or view…"
+            className="flex-1 bg-transparent text-sm text-neutral-100 placeholder:text-neutral-500 focus:outline-none"
+            style={{ caretColor: ACCENT }}
+          />
+          <span className="text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>ESC</span>
+        </div>
+        <ul className="max-h-[50vh] overflow-y-auto py-1">
+          {rows.length === 0 ? (
+            <li className="px-3 py-6 text-center text-xs text-neutral-500">No matches</li>
+          ) : rows.map((r, i) => (
+            <li key={`${r.kind}-${r.label}-${i}`}>
+              <button
+                onMouseEnter={() => setIdx(i)}
+                onClick={() => select(r)}
+                className="flex w-full items-center gap-3 px-3 py-2 text-left text-sm text-neutral-200"
+                style={{ background: i === idx ? "rgba(0,102,255,0.12)" : "transparent" }}
+              >
+                <span className="w-16 shrink-0 text-[10px] uppercase tracking-wider text-neutral-500" style={MONO_STYLE}>{r.hint}</span>
+                <span className="min-w-0 flex-1 truncate">{r.label}</span>
+                {i === idx && <span className="text-[10px] uppercase tracking-wider" style={{ ...MONO_STYLE, color: ACCENT }}>↵</span>}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

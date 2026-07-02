@@ -266,7 +266,57 @@ function TechDigestPage() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [view, setView] = useState<ViewKey>("digest");
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [kbdIdx, setKbdIdx] = useState<number>(-1);
   const hydrated = useRef(false);
+
+  // Cmd/Ctrl+K palette + j/k keyboard navigation across visible stories
+  useEffect(() => {
+    const isTypingTarget = (el: EventTarget | null) => {
+      if (!(el instanceof HTMLElement)) return false;
+      const tag = el.tagName;
+      return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable;
+    };
+    const onKey = (e: KeyboardEvent) => {
+      const mod = e.metaKey || e.ctrlKey;
+      if (mod && (e.key === "k" || e.key === "K")) {
+        e.preventDefault();
+        setPaletteOpen((v) => !v);
+        return;
+      }
+      if (e.key === "Escape" && paletteOpen) {
+        setPaletteOpen(false);
+        return;
+      }
+      if (paletteOpen) return;
+      if (isTypingTarget(e.target)) return;
+      if (e.key === "j" || e.key === "k") {
+        const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-story]"));
+        if (!nodes.length) return;
+        e.preventDefault();
+        setKbdIdx((i) => {
+          const next = e.key === "j" ? Math.min(nodes.length - 1, i + 1) : Math.max(0, i - 1);
+          const target = nodes[next];
+          if (target) {
+            nodes.forEach((n, ni) => n.setAttribute("data-kbd-active", ni === next ? "true" : "false"));
+            target.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+          return next;
+        });
+      } else if (e.key === "Enter" && kbdIdx >= 0) {
+        const nodes = document.querySelectorAll<HTMLElement>("[data-story]");
+        const target = nodes[kbdIdx];
+        const link = target?.getAttribute("data-story-link");
+        if (link) {
+          e.preventDefault();
+          window.open(link, "_blank", "noopener,noreferrer");
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [paletteOpen, kbdIdx]);
+
 
   // Theme
   useEffect(() => {

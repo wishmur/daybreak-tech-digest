@@ -695,6 +695,15 @@ function TechDigestPage() {
                   {latestDayLongDate}
                 </h1>
 
+                {latestDay.summary && (
+                  <p
+                    className="mt-4 max-w-3xl text-lg leading-relaxed text-[#2E2A24] sm:text-xl"
+                    style={{ fontFamily: "Source Serif 4, ui-serif, Georgia, serif" }}
+                  >
+                    {latestDay.summary}
+                  </p>
+                )}
+
                 <figure
                   className="relative mt-6 border-l bg-transparent pl-5 sm:mt-8 sm:pl-8"
                   style={{ borderLeftColor: ACCENT, borderLeftWidth: 3 }}

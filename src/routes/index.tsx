@@ -2244,24 +2244,25 @@ function TerminalTooltip({ active, payload, label, valueFormatter }: {
   if (!active || !payload || !payload.length) return null;
   return (
     <div
-      className="rounded-md border px-3 py-2 text-[11px] shadow-lg"
-      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
+      className="border px-3 py-2 text-[11px] shadow-sm"
+      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)", borderRadius: 2 }}
     >
       {label !== undefined && (
-        <div className="mb-1 uppercase tracking-wide text-neutral-400">{String(label)}</div>
+        <div className="mb-1 uppercase tracking-wide text-neutral-500">{String(label)}</div>
       )}
       <div className="space-y-0.5">
         {payload.filter((p) => p && (p.value ?? 0) !== 0).map((p, i) => (
           <div key={i} className="flex items-center gap-2">
-            <span className="inline-block h-2 w-2 rounded-sm" style={{ background: p.color ?? p.stroke ?? p.fill ?? "#666" }} />
-            <span className="text-neutral-300">{p.name ?? p.dataKey}</span>
-            <span className="ml-auto tabular-nums text-neutral-100">
+            <span className="inline-block h-2 w-2" style={{ background: p.color ?? p.stroke ?? p.fill ?? "#666" }} />
+            <span className="text-neutral-600">{p.name ?? p.dataKey}</span>
+            <span className="ml-auto tabular-nums text-neutral-900">
               {valueFormatter ? valueFormatter(Number(p.value ?? 0)) : Number(p.value ?? 0).toLocaleString()}
             </span>
           </div>
         ))}
       </div>
     </div>
+
   );
 }
 
@@ -2438,23 +2439,40 @@ function MatrixView({ items, loading }: { items: Item[]; loading: boolean }) {
 
 // ---------- Trends View (recharts) ----------
 function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
-  const WINDOW_DAYS = 30;
-  const { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels } = useMemo(() => {
+  type TrendRange = "7d" | "30d" | "90d" | "all";
+  const [range, setRange] = useState<TrendRange>("30d");
+
+  const { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels, windowLabel } = useMemo(() => {
+    const DAY = 24 * 60 * 60 * 1000;
     const now = Date.now();
-    const cutoff = now - WINDOW_DAYS * 24 * 60 * 60 * 1000;
+
+    // Establish window based on selected range. For "all", use earliest item date.
+    let windowDays: number;
+    if (range === "7d") windowDays = 7;
+    else if (range === "30d") windowDays = 30;
+    else if (range === "90d") windowDays = 90;
+    else {
+      // all time — compute span from earliest item to today
+      let earliest = now;
+      for (const it of items) {
+        const t = itemTs(it);
+        if (t < earliest) earliest = t;
+      }
+      windowDays = Math.max(1, Math.ceil((now - earliest) / DAY) + 1);
+    }
+
+    const cutoff = now - windowDays * DAY;
     const scoped = items.filter((it) => itemTs(it) >= cutoff);
 
-    // build day buckets (YYYY-MM-DD)
     const dayKeys: string[] = [];
     const dayLabels: string[] = [];
-    for (let i = WINDOW_DAYS - 1; i >= 0; i--) {
-      const d = new Date(now - i * 24 * 60 * 60 * 1000);
+    for (let i = windowDays - 1; i >= 0; i--) {
+      const d = new Date(now - i * DAY);
       const key = d.toISOString().slice(0, 10);
       dayKeys.push(key);
       dayLabels.push(`${d.getMonth() + 1}/${d.getDate()}`);
     }
 
-    // top tags by frequency in window
     const tagCount = new Map<string, number>();
     for (const it of scoped) for (const t of it.tags ?? []) tagCount.set(t, (tagCount.get(t) ?? 0) + 1);
     const tagKeys = [...tagCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([t]) => t);
@@ -2465,7 +2483,6 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
       return row;
     });
     const indexByKey = new Map(dayKeys.map((k, i) => [k, i]));
-
     const impBuckets: { day: string; sum: number; n: number; max: number }[] = dayKeys.map((_, i) => ({ day: dayLabels[i], sum: 0, n: 0, max: 0 }));
 
     for (const it of scoped) {
@@ -2488,7 +2505,6 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
       count: b.n,
     }));
 
-    // leaderboard
     const perCompany = new Map<string, { count: number; impSum: number }>();
     for (const it of scoped) {
       const set = new Set<string>();
@@ -2507,8 +2523,11 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
       avgImportance: v.count ? +(v.impSum / v.count).toFixed(2) : 0,
     }));
 
-    return { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels };
-  }, [items]);
+    const windowLabel =
+      range === "all" ? `All time · ${windowDays} days` : `Last ${windowDays} days`;
+
+    return { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels, windowLabel };
+  }, [items, range]);
 
   const [sortBy, setSortBy] = useState<"mentions" | "avgImportance">("mentions");
   const sortedLeaderboard = useMemo(
@@ -2518,60 +2537,114 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
 
   if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
 
-  const axisStyle = { fontSize: 10, fill: "#8A93A6", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" };
-  const gridColor = "#DDD8CC";
+  const INK = "#1A1A1A";
+  const MUTED = "#6B6B6B";
+  const RULE = "#DDD8CC";
+  const axisStyle = { fontSize: 11, fill: MUTED, fontFamily: "'Source Serif 4', Georgia, serif" };
+  const gridColor = RULE;
+
+  // Editorial categorical palette — inked variants for stacked areas
+  const editorialPalette = ["#1A1A1A", "#B3261E", "#6B6B6B", "#8C6E4A", "#2E4A3B", "#A8956B"];
+  const colorForTag = (i: number) => editorialPalette[i % editorialPalette.length];
+
+  const rangeOptions = [
+    { value: "7d", label: "Last 7 days" },
+    { value: "30d", label: "Last 30 days" },
+    { value: "90d", label: "Last 90 days" },
+    { value: "all", label: "All time" },
+  ];
 
   return (
-    <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6">
+    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6">
+      {/* Range filter — drives all three charts */}
+      <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[#DDD8CC] pb-4 dark:border-neutral-800">
+        <div>
+          <div
+            className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400"
+            style={MONO_STYLE}
+          >
+            Trends
+          </div>
+          <h1 className="mt-1 font-serif text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+            Coverage patterns over time
+          </h1>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {rangeOptions.map((opt) => {
+            const active = range === opt.value;
+            return (
+              <button
+                key={opt.value}
+                onClick={() => setRange(opt.value as TrendRange)}
+                className="border px-3 py-1.5 text-[12px] uppercase tracking-[0.14em] transition"
+                style={{
+                  ...MONO_STYLE,
+                  borderColor: active ? ACCENT : RULE,
+                  color: active ? ACCENT : INK,
+                  background: "transparent",
+                  borderRadius: 2,
+                  fontWeight: active ? 600 : 400,
+                }}
+              >
+                {opt.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Stacked area: stories per topic tag */}
-      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
-        <header className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+      <section className="border-t border-[#DDD8CC] pt-6 dark:border-neutral-800">
+        <header className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <div>
-            <h2 className="text-sm font-semibold text-neutral-100">Daily stories by topic</h2>
-            <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
-              Last {WINDOW_DAYS} days · top {tagKeys.length} tags
+            <h2 className="font-serif text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+              Daily stories by topic
+            </h2>
+            <p className="mt-0.5 text-[11px] uppercase tracking-[0.14em] text-neutral-500" style={MONO_STYLE}>
+              {windowLabel} · top {tagKeys.length} tags
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {tagKeys.map((t) => {
-              const s = tagStyle(t);
-              return (
-                <span key={t} className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-neutral-400" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
-                  <span className="inline-block h-2 w-2 rounded-sm" style={{ background: s.dot }} />
-                  {tagLabel(t)}
-                </span>
-              );
-            })}
+          <div className="flex flex-wrap gap-3">
+            {tagKeys.map((t, i) => (
+              <span
+                key={t}
+                className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.14em] text-neutral-600 dark:text-neutral-300"
+                style={MONO_STYLE}
+              >
+                <span className="inline-block h-2 w-2" style={{ background: colorForTag(i) }} />
+                {tagLabel(t)}
+              </span>
+            ))}
           </div>
         </header>
         <div className="h-72 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={dailyByTag} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
               <defs>
-                {tagKeys.map((t) => {
-                  const c = tagStyle(t).dot;
+                {tagKeys.map((t, i) => {
+                  const c = colorForTag(i);
                   return (
                     <linearGradient id={`grad-${t}`} key={t} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={c} stopOpacity={0.7} />
-                      <stop offset="100%" stopColor={c} stopOpacity={0.15} />
+                      <stop offset="0%" stopColor={c} stopOpacity={0.6} />
+                      <stop offset="100%" stopColor={c} stopOpacity={0.1} />
                     </linearGradient>
                   );
                 })}
               </defs>
-              <CartesianGrid stroke={gridColor} vertical={false} />
+              <CartesianGrid stroke={gridColor} vertical={false} strokeWidth={1} />
               <XAxis dataKey="day" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} interval={Math.max(0, Math.floor(dayLabels.length / 10) - 1)} />
               <YAxis tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={28} allowDecimals={false} />
-              <Tooltip content={<TerminalTooltip />} cursor={{ fill: "rgba(0,102,255,0.06)" }} />
-              {tagKeys.map((t) => (
+              <Tooltip content={<TerminalTooltip />} cursor={{ fill: "rgba(179,38,30,0.06)" }} />
+              {tagKeys.map((t, i) => (
                 <Area
                   key={t}
                   type="monotone"
                   dataKey={t}
                   name={tagLabel(t)}
                   stackId="1"
-                  stroke={tagStyle(t).dot}
+                  stroke={colorForTag(i)}
                   fill={`url(#grad-${t})`}
-                  strokeWidth={1.5}
+                  strokeWidth={1.25}
                 />
               ))}
             </AreaChart>
@@ -2580,11 +2653,13 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
       </section>
 
       {/* Avg importance line */}
-      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
-        <header className="mb-3">
-          <h2 className="text-sm font-semibold text-neutral-100">Signal strength</h2>
-          <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
-            Average importance per day — spikes mark high-signal days
+      <section className="border-t border-[#DDD8CC] pt-6 dark:border-neutral-800">
+        <header className="mb-4">
+          <h2 className="font-serif text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+            Signal strength
+          </h2>
+          <p className="mt-0.5 text-[11px] uppercase tracking-[0.14em] text-neutral-500" style={MONO_STYLE}>
+            {windowLabel} · average importance per day
           </p>
         </header>
         <div className="h-64 w-full">
@@ -2594,20 +2669,22 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
               <XAxis dataKey="day" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} interval={Math.max(0, Math.floor(dayLabels.length / 10) - 1)} />
               <YAxis domain={[0, 5]} tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={28} />
               <Tooltip content={<TerminalTooltip valueFormatter={(v) => v.toFixed(2)} />} cursor={{ stroke: ACCENT, strokeOpacity: 0.3 }} />
-              <Line type="monotone" dataKey="avg" name="Avg importance" stroke={ACCENT} strokeWidth={2} dot={{ r: 2, fill: ACCENT, stroke: ACCENT }} activeDot={{ r: 4 }} />
-              <Line type="monotone" dataKey="max" name="Peak" stroke="#64748B" strokeWidth={1} strokeDasharray="3 3" dot={false} />
+              <Line type="monotone" dataKey="avg" name="Avg importance" stroke={ACCENT} strokeWidth={2} dot={{ r: 2.5, fill: ACCENT, stroke: ACCENT }} activeDot={{ r: 5 }} />
+              <Line type="monotone" dataKey="max" name="Peak" stroke={INK} strokeWidth={1} strokeDasharray="3 3" dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
       </section>
 
       {/* Company leaderboard */}
-      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
-        <header className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
+      <section className="border-t border-[#DDD8CC] pt-6 dark:border-neutral-800">
+        <header className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
           <div>
-            <h2 className="text-sm font-semibold text-neutral-100">Company leaderboard</h2>
-            <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
-              Total mentions over last {WINDOW_DAYS} days
+            <h2 className="font-serif text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+              Company leaderboard
+            </h2>
+            <p className="mt-0.5 text-[11px] uppercase tracking-[0.14em] text-neutral-500" style={MONO_STYLE}>
+              {windowLabel} · {sortBy === "mentions" ? "total mentions" : "average importance"}
             </p>
           </div>
           <Segmented
@@ -2619,14 +2696,14 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
             ]}
           />
         </header>
-        <div style={{ height: Math.max(160, sortedLeaderboard.length * 26 + 40) }} className="w-full">
+        <div style={{ height: Math.max(160, sortedLeaderboard.length * 28 + 40) }} className="w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={sortedLeaderboard} layout="vertical" margin={{ top: 4, right: 16, left: 8, bottom: 4 }}>
               <CartesianGrid stroke={gridColor} horizontal={false} />
               <XAxis type="number" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} allowDecimals={sortBy === "avgImportance"} />
-              <YAxis type="category" dataKey="company" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={110} />
-              <Tooltip content={<TerminalTooltip valueFormatter={(v) => (sortBy === "avgImportance" ? v.toFixed(2) : String(v))} />} cursor={{ fill: "rgba(0,102,255,0.08)" }} />
-              <Bar dataKey={sortBy} name={sortBy === "mentions" ? "Mentions" : "Avg importance"} fill={ACCENT} radius={[0, 2, 2, 0]} />
+              <YAxis type="category" dataKey="company" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={120} />
+              <Tooltip content={<TerminalTooltip valueFormatter={(v) => (sortBy === "avgImportance" ? v.toFixed(2) : String(v))} />} cursor={{ fill: "rgba(179,38,30,0.08)" }} />
+              <Bar dataKey={sortBy} name={sortBy === "mentions" ? "Mentions" : "Avg importance"} fill={INK} radius={[0, 0, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -2634,6 +2711,7 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
     </main>
   );
 }
+
 
 // ---------- Command Palette ----------
 function CommandPalette({

@@ -963,12 +963,41 @@ function TechDigestPage() {
         <TrendsView items={allItems} loading={loading && !digest} />
       )}
 
-      <footer className="mx-auto max-w-6xl px-4 pb-10 pt-4 text-xs text-neutral-400 sm:px-6">
-        Auto-refreshes every 10 minutes.
+      <footer className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6">
+        <div className="flex flex-col gap-2 border-t border-neutral-200 pt-4 text-[11px] text-neutral-500 sm:flex-row sm:items-center sm:justify-between dark:border-neutral-800 dark:text-neutral-500" style={MONO_STYLE}>
+          <span className="uppercase tracking-wider">
+            Built by{" "}
+            <a
+              href="https://shailvi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#0066FF] dark:text-neutral-200 dark:hover:text-[#0066FF]"
+            >
+              Shailvi Kumar
+            </a>
+            {" "}— GitHub Actions + Claude API + Supabase + Lovable
+          </span>
+          <span className="uppercase tracking-wider text-neutral-400 dark:text-neutral-600">
+            <kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">⌘K</kbd> palette · <kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">j</kbd>/<kbd className="rounded border border-neutral-300 px-1.5 py-0.5 text-[10px] dark:border-neutral-700">k</kbd> nav · auto-refresh 10m
+          </span>
+        </div>
       </footer>
+
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        items={allItems}
+        companyOptions={companyOptions}
+        topicOptions={topicOptions}
+        onSelectCompany={(c) => { setFilters({ ...DEFAULT_FILTERS, range: "30d", companies: [c] }); setView("digest"); setPaletteOpen(false); }}
+        onSelectTopic={(t) => { setFilters({ ...DEFAULT_FILTERS, range: "30d", topics: [t] }); setView("digest"); setPaletteOpen(false); }}
+        onSelectRange={(r) => { setFilters({ ...filters, range: r }); setView("digest"); setPaletteOpen(false); }}
+        onSelectView={(v) => { setView(v); setPaletteOpen(false); }}
+      />
     </div>
   );
 }
+
 
 // ---------- Filter Bar ----------
 function FilterBar({

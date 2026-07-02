@@ -604,7 +604,7 @@ function TechDigestPage() {
               src={daybreakLogo.url}
               alt=""
               aria-hidden="true"
-              className="h-14 w-14 rounded-sm opacity-90"
+              className="h-14 w-14 rounded-lg opacity-90"
             />
             <Link
               to="/how-it-works"
@@ -672,7 +672,7 @@ function TechDigestPage() {
       {/* Digest view */}
       {view === "digest" && (
         <>
-          <section className="mx-auto max-w-6xl px-4 pt-6 sm:px-6 sm:pt-10">
+          <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-12">
             {loading && !digest ? (
               <BriefSkeleton />
             ) : latestDay ? (
@@ -748,7 +748,7 @@ function TechDigestPage() {
 
           {/* Sticky filter bar */}
           {showFilterBar && (
-            <div className="sticky top-[30px] z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
+            <div className="sticky top-[30px] z-20 mt-8 border-t border-[#E8E2D2] bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="flex items-center justify-between gap-2 py-2 md:hidden">
                   <button
@@ -1086,7 +1086,7 @@ function Pagination({
   const start = (page - 1) * pageSize + 1;
   const end = Math.min(total, page * pageSize);
   const btn =
-    "border border-[#DDD8CC] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 dark:border-neutral-800";
+    "border border-[#E8E2D2] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] transition-colors duration-150 dark:border-neutral-800";
   const active = "border-[#B3261E] text-[#B3261E]";
   const inactive =
     "text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
@@ -1094,7 +1094,7 @@ function Pagination({
 
   return (
     <nav
-      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#DDD8CC] pt-5 dark:border-neutral-800"
+      className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#E8E2D2] pt-5 dark:border-neutral-800"
       aria-label="Pagination"
       style={MONO_STYLE}
     >

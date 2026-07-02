@@ -34,7 +34,7 @@ body, p, h1, h2, h3, h4, h5, h6, blockquote, figure, li {
 [style*="var(--font-mono"],
 .font-mono {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.02em !important;
   font-feature-settings: "tnum";
 }
 

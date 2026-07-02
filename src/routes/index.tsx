@@ -512,21 +512,27 @@ function TechDigestPage() {
     });
   }, [itemsInRange, filters]);
 
+  const topStoryIds = useMemo(() => new Set(topStories.map((s) => s.id)), [topStories]);
+  const displayItems = useMemo(
+    () => filteredItems.filter((it) => !topStoryIds.has(it.id)),
+    [filteredItems, topStoryIds],
+  );
+
   // Latest view: combined score sorting (48h window). Other ranges: group by day.
   const isLatest = filters.range === "latest";
   const latestSorted = useMemo(() => {
     if (!isLatest) return [] as Item[];
     const now = Date.now();
     const winMs = 48 * 60 * 60 * 1000;
-    return [...filteredItems].sort(
+    return [...displayItems].sort(
       (a, b) => combinedScore(b, now, winMs) - combinedScore(a, now, winMs),
     );
-  }, [filteredItems, isLatest]);
+  }, [displayItems, isLatest]);
 
   const groups = useMemo(() => {
     if (isLatest) return [] as [string, Item[]][];
     const map = new Map<string, Item[]>();
-    for (const it of filteredItems) {
+    for (const it of displayItems) {
       if (!map.has(it.addedOn)) map.set(it.addedOn, []);
       map.get(it.addedOn)!.push(it);
     }
@@ -539,7 +545,7 @@ function TechDigestPage() {
       );
     }
     return ordered;
-  }, [filteredItems, isLatest]);
+  }, [displayItems, isLatest]);
 
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
   const hasAnyFilter =

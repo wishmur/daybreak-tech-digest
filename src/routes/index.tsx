@@ -453,73 +453,6 @@ function TechDigestPage() {
     });
   }, [latestDay]);
 
-  // Storylines: same topic OR company on 3+ consecutive days
-  const storylines = useMemo(() => {
-    if (!digest) return [] as { key: string; label: string; days: number; kind: "company" | "topic"; latestDate: string }[];
-    // Sort days ascending
-    const days = [...digest.days].sort((a, b) => (a.date < b.date ? -1 : 1));
-    // Build sets per day
-    const perDay: { date: string; companies: Set<string>; topics: Set<string> }[] = days.map((d) => {
-      const companies = new Set<string>();
-      const topics = new Set<string>();
-      for (const it of d.items) {
-        if (it.company) companies.add(it.company);
-        for (const c of it.secondaryCompanies ?? []) if (c) companies.add(c);
-        if (it.topic) topics.add(it.topic);
-      }
-      return { date: d.date, companies, topics };
-    });
-
-    type Run = { key: string; kind: "company" | "topic"; startIdx: number; endIdx: number };
-    const runs: Record<string, Run> = {};
-    const finalized: Run[] = [];
-
-    const step = (kind: "company" | "topic", getSet: (i: number) => Set<string>) => {
-      const active: Record<string, Run> = {};
-      for (let i = 0; i < perDay.length; i++) {
-        const set = getSet(i);
-        // Extend existing
-        for (const key of Object.keys(active)) {
-          if (set.has(key)) active[key].endIdx = i;
-          else {
-            if (active[key].endIdx - active[key].startIdx + 1 >= 3) finalized.push(active[key]);
-            delete active[key];
-          }
-        }
-        // Start new
-        for (const key of set) {
-          if (!active[key]) active[key] = { key, kind, startIdx: i, endIdx: i };
-        }
-      }
-      for (const key of Object.keys(active)) {
-        if (active[key].endIdx - active[key].startIdx + 1 >= 3) finalized.push(active[key]);
-      }
-    };
-    step("company", (i) => perDay[i].companies);
-    step("topic", (i) => perDay[i].topics);
-
-    // Prefer the longest active-through-today runs
-    const today = days[days.length - 1]?.date;
-    const results = finalized
-      .map((r) => {
-        const dayCount = r.endIdx - r.startIdx + 1;
-        const latestDate = perDay[r.endIdx].date;
-        return {
-          key: `${r.kind}:${r.key}`,
-          label: r.key,
-          kind: r.kind,
-          days: dayCount,
-          latestDate,
-          active: latestDate === today,
-        };
-      })
-      .filter((r) => r.days >= 3)
-      .sort((a, b) => Number(b.active) - Number(a.active) || b.days - a.days)
-      .slice(0, 6);
-
-    void runs;
-    return results;
-  }, [digest]);
 
   // Date cutoff for filtering
   const dateCutoff = useMemo<Date | null>(() => {
@@ -782,43 +715,6 @@ function TechDigestPage() {
                   </figcaption>
                 </figure>
 
-                {storylines.length > 0 && (
-                  <div className="mt-6 border-t border-neutral-200 pt-4 dark:border-neutral-800">
-                    <div
-                      className="text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400"
-                      style={MONO_STYLE}
-                    >
-                      Storylines in progress
-                    </div>
-                    <ul className="mt-2 flex flex-wrap gap-1.5">
-                      {storylines.map((s) => (
-                        <li key={s.key}>
-                          <button
-                            onClick={() => {
-                              if (s.kind === "company") {
-                                setFilters({ ...DEFAULT_FILTERS, range: "30d", companies: [s.label] });
-                                setView("companies");
-                              } else {
-                                setFilters({ ...DEFAULT_FILTERS, range: "30d", topics: [s.label] });
-                                setView("digest");
-                              }
-                            }}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-xs font-medium text-neutral-700 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
-                          >
-                            <span
-                              className="inline-block h-1.5 w-1.5 rounded-full"
-                              style={{ backgroundColor: ACCENT }}
-                            />
-                            {s.label}
-                            <span className="text-neutral-400 dark:text-neutral-500">
-                              · Day {s.days}
-                            </span>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
 
                 {topStories.length > 0 && (
                   <div className="mt-10">
@@ -1926,8 +1822,9 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
     maxImportance: number;
     recent7: number;
     prev7: number;
-    velocity: number; // -1..+1
+    velocity: number;
     lastTs: number;
+    recap: string;
   };
 
   const threads = useMemo<Thread[]>(() => {
@@ -1941,7 +1838,6 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
     for (const [key, arr] of byKey.entries()) {
       const sorted = [...arr].sort((a, b) => itemTs(a) - itemTs(b));
       const [topic, company] = key.split("::");
-      // Group by day
       const dayMap = new Map<string, Item[]>();
       for (const it of sorted) {
         if (!dayMap.has(it.addedOn)) dayMap.set(it.addedOn, []);
@@ -1954,13 +1850,13 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
           items: its,
           importance: its.reduce((s, i) => s + (i.importance || 0), 0),
         }));
+      if (days.length < 3) continue;
       const start = days[0].date;
       const end = days[days.length - 1].date;
       const spanDays =
         Math.round(
           (parseYMD(end).getTime() - parseYMD(start).getTime()) / DAY_MS,
         ) + 1;
-      // Velocity: last 7 days vs previous 7 days by item count
       let recent7 = 0;
       let prev7 = 0;
       for (const it of sorted) {
@@ -1969,10 +1865,34 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
         else if (age <= 14 * DAY_MS) prev7 += 1;
       }
       const denom = Math.max(1, recent7 + prev7);
-      const velocity = (recent7 - prev7) / denom; // -1..+1
+      const velocity = (recent7 - prev7) / denom;
+
+      // Editorial headline: "Company's Topic story"
+      const co = company !== "—" ? company : "Various outlets";
+      const tp = topic !== "—" ? topic : "developing coverage";
+      const title = company !== "—" && topic !== "—"
+        ? `${company}'s ${topic} story`
+        : `${co} · ${tp}`;
+
+      // Auto-generated "story so far" recap synthesized from the thread
+      const firstItem = sorted[0];
+      const peakItem = [...sorted].sort(
+        (a, b) => (b.importance || 0) - (a.importance || 0),
+      )[0];
+      const latestItem = sorted[sorted.length - 1];
+      const stripTrail = (s: string) => s.replace(/[.!?…]+\s*$/, "");
+      let recap: string;
+      if (peakItem && peakItem !== firstItem && peakItem !== latestItem) {
+        recap = `Began ${shortDate(start)} with "${stripTrail(firstItem.title)}"; peaked when "${stripTrail(peakItem.title)}"; latest development: "${stripTrail(latestItem.title)}."`;
+      } else if (latestItem !== firstItem) {
+        recap = `Began ${shortDate(start)} with "${stripTrail(firstItem.title)}" and continues through ${shortDate(end)} with "${stripTrail(latestItem.title)}."`;
+      } else {
+        recap = `${stripTrail(firstItem.title)}.`;
+      }
+
       list.push({
         key,
-        title: `${company !== "—" ? company : "Various"} · ${topic !== "—" ? topic : "Unclassified"}`,
+        title,
         topic,
         company,
         items: sorted,
@@ -1986,38 +1906,49 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
         prev7,
         velocity,
         lastTs: itemTs(sorted[sorted.length - 1]),
+        recap,
       });
     }
-    return list
-      .filter((t) => t.uniqueDays >= 2)
-      .sort(
-        (a, b) =>
-          b.recent7 - a.recent7 ||
-          b.spanDays - a.spanDays ||
-          b.lastTs - a.lastTs,
-      );
+    return list.sort(
+      (a, b) =>
+        b.uniqueDays - a.uniqueDays ||
+        b.spanDays - a.spanDays ||
+        b.lastTs - a.lastTs,
+    );
   }, [items, now]);
 
   if (loading)
     return (
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <ListSkeleton />
       </div>
     );
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-300">
-        Auto-detected running storylines — each node is a day the thread appeared, sized by that day's importance.
-      </p>
-      {threads.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-neutral-300 p-10 text-center text-sm text-neutral-500 dark:border-neutral-700">
-          No multi-day threads yet.
+    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-8">
+      <header className="mb-12 border-b border-[#DDD8CC] pb-6 dark:border-neutral-800">
+        <div
+          className="text-[11px] uppercase tracking-[0.22em] text-neutral-500 dark:text-neutral-400"
+          style={MONO_STYLE}
+        >
+          Ongoing Coverage
         </div>
+        <h1 className="mt-2 font-serif text-4xl font-semibold leading-tight tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
+          Story Threads
+        </h1>
+        <p className="mt-3 max-w-xl font-serif text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-300">
+          Developing stories tracked across three or more days of coverage, ordered by longest running.
+        </p>
+      </header>
+
+      {threads.length === 0 ? (
+        <p className="font-serif text-[15px] italic text-neutral-500 dark:text-neutral-400">
+          No multi-day threads have developed yet. Check back after a few days of coverage.
+        </p>
       ) : (
-        <div className="space-y-4">
+        <div className="divide-y divide-[#DDD8CC] dark:divide-neutral-800">
           {threads.map((t) => (
-            <ThreadTrack key={t.key} thread={t} />
+            <ThreadModule key={t.key} thread={t} />
           ))}
         </div>
       )}
@@ -2025,7 +1956,7 @@ function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
   );
 }
 
-function ThreadTrack({
+function ThreadModule({
   thread: t,
 }: {
   thread: {
@@ -2044,189 +1975,135 @@ function ThreadTrack({
     prev7: number;
     velocity: number;
     lastTs: number;
+    recap: string;
   };
 }) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const isMajor = t.spanDays > 14;
-  const DAY_MS = 86400000;
-  const PX_PER_DAY = 22;
-  const startMs = parseYMD(t.start).getTime();
-  const trackWidth = Math.max(120, (t.spanDays - 1) * PX_PER_DAY + 40);
   const maxDayImp = Math.max(1, ...t.days.map((d) => d.importance));
 
   const velocityLabel =
-    t.velocity > 0.15 ? "up" : t.velocity < -0.15 ? "down" : "flat";
-  const velocityColor =
-    velocityLabel === "up"
-      ? "#16A34A"
-      : velocityLabel === "down"
-        ? "#DC2626"
-        : "#737373";
-  const velocityArrow =
-    velocityLabel === "up" ? "▲" : velocityLabel === "down" ? "▼" : "▬";
+    t.velocity > 0.15 ? "Accelerating" : t.velocity < -0.15 ? "Cooling" : "Steady";
 
   const selectedDay = selectedDate
     ? t.days.find((d) => d.date === selectedDate)
     : null;
 
   return (
-    <section
-      className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900"
-      style={{
-        borderRadius: 6,
-        ...(isMajor
-          ? {
-              borderLeft: `2px solid ${ACCENT}`,
-              boxShadow: `0 0 0 1px ${ACCENT}22`,
-            }
-          : {}),
-      }}
-    >
-      <header className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-        <h3 className="text-[15px] font-semibold text-neutral-900 dark:text-neutral-50">
-          {t.title}
-        </h3>
-        <span
-          className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
-          style={MONO_STYLE}
-        >
-          Day {t.spanDays}
-        </span>
-        {isMajor && (
-          <span
-            className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white"
-            style={{
-              ...MONO_STYLE,
-              backgroundColor: ACCENT,
-              padding: "2px 6px",
-              borderRadius: 3,
-            }}
-          >
-            Major storyline
-          </span>
-        )}
-        <span
-          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider"
-          style={{ ...MONO_STYLE, color: velocityColor }}
-          title={`Recent 7d: ${t.recent7} · Prev 7d: ${t.prev7}`}
-        >
-          <span>{velocityArrow}</span>
-          <span>
-            {velocityLabel === "up"
-              ? "Accelerating"
-              : velocityLabel === "down"
-                ? "Cooling"
-                : "Steady"}
-          </span>
-        </span>
-        <span
-          className="ml-auto text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
-          style={MONO_STYLE}
-        >
-          {shortDate(t.start)} – {shortDate(t.end)} · {t.items.length} items
-        </span>
-      </header>
-
-      <div className="relative overflow-x-auto pb-2">
-        <div
-          className="relative h-16"
-          style={{ width: `${trackWidth}px`, minWidth: "100%" }}
-        >
-          {/* Connecting line */}
-          <div
-            className="absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-neutral-300 dark:bg-neutral-700"
-            aria-hidden
-          />
-          {/* Nodes */}
-          {t.days.map((d) => {
-            const offset =
-              (parseYMD(d.date).getTime() - startMs) / DAY_MS;
-            const left = offset * PX_PER_DAY + 20;
-            const sizeRatio = d.importance / maxDayImp;
-            const size = Math.round(8 + sizeRatio * 16); // 8..24
-            const isSelected = selectedDate === d.date;
-            return (
-              <button
-                key={d.date}
-                onClick={() =>
-                  setSelectedDate(isSelected ? null : d.date)
-                }
-                className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full transition hover:scale-110 focus:outline-none"
-                style={{
-                  left: `${left}px`,
-                  width: `${size}px`,
-                  height: `${size}px`,
-                  backgroundColor: isSelected ? ACCENT : "transparent",
-                  border: `2px solid ${ACCENT}`,
-                  boxShadow: isSelected
-                    ? `0 0 0 3px ${ACCENT}33`
-                    : "none",
-                }}
-                title={`${shortDate(d.date)} · ${d.items.length} item${d.items.length === 1 ? "" : "s"} · importance ${d.importance}`}
-                aria-label={`${shortDate(d.date)}, ${d.items.length} items`}
-              />
-            );
-          })}
-        </div>
-        {/* Axis labels: start / mid / end */}
-        <div
-          className="mt-1 flex justify-between text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
-          style={{ ...MONO_STYLE, width: `${trackWidth}px`, minWidth: "100%" }}
-        >
-          <span>{shortDate(t.start)}</span>
-          <span>{shortDate(t.end)}</span>
-        </div>
+    <section className="py-12 first:pt-0">
+      {/* Dateline */}
+      <div
+        className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400"
+        style={MONO_STYLE}
+      >
+        <span>Day {t.uniqueDays} of coverage</span>
+        <span className="text-neutral-300 dark:text-neutral-700">·</span>
+        <span>{shortDate(t.start)} — {shortDate(t.end)}</span>
+        <span className="text-neutral-300 dark:text-neutral-700">·</span>
+        <span>{t.items.length} dispatches</span>
+        <span className="text-neutral-300 dark:text-neutral-700">·</span>
+        <span>{velocityLabel}</span>
       </div>
 
-      {selectedDay && (
-        <div className="mt-3 border-t border-neutral-200 pt-3 dark:border-neutral-800">
+      {/* Headline */}
+      <h2 className="font-serif text-[28px] font-semibold leading-[1.15] tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-[32px]">
+        {t.title}
+      </h2>
+
+      {/* Story so far recap */}
+      <p className="mt-4 max-w-2xl font-serif text-[17px] leading-[1.6] text-neutral-700 dark:text-neutral-300">
+        <span
+          className="mr-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400"
+          style={MONO_STYLE}
+        >
+          The story so far —
+        </span>
+        {t.recap}
+      </p>
+
+      {/* Vertical timeline */}
+      <div className="mt-8 pl-6">
+        <ol className="relative">
           <div
-            className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
-            style={MONO_STYLE}
-          >
-            <span>
-              {shortDate(selectedDay.date)} · {selectedDay.items.length} item
-              {selectedDay.items.length === 1 ? "" : "s"}
-            </span>
-            <button
-              onClick={() => setSelectedDate(null)}
-              className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
-            >
-              Close ×
-            </button>
-          </div>
-          <div className="space-y-2">
-            {selectedDay.items.map((it) => (
-              <a
-                key={it.id}
-                href={it.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block border border-neutral-200 p-3 transition hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
-                style={{ borderRadius: 4 }}
-              >
-                <div
-                  className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
-                  style={MONO_STYLE}
+            className="absolute left-[5px] top-1 bottom-1 w-px bg-[#DDD8CC] dark:bg-neutral-700"
+            aria-hidden
+          />
+          {t.days.map((d) => {
+            const sizeRatio = d.importance / maxDayImp;
+            const size = Math.round(8 + sizeRatio * 10); // 8..18
+            const isSelected = selectedDate === d.date;
+            const primary = d.items.reduce((best, cur) =>
+              (cur.importance || 0) > (best.importance || 0) ? cur : best,
+            d.items[0]);
+            return (
+              <li key={d.date} className="relative mb-5 last:mb-0">
+                <button
+                  onClick={() =>
+                    setSelectedDate(isSelected ? null : d.date)
+                  }
+                  className="absolute -left-[1px] top-1.5 rounded-full transition hover:scale-125"
+                  style={{
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    marginLeft: `${(18 - size) / 2}px`,
+                    backgroundColor: isSelected ? ACCENT : "#1A1A1A",
+                    boxShadow: isSelected ? `0 0 0 4px ${ACCENT}22` : "none",
+                  }}
+                  aria-label={`${shortDate(d.date)}, ${d.items.length} items`}
+                />
+                <button
+                  onClick={() =>
+                    setSelectedDate(isSelected ? null : d.date)
+                  }
+                  className="ml-8 block text-left"
                 >
-                  {it.source}
-                </div>
-                <div className="mt-0.5 text-[14px] font-semibold leading-snug text-neutral-900 dark:text-neutral-50">
-                  {it.title}
-                </div>
-                {it.summary && (
-                  <p className="mt-1 line-clamp-2 text-[13px] text-neutral-600 dark:text-neutral-300">
-                    {it.summary}
-                  </p>
+                  <div
+                    className="text-[11px] uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400"
+                    style={MONO_STYLE}
+                  >
+                    {shortDate(d.date)}
+                    {d.items.length > 1 ? ` · ${d.items.length} items` : ""}
+                  </div>
+                  <div className="mt-1 font-serif text-[15px] leading-snug text-neutral-800 group-hover:underline dark:text-neutral-200">
+                    {primary.title}
+                  </div>
+                </button>
+                {isSelected && (
+                  <div className="ml-8 mt-3 space-y-3 border-l border-[#DDD8CC] pl-4 dark:border-neutral-800">
+                    {d.items.map((it) => (
+                      <a
+                        key={it.id}
+                        href={it.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <div
+                          className="text-[10px] uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400"
+                          style={MONO_STYLE}
+                        >
+                          {it.source}
+                        </div>
+                        <div className="mt-0.5 font-serif text-[15px] font-medium leading-snug text-neutral-900 hover:underline dark:text-neutral-50">
+                          {it.title}
+                        </div>
+                        {it.summary && (
+                          <p className="mt-1 font-serif text-[14px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+                            {it.summary}
+                          </p>
+                        )}
+                      </a>
+                    ))}
+                  </div>
                 )}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </section>
   );
 }
+
 
 
 // ---------- Companies View ----------

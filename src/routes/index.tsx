@@ -1229,6 +1229,123 @@ const MONO_STYLE: React.CSSProperties = {
   fontFamily: "JetBrains Mono, ui-monospace, SFMono-Regular, monospace",
 };
 
+// Typing / reveal animation for the daily brief. Runs once per unique text.
+function TypedBrief({ text }: { text: string }) {
+  const [count, setCount] = useState(0);
+  const lastText = useRef<string>("");
+  useEffect(() => {
+    if (!text) return;
+    if (lastText.current === text) return;
+    lastText.current = text;
+    setCount(0);
+    const total = text.length;
+    // Duration scales with length but capped so long briefs don't drag.
+    const perChar = Math.max(8, Math.min(22, 1400 / Math.max(1, total)));
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += Math.max(1, Math.round(total / 180)); // step multiple chars for smoothness
+      if (i >= total) {
+        setCount(total);
+        window.clearInterval(id);
+      } else {
+        setCount(i);
+      }
+    }, perChar);
+    return () => window.clearInterval(id);
+  }, [text]);
+  const shown = text.slice(0, count);
+  const done = count >= text.length;
+  return (
+    <>
+      <span>{shown}</span>
+      {!done && (
+        <span
+          aria-hidden
+          className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[0.1em] animate-pulse align-middle"
+          style={{ backgroundColor: ACCENT }}
+        />
+      )}
+    </>
+  );
+}
+
+// Featured card for the top stories of the day
+function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
+  const label = (item.company || item.source || "?").trim();
+  const initial = label.charAt(0).toUpperCase();
+  const imp = Math.max(0, Math.min(5, item.importance || 0));
+  const isTop = imp >= 5;
+  return (
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-600"
+      style={{
+        borderRadius: 6,
+        ...(isTop
+          ? {
+              borderLeft: `2px solid ${ACCENT}`,
+              boxShadow: `0 0 0 1px ${ACCENT}22, 0 0 24px -8px ${ACCENT}55`,
+            }
+          : {}),
+      }}
+    >
+      <div className="flex items-center gap-3">
+        <span
+          className="flex h-9 w-9 shrink-0 items-center justify-center text-[15px] font-semibold text-white"
+          style={{
+            backgroundColor: ACCENT,
+            borderRadius: 4,
+            fontFamily: "Inter, ui-sans-serif, system-ui",
+          }}
+          aria-hidden
+        >
+          {initial}
+        </span>
+        <div className="min-w-0 flex-1">
+          <div
+            className="truncate text-[11px] font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-200"
+            style={MONO_STYLE}
+          >
+            {label}
+          </div>
+          <div
+            className="truncate text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+            style={MONO_STYLE}
+          >
+            {item.topic || item.source}
+          </div>
+        </div>
+        <span
+          className="shrink-0 text-[10px] tabular-nums text-neutral-400 dark:text-neutral-600"
+          style={MONO_STYLE}
+        >
+          {String(rank).padStart(2, "0")}
+        </span>
+      </div>
+      <h3 className="text-[15px] font-semibold leading-snug text-neutral-900 group-hover:underline dark:text-neutral-50">
+        {item.title}
+      </h3>
+      {item.summary && (
+        <p className="line-clamp-3 text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-300">
+          {item.summary}
+        </p>
+      )}
+      <div className="mt-auto flex items-center justify-between pt-1">
+        <span
+          className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+          style={MONO_STYLE}
+        >
+          {item.source}
+        </span>
+        <ImportanceBadge value={item.importance} />
+      </div>
+    </a>
+  );
+}
+
+
 function ItemCard({ item }: { item: Item }) {
   const v = Math.max(0, Math.min(5, item.importance || 0));
   if (v <= 2) return <ItemRow item={item} />;

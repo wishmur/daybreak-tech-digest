@@ -250,7 +250,7 @@ function TechDigestPage() {
   const [errorDismissed, setErrorDismissed] = useState(false);
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [view, setView] = useState<ViewKey>("digest");
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
   const hydrated = useRef(false);

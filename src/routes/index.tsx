@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import daybreakLogo from "@/assets/daybreak-logo.png.asset.json";
 import {
@@ -614,14 +614,23 @@ function TechDigestPage() {
               </p>
             </div>
           </div>
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
-            style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
-          >
-            {theme === "dark" ? "LIGHT" : "DARK"}
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <Link
+              to="/how-it-works"
+              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
+            >
+              System
+            </Link>
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
+            >
+              {theme === "dark" ? "LIGHT" : "DARK"}
+            </button>
+          </div>
         </div>
       </header>
 

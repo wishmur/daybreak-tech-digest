@@ -1678,88 +1678,326 @@ function EmptyState({ onReset }: { onReset: () => void }) {
 
 // ---------- Threads View ----------
 function ThreadsView({ items, loading }: { items: Item[]; loading: boolean }) {
-  const threads = useMemo(() => {
-    // Group by topic + primary company. Merge threads where secondaryCompanies overlap with primary of another.
+  const now = Date.now();
+  const DAY_MS = 86400000;
+
+  type ThreadDay = { date: string; items: Item[]; importance: number };
+  type Thread = {
+    key: string;
+    title: string;
+    topic: string;
+    company: string;
+    items: Item[];
+    days: ThreadDay[];
+    start: string;
+    end: string;
+    spanDays: number;
+    uniqueDays: number;
+    maxImportance: number;
+    recent7: number;
+    prev7: number;
+    velocity: number; // -1..+1
+    lastTs: number;
+  };
+
+  const threads = useMemo<Thread[]>(() => {
     const byKey = new Map<string, Item[]>();
     for (const it of items) {
       const key = `${it.topic || "—"}::${it.company || "—"}`;
       if (!byKey.has(key)) byKey.set(key, []);
       byKey.get(key)!.push(it);
     }
-    const list = [...byKey.entries()].map(([key, arr]) => {
+    const list: Thread[] = [];
+    for (const [key, arr] of byKey.entries()) {
       const sorted = [...arr].sort((a, b) => itemTs(a) - itemTs(b));
       const [topic, company] = key.split("::");
-      const dates = sorted.map((i) => i.addedOn);
-      return {
+      // Group by day
+      const dayMap = new Map<string, Item[]>();
+      for (const it of sorted) {
+        if (!dayMap.has(it.addedOn)) dayMap.set(it.addedOn, []);
+        dayMap.get(it.addedOn)!.push(it);
+      }
+      const days: ThreadDay[] = [...dayMap.entries()]
+        .sort((a, b) => (a[0] < b[0] ? -1 : 1))
+        .map(([date, its]) => ({
+          date,
+          items: its,
+          importance: its.reduce((s, i) => s + (i.importance || 0), 0),
+        }));
+      const start = days[0].date;
+      const end = days[days.length - 1].date;
+      const spanDays =
+        Math.round(
+          (parseYMD(end).getTime() - parseYMD(start).getTime()) / DAY_MS,
+        ) + 1;
+      // Velocity: last 7 days vs previous 7 days by item count
+      let recent7 = 0;
+      let prev7 = 0;
+      for (const it of sorted) {
+        const age = now - itemTs(it);
+        if (age <= 7 * DAY_MS) recent7 += 1;
+        else if (age <= 14 * DAY_MS) prev7 += 1;
+      }
+      const denom = Math.max(1, recent7 + prev7);
+      const velocity = (recent7 - prev7) / denom; // -1..+1
+      list.push({
         key,
-        title: `${company !== "—" ? company : "Various"} — ${topic !== "—" ? topic : "Unclassified"}`,
+        title: `${company !== "—" ? company : "Various"} · ${topic !== "—" ? topic : "Unclassified"}`,
         topic,
         company,
         items: sorted,
-        start: dates[0],
-        end: dates[dates.length - 1],
+        days,
+        start,
+        end,
+        spanDays,
+        uniqueDays: days.length,
         maxImportance: Math.max(...sorted.map((i) => i.importance || 0)),
-      };
-    });
+        recent7,
+        prev7,
+        velocity,
+        lastTs: itemTs(sorted[sorted.length - 1]),
+      });
+    }
     return list
-      .filter((t) => t.items.length >= 2)
-      .sort((a, b) => b.items.length - a.items.length || b.maxImportance - a.maxImportance);
-  }, [items]);
+      .filter((t) => t.uniqueDays >= 2)
+      .sort(
+        (a, b) =>
+          b.recent7 - a.recent7 ||
+          b.spanDays - a.spanDays ||
+          b.lastTs - a.lastTs,
+      );
+  }, [items, now]);
 
-  if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
+  if (loading)
+    return (
+      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+        <ListSkeleton />
+      </div>
+    );
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
       <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-300">
-        Auto-detected running storylines — items grouped by topic + primary company.
+        Auto-detected running storylines — each node is a day the thread appeared, sized by that day's importance.
       </p>
       {threads.length === 0 ? (
         <div className="rounded-lg border border-dashed border-neutral-300 p-10 text-center text-sm text-neutral-500 dark:border-neutral-700">
-          No multi-item threads yet.
+          No multi-day threads yet.
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {threads.map((t) => (
-            <section key={t.key} className="rounded-xl border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">
-              <header className="mb-4 flex flex-wrap items-baseline justify-between gap-2 border-b border-neutral-200 pb-3 dark:border-neutral-800">
-                <h3 className="text-lg font-semibold">{t.title}</h3>
-                <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                  {shortDate(t.start)} – {shortDate(t.end)} · {t.items.length} items
-                </div>
-              </header>
-              <ol className="relative ml-3 space-y-4 border-l border-neutral-200 pl-5 dark:border-neutral-800">
-                {t.items.map((it) => (
-                  <li key={it.id} className="relative">
-                    <span
-                      className="absolute -left-[26px] top-1.5 inline-block h-2.5 w-2.5 rounded-full ring-4 ring-white dark:ring-neutral-900"
-                      style={{ backgroundColor: ACCENT }}
-                    />
-                    <div className="text-[11px] uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
-                      {shortDate(it.addedOn)} · {it.source}
-                    </div>
-                    <a
-                      href={it.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-0.5 block text-[15px] font-semibold leading-snug hover:underline"
-                    >
-                      {it.title}
-                    </a>
-                    {it.summary && (
-                      <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-                        {it.summary}
-                      </p>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </section>
+            <ThreadTrack key={t.key} thread={t} />
           ))}
         </div>
       )}
     </main>
   );
 }
+
+function ThreadTrack({
+  thread: t,
+}: {
+  thread: {
+    key: string;
+    title: string;
+    company: string;
+    topic: string;
+    items: Item[];
+    days: { date: string; items: Item[]; importance: number }[];
+    start: string;
+    end: string;
+    spanDays: number;
+    uniqueDays: number;
+    maxImportance: number;
+    recent7: number;
+    prev7: number;
+    velocity: number;
+    lastTs: number;
+  };
+}) {
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const isMajor = t.spanDays > 14;
+  const DAY_MS = 86400000;
+  const PX_PER_DAY = 22;
+  const startMs = parseYMD(t.start).getTime();
+  const trackWidth = Math.max(120, (t.spanDays - 1) * PX_PER_DAY + 40);
+  const maxDayImp = Math.max(1, ...t.days.map((d) => d.importance));
+
+  const velocityLabel =
+    t.velocity > 0.15 ? "up" : t.velocity < -0.15 ? "down" : "flat";
+  const velocityColor =
+    velocityLabel === "up"
+      ? "#16A34A"
+      : velocityLabel === "down"
+        ? "#DC2626"
+        : "#737373";
+  const velocityArrow =
+    velocityLabel === "up" ? "▲" : velocityLabel === "down" ? "▼" : "▬";
+
+  const selectedDay = selectedDate
+    ? t.days.find((d) => d.date === selectedDate)
+    : null;
+
+  return (
+    <section
+      className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900"
+      style={{
+        borderRadius: 6,
+        ...(isMajor
+          ? {
+              borderLeft: `2px solid ${ACCENT}`,
+              boxShadow: `0 0 0 1px ${ACCENT}22`,
+            }
+          : {}),
+      }}
+    >
+      <header className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <h3 className="text-[15px] font-semibold text-neutral-900 dark:text-neutral-50">
+          {t.title}
+        </h3>
+        <span
+          className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+          style={MONO_STYLE}
+        >
+          Day {t.spanDays}
+        </span>
+        {isMajor && (
+          <span
+            className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white"
+            style={{
+              ...MONO_STYLE,
+              backgroundColor: ACCENT,
+              padding: "2px 6px",
+              borderRadius: 3,
+            }}
+          >
+            Major storyline
+          </span>
+        )}
+        <span
+          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider"
+          style={{ ...MONO_STYLE, color: velocityColor }}
+          title={`Recent 7d: ${t.recent7} · Prev 7d: ${t.prev7}`}
+        >
+          <span>{velocityArrow}</span>
+          <span>
+            {velocityLabel === "up"
+              ? "Accelerating"
+              : velocityLabel === "down"
+                ? "Cooling"
+                : "Steady"}
+          </span>
+        </span>
+        <span
+          className="ml-auto text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+          style={MONO_STYLE}
+        >
+          {shortDate(t.start)} – {shortDate(t.end)} · {t.items.length} items
+        </span>
+      </header>
+
+      <div className="relative overflow-x-auto pb-2">
+        <div
+          className="relative h-16"
+          style={{ width: `${trackWidth}px`, minWidth: "100%" }}
+        >
+          {/* Connecting line */}
+          <div
+            className="absolute left-5 right-5 top-1/2 h-px -translate-y-1/2 bg-neutral-300 dark:bg-neutral-700"
+            aria-hidden
+          />
+          {/* Nodes */}
+          {t.days.map((d) => {
+            const offset =
+              (parseYMD(d.date).getTime() - startMs) / DAY_MS;
+            const left = offset * PX_PER_DAY + 20;
+            const sizeRatio = d.importance / maxDayImp;
+            const size = Math.round(8 + sizeRatio * 16); // 8..24
+            const isSelected = selectedDate === d.date;
+            return (
+              <button
+                key={d.date}
+                onClick={() =>
+                  setSelectedDate(isSelected ? null : d.date)
+                }
+                className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full transition hover:scale-110 focus:outline-none"
+                style={{
+                  left: `${left}px`,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  backgroundColor: isSelected ? ACCENT : "transparent",
+                  border: `2px solid ${ACCENT}`,
+                  boxShadow: isSelected
+                    ? `0 0 0 3px ${ACCENT}33`
+                    : "none",
+                }}
+                title={`${shortDate(d.date)} · ${d.items.length} item${d.items.length === 1 ? "" : "s"} · importance ${d.importance}`}
+                aria-label={`${shortDate(d.date)}, ${d.items.length} items`}
+              />
+            );
+          })}
+        </div>
+        {/* Axis labels: start / mid / end */}
+        <div
+          className="mt-1 flex justify-between text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+          style={{ ...MONO_STYLE, width: `${trackWidth}px`, minWidth: "100%" }}
+        >
+          <span>{shortDate(t.start)}</span>
+          <span>{shortDate(t.end)}</span>
+        </div>
+      </div>
+
+      {selectedDay && (
+        <div className="mt-3 border-t border-neutral-200 pt-3 dark:border-neutral-800">
+          <div
+            className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+            style={MONO_STYLE}
+          >
+            <span>
+              {shortDate(selectedDay.date)} · {selectedDay.items.length} item
+              {selectedDay.items.length === 1 ? "" : "s"}
+            </span>
+            <button
+              onClick={() => setSelectedDate(null)}
+              className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+            >
+              Close ×
+            </button>
+          </div>
+          <div className="space-y-2">
+            {selectedDay.items.map((it) => (
+              <a
+                key={it.id}
+                href={it.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block border border-neutral-200 p-3 transition hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
+                style={{ borderRadius: 4 }}
+              >
+                <div
+                  className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+                  style={MONO_STYLE}
+                >
+                  {it.source}
+                </div>
+                <div className="mt-0.5 text-[14px] font-semibold leading-snug text-neutral-900 dark:text-neutral-50">
+                  {it.title}
+                </div>
+                {it.summary && (
+                  <p className="mt-1 line-clamp-2 text-[13px] text-neutral-600 dark:text-neutral-300">
+                    {it.summary}
+                  </p>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 
 // ---------- Companies View ----------
 function CompaniesView({

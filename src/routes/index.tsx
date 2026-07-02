@@ -2127,272 +2127,403 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 // ---------- Competitive Matrix ----------
+// ---------- Terminal-styled recharts tooltip ----------
+function TerminalTooltip({ active, payload, label, valueFormatter }: {
+  active?: boolean;
+  payload?: Array<{ name?: string; value?: number; color?: string; dataKey?: string; stroke?: string; fill?: string }>;
+  label?: string | number;
+  valueFormatter?: (v: number) => string;
+}) {
+  if (!active || !payload || !payload.length) return null;
+  return (
+    <div
+      className="rounded-md border px-3 py-2 text-[11px] shadow-lg"
+      style={{ background: "#0A0A0A", borderColor: "#232323", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
+    >
+      {label !== undefined && (
+        <div className="mb-1 uppercase tracking-wide text-neutral-400">{String(label)}</div>
+      )}
+      <div className="space-y-0.5">
+        {payload.filter((p) => p && (p.value ?? 0) !== 0).map((p, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-sm" style={{ background: p.color ?? p.stroke ?? p.fill ?? "#666" }} />
+            <span className="text-neutral-300">{p.name ?? p.dataKey}</span>
+            <span className="ml-auto tabular-nums text-neutral-100">
+              {valueFormatter ? valueFormatter(Number(p.value ?? 0)) : Number(p.value ?? 0).toLocaleString()}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------- Competitive Matrix (heatmap) ----------
 function MatrixView({ items, loading }: { items: Item[]; loading: boolean }) {
-  const pairs = useMemo(() => {
-    const map = new Map<string, { a: string; b: string; items: Item[] }>();
+  const { companies, matrix, pairStories, maxVal } = useMemo(() => {
+    const mentions = new Map<string, number>();
     for (const it of items) {
-      const all = new Set<string>();
-      if (it.company) all.add(it.company);
-      for (const c of it.secondaryCompanies ?? []) if (c) all.add(c);
-      const list = [...all];
+      const set = new Set<string>();
+      if (it.company) set.add(it.company);
+      for (const c of it.secondaryCompanies ?? []) if (c) set.add(c);
+      for (const c of set) mentions.set(c, (mentions.get(c) ?? 0) + 1);
+    }
+    const companies = [...mentions.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 15)
+      .map(([c]) => c);
+    const idx = new Map(companies.map((c, i) => [c, i]));
+    const size = companies.length;
+    const matrix: number[][] = Array.from({ length: size }, () => Array(size).fill(0));
+    const pairStories = new Map<string, Item[]>();
+    for (const it of items) {
+      const set = new Set<string>();
+      if (it.company) set.add(it.company);
+      for (const c of it.secondaryCompanies ?? []) if (c) set.add(c);
+      const list = [...set].filter((c) => idx.has(c));
       for (let i = 0; i < list.length; i++) {
+        const a = idx.get(list[i])!;
+        matrix[a][a] += 1;
         for (let j = i + 1; j < list.length; j++) {
-          const [a, b] = [list[i], list[j]].sort();
-          const key = `${a}||${b}`;
-          if (!map.has(key)) map.set(key, { a, b, items: [] });
-          map.get(key)!.items.push(it);
+          const b = idx.get(list[j])!;
+          matrix[a][b] += 1;
+          matrix[b][a] += 1;
+          const [x, y] = [list[i], list[j]].sort();
+          const key = `${x}||${y}`;
+          if (!pairStories.has(key)) pairStories.set(key, []);
+          pairStories.get(key)!.push(it);
         }
       }
     }
-    return [...map.values()].sort((x, y) => y.items.length - x.items.length).slice(0, 40);
+    let maxVal = 0;
+    for (let i = 0; i < size; i++) for (let j = 0; j < size; j++) if (i !== j && matrix[i][j] > maxVal) maxVal = matrix[i][j];
+    return { companies, matrix, pairStories, maxVal: Math.max(1, maxVal) };
   }, [items]);
 
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [sel, setSel] = useState<{ a: string; b: string } | null>(null);
 
   if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
 
+  const cellColor = (v: number, isDiag: boolean) => {
+    if (isDiag) return "#0F1620";
+    if (v === 0) return "#0D0D0D";
+    const t = Math.pow(v / maxVal, 0.6);
+    const alpha = 0.08 + t * 0.92;
+    return `rgba(0, 102, 255, ${alpha.toFixed(3)})`;
+  };
+  const textColor = (v: number) => (v / maxVal > 0.55 ? "#F5F7FF" : "#8A93A6");
+
+  const selKey = sel ? [sel.a, sel.b].sort().join("||") : null;
+  const selStories = selKey ? (pairStories.get(selKey) ?? []).slice().sort((x, y) => itemTs(y) - itemTs(x)) : [];
+
   return (
     <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-300">
-        Pairs of companies that show up in the same items — most contested rivalries first.
-      </p>
-      {pairs.length === 0 ? (
+      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+        <div>
+          <p className="text-sm text-neutral-600 dark:text-neutral-300">
+            Co-occurrence heatmap. Darkest blue = companies that show up together most often.
+          </p>
+          <p className="mt-1 text-[11px] uppercase tracking-wide text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+            {companies.length} companies · max pair {maxVal}
+          </p>
+        </div>
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+          <span>low</span>
+          <div className="h-2 w-32 rounded-sm" style={{ background: "linear-gradient(to right, rgba(0,102,255,0.08), rgba(0,102,255,1))" }} />
+          <span>high</span>
+        </div>
+      </div>
+
+      {companies.length === 0 ? (
         <div className="rounded-lg border border-dashed border-neutral-300 p-10 text-center text-sm text-neutral-500 dark:border-neutral-700">
           No co-occurring companies yet.
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
-          <table className="w-full text-sm">
-            <thead className="bg-neutral-50 text-left text-xs uppercase tracking-wide text-neutral-500 dark:bg-neutral-900 dark:text-neutral-400">
-              <tr>
-                <th className="px-4 py-2">Rivalry</th>
-                <th className="px-4 py-2 w-24 text-right">Items</th>
-                <th className="px-4 py-2 w-24"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {pairs.map(({ a, b, items: pi }) => {
-                const key = `${a}||${b}`;
-                const isOpen = expanded === key;
-                return [
-                  <tr key={key} className="border-t border-neutral-200 dark:border-neutral-800">
-                    <td className="px-4 py-2 font-medium">
-                      {a} <span className="text-neutral-400">vs</span> {b}
-                    </td>
-                    <td className="px-4 py-2 text-right tabular-nums">{pi.length}</td>
-                    <td className="px-4 py-2 text-right">
-                      <button
-                        onClick={() => setExpanded(isOpen ? null : key)}
-                        className="text-xs font-medium"
-                        style={{ color: ACCENT }}
-                      >
-                        {isOpen ? "Hide" : "View"}
-                      </button>
-                    </td>
-                  </tr>,
-                  isOpen ? (
-                    <tr key={key + ":d"} className="bg-neutral-50/50 dark:bg-neutral-900/50">
-                      <td colSpan={3} className="px-4 py-3">
-                        <ul className="space-y-2">
-                          {pi
-                            .sort((x, y) => itemTs(y) - itemTs(x))
-                            .map((it) => (
-                              <li key={it.id} className="text-sm">
-                                <span className="text-[11px] uppercase tracking-wide text-neutral-400">
-                                  {shortDate(it.addedOn)}
-                                </span>{" "}
-                                <a
-                                  href={it.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="font-medium hover:underline"
-                                >
-                                  {it.title}
-                                </a>
-                              </li>
-                            ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  ) : null,
-                ];
+        <div className={`grid gap-4 ${sel ? "lg:grid-cols-[1fr_360px]" : ""}`}>
+          <div className="overflow-auto rounded-xl border border-neutral-800 bg-neutral-950 p-3">
+            <table className="border-separate" style={{ borderSpacing: 2, fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+              <thead>
+                <tr>
+                  <th />
+                  {companies.map((c) => (
+                    <th key={c} className="h-24 w-9 align-bottom">
+                      <div className="mx-auto -rotate-45 origin-bottom-left whitespace-nowrap text-[10px] uppercase tracking-wide text-neutral-400" style={{ transformOrigin: "bottom left", translate: "8px" }}>
+                        {c}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {companies.map((rowC, i) => (
+                  <tr key={rowC}>
+                    <th className="pr-2 text-right text-[10px] uppercase tracking-wide text-neutral-400 whitespace-nowrap">{rowC}</th>
+                    {companies.map((colC, j) => {
+                      const v = matrix[i][j];
+                      const isDiag = i === j;
+                      const active = sel && !isDiag && ((sel.a === rowC && sel.b === colC) || (sel.a === colC && sel.b === rowC));
+                      return (
+                        <td key={colC} className="p-0">
+                          <button
+                            disabled={isDiag || v === 0}
+                            onClick={() => setSel({ a: rowC, b: colC })}
+                            title={isDiag ? `${rowC} · ${v} mentions` : `${rowC} × ${colC} · ${v} co-occurrences`}
+                            className={"h-9 w-9 text-[10px] tabular-nums transition " + (active ? "outline outline-2 outline-offset-0" : "") + (isDiag || v === 0 ? " cursor-default" : " hover:brightness-125")}
+                            style={{
+                              background: cellColor(v, isDiag),
+                              color: textColor(v),
+                              outlineColor: active ? ACCENT : undefined,
+                            }}
+                          >
+                            {v > 0 ? v : ""}
+                          </button>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-              })}
-            </tbody>
-          </table>
+          {sel && (
+            <aside className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
+              <div className="mb-3 flex items-start justify-between gap-2">
+                <div>
+                  <div className="text-[10px] uppercase tracking-wide text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+                    Shared stories
+                  </div>
+                  <div className="mt-0.5 text-sm font-semibold text-neutral-100">
+                    {sel.a} <span className="text-neutral-500">×</span> {sel.b}
+                  </div>
+                  <div className="text-[11px] text-neutral-400" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+                    {selStories.length} item{selStories.length === 1 ? "" : "s"}
+                  </div>
+                </div>
+                <button onClick={() => setSel(null)} className="text-xs text-neutral-500 hover:text-neutral-200">
+                  Close
+                </button>
+              </div>
+              {selStories.length === 0 ? (
+                <div className="py-6 text-center text-xs text-neutral-500">No shared stories.</div>
+              ) : (
+                <ul className="space-y-3">
+                  {selStories.map((it) => (
+                    <li key={it.id} className="border-t border-neutral-800 pt-3 first:border-t-0 first:pt-0">
+                      <div className="text-[10px] uppercase tracking-wide text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+                        {shortDate(it.addedOn)} · {it.source} · IMP {it.importance}
+                      </div>
+                      <a href={it.link} target="_blank" rel="noopener noreferrer" className="mt-0.5 block text-sm font-medium text-neutral-100 hover:underline">
+                        {it.title}
+                      </a>
+                      {it.summary && <p className="mt-1 line-clamp-2 text-xs text-neutral-400">{it.summary}</p>}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </aside>
+          )}
         </div>
       )}
     </main>
   );
 }
 
-// ---------- Trends View ----------
+// ---------- Trends View (recharts) ----------
 function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
-  const { weeks, byCompany, allCompanies } = useMemo(() => {
-    const weekSet = new Set<string>();
-    const perCompanyWeek = new Map<string, Map<string, Item[]>>();
-    for (const it of items) {
-      const ts = itemTs(it);
-      const week = isoWeek(new Date(ts));
-      weekSet.add(week);
-      const cSet = new Set<string>();
-      if (it.company) cSet.add(it.company);
-      for (const c of it.secondaryCompanies ?? []) if (c) cSet.add(c);
-      for (const c of cSet) {
-        if (!perCompanyWeek.has(c)) perCompanyWeek.set(c, new Map());
-        const wk = perCompanyWeek.get(c)!;
-        if (!wk.has(week)) wk.set(week, []);
-        wk.get(week)!.push(it);
+  const WINDOW_DAYS = 30;
+  const { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels } = useMemo(() => {
+    const now = Date.now();
+    const cutoff = now - WINDOW_DAYS * 24 * 60 * 60 * 1000;
+    const scoped = items.filter((it) => itemTs(it) >= cutoff);
+
+    // build day buckets (YYYY-MM-DD)
+    const dayKeys: string[] = [];
+    const dayLabels: string[] = [];
+    for (let i = WINDOW_DAYS - 1; i >= 0; i--) {
+      const d = new Date(now - i * 24 * 60 * 60 * 1000);
+      const key = d.toISOString().slice(0, 10);
+      dayKeys.push(key);
+      dayLabels.push(`${d.getMonth() + 1}/${d.getDate()}`);
+    }
+
+    // top tags by frequency in window
+    const tagCount = new Map<string, number>();
+    for (const it of scoped) for (const t of it.tags ?? []) tagCount.set(t, (tagCount.get(t) ?? 0) + 1);
+    const tagKeys = [...tagCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([t]) => t);
+
+    const dailyByTag = dayKeys.map((k, i) => {
+      const row: Record<string, number | string> = { day: dayLabels[i], _key: k };
+      for (const t of tagKeys) row[t] = 0;
+      return row;
+    });
+    const indexByKey = new Map(dayKeys.map((k, i) => [k, i]));
+
+    const impBuckets: { day: string; sum: number; n: number; max: number }[] = dayKeys.map((_, i) => ({ day: dayLabels[i], sum: 0, n: 0, max: 0 }));
+
+    for (const it of scoped) {
+      const dk = new Date(itemTs(it)).toISOString().slice(0, 10);
+      const di = indexByKey.get(dk);
+      if (di === undefined) continue;
+      for (const t of it.tags ?? []) {
+        if (tagKeys.includes(t)) dailyByTag[di][t] = (dailyByTag[di][t] as number) + 1;
+      }
+      const imp = it.importance || 0;
+      impBuckets[di].sum += imp;
+      impBuckets[di].n += 1;
+      if (imp > impBuckets[di].max) impBuckets[di].max = imp;
+    }
+
+    const importanceSeries = impBuckets.map((b) => ({
+      day: b.day,
+      avg: b.n ? +(b.sum / b.n).toFixed(2) : 0,
+      max: b.max,
+      count: b.n,
+    }));
+
+    // leaderboard
+    const perCompany = new Map<string, { count: number; impSum: number }>();
+    for (const it of scoped) {
+      const set = new Set<string>();
+      if (it.company) set.add(it.company);
+      for (const c of it.secondaryCompanies ?? []) if (c) set.add(c);
+      for (const c of set) {
+        const cur = perCompany.get(c) ?? { count: 0, impSum: 0 };
+        cur.count += 1;
+        cur.impSum += it.importance || 0;
+        perCompany.set(c, cur);
       }
     }
-    const weeksSorted = [...weekSet].sort();
-    const totals = [...perCompanyWeek.entries()]
-      .map(([c, wm]) => [c, [...wm.values()].reduce((s, a) => s + a.length, 0)] as const)
-      .sort((a, b) => b[1] - a[1])
-      .map(([c]) => c);
-    return { weeks: weeksSorted, byCompany: perCompanyWeek, allCompanies: totals };
+    const leaderboard = [...perCompany.entries()].map(([company, v]) => ({
+      company,
+      mentions: v.count,
+      avgImportance: v.count ? +(v.impSum / v.count).toFixed(2) : 0,
+    }));
+
+    return { dailyByTag, tagKeys, importanceSeries, leaderboard, dayLabels };
   }, [items]);
 
-  const [selected, setSelected] = useState<string[]>([]);
-  useEffect(() => {
-    if (selected.length === 0 && allCompanies.length) {
-      setSelected(allCompanies.slice(0, 4));
-    }
-  }, [allCompanies, selected.length]);
-  const [metric, setMetric] = useState<"count" | "importance">("count");
-
-  const series = useMemo(() => {
-    return selected.map((c, idx) => {
-      const wk = byCompany.get(c);
-      const points = weeks.map((w) => {
-        const arr = wk?.get(w) ?? [];
-        const v =
-          metric === "count"
-            ? arr.length
-            : arr.length
-              ? arr.reduce((s, i) => s + (i.importance || 0), 0) / arr.length
-              : 0;
-        return v;
-      });
-      return { company: c, color: companyColor(idx), points };
-    });
-  }, [selected, weeks, byCompany, metric]);
-
-  const maxY = useMemo(() => {
-    const m = Math.max(1, ...series.flatMap((s) => s.points));
-    return metric === "importance" ? 5 : Math.ceil(m * 1.1);
-  }, [series, metric]);
+  const [sortBy, setSortBy] = useState<"mentions" | "avgImportance">("mentions");
+  const sortedLeaderboard = useMemo(
+    () => [...leaderboard].sort((a, b) => b[sortBy] - a[sortBy]).slice(0, 15),
+    [leaderboard, sortBy],
+  );
 
   if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
 
-  const W = 800, H = 260, PAD_L = 32, PAD_R = 12, PAD_T = 12, PAD_B = 28;
-  const innerW = W - PAD_L - PAD_R;
-  const innerH = H - PAD_T - PAD_B;
-  const xFor = (i: number) =>
-    PAD_L + (weeks.length <= 1 ? innerW / 2 : (i * innerW) / (weeks.length - 1));
-  const yFor = (v: number) => PAD_T + innerH - (v / maxY) * innerH;
+  const axisStyle = { fontSize: 10, fill: "#8A93A6", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" };
+  const gridColor = "#1a1a1a";
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-      <div className="flex flex-wrap items-center gap-3">
-        <p className="text-sm text-neutral-600 dark:text-neutral-300">
-          Weekly {metric === "count" ? "item count" : "average importance"} per company.
-        </p>
-        <div className="ml-auto">
+    <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6">
+      {/* Stacked area: stories per topic tag */}
+      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
+        <header className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <h2 className="text-sm font-semibold text-neutral-100">Daily stories by topic</h2>
+            <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+              Last {WINDOW_DAYS} days · top {tagKeys.length} tags
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {tagKeys.map((t) => {
+              const s = tagStyle(t);
+              return (
+                <span key={t} className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-neutral-400" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+                  <span className="inline-block h-2 w-2 rounded-sm" style={{ background: s.dot }} />
+                  {tagLabel(t)}
+                </span>
+              );
+            })}
+          </div>
+        </header>
+        <div className="h-72 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={dailyByTag} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
+              <defs>
+                {tagKeys.map((t) => {
+                  const c = tagStyle(t).dot;
+                  return (
+                    <linearGradient id={`grad-${t}`} key={t} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={c} stopOpacity={0.7} />
+                      <stop offset="100%" stopColor={c} stopOpacity={0.15} />
+                    </linearGradient>
+                  );
+                })}
+              </defs>
+              <CartesianGrid stroke={gridColor} vertical={false} />
+              <XAxis dataKey="day" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} interval={Math.max(0, Math.floor(dayLabels.length / 10) - 1)} />
+              <YAxis tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={28} allowDecimals={false} />
+              <Tooltip content={<TerminalTooltip />} cursor={{ fill: "rgba(0,102,255,0.06)" }} />
+              {tagKeys.map((t) => (
+                <Area
+                  key={t}
+                  type="monotone"
+                  dataKey={t}
+                  name={tagLabel(t)}
+                  stackId="1"
+                  stroke={tagStyle(t).dot}
+                  fill={`url(#grad-${t})`}
+                  strokeWidth={1.5}
+                />
+              ))}
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+
+      {/* Avg importance line */}
+      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
+        <header className="mb-3">
+          <h2 className="text-sm font-semibold text-neutral-100">Signal strength</h2>
+          <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+            Average importance per day — spikes mark high-signal days
+          </p>
+        </header>
+        <div className="h-64 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={importanceSeries} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
+              <CartesianGrid stroke={gridColor} vertical={false} />
+              <XAxis dataKey="day" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} interval={Math.max(0, Math.floor(dayLabels.length / 10) - 1)} />
+              <YAxis domain={[0, 5]} tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={28} />
+              <Tooltip content={<TerminalTooltip valueFormatter={(v) => v.toFixed(2)} />} cursor={{ stroke: ACCENT, strokeOpacity: 0.3 }} />
+              <Line type="monotone" dataKey="avg" name="Avg importance" stroke={ACCENT} strokeWidth={2} dot={{ r: 2, fill: ACCENT, stroke: ACCENT }} activeDot={{ r: 4 }} />
+              <Line type="monotone" dataKey="max" name="Peak" stroke="#64748B" strokeWidth={1} strokeDasharray="3 3" dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+
+      {/* Company leaderboard */}
+      <section className="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
+        <header className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
+          <div>
+            <h2 className="text-sm font-semibold text-neutral-100">Company leaderboard</h2>
+            <p className="text-[11px] text-neutral-500" style={{ fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}>
+              Total mentions over last {WINDOW_DAYS} days
+            </p>
+          </div>
           <Segmented
-            value={metric}
-            onChange={(v) => setMetric(v as "count" | "importance")}
+            value={sortBy}
+            onChange={(v) => setSortBy(v as "mentions" | "avgImportance")}
             options={[
-              { value: "count", label: "Item count" },
-              { value: "importance", label: "Avg importance" },
+              { value: "mentions", label: "Total mentions" },
+              { value: "avgImportance", label: "Avg importance" },
             ]}
           />
+        </header>
+        <div style={{ height: Math.max(160, sortedLeaderboard.length * 26 + 40) }} className="w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={sortedLeaderboard} layout="vertical" margin={{ top: 4, right: 16, left: 8, bottom: 4 }}>
+              <CartesianGrid stroke={gridColor} horizontal={false} />
+              <XAxis type="number" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} allowDecimals={sortBy === "avgImportance"} />
+              <YAxis type="category" dataKey="company" tick={axisStyle} axisLine={{ stroke: gridColor }} tickLine={false} width={110} />
+              <Tooltip content={<TerminalTooltip valueFormatter={(v) => (sortBy === "avgImportance" ? v.toFixed(2) : String(v))} />} cursor={{ fill: "rgba(0,102,255,0.08)" }} />
+              <Bar dataKey={sortBy} name={sortBy === "mentions" ? "Mentions" : "Avg importance"} fill={ACCENT} radius={[0, 2, 2, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
-      </div>
-
-      <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-        {weeks.length === 0 ? (
-          <div className="py-10 text-center text-sm text-neutral-500">No data.</div>
-        ) : (
-          <svg viewBox={`0 0 ${W} ${H}`} className="w-full">
-            {/* y grid */}
-            {Array.from({ length: 4 }).map((_, i) => {
-              const y = PAD_T + (innerH * i) / 3;
-              const val = maxY - (maxY * i) / 3;
-              return (
-                <g key={i}>
-                  <line x1={PAD_L} x2={W - PAD_R} y1={y} y2={y} stroke="currentColor" className="text-neutral-200 dark:text-neutral-800" strokeDasharray="3 4" />
-                  <text x={4} y={y + 4} className="fill-neutral-400" fontSize="10">
-                    {metric === "importance" ? val.toFixed(1) : Math.round(val)}
-                  </text>
-                </g>
-              );
-            })}
-            {/* x labels */}
-            {weeks.map((w, i) => {
-              if (weeks.length > 10 && i % Math.ceil(weeks.length / 8) !== 0 && i !== weeks.length - 1) return null;
-              return (
-                <text
-                  key={w}
-                  x={xFor(i)}
-                  y={H - 8}
-                  textAnchor="middle"
-                  fontSize="10"
-                  className="fill-neutral-400"
-                >
-                  {w.slice(5)}
-                </text>
-              );
-            })}
-            {/* lines */}
-            {series.map((s) => {
-              const d = s.points
-                .map((v, i) => `${i === 0 ? "M" : "L"} ${xFor(i).toFixed(1)} ${yFor(v).toFixed(1)}`)
-                .join(" ");
-              return (
-                <g key={s.company}>
-                  <path d={d} fill="none" stroke={s.color} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
-                  {s.points.map((v, i) => (
-                    <circle key={i} cx={xFor(i)} cy={yFor(v)} r={2.5} fill={s.color} />
-                  ))}
-                </g>
-              );
-            })}
-          </svg>
-        )}
-      </div>
-
-      <div className="mt-4">
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-          Toggle companies
-        </h3>
-        <div className="flex flex-wrap gap-1.5">
-          {allCompanies.map((c) => {
-            const idx = selected.indexOf(c);
-            const active = idx !== -1;
-            const color = active ? companyColor(idx) : "#9CA3AF";
-            return (
-              <button
-                key={c}
-                onClick={() =>
-                  setSelected((prev) =>
-                    prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
-                  )
-                }
-                className={
-                  "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition " +
-                  (active
-                    ? "border-neutral-300 bg-white text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
-                    : "border-neutral-200 bg-neutral-50 text-neutral-500 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-500")
-                }
-              >
-                <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
-                {c}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      </section>
     </main>
   );
 }

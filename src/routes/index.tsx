@@ -272,6 +272,11 @@ function TechDigestPage() {
   const [kbdIdx, setKbdIdx] = useState<number>(-1);
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 20;
+
+  // Reset pagination whenever the filter set or view changes.
+  useEffect(() => {
+    setPage(1);
+  }, [filters, view]);
   const hydrated = useRef(false);
 
   // Cmd/Ctrl+K palette + j/k keyboard navigation across visible stories

@@ -84,6 +84,55 @@ function itemTs(it: Item): number {
   return parseYMD(it.addedOn).getTime();
 }
 
+// ---------- Status Bar ----------
+function StatusBar({
+  lastUpdated,
+  totalItems,
+  dayN,
+  loading,
+}: {
+  lastUpdated?: string;
+  totalItems: number;
+  dayN: number;
+  loading: boolean;
+}) {
+  const sync = lastUpdated
+    ? new Date(lastUpdated).toLocaleTimeString(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      })
+    : "—";
+  const sansMeta = { fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" } as const;
+  return (
+    <div
+      className="sticky top-0 z-40 backdrop-blur"
+      style={{ backgroundColor: "rgba(250, 247, 242, 0.92)", borderBottom: "1px solid #DDD8CC" }}
+    >
+      <div
+        className="mx-auto flex max-w-6xl items-center justify-between gap-4 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#7A7568] sm:px-6"
+        style={sansMeta}
+      >
+        <span className="flex items-center gap-2">
+          <span
+            className={"inline-block h-1.5 w-1.5 rounded-full " + (loading ? "" : "terminal-live-dot")}
+            style={{ backgroundColor: loading ? "#B08A00" : "#B3261E" }}
+            aria-hidden="true"
+          />
+          <span className="font-medium text-[#1A1A1A]">
+            Issue No. <span className="tabular-nums">{dayN || "—"}</span>
+          </span>
+          <span aria-hidden="true" className="text-[#B4AE9C]">·</span>
+          <span>Updated <span className="tabular-nums text-[#2E2A24]">{sync}</span> ET</span>
+        </span>
+        <span className="hidden items-center gap-2 sm:flex">
+          <span>{totalItems.toLocaleString()} items indexed</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ---------- Page ----------
 function ArchivePage() {
   const [digest, setDigest] = useState<Digest | null>(null);
@@ -120,6 +169,11 @@ function ArchivePage() {
     setExpandedDay((d) => (d === date ? null : date));
   };
 
+  const totalItems = useMemo(
+    () => (digest ? digest.days.flatMap((d) => d.items).length : 0),
+    [digest],
+  );
+
   return (
     <div
       className="min-h-screen"
@@ -129,6 +183,13 @@ function ArchivePage() {
         color: "#1A1A1A",
       }}
     >
+      <StatusBar
+        lastUpdated={digest?.lastUpdated}
+        totalItems={totalItems}
+        dayN={digest?.days?.length ?? 0}
+        loading={loading && !digest}
+      />
+
       {/* Editorial masthead */}
       <header className="mx-auto max-w-6xl px-4 pt-8 pb-6 sm:px-6 sm:pt-10">
         <div className="flex items-start justify-between gap-6">
@@ -353,7 +414,7 @@ function ArchivePage() {
           <span className="uppercase tracking-wider">
             Built by{" "}
             <a
-              href="https://shailvi.com"
+              href="https://shailvikumar.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#B3261E] dark:text-neutral-200 dark:hover:text-[#B3261E]"

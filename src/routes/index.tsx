@@ -1369,79 +1369,55 @@ function TypedBrief({ text }: { text: string }) {
   );
 }
 
-// Featured card for the top stories of the day
+// Editorial top-stories row: text-first, no colored avatar, no card shadow, hairline rule below.
 function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
-  const label = (item.company || item.source || "?").trim();
-  const initial = label.charAt(0).toUpperCase();
-  const imp = Math.max(0, Math.min(5, item.importance || 0));
-  const isTop = imp >= 5;
+  const company = (item.company || item.source || "").trim();
+  const topic = (item.topic || "").trim();
   return (
-    <a
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
-      style={{
-        borderRadius: 6,
-        ...(isTop
-          ? {
-              borderLeft: `2px solid ${ACCENT}`,
-              boxShadow: `0 0 0 1px ${ACCENT}22, 0 0 24px -8px ${ACCENT}55`,
-            }
-          : {}),
-      }}
-    >
-      <div className="flex items-center gap-3">
+    <li>
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block py-5 pr-2 pl-8 transition-colors duration-150 ease-out hover:bg-[#F3EFE7]/60 dark:hover:bg-neutral-900/40"
+      >
         <span
-          className="flex h-9 w-9 shrink-0 items-center justify-center text-[15px] font-semibold text-white"
-          style={{
-            backgroundColor: ACCENT,
-            borderRadius: 4,
-            fontFamily: "Inter, ui-sans-serif, system-ui",
-          }}
-          aria-hidden
-        >
-          {initial}
-        </span>
-        <div className="min-w-0 flex-1">
-          <div
-            className="truncate text-[11px] font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-200"
-            style={MONO_STYLE}
-          >
-            {label}
-          </div>
-          <div
-            className="truncate text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
-            style={MONO_STYLE}
-          >
-            {item.topic || item.source}
-          </div>
-        </div>
-        <span
-          className="shrink-0 text-[10px] tabular-nums text-neutral-400 dark:text-neutral-600"
+          className="absolute left-0 top-5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400 tabular-nums dark:text-neutral-600"
           style={MONO_STYLE}
+          aria-hidden
         >
           {String(rank).padStart(2, "0")}
         </span>
-      </div>
-      <h3 className="text-[15px] font-semibold leading-snug text-neutral-900 group-hover:underline dark:text-neutral-50">
-        {item.title}
-      </h3>
-      {item.summary && (
-        <p className="line-clamp-3 text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-300">
-          {item.summary}
-        </p>
-      )}
-      <div className="mt-auto flex items-center justify-between pt-1">
-        <span
-          className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+        <div
+          className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400"
           style={MONO_STYLE}
         >
-          {item.source}
-        </span>
-        <ImportanceBadge value={item.importance} />
-      </div>
-    </a>
+          {company && <span className="text-neutral-700 dark:text-neutral-200">{company}</span>}
+          {company && topic && <span className="text-neutral-300 dark:text-neutral-700">·</span>}
+          {topic && <span>{topic}</span>}
+          {item.importance >= 5 && (
+            <>
+              <span className="text-neutral-300 dark:text-neutral-700">·</span>
+              <span style={{ color: ACCENT }}>Must-read</span>
+            </>
+          )}
+        </div>
+        <h3
+          className="text-[22px] font-semibold leading-[1.2] tracking-tight text-neutral-900 group-hover:underline decoration-[#B3261E] underline-offset-4 dark:text-neutral-50 sm:text-[24px]"
+          style={{ fontFamily: "'Source Serif 4', 'Source Serif Pro', Georgia, serif" }}
+        >
+          {item.title}
+        </h3>
+        {item.summary && (
+          <p
+            className="mt-1.5 line-clamp-2 text-[15px] leading-snug text-neutral-600 dark:text-neutral-300"
+            style={{ fontFamily: "'Source Serif 4', 'Source Serif Pro', Georgia, serif" }}
+          >
+            {item.summary}
+          </p>
+        )}
+      </a>
+    </li>
   );
 }
 

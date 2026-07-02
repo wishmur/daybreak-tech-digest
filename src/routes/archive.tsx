@@ -169,6 +169,11 @@ function ArchivePage() {
     setExpandedDay((d) => (d === date ? null : date));
   };
 
+  const totalItems = useMemo(
+    () => (digest ? digest.days.flatMap((d) => d.items).length : 0),
+    [digest],
+  );
+
   return (
     <div
       className="min-h-screen"
@@ -178,6 +183,13 @@ function ArchivePage() {
         color: "#1A1A1A",
       }}
     >
+      <StatusBar
+        lastUpdated={digest?.lastUpdated}
+        totalItems={totalItems}
+        dayN={digest?.days?.length ?? 0}
+        loading={loading && !digest}
+      />
+
       {/* Editorial masthead */}
       <header className="mx-auto max-w-6xl px-4 pt-8 pb-6 sm:px-6 sm:pt-10">
         <div className="flex items-start justify-between gap-6">

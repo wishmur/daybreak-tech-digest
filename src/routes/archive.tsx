@@ -177,9 +177,9 @@ function ArchivePage() {
         <div className="flex flex-wrap gap-1 border-b border-neutral-200 dark:border-neutral-800">
           {[
             { to: "/", label: "Digest" },
-            { to: "/companies", label: "Companies", search: { view: "companies" } },
-            { to: "/matrix", label: "Competitive matrix", search: { view: "matrix" } },
-            { to: "/trends", label: "Trends", search: { view: "trends" } },
+            { to: "/", label: "Companies", search: { view: "companies" } },
+            { to: "/", label: "Competitive matrix", search: { view: "matrix" } },
+            { to: "/", label: "Trends", search: { view: "trends" } },
           ].map((t) => (
             <Link
               key={t.label}

@@ -730,7 +730,7 @@ function TechDigestPage() {
 
 
                 {topStories.length > 0 && (
-                  <div className="mt-14">
+                  <div className="mt-8">
                     <div className="mb-5 flex items-baseline justify-between border-b border-[#E8E2D2] pb-2 dark:border-neutral-800">
                       <h2
                         className="text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-500 dark:text-neutral-400"

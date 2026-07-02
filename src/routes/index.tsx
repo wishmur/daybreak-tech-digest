@@ -131,7 +131,7 @@ type Filters = {
 
 type SavedView = { name: string; filters: Filters };
 
-type ViewKey = "digest" | "threads" | "companies" | "matrix" | "trends";
+type ViewKey = "digest" | "companies" | "matrix" | "trends";
 
 const DEFAULT_FILTERS: Filters = {
   range: "latest",

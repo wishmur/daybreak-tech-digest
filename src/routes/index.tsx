@@ -629,10 +629,10 @@ function TechDigestPage() {
 
   return (
     <div
-      className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
-      style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
+      className="min-h-screen"
+      style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif', backgroundColor: '#FAF7F2', color: '#1A1A1A' }}
     >
-      {/* Persistent terminal status bar */}
+      {/* Editorial masthead */}
       <StatusBar
         lastUpdated={digest?.lastUpdated}
         totalItems={allItems.length}
@@ -640,44 +640,42 @@ function TechDigestPage() {
         loading={loading && !digest}
       />
 
-      {/* Top bar */}
-      <header className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-start gap-3 sm:gap-4">
+      <header className="mx-auto max-w-6xl px-4 pt-8 pb-6 sm:px-6 sm:pt-10">
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0 flex-1">
+            <h1
+              className="font-bold leading-[0.9] tracking-[-0.02em]"
+              style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif', fontSize: 'clamp(48px, 9vw, 96px)', color: '#1A1A1A' }}
+            >
+              Daybreak
+            </h1>
+            <p
+              className="mt-4 max-w-2xl text-[15px] leading-[1.55] text-[#2E2A24]"
+              style={{ fontFamily: 'Source Serif 4, ui-serif, Georgia, serif' }}
+            >
+              A small script reads the feeds every morning, asks Claude what
+              actually matters to a PM today, and posts the top ten by 10 AM ET.
+              Built because I was losing mornings to the firehose.
+            </p>
+          </div>
+          <div className="hidden shrink-0 items-center gap-4 sm:flex">
             <img
               src={daybreakLogo.url}
-              alt="Daybreak logo"
-              width={56}
-              height={56}
-              className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14"
+              alt=""
+              aria-hidden="true"
+              className="h-14 w-14 rounded-sm opacity-90"
             />
-            <div>
-              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Daybreak</h1>
-              <p className="mt-1 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-                A small script reads my feeds every morning, asks Claude what
-                actually matters to a PM today, and posts the top ten here by
-                10 AM ET. Built because I was losing mornings to the firehose.
-              </p>
-            </div>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
             <Link
               to="/how-it-works"
-              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
-              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
+              className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#56504A] underline-offset-[6px] hover:text-[#1A1A1A] hover:underline"
+              style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
             >
               System
             </Link>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
-              style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
-            >
-              {theme === "dark" ? "LIGHT" : "DARK"}
-            </button>
           </div>
         </div>
+        {/* thin editorial rule */}
+        <div className="mt-6 h-px w-full" style={{ backgroundColor: '#DDD8CC' }} />
       </header>
 
       {/* View tabs */}

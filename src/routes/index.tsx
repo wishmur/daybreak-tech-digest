@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -99,7 +99,7 @@ const LS_CACHE = "techDigest:cache";
 const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const LS_VIEWS = "techDigest:savedViews";
-const ACCENT = "#2D55FF";
+const ACCENT = "#0066FF";
 
 type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;
@@ -250,7 +250,7 @@ function TechDigestPage() {
   const [errorDismissed, setErrorDismissed] = useState(false);
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [view, setView] = useState<ViewKey>("digest");
   const [savedViews, setSavedViews] = useState<SavedView[]>([]);
   const hydrated = useRef(false);
@@ -258,8 +258,7 @@ function TechDigestPage() {
   // Theme
   useEffect(() => {
     const stored = localStorage.getItem(LS_THEME) as "light" | "dark" | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = stored ?? (prefersDark ? "dark" : "light");
+    const initial = stored ?? "dark";
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
   }, []);
@@ -534,8 +533,16 @@ function TechDigestPage() {
       className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
       style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
     >
+      {/* Persistent terminal status bar */}
+      <StatusBar
+        lastUpdated={digest?.lastUpdated}
+        totalItems={allItems.length}
+        dayN={digest?.days?.length ?? 0}
+        loading={loading && !digest}
+      />
+
       {/* Top bar */}
-      <header className="mx-auto max-w-6xl px-4 pt-8 pb-4 sm:px-6">
+      <header className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3 sm:gap-4">
             <img
@@ -552,21 +559,15 @@ function TechDigestPage() {
                 actually matters to a PM today, and posts the top ten here by
                 10 AM ET. Built because I was losing mornings to the firehose.
               </p>
-              <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400">
-                {loading && !digest
-                  ? "Loading…"
-                  : digest?.lastUpdated
-                    ? `Last updated: ${friendlyDateTime(digest.lastUpdated)}`
-                    : "—"}
-              </p>
             </div>
           </div>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            className="shrink-0 rounded-md border border-neutral-200 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            style={{ fontFamily: "JetBrains Mono, ui-monospace, monospace" }}
           >
-            {theme === "dark" ? "Light" : "Dark"} mode
+            {theme === "dark" ? "LIGHT" : "DARK"}
           </button>
         </div>
       </header>
@@ -678,7 +679,7 @@ function TechDigestPage() {
 
           {/* Sticky filter bar */}
           {showFilterBar && (
-            <div className="sticky top-0 z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
+            <div className="sticky top-[30px] z-20 mt-6 border-y border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
               <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="flex items-center justify-between gap-2 py-2 md:hidden">
                   <button
@@ -1133,42 +1134,140 @@ function SavedViewsControl({
   );
 }
 
-// ---------- Item Card ----------
+// ---------- Item Card (importance-tiered) ----------
+const MONO_STYLE: React.CSSProperties = {
+  fontFamily: "JetBrains Mono, ui-monospace, SFMono-Regular, monospace",
+};
+
 function ItemCard({ item }: { item: Item }) {
-  const secondary = (item.secondaryCompanies ?? []).slice(0, 2);
-  const tags = item.tags ?? [];
+  const v = Math.max(0, Math.min(5, item.importance || 0));
+  if (v <= 2) return <ItemRow item={item} />;
+  return <ItemCardFull item={item} tier={v >= 5 ? "hero" : "standard"} />;
+}
+
+function ItemRow({ item }: { item: Item }) {
+  const tags = (item.tags ?? []).slice(0, 2);
   return (
-    <article className="group relative flex gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition hover:border-neutral-300 hover:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.12)] dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700">
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
+      style={{ borderRadius: 4 }}
+    >
+      <span
+        className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+        style={MONO_STYLE}
+      >
+        {shortDate(item.addedOn)}
+      </span>
+      {item.company && (
+        <span
+          className="shrink-0 text-[11px] font-semibold text-neutral-700 dark:text-neutral-200"
+          style={MONO_STYLE}
+        >
+          {item.company}
+        </span>
+      )}
+      <span className="min-w-0 flex-1 truncate text-[13px] text-neutral-800 group-hover:underline dark:text-neutral-200">
+        {item.title}
+      </span>
+      <span
+        className="hidden shrink-0 text-[10px] uppercase tracking-wider text-neutral-400 sm:inline dark:text-neutral-500"
+        style={MONO_STYLE}
+      >
+        {item.source}
+      </span>
+      {tags.map((t) => {
+        const st = tagStyle(t);
+        return (
+          <span
+            key={t}
+            className="hidden shrink-0 items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-500 sm:inline-flex dark:text-neutral-400"
+            style={MONO_STYLE}
+          >
+            <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: st.dot }} />
+            {tagLabel(t)}
+          </span>
+        );
+      })}
+      <span
+        className="shrink-0 text-[10px] tabular-nums text-neutral-400 dark:text-neutral-600"
+        style={MONO_STYLE}
+      >
+        #{item.id.slice(0, 6)}
+      </span>
+    </a>
+  );
+}
+
+function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" }) {
+  const secondary = (item.secondaryCompanies ?? []).slice(0, 3);
+  const tags = item.tags ?? [];
+  const isHero = tier === "hero";
+  return (
+    <article
+      className={
+        "group relative flex gap-4 border bg-white transition dark:bg-neutral-900 " +
+        (isHero
+          ? "border-neutral-200 dark:border-neutral-800 p-5"
+          : "border-neutral-200 dark:border-neutral-800 p-4 hover:border-neutral-300 dark:hover:border-neutral-700")
+      }
+      style={{
+        borderRadius: 6,
+        ...(isHero
+          ? {
+              borderLeft: `2px solid ${ACCENT}`,
+              boxShadow: `0 0 0 1px ${ACCENT}22, 0 0 24px -6px ${ACCENT}55`,
+            }
+          : {}),
+      }}
+    >
       <div className="flex shrink-0 flex-col items-center gap-1 pt-1">
         <ImportanceBar value={item.importance} />
       </div>
       <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
           {item.company && (
             <span
-              className="rounded-md px-2 py-0.5 text-[11px] font-semibold text-white"
-              style={{ backgroundColor: ACCENT }}
+              className="text-[11px] font-semibold text-white"
+              style={{
+                ...MONO_STYLE,
+                backgroundColor: ACCENT,
+                padding: "2px 6px",
+                borderRadius: 3,
+                letterSpacing: "0.02em",
+              }}
             >
-              {item.company}
+              {item.company.toUpperCase()}
             </span>
           )}
           {secondary.map((c) => (
             <span
               key={c}
-              className="rounded-md border border-neutral-300 px-1.5 py-0.5 text-[10px] font-medium text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+              className="border border-neutral-300 text-[10px] font-medium text-neutral-600 dark:border-neutral-700 dark:text-neutral-300"
+              style={{ ...MONO_STYLE, padding: "1px 5px", borderRadius: 3 }}
             >
-              {c}
+              {c.toUpperCase()}
             </span>
           ))}
           {item.topic && (
-            <span className="text-neutral-500 dark:text-neutral-400">· {item.topic}</span>
+            <span
+              className="text-[10px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+              style={MONO_STYLE}
+            >
+              · {item.topic}
+            </span>
           )}
           <ImportanceBadge value={item.importance} />
-          <span className="ml-auto text-neutral-400 dark:text-neutral-500">
+          <span
+            className="ml-auto text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+            style={MONO_STYLE}
+          >
             {shortDate(item.addedOn)}
           </span>
         </div>
-        <h4 className="mt-2 text-[15px] font-semibold leading-snug">
+        <h4 className={"mt-2 font-semibold leading-snug " + (isHero ? "text-[18px]" : "text-[15px]")}>
           <a
             href={item.link}
             target="_blank"
@@ -1179,32 +1278,53 @@ function ItemCard({ item }: { item: Item }) {
           </a>
         </h4>
         {item.summary && (
-          <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+          <p
+            className={
+              "mt-1 leading-relaxed text-neutral-600 dark:text-neutral-300 " +
+              (isHero ? "text-[14px]" : "line-clamp-2 text-sm")
+            }
+          >
             {item.summary}
           </p>
         )}
-        <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 text-[11px] uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+          <span
+            className="text-[10px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+            style={MONO_STYLE}
+          >
             {item.source}
           </span>
-          {tags.map((t) => {
-            const st = tagStyle(t);
-            return (
-              <span
-                key={t}
-                className={
-                  "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10.5px] font-medium " +
-                  st.chip
-                }
-              >
+          <span
+            className="text-[10px] tabular-nums text-neutral-400 dark:text-neutral-600"
+            style={MONO_STYLE}
+          >
+            #{item.id.slice(0, 8)}
+          </span>
+          <span className="flex flex-wrap items-center gap-1.5">
+            {tags.map((t) => {
+              const st = tagStyle(t);
+              return (
                 <span
-                  className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ backgroundColor: st.dot }}
-                />
-                {tagLabel(t)}
-              </span>
-            );
-          })}
+                  key={t}
+                  className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-neutral-600 dark:text-neutral-300"
+                  style={{
+                    ...MONO_STYLE,
+                    padding: "2px 6px",
+                    borderRadius: 3,
+                    border: "1px solid",
+                    borderColor: "currentColor",
+                    opacity: 0.85,
+                  }}
+                >
+                  <span
+                    className="inline-block h-1.5 w-1.5 rounded-full"
+                    style={{ backgroundColor: st.dot }}
+                  />
+                  {tagLabel(t)}
+                </span>
+              );
+            })}
+          </span>
         </div>
       </div>
     </article>
@@ -1229,6 +1349,61 @@ function ImportanceBar({ value }: { value: number }) {
           style={i < v ? { backgroundColor: ACCENT } : undefined}
         />
       ))}
+    </div>
+  );
+}
+
+// ---------- Status Bar ----------
+function StatusBar({
+  lastUpdated,
+  totalItems,
+  dayN,
+  loading,
+}: {
+  lastUpdated?: string;
+  totalItems: number;
+  dayN: number;
+  loading: boolean;
+}) {
+  const sync = lastUpdated
+    ? new Date(lastUpdated).toLocaleTimeString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })
+    : "--:--:--";
+  return (
+    <div
+      className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95"
+      style={MONO_STYLE}
+    >
+      <div className="mx-auto flex max-w-6xl items-center gap-4 overflow-x-auto whitespace-nowrap px-4 py-1.5 text-[10.5px] uppercase tracking-wider text-neutral-500 sm:px-6 dark:text-neutral-400">
+        <span className="flex items-center gap-1.5">
+          <span
+            className={"inline-block h-2 w-2 rounded-full " + (loading ? "" : "terminal-live-dot")}
+            style={{ backgroundColor: loading ? "#eab308" : "#22c55e" }}
+          />
+          <span className="font-semibold text-neutral-700 dark:text-neutral-200">
+            {loading ? "SYNCING" : "LIVE"}
+          </span>
+        </span>
+        <span className="opacity-60">|</span>
+        <span>
+          LAST SYNC <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{sync}</span>
+        </span>
+        <span className="opacity-60">|</span>
+        <span>
+          ITEMS <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{totalItems.toLocaleString()}</span>
+        </span>
+        <span className="opacity-60">|</span>
+        <span>
+          DAY <span className="tabular-nums" style={{ color: ACCENT }}>{dayN || "—"}</span>
+        </span>
+        <span className="ml-auto hidden sm:inline text-neutral-400 dark:text-neutral-600">
+          DAYBREAK://PIPELINE
+        </span>
+      </div>
     </div>
   );
 }

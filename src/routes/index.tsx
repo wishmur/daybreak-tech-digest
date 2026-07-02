@@ -842,11 +842,11 @@ function TechDigestPage() {
                     >
                       Latest — ranked by importance &amp; recency
                     </h3>
-                    <div className="space-y-3">
+                    <ol className="divide-y divide-[#E8E2D2] dark:divide-neutral-800">
                       {pageItems.map((it) => (
-                        <ItemCard key={it.id} item={it} />
+                        <FeaturedStoryCard key={it.id} item={it} />
                       ))}
-                    </div>
+                    </ol>
                   </section>
                 );
               } else {

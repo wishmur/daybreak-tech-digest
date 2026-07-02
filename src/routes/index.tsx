@@ -875,11 +875,11 @@ function TechDigestPage() {
                         >
                           {friendlyGroupLabel(day)}
                         </h3>
-                        <div className="space-y-3">
+                        <ol className="divide-y divide-[#E8E2D2] dark:divide-neutral-800">
                           {items.map((it) => (
-                            <ItemCard key={it.id} item={it} />
+                            <FeaturedStoryCard key={it.id} item={it} />
                           ))}
-                        </div>
+                        </ol>
                       </section>
                     ))}
                   </div>

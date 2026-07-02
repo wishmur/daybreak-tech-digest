@@ -12,7 +12,7 @@ import {
 
 const DATA_URL =
   "https://raw.githubusercontent.com/wishmur/tech-digest/main/data/digest.json";
-const ACCENT = "#0066FF";
+const ACCENT = "#B3261E";
 const MONO = "JetBrains Mono, ui-monospace, monospace";
 
 export const Route = createFileRoute("/how-it-works")({

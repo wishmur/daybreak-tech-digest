@@ -61,7 +61,7 @@ const TAG_VOCAB = [
 ];
 
 const TAG_STYLES: Record<string, { dot: string; chip: string; label?: string }> = {
-  launch:       { dot: "#2D55FF", chip: "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300", label: "Launch" },
+  launch:       { dot: "#3F3A2E", chip: "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300", label: "Launch" },
   funding:      { dot: "#10B981", chip: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300", label: "Funding" },
   leadership:   { dot: "#8B5CF6", chip: "bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-300", label: "Leadership" },
   regulation:   { dot: "#F59E0B", chip: "bg-amber-50 text-amber-800 dark:bg-amber-500/10 dark:text-amber-300", label: "Regulation" },
@@ -112,7 +112,7 @@ const LS_CACHE = "techDigest:cache";
 const LS_FILTERS = "techDigest:filters";
 const LS_THEME = "techDigest:theme";
 const LS_VIEWS = "techDigest:savedViews";
-const ACCENT = "#0066FF";
+const ACCENT = "#B3261E";
 
 type DateRange = "latest" | "7d" | "30d" | "all";
 type ImportanceMin = 0 | 3 | 4 | 5;
@@ -248,7 +248,7 @@ function isoWeek(d: Date): string {
 
 // A stable palette used for trend chart / company chips
 const COMPANY_PALETTE = [
-  "#2D55FF", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6",
+  "#3F3A2E", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6",
   "#0EA5E9", "#EC4899", "#14B8A6", "#F97316", "#6366F1",
 ];
 function companyColor(idx: number) {
@@ -971,7 +971,7 @@ function TechDigestPage() {
               href="https://shailvi.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#0066FF] dark:text-neutral-200 dark:hover:text-[#0066FF]"
+              className="text-neutral-700 underline decoration-dotted underline-offset-4 hover:text-[#B3261E] dark:text-neutral-200 dark:hover:text-[#B3261E]"
             >
               Shailvi Kumar
             </a>
@@ -1381,7 +1381,7 @@ function FeaturedStoryCard({ item, rank }: { item: Item; rank: number }) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
+      className="group relative flex h-full flex-col gap-3 border border-neutral-200 bg-white p-4 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
       style={{
         borderRadius: 6,
         ...(isTop
@@ -1462,7 +1462,7 @@ function ItemRow({ item }: { item: Item }) {
       rel="noopener noreferrer"
       data-story
       data-story-link={item.link}
-      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] focus:outline-none focus-visible:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:border-neutral-800 dark:bg-neutral-900"
+      className="group flex items-center gap-3 border border-neutral-200 bg-white px-3 py-2 transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] focus:outline-none focus-visible:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:border-neutral-800 dark:bg-neutral-900"
       style={{ borderRadius: 4 }}
     >
 
@@ -1521,7 +1521,7 @@ function ItemCardFull({ item, tier }: { item: Item; tier: "hero" | "standard" })
       data-story
       data-story-link={item.link}
       className={
-        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#0066FF] data-[kbd-active=true]:border-[#0066FF] data-[kbd-active=true]:shadow-[0_0_0_1px_#0066FF] dark:bg-neutral-900 " +
+        "group relative flex gap-4 border bg-white transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-[#B3261E] data-[kbd-active=true]:border-[#B3261E] data-[kbd-active=true]:shadow-[0_0_0_1px_#B3261E] dark:bg-neutral-900 " +
         (isHero
           ? "border-neutral-200 dark:border-neutral-800 p-5"
           : "border-neutral-200 dark:border-neutral-800 p-4")
@@ -2245,7 +2245,7 @@ function TerminalTooltip({ active, payload, label, valueFormatter }: {
   return (
     <div
       className="rounded-md border px-3 py-2 text-[11px] shadow-lg"
-      style={{ background: "#0A0A0A", borderColor: "#232323", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
+      style={{ background: "#FAF7F2", borderColor: "#DDD8CC", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" }}
     >
       {label !== undefined && (
         <div className="mb-1 uppercase tracking-wide text-neutral-400">{String(label)}</div>
@@ -2519,7 +2519,7 @@ function TrendsView({ items, loading }: { items: Item[]; loading: boolean }) {
   if (loading) return <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6"><ListSkeleton /></div>;
 
   const axisStyle = { fontSize: 10, fill: "#8A93A6", fontFamily: "var(--font-mono, JetBrains Mono, monospace)" };
-  const gridColor = "#1a1a1a";
+  const gridColor = "#DDD8CC";
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6">

@@ -396,19 +396,6 @@ function TechDigestPage() {
 
   // Editorial lede pulled directly from the day's JSON `summary` field.
   const latestDay = digest?.days?.[0];
-  const generatedBrief = useMemo(() => {
-    if (!latestDay) return null;
-    const s = (latestDay.summary || "").trim();
-    if (s) return s;
-    // Fallback: synthesize a one-liner from top items if the day is missing a summary.
-    const top = [...latestDay.items]
-      .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
-      .slice(0, 3);
-    if (top.length === 0) return null;
-    return top
-      .map((it) => `${it.company || it.source}: ${it.title.replace(/[.!?]+$/, "")}`)
-      .join(" · ");
-  }, [latestDay]);
 
   // Top stories for the latest day: exactly the 3 highest-importance items.
   const topStories = useMemo<Item[]>(() => {
@@ -418,26 +405,6 @@ function TechDigestPage() {
     );
     return sorted.slice(0, 3);
   }, [latestDay]);
-
-  // Brief automation caption metadata: unique sources in latest day + last generation time
-  const briefMeta = useMemo(() => {
-    if (!latestDay) return { sourceCount: 0, generatedAt: "" };
-    const sources = new Set<string>();
-    for (const it of latestDay.items) if (it.source) sources.add(it.source);
-    let generatedAt = "";
-    const iso = digest?.lastUpdated;
-    if (iso) {
-      try {
-        generatedAt = new Date(iso).toLocaleTimeString(undefined, {
-          hour: "numeric",
-          minute: "2-digit",
-        });
-      } catch {
-        generatedAt = "";
-      }
-    }
-    return { sourceCount: sources.size, generatedAt };
-  }, [latestDay, digest?.lastUpdated]);
 
   // Full editorial-style date header for the latest brief
   const latestDayLongDate = useMemo(() => {
@@ -714,17 +681,6 @@ function TechDigestPage() {
                   </p>
                 )}
 
-                <figure
-                  className="relative mt-6 border-l bg-transparent pl-5 sm:mt-8 sm:pl-8"
-                  style={{ borderLeftColor: ACCENT, borderLeftWidth: 3 }}
-                >
-                  <blockquote
-                    className="text-[22px] font-normal leading-[1.45] text-neutral-900 dark:text-neutral-100 sm:text-[30px] sm:leading-[1.35]"
-                    style={{ fontFamily: "Inter, ui-sans-serif, system-ui", letterSpacing: "-0.01em" }}
-                  >
-                    <TypedBrief text={generatedBrief ?? ""} />
-                  </blockquote>
-                </figure>
 
 
                 {topStories.length > 0 && (
@@ -1380,45 +1336,6 @@ const MONO_STYLE: React.CSSProperties = {
   letterSpacing: "0.02em",
 };
 
-// Typing / reveal animation for the daily brief. Runs once per unique text.
-function TypedBrief({ text }: { text: string }) {
-  const [count, setCount] = useState(0);
-  const lastText = useRef<string>("");
-  useEffect(() => {
-    if (!text) return;
-    if (lastText.current === text) return;
-    lastText.current = text;
-    setCount(0);
-    const total = text.length;
-    // Duration scales with length but capped so long briefs don't drag.
-    const perChar = Math.max(8, Math.min(22, 1400 / Math.max(1, total)));
-    let i = 0;
-    const id = window.setInterval(() => {
-      i += Math.max(1, Math.round(total / 180)); // step multiple chars for smoothness
-      if (i >= total) {
-        setCount(total);
-        window.clearInterval(id);
-      } else {
-        setCount(i);
-      }
-    }, perChar);
-    return () => window.clearInterval(id);
-  }, [text]);
-  const shown = text.slice(0, count);
-  const done = count >= text.length;
-  return (
-    <>
-      <span>{shown}</span>
-      {!done && (
-        <span
-          aria-hidden
-          className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[0.1em] animate-pulse align-middle"
-          style={{ backgroundColor: ACCENT }}
-        />
-      )}
-    </>
-  );
-}
 
 // Editorial top-stories row: text-first, no colored avatar, no card shadow, hairline rule below.
 function FeaturedStoryCard({ item, rank }: { item: Item; rank?: number }) {

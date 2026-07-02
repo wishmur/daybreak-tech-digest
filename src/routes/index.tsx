@@ -1681,35 +1681,30 @@ function StatusBar({
         hour12: false,
       })
     : "--:--:--";
+  const sansMeta = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' } as const;
   return (
     <div
-      className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95"
-      style={MONO_STYLE}
+      className="sticky top-0 z-40 backdrop-blur"
+      style={{ backgroundColor: 'rgba(250, 247, 242, 0.92)', borderBottom: '1px solid #DDD8CC' }}
     >
-      <div className="mx-auto flex max-w-6xl items-center gap-4 overflow-x-auto whitespace-nowrap px-4 py-1.5 text-[10.5px] uppercase tracking-wider text-neutral-500 sm:px-6 dark:text-neutral-400">
-        <span className="flex items-center gap-1.5">
+      <div
+        className="mx-auto flex max-w-6xl items-center justify-between gap-4 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#7A7568] sm:px-6"
+        style={sansMeta}
+      >
+        <span className="flex items-center gap-2">
           <span
-            className={"inline-block h-2 w-2 rounded-full " + (loading ? "" : "terminal-live-dot")}
-            style={{ backgroundColor: loading ? "#eab308" : "#22c55e" }}
+            className={"inline-block h-1.5 w-1.5 rounded-full " + (loading ? "" : "terminal-live-dot")}
+            style={{ backgroundColor: loading ? '#B08A00' : '#B3261E' }}
+            aria-hidden="true"
           />
-          <span className="font-semibold text-neutral-700 dark:text-neutral-200">
-            {loading ? "SYNCING" : "LIVE"}
+          <span className="font-medium text-[#1A1A1A]">
+            Issue No. <span className="tabular-nums">{dayN || '—'}</span>
           </span>
+          <span aria-hidden="true" className="text-[#B4AE9C]">·</span>
+          <span>Updated <span className="tabular-nums text-[#2E2A24]">{sync}</span> ET</span>
         </span>
-        <span className="opacity-60">|</span>
-        <span>
-          LAST SYNC <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{sync}</span>
-        </span>
-        <span className="opacity-60">|</span>
-        <span>
-          ITEMS <span className="text-neutral-700 tabular-nums dark:text-neutral-200">{totalItems.toLocaleString()}</span>
-        </span>
-        <span className="opacity-60">|</span>
-        <span>
-          DAY <span className="tabular-nums" style={{ color: ACCENT }}>{dayN || "—"}</span>
-        </span>
-        <span className="ml-auto hidden sm:inline text-neutral-400 dark:text-neutral-600">
-          DAYBREAK://PIPELINE
+        <span className="hidden items-center gap-2 sm:flex">
+          <span>{totalItems.toLocaleString()} items indexed</span>
         </span>
       </div>
     </div>

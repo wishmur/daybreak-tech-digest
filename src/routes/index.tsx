@@ -1213,17 +1213,16 @@ function MultiSelect({
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+        className={
+          "inline-flex items-center gap-1 border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 " +
+          (value.length > 0
+            ? "border-[#B3261E] text-[#B3261E]"
+            : "border-[#DDD8CC] text-neutral-600 hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100")
+        }
+        style={MONO_STYLE}
       >
         {label}
-        {value.length > 0 && (
-          <span
-            className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[10px] font-semibold text-white"
-            style={{ backgroundColor: ACCENT }}
-          >
-            {value.length}
-          </span>
-        )}
+        {value.length > 0 && <span className="tabular-nums">· {value.length}</span>}
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
           <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" />
         </svg>

@@ -1380,45 +1380,6 @@ const MONO_STYLE: React.CSSProperties = {
   letterSpacing: "0.02em",
 };
 
-// Typing / reveal animation for the daily brief. Runs once per unique text.
-function TypedBrief({ text }: { text: string }) {
-  const [count, setCount] = useState(0);
-  const lastText = useRef<string>("");
-  useEffect(() => {
-    if (!text) return;
-    if (lastText.current === text) return;
-    lastText.current = text;
-    setCount(0);
-    const total = text.length;
-    // Duration scales with length but capped so long briefs don't drag.
-    const perChar = Math.max(8, Math.min(22, 1400 / Math.max(1, total)));
-    let i = 0;
-    const id = window.setInterval(() => {
-      i += Math.max(1, Math.round(total / 180)); // step multiple chars for smoothness
-      if (i >= total) {
-        setCount(total);
-        window.clearInterval(id);
-      } else {
-        setCount(i);
-      }
-    }, perChar);
-    return () => window.clearInterval(id);
-  }, [text]);
-  const shown = text.slice(0, count);
-  const done = count >= text.length;
-  return (
-    <>
-      <span>{shown}</span>
-      {!done && (
-        <span
-          aria-hidden
-          className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[0.1em] animate-pulse align-middle"
-          style={{ backgroundColor: ACCENT }}
-        />
-      )}
-    </>
-  );
-}
 
 // Editorial top-stories row: text-first, no colored avatar, no card shadow, hairline rule below.
 function FeaturedStoryCard({ item, rank }: { item: Item; rank?: number }) {

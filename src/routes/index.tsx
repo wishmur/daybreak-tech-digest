@@ -344,6 +344,46 @@ function TechDigestPage() {
     return parts.join(" · ");
   }, [latestDay]);
 
+  // Top 3-5 highest-importance items from the latest day (for featured cards)
+  const topStories = useMemo<Item[]>(() => {
+    if (!latestDay) return [];
+    return [...latestDay.items]
+      .sort((a, b) => b.importance - a.importance || itemTs(b) - itemTs(a))
+      .slice(0, 5);
+  }, [latestDay]);
+
+  // Brief automation caption metadata: unique sources in latest day + last generation time
+  const briefMeta = useMemo(() => {
+    if (!latestDay) return { sourceCount: 0, generatedAt: "" };
+    const sources = new Set<string>();
+    for (const it of latestDay.items) if (it.source) sources.add(it.source);
+    let generatedAt = "";
+    const iso = digest?.lastUpdated;
+    if (iso) {
+      try {
+        generatedAt = new Date(iso).toLocaleTimeString(undefined, {
+          hour: "numeric",
+          minute: "2-digit",
+        });
+      } catch {
+        generatedAt = "";
+      }
+    }
+    return { sourceCount: sources.size, generatedAt };
+  }, [latestDay, digest?.lastUpdated]);
+
+  // Full editorial-style date header for the latest brief
+  const latestDayLongDate = useMemo(() => {
+    if (!latestDay) return "";
+    const d = parseYMD(latestDay.date);
+    return d.toLocaleDateString(undefined, {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+  }, [latestDay]);
+
   // Storylines: same topic OR company on 3+ consecutive days
   const storylines = useMemo(() => {
     if (!digest) return [] as { key: string; label: string; days: number; kind: "company" | "topic"; latestDate: string }[];

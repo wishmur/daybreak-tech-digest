@@ -65,12 +65,16 @@ export function StoryRow({
   read = false,
   onOpen,
   showDate = false,
+  lead = false,
 }: {
   item: Item;
   momentum?: Momentum | null;
   read?: boolean;
   onOpen?: (id: string) => void;
   showDate?: boolean;
+  /** In the lead group of a day that has one: a larger headline is the only
+      difference. Everything else already reads the same story either way. */
+  lead?: boolean;
 }) {
   const tags = (item.tags ?? []).slice(0, 3);
   const bits: React.ReactNode[] = [];
@@ -99,7 +103,7 @@ export function StoryRow({
         data-story-link={item.link}
         onClick={() => onOpen?.(item.id)}
         onAuxClick={() => onOpen?.(item.id)}
-        className="group block py-6 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
+        className="group block py-4 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
       >
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
           <ImportanceMeter value={item.importance} />
@@ -117,9 +121,9 @@ export function StoryRow({
         </div>
 
         <h3
-          className={`mt-2 text-head font-semibold leading-[1.22] decoration-signal decoration-2 underline-offset-[6px] group-hover:underline ${
-            read ? "text-ink-3" : "text-ink"
-          }`}
+          className={`mt-2 font-display font-bold leading-[1.16] decoration-signal decoration-2 underline-offset-[6px] group-hover:underline ${
+            lead ? "text-head-lg" : "text-head"
+          } ${read ? "text-ink-3" : "text-ink"}`}
         >
           {item.title}
         </h3>
@@ -133,7 +137,7 @@ export function StoryRow({
         {/* Provenance on the left, subject tags on the right of a hairline.
             Without the divider the source, date and tags read as one
             undifferentiated string of words. */}
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
           <span className="data">{item.source}</span>
           {showDate && <span className="data">{shortDate(item.addedOn)}</span>}
           {tags.length > 0 && (
@@ -166,7 +170,7 @@ export function StorySkeleton({ rows = 5 }: { rows?: number }) {
   return (
     <ul className="animate-pulse" aria-hidden="true">
       {Array.from({ length: rows }).map((_, i) => (
-        <li key={i} className="border-b border-rule py-6 last:border-b-0">
+        <li key={i} className="border-b border-rule py-4 last:border-b-0">
           <div className="h-3 w-40 bg-sunk" />
           <div className="mt-3 h-5 w-4/5 bg-sunk" />
           <div className="mt-2.5 h-4 w-full max-w-xl bg-sunk" />

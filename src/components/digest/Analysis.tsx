@@ -26,19 +26,22 @@ import {
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { EmptyState, ImportanceMeter, StorySkeleton, StoryRow } from "./Story";
 
-/* Editorial chart palette. Ink first, one accent, earth tones for the rest.
-   No rainbow, no violet, no cyan. */
-const INK = "#12110f";
-const INK_2 = "#55524b";
-const INK_3 = "#6e6b63";
-const RULE = "#e3e0d8";
-const SIGNAL = "#be3a11";
-const SERIES = [INK, SIGNAL, "#7d7566", "#3f5c4e", "#8c6e4a", "#a8a08c"];
+/* Editorial chart palette, matching the Synoptic Brief token set in
+   styles.css. SVG fills can't read CSS custom properties reliably across
+   the export/print path, so the values are mirrored here rather than
+   computed — keep these in step with --color-* by hand. Ink first, one
+   accent, cool muted tones for the rest. No rainbow, no violet, no cyan. */
+const INK = "#12171b";
+const INK_2 = "#46545a";
+const INK_3 = "#5f6d72";
+const RULE = "#d6dedf";
+const SIGNAL = "#a83216";
+const SERIES = [INK, SIGNAL, "#5b7a8c", "#7a8c6b", "#8c7a5b", "#a3adaf"];
 
 const axisTick = {
   fontSize: 12,
   fill: INK_3,
-  fontFamily: "IBM Plex Mono, ui-monospace, monospace",
+  fontFamily: "JetBrains Mono, ui-monospace, monospace",
 };
 
 /* ------------------------------------------------------------------ */

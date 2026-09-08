@@ -63,8 +63,8 @@ function ArchivePage() {
       <Masthead tagline={false} />
       <ViewTabs archiveActive />
 
-      <main className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-rule pb-4">
+      <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-rule pb-4">
           <div>
             <h2 className="text-head-lg font-semibold">Every brief so far</h2>
             <p className="label mt-1">
@@ -116,17 +116,25 @@ function ArchivePage() {
                           {day.summary || "No summary was written for this day."}
                         </span>
                       </span>
-                      <span className="data shrink-0 pt-1">
+                      <span className="data flex shrink-0 items-center gap-2 pt-1">
                         {day.items.length}
-                        <span
+                        <svg
                           aria-hidden="true"
-                          className="ml-2 inline-block transition-transform"
+                          width="10"
+                          height="10"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          className="shrink-0 transition-transform"
                           style={{
                             transform: isOpen ? "rotate(180deg)" : "none",
                           }}
                         >
-                          ▾
-                        </span>
+                          <path
+                            d="M3 4.5L6 7.5L9 4.5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                          />
+                        </svg>
                       </span>
                     </button>
                   </h3>

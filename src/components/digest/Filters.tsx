@@ -159,12 +159,20 @@ export function FilterControls({
 }) {
   const set = (patch: Partial<Filters>) => setFilters({ ...filters, ...patch });
 
+  // A hairline, not a box, groups the three clusters — scope, then
+  // narrowing, then search — so the bar reads as one designed strip
+  // instead of a loose run of form controls.
+  const Divider = () =>
+    stacked ? null : (
+      <span aria-hidden="true" className="h-5 w-px shrink-0 bg-rule" />
+    );
+
   return (
     <div
       className={
         stacked
-          ? "flex flex-col gap-3"
-          : "flex flex-wrap items-center gap-2 py-2.5"
+          ? "flex flex-col gap-2.5"
+          : "flex flex-wrap items-center gap-1.5 py-1.5"
       }
     >
       <div className={stacked ? "scroll-x flex gap-1.5 pb-1" : "flex gap-1.5"}>
@@ -180,53 +188,63 @@ export function FilterControls({
         ))}
       </div>
 
-      <MultiSelect
-        label="Company"
-        options={companyOptions}
-        value={filters.companies}
-        onChange={(v) => set({ companies: v })}
-        block={stacked}
-      />
-      <MultiSelect
-        label="Topic"
-        options={topicOptions}
-        value={filters.topics}
-        onChange={(v) => set({ topics: v })}
-        block={stacked}
-      />
-      <MultiSelect
-        label="Source"
-        options={sourceOptions}
-        value={filters.sources}
-        onChange={(v) => set({ sources: v })}
-        block={stacked}
-      />
-      <MultiSelect
-        label="Tag"
-        options={[...TAG_VOCAB]}
-        value={filters.tags}
-        onChange={(v) => set({ tags: v })}
-        block={stacked}
-      />
+      <Divider />
 
-      <button
-        onClick={() =>
-          set({ minImportance: filters.minImportance === 4 ? 0 : 4 })
+      <div
+        className={
+          stacked ? "flex flex-col gap-2.5" : "flex flex-wrap items-center gap-1.5"
         }
-        data-active={filters.minImportance >= 4}
-        className="ctl"
-        title="Show only stories scored 4 or 5"
       >
-        High signal only
-      </button>
+        <MultiSelect
+          label="Company"
+          options={companyOptions}
+          value={filters.companies}
+          onChange={(v) => set({ companies: v })}
+          block={stacked}
+        />
+        <MultiSelect
+          label="Topic"
+          options={topicOptions}
+          value={filters.topics}
+          onChange={(v) => set({ topics: v })}
+          block={stacked}
+        />
+        <MultiSelect
+          label="Source"
+          options={sourceOptions}
+          value={filters.sources}
+          onChange={(v) => set({ sources: v })}
+          block={stacked}
+        />
+        <MultiSelect
+          label="Tag"
+          options={[...TAG_VOCAB]}
+          value={filters.tags}
+          onChange={(v) => set({ tags: v })}
+          block={stacked}
+        />
 
-      <label className={stacked ? "w-full" : "min-w-[12rem] flex-1"}>
+        <button
+          onClick={() =>
+            set({ minImportance: filters.minImportance === 4 ? 0 : 4 })
+          }
+          data-active={filters.minImportance >= 4}
+          className="ctl"
+          title="Show only stories scored 4 or 5"
+        >
+          High signal only
+        </button>
+      </div>
+
+      <Divider />
+
+      <label className={stacked ? "w-full" : "min-w-[11rem] flex-1"}>
         <span className="sr-only">Search stories</span>
         <input
           value={filters.q}
           onChange={(e) => set({ q: e.target.value })}
           placeholder="Search headlines and summaries"
-          className="w-full border border-rule bg-transparent px-2.5 py-[7px] font-ui text-meta placeholder:text-ink-3"
+          className="w-full border border-rule bg-transparent px-2.5 py-[6px] font-ui text-meta placeholder:text-ink-3"
         />
       </label>
     </div>
@@ -294,7 +312,20 @@ export function ActiveFilterChips({
           className="inline-flex items-center gap-1.5 border border-rule-2 px-2 py-1 font-ui text-micro text-ink-2 hover:border-ink hover:text-ink"
         >
           {c.label}
-          <span aria-hidden="true">×</span>
+          <svg
+            aria-hidden="true"
+            width="8"
+            height="8"
+            viewBox="0 0 12 12"
+            fill="none"
+            className="shrink-0"
+          >
+            <path
+              d="M2.5 2.5L9.5 9.5M9.5 2.5L2.5 9.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
           <span className="sr-only">Remove filter</span>
         </button>
       ))}

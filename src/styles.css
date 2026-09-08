@@ -2,58 +2,58 @@
 @source "../src";
 
 /* =========================================================================
-   Daybreak design system — The Synoptic Brief
+   Daybreak design system — The Strip Board
 
-   News reads like a morning weather briefing: conditions first, then
-   systems and stations, calm and precise. The palette is chart paper, not
-   the cream-and-serif "tasteful AI interface" cluster this category
-   defaults to, and the accent is a storm-warning colour reserved for one
-   job: a must-read story, never decoration.
+   An operate-first triage board, not a branded reading page: stories carry
+   a priority lane and a status colour, filters/search/range are distinct
+   control types, and the working board fills the canvas instead of hiding
+   in a centred column. Abstracted from the aviation strip-board mechanism
+   on purpose — no literal texture, iconography, or theming, just the
+   underlying discipline: lanes, status colour, a compact overview, real
+   density.
 
-   The previous stylesheet worked by redefining Tailwind's own utilities
-   (.bg-white, .text-neutral-500, .shadow-lg ...) with !important. That made
-   every colour in the app un-overridable, silently restyled every shadcn
-   component, and left several hundred dark: classes that could never fire.
-   None of that is here. Colours are tokens, tokens generate utilities, and
-   nothing is !important.
-
-   The look is deliberately a single light theme. Committing to one is a
-   design decision; shipping a half-wired second one is a bug.
+   Colours are tokens, tokens generate utilities, and nothing is
+   !important. The look is deliberately a single light theme — bright, not
+   grey, not cream. Committing to one is a design decision; shipping a
+   half-wired second one is a bug.
    ========================================================================= */
 
 @theme {
   /* ---- Type -------------------------------------------------------- */
-  /* Chart-grade grotesk for display, a workhorse sans built for dense
-     public reading as body/UI, and a mono reserved for real data: times,
-     counts, station indices. Inter is gone: it is the default face of
-     every generated interface on the internet and reads as nothing.       */
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  --font-ui: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  /* One grotesk family carries both display and UI — a tool reads as one
+     voice, not an editorial masthead layered over a UI kit. Mono is
+     reserved for real data: counts, timestamps, rankings.                */
+  --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-ui: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
   /* ---- Surface ----------------------------------------------------- */
-  /* Cool chart-paper grey-blue, not the warm cream this category defaults
-     to. Real contrast, no warmth borrowed to read as "tasteful."          */
-  --color-paper: #f1f4f4;
-  --color-inset: #e7ecec;
-  --color-sunk: #dce3e3;
+  /* Bright near-white, not grey and not cream. The board is lit like a
+     tool people use at a desk under office light, not a printed page.    */
+  --color-paper: #fcfcfa;
+  --color-inset: #f2f2ee;
+  --color-sunk: #e8e8e2;
 
   /* ---- Ink --------------------------------------------------------- */
-  --color-ink: #12171b; /* ~16.3:1 on paper */
-  --color-ink-2: #46545a; /*  ~7.1:1 on paper, AAA body      */
-  --color-ink-3: #5f6d72; /*  ~4.8:1 on paper, AA everything */
+  --color-ink: #14161a; /* ~17.7:1 on paper */
+  --color-ink-2: #4a5057; /*  ~7.7:1 on paper, AAA body      */
+  --color-ink-3: #6b7178; /*  ~4.9:1 on paper, AA everything */
 
   /* ---- Structure --------------------------------------------------- */
-  --color-rule: #d6dedf;
-  --color-rule-2: #b7c2c3;
+  --color-rule: #e2e2dc;
+  --color-rule-2: #c7c7bf;
 
-  /* ---- Signal ------------------------------------------------------ */
-  /* One accent, one job: a must-read (importance 5) story. It is not a
-     brand colour, it is not a hover state, it is not the caret. When
-     everything is the accent colour the accent means nothing.            */
-  --color-signal: #a83216; /* ~6.1:1 on paper, AA */
-  --color-signal-ink: #7a2410;
-  --color-signal-wash: #f7eae5;
+  /* ---- Signal -------------------------------------------------------
+     Two functional roles, not one accent floating alone: signal marks
+     importance and every active/selected state; lane marks the
+     secondary/developing priority lane. Nothing else on the page wears
+     either colour — that discipline is what makes them mean something. */
+  --color-signal: #c22f16; /* ~5.3:1 on paper, AA */
+  --color-signal-ink: #a32c15;
+  --color-signal-wash: #fce9e5;
+  --color-lane: #2f5fb8; /* ~5.4:1 on paper, AA */
+  --color-lane-ink: #234a92;
+  --color-lane-wash: #e8eefb;
 
   /* ---- Type scale -------------------------------------------------- */
   /* Real jumps between steps. Sizes that sit 1px apart are the reason so
@@ -80,17 +80,11 @@
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-size: var(--text-body);
-    line-height: 1.6;
+    line-height: 1.55;
     font-feature-settings: "kern", "liga";
     -webkit-font-smoothing: antialiased;
-  }
-
-  /* Old-style figures read better in running prose; tabular ones are set
-     explicitly wherever numbers need to line up in a column. */
-  p {
-    font-variant-numeric: oldstyle-nums;
   }
 
   h1,
@@ -98,6 +92,7 @@
   h3,
   h4 {
     font-family: var(--font-display);
+    font-weight: 700;
     letter-spacing: -0.014em;
     line-height: 1.15;
     text-wrap: balance;
@@ -108,21 +103,11 @@
     max-width: 68ch;
   }
 
-  /* An editorial dek: the opening words carry a touch more weight, the way
-     a newspaper brief leads in, so a dense summary reads as scannable prose
-     rather than a flat wall of text. No markup, no truncation — just the
-     browser's own first-line box. */
-  .dek::first-line {
-    font-weight: 600;
-    color: var(--color-ink);
-  }
-
   a {
     color: inherit;
   }
 
-  /* A visible, consistent focus ring. The previous build used
-     focus:outline-none in several places with nothing put back. */
+  /* A visible, consistent focus ring. */
   :focus-visible {
     outline: 2px solid var(--color-signal);
     outline-offset: 2px;
@@ -146,8 +131,7 @@
 /* ------------------------------------------------------------------ */
 
 @layer components {
-  /* Interface labels. 13px minimum and restrained tracking. Wide letter
-     spacing on small text breaks word shapes and is a reliable tell. */
+  /* Interface labels. 13px minimum and restrained tracking. */
   .label {
     font-family: var(--font-ui);
     font-size: var(--text-meta);
@@ -159,7 +143,7 @@
   .label-strong {
     font-family: var(--font-ui);
     font-size: var(--text-meta);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-ink-2);
@@ -174,15 +158,19 @@
     color: var(--color-ink-3);
   }
 
-  /* Flat control. No rounded pill, no shadow, no gradient. */
+  /* Flat control. No rounded pill, no shadow, no gradient. This is the
+     generic secondary press-button (pagination, "mark all read") — filters,
+     range, and search each carry their own chrome below rather than
+     borrowing this one shape for every role. */
   .ctl {
     font-family: var(--font-ui);
     font-size: var(--text-meta);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-ink-2);
-    background: transparent;
-    border: 1px solid var(--color-rule);
-    padding: 0.3125rem 0.5625rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule-2);
+    border-radius: 3px;
+    padding: 0.3125rem 0.625rem;
     line-height: 1.2;
     transition:
       border-color 120ms ease,
@@ -191,14 +179,14 @@
   }
 
   .ctl:hover {
-    border-color: var(--color-rule-2);
+    border-color: var(--color-ink-3);
     color: var(--color-ink);
   }
 
   .ctl[data-active="true"] {
     border-color: var(--color-ink);
-    color: var(--color-ink);
-    background: var(--color-inset);
+    color: var(--color-paper);
+    background: var(--color-ink);
   }
 
   .ctl:disabled {
@@ -206,12 +194,221 @@
     cursor: not-allowed;
   }
 
-  /* A menu surface. Hairline border and a tight, tinted shadow, rather
-     than a hairline paired with a wide diffuse cloud. */
+  /* The one filled press-button on the page: the brief's primary action.
+     Same shape as .ctl, ink-filled instead of outlined, so the reader's
+     eye lands on it first among the row's controls. */
+  .ctl-primary {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    color: var(--color-paper);
+    background: var(--color-ink);
+    border: 1px solid var(--color-ink);
+    border-radius: 3px;
+    padding: 0.3125rem 0.75rem;
+    line-height: 1.2;
+    transition: background-color 120ms ease, border-color 120ms ease;
+  }
+
+  .ctl-primary:hover {
+    background: var(--color-ink-2);
+    border-color: var(--color-ink-2);
+  }
+
+  .ctl-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Segmented control: one connected strip, not a run of loose buttons.
+     Used for range and other closed, mutually-exclusive choices. */
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--color-rule-2);
+    border-radius: 3px;
+    background: var(--color-paper);
+    overflow: hidden;
+  }
+
+  .seg > button {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    color: var(--color-ink-2);
+    background: transparent;
+    padding: 0.3125rem 0.625rem;
+    border: none;
+    border-right: 1px solid var(--color-rule-2);
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .seg > button:last-child {
+    border-right: none;
+  }
+
+  .seg > button:hover {
+    background: var(--color-inset);
+    color: var(--color-ink);
+  }
+
+  .seg > button[data-active="true"] {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* Same control, laid out as a 2-column grid — for a narrow rail where a
+     4-way single-row strip would wrap its own labels mid-word. */
+  .seg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--color-rule-2);
+    border: 1px solid var(--color-rule-2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .seg-grid > button {
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    color: var(--color-ink-2);
+    background: var(--color-paper);
+    padding: 0.4375rem 0.5rem;
+    border: none;
+    text-align: center;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .seg-grid > button:hover {
+    background: var(--color-inset);
+    color: var(--color-ink);
+  }
+
+  .seg-grid > button[data-active="true"] {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* Dropdown/select-style field: a filled, slightly recessed chrome so a
+     "choose from a list" control reads differently from a press-button. */
+  .field {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    color: var(--color-ink-2);
+    background: var(--color-inset);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 0.3125rem 0.625rem;
+    line-height: 1.2;
+    transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+
+  .field:hover {
+    background: var(--color-sunk);
+  }
+
+  .field[data-active="true"] {
+    background: var(--color-lane-wash);
+    border-color: var(--color-lane);
+    color: var(--color-lane-ink);
+  }
+
+  /* Search: its own field entirely, never a bordered box among buttons. */
+  .search-field {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    color: var(--color-ink);
+    background: var(--color-inset);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 0.375rem 0.625rem 0.375rem 2rem;
+    transition: background-color 120ms ease, border-color 120ms ease;
+  }
+
+  .search-field:hover {
+    background: var(--color-sunk);
+  }
+
+  .search-field:focus {
+    background: var(--color-paper);
+    border-color: var(--color-rule-2);
+  }
+
+  .search-field::placeholder {
+    color: var(--color-ink-3);
+  }
+
+  /* A toggle switch: binary state gets its own affordance, not a button
+     that happens to have two labels. */
+  .toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 2rem;
+    height: 1.125rem;
+    border-radius: 999px;
+    background: var(--color-rule-2);
+    border: none;
+    padding: 2px;
+    transition: background-color 120ms ease;
+    flex-shrink: 0;
+  }
+
+  .toggle[data-active="true"] {
+    background: var(--color-signal);
+  }
+
+  .toggle::after {
+    content: "";
+    display: block;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 999px;
+    background: var(--color-paper);
+    transition: transform 120ms ease;
+  }
+
+  .toggle[data-active="true"]::after {
+    transform: translateX(0.875rem);
+  }
+
+  /* Priority-lane chip: a small filled swatch plus label, never a
+     coloured border on the row it marks. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-ui);
+    font-size: var(--text-micro);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .chip::before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2px;
+    background: currentColor;
+  }
+
+  /* A flat colour field for section grouping — the board's structure
+     comes from filled bands, not hairlines alone. */
+  .band {
+    background: var(--color-inset);
+    border-radius: 3px;
+  }
+
+  /* A menu surface. Hairline border and a tight, tinted shadow. */
   .surface {
     background: var(--color-paper);
     border: 1px solid var(--color-rule-2);
-    box-shadow: 0 6px 16px -8px rgb(18 17 15 / 0.28);
+    box-shadow: 0 6px 16px -8px rgb(20 22 26 / 0.24);
+    border-radius: 4px;
   }
 }
 
@@ -219,9 +416,6 @@
 /* Motion                                                              */
 /* ------------------------------------------------------------------ */
 
-/* Motion is tied to a state change, never used as decoration. There is no
-   pulsing "live" dot here: a heartbeat animation on a page that updates
-   once every twenty-four hours is theatre. */
 @keyframes db-fade-up {
   from {
     opacity: 0;
@@ -252,7 +446,6 @@
 /* Print                                                               */
 /* ------------------------------------------------------------------ */
 
-/* People print and PDF a morning brief. Give them something readable. */
 @media print {
   .no-print {
     display: none !important;

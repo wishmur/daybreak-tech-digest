@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { allItems, parseYMD } from "@/lib/digest";
 import { useDigest } from "@/lib/useDigest";
-import { Masthead, SiteFooter, StatusBar } from "@/components/digest/Chrome";
+import { SiteFooter, TopBar } from "@/components/digest/Chrome";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -103,18 +103,19 @@ function HowItWorksPage() {
 
   return (
     <div className="min-h-screen">
-      <StatusBar
+      <TopBar
         lastUpdated={digest?.lastUpdated}
         latestDate={digest?.days?.[0]?.date}
         totalItems={items.length}
         loading={loading && !digest}
         stale={stale && !loading}
       />
-      <Masthead tagline={false} />
 
-      <main className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
-        <h2 className="text-display font-semibold">How it works</h2>
-        <p className="measure mt-5 text-lede leading-[1.55] text-ink-2">
+      <main className="mx-auto max-w-[65rem] px-5 py-10 sm:px-8">
+        <h2 className="font-display text-display font-extrabold">
+          How it works
+        </h2>
+        <p className="measure mt-4 text-lede leading-[1.5] text-ink-2">
           Daybreak is a cron job, one model call, and a JSON file in a git
           repository. There is no backend to run and nothing to pay for beyond
           a few cents of tokens a day. The whole point is how little machinery
@@ -123,7 +124,7 @@ function HowItWorksPage() {
 
         {/* ---- Real numbers ---- */}
         {stats && (
-          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-rule py-8 sm:grid-cols-4">
+          <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-rule py-8 sm:grid-cols-4">
             <Metric label="Briefs published" value={String(stats.issues)} />
             <Metric label="Stories ranked" value={stats.items.toLocaleString()} />
             <Metric label="Average per brief" value={stats.perDay.toFixed(1)} />

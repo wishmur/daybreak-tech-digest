@@ -1,428 +1,254 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import {
-  Clock,
-  Rss,
-  Sparkles,
-  GitBranch,
-  MonitorSmartphone,
-  ChevronDown,
-  ArrowLeft,
-} from "lucide-react";
-
-const DATA_URL = "/data/digest.json";
-const ACCENT = "#B3261E";
-const MONO = "JetBrains Mono, ui-monospace, monospace";
+import { createFileRoute } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
+import { allItems, parseYMD } from "@/lib/digest";
+import { useDigest } from "@/lib/useDigest";
+import { Masthead, SiteFooter, StatusBar } from "@/components/digest/Chrome";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "System — How Daybreak works" },
+      { title: "How Daybreak works" },
       {
         name: "description",
         content:
-          "The Daybreak pipeline: a GitHub Actions cron pulls feeds, Claude returns a schema-enforced JSON digest, the result is committed back to the repo, and the frontend renders it. Numbers are real.",
+          "The pipeline behind Daybreak: a scheduled GitHub Action, eight feeds, one Claude call a day, and a JSON file committed back to the repo.",
       },
-      { property: "og:title", content: "How Daybreak works" },
-      {
-        property: "og:description",
-        content:
-          "GitHub Actions → sources → Claude structured JSON → committed artifact → frontend. A recruiting-facing walkthrough of the AI product engineering behind Daybreak.",
-      },
-      { property: "og:type", content: "article" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HowItWorksPage,
 });
 
-type RawItem = {
-  id: string;
-  title: string;
-  link: string;
-  source: string;
-  summary: string;
-  topic: string;
-  company: string;
-  secondaryCompanies: string[];
-  importance: number;
-  tags: string[];
-  publishedAt: string | null;
-  addedOn: string;
-};
+/* Every number and claim below is checked against scripts/digest.js. The
+   previous version of this page advertised roughly forty feeds, a 09:30
+   cron, temperature 0.2, a tool-schema-enforced response and an automatic
+   retry on invalid output. None of those were true. On a page a hiring
+   manager may read next to the repo itself, that is worse than saying
+   nothing. */
 
-type Digest = { lastUpdated: string; days: { date: string; items: RawItem[] }[] };
+const FEEDS = [
+  "TechCrunch AI",
+  "The Verge",
+  "VentureBeat AI",
+  "AWS News",
+  "NVIDIA Blog",
+  "Stratechery",
+  "Lenny's Newsletter",
+  "Hacker News",
+];
 
-const STAGES = [
+const STEPS = [
   {
-    key: "cron",
-    icon: Clock,
-    title: "GitHub Actions",
-    caption: "Cron fires every morning at 09:30 ET",
-    detail: "workflow_dispatch + schedule",
+    n: "01",
+    title: "A scheduled job wakes up",
+    body: "A GitHub Action runs at 14:00 UTC, which is 10 AM Eastern in summer. It can also be triggered by hand from the Actions tab. Nothing is running the rest of the day: there is no server.",
   },
   {
-    key: "pull",
-    icon: Rss,
-    title: "Source pull",
-    caption: "RSS + APIs across ~40 feeds",
-    detail: "dedupe · normalize · truncate",
+    n: "02",
+    title: "Eight feeds get pulled",
+    body: "Each feed is parsed, items older than 36 hours are dropped, and anything already published in an earlier brief is removed by link. A keyword filter thins the rest, and at most 40 headlines go forward.",
   },
   {
-    key: "claude",
-    icon: Sparkles,
-    title: "Claude",
-    caption: "Structured JSON via tool schema",
-    detail: "temperature 0.2 · schema-locked",
+    n: "03",
+    title: "One model call ranks them",
+    body: "A single Claude call picks the ten that matter to a product manager, writes one sentence on why for each, names the companies involved, scores importance from 1 to 5, tags the story, and writes the day's summary. One call a day is the entire model cost.",
   },
   {
-    key: "commit",
-    icon: GitBranch,
-    title: "Commit artifact",
-    caption: "digest.json pushed to main",
-    detail: "signed bot commit · immutable log",
+    n: "04",
+    title: "The result is committed",
+    body: "The ten picks are merged into data/digest.json and pushed back to the repository by the job itself. The file's git history is the archive, which means every brief is diffable and nothing can quietly change after the fact.",
   },
   {
-    key: "render",
-    icon: MonitorSmartphone,
-    title: "Frontend",
-    caption: "TanStack Start reads the JSON",
-    detail: "static fetch · no server DB",
+    n: "05",
+    title: "This site reads the file",
+    body: "The frontend fetches that same JSON as a static asset. No database, no API, no server rendering of the data. Everything you can filter, search, and chart here is computed in your browser from one file.",
   },
-] as const;
+];
 
-const JSON_SCHEMA = `{
-  "id":                 "string",           // stable slug
-  "title":              "string",           // headline, plain text
-  "link":               "string (URL)",     // canonical source URL
-  "source":             "string",           // e.g. "The Information"
-  "summary":            "string",           // 1–2 sentence PM-framed brief
-  "topic":              "string",           // e.g. "agents", "chips"
-  "company":            "string",           // primary company
-  "secondaryCompanies": "string[]",         // also involved
-  "importance":         "1 | 2 | 3 | 4 | 5",// 5 = must-read for a PM today
-  "tags":               "string[]",         // launch|funding|leadership|
-                                            // regulation|open-source|
-                                            // competitive|research|product|
-                                            // infra|tooling
-  "publishedAt":        "ISO 8601 | null",  // source publish time
-  "addedOn":            "ISO 8601"          // pipeline ingest time
+const SCHEMA = `{
+  "id":                 string,      // stable short hash of the link
+  "title":              string,
+  "link":               string,
+  "source":             string,      // which feed it came from
+  "summary":            string,      // one sentence on why it matters
+  "topic":              string,
+  "company":            string,      // primary company
+  "secondaryCompanies": string[],
+  "importance":         1 | 2 | 3 | 4 | 5,
+  "tags":               string[],    // from a fixed vocabulary of 10
+  "publishedAt":        string|null, // from the feed
+  "addedOn":            string       // the day this run wrote it
 }`;
 
 function HowItWorksPage() {
-  const [digest, setDigest] = useState<Digest | null>(null);
+  const { digest, loading, stale } = useDigest();
   const [showSchema, setShowSchema] = useState(false);
-  const [runAnim, setRunAnim] = useState(0);
-
-  useEffect(() => {
-    let alive = true;
-    fetch(DATA_URL, { cache: "no-store" })
-      .then((r) => r.json())
-      .then((d) => alive && setDigest(d))
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
-  }, []);
-
-  // trigger initial animation
-  useEffect(() => {
-    const t = setTimeout(() => setRunAnim(1), 100);
-    return () => clearTimeout(t);
-  }, []);
+  const items = useMemo(() => allItems(digest), [digest]);
 
   const stats = useMemo(() => {
     const days = digest?.days ?? [];
-    const totalItems = days.reduce((s, d) => s + d.items.length, 0);
-    const totalDays = days.length;
-    const avg = totalDays ? totalItems / totalDays : 0;
+    if (!days.length) return null;
+    const dates = days.map((d) => parseYMD(d.date).getTime()).sort();
+    const spanDays =
+      Math.round((dates[dates.length - 1] - dates[0]) / 86_400_000) + 1;
     return {
-      totalDays,
-      totalItems,
-      avgPerDay: avg,
-      schemaFields: 12,
+      issues: days.length,
+      items: items.length,
+      perDay: items.length / days.length,
+      spanDays,
+      // Days in the span with no brief. Honest, and more interesting than
+      // pretending the streak is unbroken.
+      missed: Math.max(0, spanDays - days.length),
     };
-  }, [digest]);
+  }, [digest, items]);
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-      {/* Top bar */}
-      <div
-        className="border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80"
-        style={{ fontFamily: MONO }}
-      >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-[10px] uppercase tracking-widest text-neutral-500 sm:px-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 hover:text-neutral-800 dark:hover:text-neutral-200"
-          >
-            <ArrowLeft className="h-3 w-3" />
-            Back to digest
-          </Link>
-          <span>
-            SYS · <span style={{ color: ACCENT }}>OPERATIONAL</span>
-          </span>
-        </div>
-      </div>
+    <div className="min-h-screen">
+      <StatusBar
+        lastUpdated={digest?.lastUpdated}
+        latestDate={digest?.days?.[0]?.date}
+        totalItems={items.length}
+        loading={loading && !digest}
+        stale={stale && !loading}
+      />
+      <Masthead tagline={false} />
 
-      <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        {/* Hero */}
-        <header className="mb-10">
-          <p
-            className="mb-2 text-[11px] uppercase tracking-widest text-neutral-500"
-            style={{ fontFamily: MONO }}
-          >
-            /how-it-works
-          </p>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            The Daybreak pipeline
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-            A cron job wakes up every morning, pulls a wide net of AI/tech
-            sources, asks Claude to score and structure them under a strict
-            JSON schema, and commits the result back to the repo. The
-            frontend just reads that file. No servers, no database — the
-            pipeline itself is the product.
-          </p>
-        </header>
+      <main className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+        <h2 className="text-display font-semibold">How it works</h2>
+        <p className="measure mt-5 text-lede leading-[1.55] text-ink-2">
+          Daybreak is a cron job, one model call, and a JSON file in a git
+          repository. There is no backend to run and nothing to pay for beyond
+          a few cents of tokens a day. The whole point is how little machinery
+          it takes.
+        </p>
 
-        {/* Stats */}
-        <section className="mb-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <StatCard label="Days running" value={stats.totalDays} />
-          <StatCard label="Items processed" value={stats.totalItems} />
-          <StatCard
-            label="Avg / day"
-            value={stats.avgPerDay.toFixed(1)}
-          />
-          <StatCard label="Schema fields" value={stats.schemaFields} />
-        </section>
+        {/* ---- Real numbers ---- */}
+        {stats && (
+          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-rule py-8 sm:grid-cols-4">
+            <Metric label="Briefs published" value={String(stats.issues)} />
+            <Metric label="Stories ranked" value={stats.items.toLocaleString()} />
+            <Metric label="Average per brief" value={stats.perDay.toFixed(1)} />
+            <Metric
+              label="Days without a brief"
+              value={String(stats.missed)}
+              note={`out of ${stats.spanDays}`}
+            />
+          </dl>
+        )}
 
-        {/* Pipeline diagram */}
-        <section className="mb-12">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-500" style={{ fontFamily: MONO }}>
-              Daily run
-            </h2>
-            <button
-              onClick={() => setRunAnim((n) => n + 1)}
-              className="text-[10px] uppercase tracking-widest text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200"
-              style={{ fontFamily: MONO }}
-            >
-              ▶ replay
-            </button>
-          </div>
-
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900/40 sm:p-6">
-            {/* Desktop pipeline */}
-            <div className="hidden md:block">
-              <div className="relative">
-                {/* Track */}
-                <div className="absolute left-[6%] right-[6%] top-[46px] h-px bg-neutral-300 dark:bg-neutral-700" />
-                {/* Particle */}
-                <div
-                  key={runAnim}
-                  className="pointer-events-none absolute top-[42px] h-2 w-2 rounded-full"
-                  style={{
-                    left: "6%",
-                    background: ACCENT,
-                    boxShadow: `0 0 12px ${ACCENT}, 0 0 24px ${ACCENT}`,
-                    animation: "daybreak-flow 3.6s cubic-bezier(0.4,0,0.2,1) forwards",
-                  }}
-                />
-                <div className="grid grid-cols-5 gap-2">
-                  {STAGES.map((s, i) => (
-                    <StageNode key={s.key} stage={s} index={i} runKey={runAnim} />
-                  ))}
+        {/* ---- Pipeline ---- */}
+        <section className="mt-16">
+          <h3 className="label-strong border-b border-ink pb-2">
+            The daily run
+          </h3>
+          <ol className="mt-2">
+            {STEPS.map((s) => (
+              <li
+                key={s.n}
+                className="flex flex-col gap-2 border-b border-rule py-6 sm:flex-row sm:gap-8"
+              >
+                <span className="data shrink-0 pt-1 sm:w-12">{s.n}</span>
+                <div className="min-w-0">
+                  <h4 className="text-head font-semibold">{s.title}</h4>
+                  <p className="measure mt-2 text-ink-2">{s.body}</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-            {/* Mobile pipeline */}
-            <ol className="space-y-3 md:hidden">
-              {STAGES.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <li
-                    key={s.key}
-                    className="flex items-start gap-3 rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-800 dark:bg-neutral-950"
-                  >
-                    <div
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-neutral-200 dark:border-neutral-800"
-                      style={{ color: ACCENT }}
-                    >
-                      <Icon className="h-4 w-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-baseline gap-2">
-                        <span
-                          className="text-[10px] uppercase tracking-widest text-neutral-500"
-                          style={{ fontFamily: MONO }}
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="text-sm font-semibold">{s.title}</span>
-                      </div>
-                      <p className="mt-0.5 text-xs text-neutral-600 dark:text-neutral-300">
-                        {s.caption}
-                      </p>
-                      <p
-                        className="mt-1 text-[10px] uppercase tracking-wider text-neutral-500"
-                        style={{ fontFamily: MONO }}
-                      >
-                        {s.detail}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
-
-          <p
-            className="mt-3 text-[11px] text-neutral-500"
-            style={{ fontFamily: MONO }}
-          >
-            The whole thing runs in under 90 seconds — most of that is model latency, not IO.
+        {/* ---- Sources ---- */}
+        <section className="mt-16">
+          <h3 className="label-strong border-b border-ink pb-2">
+            The eight feeds
+          </h3>
+          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+            {FEEDS.map((f) => (
+              <li key={f} className="border-b border-rule py-2 font-ui text-meta">
+                {f}
+              </li>
+            ))}
+          </ul>
+          <p className="measure mt-4 text-meta text-ink-3">
+            Eight is a deliberate number. A wider net mostly adds duplicates of
+            the same story, and every extra headline costs tokens in the one
+            call that does the ranking.
           </p>
         </section>
 
-        {/* Schema */}
-        <section className="mb-12">
+        {/* ---- Schema ---- */}
+        <section className="mt-16">
+          <h3 className="label-strong border-b border-ink pb-2">
+            What the model returns
+          </h3>
+          <p className="measure mt-4 text-ink-2">
+            The prompt asks for raw JSON in a fixed shape. It is a prompt
+            contract, not a tool schema: the response is trimmed of any code
+            fence, sliced between the outer braces, and parsed. If that parse
+            fails the run stops and the day is skipped rather than writing
+            something malformed into the archive.
+          </p>
           <button
             onClick={() => setShowSchema((v) => !v)}
-            className="flex w-full items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 text-left transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-neutral-700"
+            aria-expanded={showSchema}
+            className="ctl mt-5"
           >
-            <div>
-              <div
-                className="text-[10px] uppercase tracking-widest text-neutral-500"
-                style={{ fontFamily: MONO }}
-              >
-                Structured output
-              </div>
-              <div className="mt-0.5 text-sm font-semibold">
-                See the actual JSON schema Claude fills in
-              </div>
-            </div>
-            <ChevronDown
-              className={
-                "h-4 w-4 text-neutral-500 transition-transform " +
-                (showSchema ? "rotate-180" : "")
-              }
-            />
+            {showSchema ? "Hide the shape" : "Show the shape"}
           </button>
-
           {showSchema && (
-            <div className="mt-3 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-950 dark:border-neutral-800">
-              <div
-                className="flex items-center justify-between border-b border-neutral-800 px-4 py-2 text-[10px] uppercase tracking-widest text-neutral-400"
-                style={{ fontFamily: MONO }}
-              >
-                <span>item.schema — one per story</span>
-                <span style={{ color: ACCENT }}>enforced</span>
-              </div>
-              <pre
-                className="overflow-x-auto px-4 py-4 text-[12px] leading-relaxed text-neutral-200"
-                style={{ fontFamily: MONO }}
-              >
-                <code>{JSON_SCHEMA}</code>
-              </pre>
-              <div
-                className="border-t border-neutral-800 px-4 py-2 text-[11px] text-neutral-400"
-                style={{ fontFamily: MONO }}
-              >
-                Passed to Anthropic as a tool definition — model output that
-                doesn't validate is rejected and the pipeline retries.
-              </div>
-            </div>
+            <pre className="anim-in scroll-x mt-4 border border-rule bg-inset p-5 font-data text-micro leading-[1.7] text-ink-2">
+              <code>{SCHEMA}</code>
+            </pre>
           )}
         </section>
 
-        <footer
-          className="border-t border-neutral-200 pt-6 text-[11px] text-neutral-500 dark:border-neutral-800"
-          style={{ fontFamily: MONO }}
-        >
-          Source of truth: <span className="text-neutral-700 dark:text-neutral-300">wishmur/daybreak-tech-digest</span> · digest.json is regenerated in place, so its git history <em>is</em> the archive.
-        </footer>
+        {/* ---- Honesty ---- */}
+        <section className="mt-16">
+          <h3 className="label-strong border-b border-ink pb-2">
+            What it does not do
+          </h3>
+          <ul className="measure mt-4 space-y-3 text-ink-2">
+            <li className="border-b border-rule pb-3">
+              It does not verify anything. The model ranks headlines and
+              snippets, so a wrong headline produces a wrong summary.
+            </li>
+            <li className="border-b border-rule pb-3">
+              It does not retry a bad response. One call, and a skipped day if
+              it comes back unparseable.
+            </li>
+            <li className="border-b border-rule pb-3">
+              It does not personalise. Everyone sees the same ten stories. What
+              you have read is remembered in your browser and nowhere else.
+            </li>
+            <li>
+              It does not run when the schedule is missed. GitHub pauses cron
+              jobs on inactive repositories, so gaps in the archive are real
+              gaps, and the status bar says so.
+            </li>
+          </ul>
+        </section>
       </main>
 
-      <style>{`
-        @keyframes daybreak-flow {
-          0%   { left: 6%;  opacity: 0; transform: scale(0.6); }
-          8%   { opacity: 1; transform: scale(1); }
-          92%  { opacity: 1; transform: scale(1); }
-          100% { left: 94%; opacity: 0; transform: scale(0.6); }
-        }
-        @keyframes daybreak-pop {
-          0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,102,255,0); }
-          50%  { transform: scale(1.06); box-shadow: 0 0 0 6px rgba(0,102,255,0.18); }
-          100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,102,255,0); }
-        }
-      `}</style>
+      <SiteFooter />
     </div>
   );
 }
 
-function StatCard({ label, value }: { label: string; value: number | string }) {
-  return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
-      <div
-        className="text-[10px] uppercase tracking-widest text-neutral-500"
-        style={{ fontFamily: MONO }}
-      >
-        {label}
-      </div>
-      <div
-        className="mt-1 text-2xl font-bold tabular-nums"
-        style={{ fontFamily: MONO, color: ACCENT }}
-      >
-        {value}
-      </div>
-    </div>
-  );
-}
-
-function StageNode({
-  stage,
-  index,
-  runKey,
+function Metric({
+  label,
+  value,
+  note,
 }: {
-  stage: (typeof STAGES)[number];
-  index: number;
-  runKey: number;
+  label: string;
+  value: string;
+  note?: string;
 }) {
-  const Icon = stage.icon;
-  // rough timing: particle spends ~3.6s traversing 5 stages
-  const delay = 200 + index * 700;
-
   return (
-    <div className="flex flex-col items-center text-center">
-      <div
-        key={runKey}
-        className="relative z-10 flex h-[92px] w-[92px] items-center justify-center rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
-        style={{
-          animation: `daybreak-pop 0.5s ease-out ${delay}ms both`,
-        }}
-      >
-        <Icon className="h-6 w-6" style={{ color: ACCENT }} />
-        <span
-          className="absolute -top-2 -left-2 rounded-full border border-neutral-200 bg-white px-1.5 py-0.5 text-[9px] font-semibold tabular-nums text-neutral-500 dark:border-neutral-800 dark:bg-neutral-950"
-          style={{ fontFamily: MONO }}
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
-      <div className="mt-3 min-h-[64px]">
-        <div className="text-sm font-semibold">{stage.title}</div>
-        <p className="mt-0.5 text-[11px] leading-snug text-neutral-600 dark:text-neutral-300">
-          {stage.caption}
-        </p>
-        <p
-          className="mt-1 text-[10px] uppercase tracking-wider text-neutral-500"
-          style={{ fontFamily: MONO }}
-        >
-          {stage.detail}
-        </p>
-      </div>
+    <div>
+      <dt className="label-strong">{label}</dt>
+      <dd className="mt-2 font-display text-head-lg font-semibold tabular-nums">
+        {value}
+        {note && <span className="ml-2 font-ui text-meta font-normal text-ink-3">{note}</span>}
+      </dd>
     </div>
   );
 }

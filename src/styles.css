@@ -1,147 +1,252 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
+
+/* =========================================================================
+   Daybreak design system
+
+   The previous stylesheet worked by redefining Tailwind's own utilities
+   (.bg-white, .text-neutral-500, .shadow-lg ...) with !important. That made
+   every colour in the app un-overridable, silently restyled every shadcn
+   component, and left several hundred dark: classes that could never fire.
+   None of that is here. Colours are tokens, tokens generate utilities, and
+   nothing is !important.
+
+   The look is deliberately a single light theme. Committing to one is a
+   design decision; shipping a half-wired second one is a bug.
+   ========================================================================= */
 
 @theme {
-  --font-serif: "Source Serif 4", "Source Serif Pro", "Lora", ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif; /* editorial: no monospace */
+  /* ---- Type -------------------------------------------------------- */
+  /* Three roles, three voices. Inter is gone: it is the default face of
+     every generated interface on the internet and reads as nothing.       */
+  --font-display: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  --font-ui: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* ---- Surface ----------------------------------------------------- */
+  /* Paper white, not cream. A warm beige page is the current house style
+     of AI-generated "tasteful" design; white with real contrast is not.   */
+  --color-paper: #ffffff;
+  --color-inset: #f4f3ef;
+  --color-sunk: #eceae3;
+
+  /* ---- Ink --------------------------------------------------------- */
+  --color-ink: #12110f; /* 18.9:1 on paper */
+  --color-ink-2: #55524b; /*  7.6:1 on paper, AAA body      */
+  --color-ink-3: #6e6b63; /*  5.4:1 on paper, AA everything */
+
+  /* ---- Structure --------------------------------------------------- */
+  --color-rule: #e3e0d8;
+  --color-rule-2: #c8c4b8;
+
+  /* ---- Signal ------------------------------------------------------ */
+  /* One accent, one job: importance. It is not a brand colour, it is not
+     a hover state, it is not the caret. When everything is the accent
+     colour the accent means nothing.                                     */
+  --color-signal: #be3a11; /* 5.0:1 on paper, AA */
+  --color-signal-ink: #8f2b0c;
+  --color-signal-wash: #fbf0eb;
+
+  /* ---- Type scale -------------------------------------------------- */
+  /* Real jumps between steps. Sizes that sit 1px apart are the reason so
+     much generated layout reads as flat.                                 */
+  --text-micro: 0.75rem; /* 12px, the floor. Nothing smaller ships. */
+  --text-meta: 0.8125rem; /* 13px */
+  --text-body: 1rem; /* 16px */
+  --text-lede: 1.1875rem; /* 19px */
+  --text-head: 1.4375rem; /* 23px */
+  --text-head-lg: 1.875rem; /* 30px */
+  --text-display: 2.5rem; /* 40px */
 }
 
-/* =========================================================
-   Editorial newspaper palette
-   ---------------------------------------------------------
-   bg:    #FAF7F2  (warm cream)
-   ink:   #1A1A1A  (near-black)
-   rule:  #DDD8CC  (hairline divider)
-   accent:#B3261E  (masthead red)
-   ========================================================= */
-
-html, body {
-  background-color: #FAF7F2;
-  color: #1A1A1A;
-  font-family: var(--font-serif);
-  font-feature-settings: "kern", "liga", "onum";
-}
-
-/* Serif everywhere by default; only metadata (mono/uppercase) overridden */
-body, p, h1, h2, h3, h4, h5, h6, blockquote, figure, li {
-  font-family: var(--font-serif);
-}
-
-/* Metadata: JetBrains Mono / var(--font-mono) inline styles → Inter caps in muted gray */
-[style*="JetBrains Mono"],
-[style*="var(--font-mono"],
-.font-mono {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif !important;
-  letter-spacing: 0.02em !important;
-  font-feature-settings: "tnum";
-}
-
-/* Buttons, inputs, chips: sans for UI */
-button, input, select, textarea, nav, [role="button"] {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
-
-/* ---------- Palette remaps (light-mode utilities used across the app) ---------- */
-.bg-white,
-.bg-white\/90,
-.bg-white\/95,
-.bg-neutral-50 { background-color: #FAF7F2 !important; }
-
-.bg-neutral-100 { background-color: #F1ECDF !important; }
-.bg-neutral-200 { background-color: #E8E2D2 !important; }
-
-.text-neutral-900, .text-neutral-800 { color: #1A1A1A !important; }
-.text-neutral-700 { color: #2E2A24 !important; }
-.text-neutral-600 { color: #56504A !important; }
-.text-neutral-500 { color: #7A7568 !important; }
-.text-neutral-400 { color: #9A9484 !important; }
-.text-neutral-300 { color: #B4AE9C !important; }
-
-.border-neutral-100,
-.border-neutral-200,
-.border-neutral-300 { border-color: #DDD8CC !important; }
-
-.hover\:border-neutral-300:hover { border-color: #C9C2B0 !important; }
-.hover\:bg-neutral-50:hover { background-color: #F1ECDF !important; }
-.hover\:bg-neutral-100:hover { background-color: #E8E2D2 !important; }
-
-.decoration-dotted { text-decoration-color: #B4AE9C !important; }
-
-/* ---------- Neutralize any residual blue utility from tag chips ---------- */
-.text-blue-700, .text-blue-300, .text-blue-800, .text-blue-500 { color: #2E2A24 !important; }
-.bg-blue-50, .bg-blue-500\/10, .bg-blue-100 { background-color: transparent !important; }
-.border-blue-200, .border-blue-500\/20 { border-color: #DDD8CC !important; }
-
-/* Kill shadows — use hairline rules for elevation */
-.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: none !important; }
-
-/* Editorial live-dot: soft red pulse */
-@keyframes editorial-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(179, 38, 30, 0.5); }
-  50%      { opacity: 0.85; box-shadow: 0 0 0 4px rgba(179, 38, 30, 0); }
-}
-.terminal-live-dot { animation: editorial-pulse 2.2s ease-in-out infinite; }
-
-@custom-variant dark (&:is(.dark *));
-
-/* ---------- shadcn token wiring (kept for component compatibility) ---------- */
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-}
-
-:root {
-  --radius: 0.375rem;
-  --background: oklch(0.97 0.008 85);        /* #FAF7F2 */
-  --foreground: oklch(0.20 0 0);             /* #1A1A1A */
-  --card: oklch(0.97 0.008 85);
-  --card-foreground: oklch(0.20 0 0);
-  --popover: oklch(0.97 0.008 85);
-  --popover-foreground: oklch(0.20 0 0);
-  --primary: oklch(0.44 0.19 27);            /* #B3261E masthead red */
-  --primary-foreground: oklch(0.97 0.008 85);
-  --secondary: oklch(0.92 0.012 85);
-  --secondary-foreground: oklch(0.20 0 0);
-  --muted: oklch(0.92 0.012 85);
-  --muted-foreground: oklch(0.45 0.005 60);
-  --accent: oklch(0.44 0.19 27);
-  --accent-foreground: oklch(0.97 0.008 85);
-  --destructive: oklch(0.44 0.19 27);
-  --destructive-foreground: oklch(0.97 0.008 85);
-  --border: oklch(0.88 0.012 85);            /* #DDD8CC */
-  --input: oklch(0.88 0.012 85);
-  --ring: oklch(0.44 0.19 27);
-}
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 
 @layer base {
-  * { border-color: var(--color-border); }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
-  /* Serif headline defaults where classNames add font-weight */
-  h1, h2, h3 { letter-spacing: -0.015em; }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    font-feature-settings: "kern", "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Old-style figures read better in running prose; tabular ones are set
+     explicitly wherever numbers need to line up in a column. */
+  p {
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.014em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  /* Prose should not run past a comfortable measure. */
+  .measure {
+    max-width: 68ch;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* A visible, consistent focus ring. The previous build used
+     focus:outline-none in several places with nothing put back. */
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-signal-wash);
+  }
+
+  /* Wide content must scroll inside its own box, never the page. */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  /* Interface labels. 13px minimum and restrained tracking. Wide letter
+     spacing on small text breaks word shapes and is a reliable tell. */
+  .label {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--color-ink-3);
+  }
+
+  .label-strong {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-2);
+  }
+
+  /* Numbers, dates, counts. Anything you would line up in a column. */
+  .data {
+    font-family: var(--font-data);
+    font-size: var(--text-micro);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    color: var(--color-ink-3);
+  }
+
+  /* Flat control. No rounded pill, no shadow, no gradient. */
+  .ctl {
+    font-family: var(--font-ui);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    color: var(--color-ink-2);
+    background: transparent;
+    border: 1px solid var(--color-rule);
+    padding: 0.375rem 0.625rem;
+    line-height: 1.2;
+    transition:
+      border-color 120ms ease,
+      color 120ms ease,
+      background-color 120ms ease;
+  }
+
+  .ctl:hover {
+    border-color: var(--color-rule-2);
+    color: var(--color-ink);
+  }
+
+  .ctl[data-active="true"] {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+    background: var(--color-inset);
+  }
+
+  .ctl:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* A menu surface. Hairline border and a tight, tinted shadow, rather
+     than a hairline paired with a wide diffuse cloud. */
+  .surface {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule-2);
+    box-shadow: 0 6px 16px -8px rgb(18 17 15 / 0.28);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+
+/* Motion is tied to a state change, never used as decoration. There is no
+   pulsing "live" dot here: a heartbeat animation on a page that updates
+   once every twenty-four hours is theatre. */
+@keyframes db-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.anim-in {
+  animation: db-fade-up 220ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Print                                                               */
+/* ------------------------------------------------------------------ */
+
+/* People print and PDF a morning brief. Give them something readable. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    font-size: 11pt;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
 }

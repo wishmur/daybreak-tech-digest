@@ -10,8 +10,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
-const DATA_URL =
-  "https://raw.githubusercontent.com/wishmur/tech-digest/main/data/digest.json";
+const DATA_URL = "/data/digest.json";
 const ACCENT = "#B3261E";
 const MONO = "JetBrains Mono, ui-monospace, monospace";
 
@@ -342,7 +341,7 @@ function HowItWorksPage() {
           className="border-t border-neutral-200 pt-6 text-[11px] text-neutral-500 dark:border-neutral-800"
           style={{ fontFamily: MONO }}
         >
-          Source of truth: <span className="text-neutral-700 dark:text-neutral-300">wishmur/tech-digest</span> · digest.json is regenerated in place, so its git history <em>is</em> the archive.
+          Source of truth: <span className="text-neutral-700 dark:text-neutral-300">wishmur/daybreak-tech-digest</span> · digest.json is regenerated in place, so its git history <em>is</em> the archive.
         </footer>
       </main>
 

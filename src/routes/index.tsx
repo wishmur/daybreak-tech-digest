@@ -339,46 +339,53 @@ function TechDigestPage() {
 
       {view === "digest" && (
         <>
-          {/* ---- Lede ---- */}
-          <section className="mx-auto max-w-5xl px-5 pt-10 sm:px-8">
+          {/* ---- Lede ----
+              A masthead moment, not a hero. This is opened once a day and
+              read in under a minute; every pixel spent above the stories is
+              a pixel the reader has to scroll past first. */}
+          <section className="mx-auto max-w-5xl px-5 pt-6 sm:px-8 sm:pt-8">
             {loading && !digest ? (
               <div className="animate-pulse">
-                <div className="h-4 w-32 bg-sunk" />
-                <div className="mt-4 h-9 w-3/4 bg-sunk" />
-                <div className="mt-5 h-5 w-full max-w-2xl bg-sunk" />
+                <div className="h-3 w-28 bg-sunk" />
+                <div className="mt-3 h-7 w-2/3 bg-sunk" />
+                <div className="mt-3 h-4 w-full max-w-xl bg-sunk" />
               </div>
             ) : latestDay ? (
               <>
-                {/* Only worth a kicker when it says something the heading
-                    below does not. "Saturday, Sep 5" stacked on top of
-                    "Saturday, September 5, 2026" is the same fact twice. */}
-                {["Today", "Yesterday"].includes(
-                  relativeDayLabel(latestDay.date),
-                ) && (
-                  <p className="label-strong">
-                    {relativeDayLabel(latestDay.date)}
+                {/* The heading carries its own weight: no eyebrow riding
+                    above it. "Today" only earns a line of its own when it
+                    says something the date below does not. */}
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                  <h2 className="text-head-lg font-display font-bold tracking-[-0.01em] sm:text-display">
+                    Today&rsquo;s Outlook
+                  </h2>
+                  <p className="font-ui text-meta text-ink-3">
+                    {["Today", "Yesterday"].includes(
+                      relativeDayLabel(latestDay.date),
+                    )
+                      ? `${relativeDayLabel(latestDay.date)} — ${longDate(latestDay.date)}`
+                      : longDate(latestDay.date)}
                   </p>
-                )}
-                <h2 className="mt-2 text-display font-semibold sm:text-[3.25rem]">
-                  {longDate(latestDay.date)}
-                </h2>
+                </div>
 
                 {latestDay.summary && (
-                  <p className="measure mt-5 text-lede leading-[1.55]">
+                  <p className="dek measure mt-3 text-body leading-[1.45] text-ink-2">
                     {latestDay.summary}
                   </p>
                 )}
 
-                {/* One honest sentence about whether today was a big day.
-                    Computed from data already in memory, so it costs the
-                    backend nothing and says more than another chart. */}
+                {/* One honest sentence about whether today was a big day,
+                    set between contour rules like a chart's isobar band
+                    rather than flagged with a coloured border. Computed
+                    from data already in memory, so it costs the backend
+                    nothing and says more than another chart. */}
                 {stats && (
-                  <p className="measure mt-4 border-l-2 border-rule-2 pl-4 font-ui text-meta text-ink-2">
+                  <p className="measure mt-3 border-y border-rule py-2 font-ui text-meta text-ink-2">
                     {signalSentence(stats)}
                   </p>
                 )}
 
-                <div className="mt-6 flex flex-wrap items-center gap-2 no-print">
+                <div className="mt-4 flex flex-wrap items-center gap-2 no-print">
                   <button onClick={copyBrief} className="ctl">
                     {copied ? "Copied" : "Copy brief as markdown"}
                   </button>
@@ -398,7 +405,7 @@ function TechDigestPage() {
           </section>
 
           {/* ---- Filters ---- */}
-          <div className="sticky top-[41px] z-20 mt-10 border-y border-rule bg-paper no-print">
+          <div className="sticky top-[41px] z-20 mt-5 border-y border-rule bg-paper no-print">
             <div className="mx-auto max-w-5xl px-5 sm:px-8">
               <div className="flex items-center gap-2 py-2 md:hidden">
                 <button
@@ -440,7 +447,7 @@ function TechDigestPage() {
           </FilterSheet>
 
           {/* ---- Stories ---- */}
-          <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+          <main className="mx-auto max-w-5xl px-5 py-5 sm:px-8">
             <div className="no-print">
               <ActiveFilterChips
                 filters={filters}
@@ -464,27 +471,50 @@ function TechDigestPage() {
               />
             ) : (
               <>
-                {pageGroups.map(([day, dayItems]) => (
-                  <section key={day} className="mb-10 last:mb-0">
-                    {filters.range !== "latest" && (
-                      <h3 className="label-strong mb-1 border-b border-ink pb-2">
-                        {relativeDayLabel(day)}
-                      </h3>
-                    )}
-                    <ul>
-                      {dayItems.map((it) => (
-                        <StoryRow
-                          key={it.id}
-                          item={it}
-                          momentum={momentumFor(it, history)}
-                          read={ready && seen.has(it.id)}
-                          onOpen={markRead}
-                          showDate={filters.range === "all"}
-                        />
-                      ))}
-                    </ul>
-                  </section>
-                ))}
+                {pageGroups.map(([day, dayItems]) => {
+                  // Systems, translated for a flat paginated list: split each
+                  // day's already importance-sorted items at the must-read
+                  // line rather than re-deriving a topic hierarchy that would
+                  // fight the existing sort and pagination. A day with no
+                  // 5s renders as one plain list, same as before.
+                  const lead = dayItems.filter((it) => it.importance >= 5);
+                  const rest = dayItems.filter((it) => it.importance < 5);
+                  const split = lead.length > 0 && rest.length > 0;
+
+                  const row = (it: Item, isLead: boolean) => (
+                    <StoryRow
+                      key={it.id}
+                      item={it}
+                      lead={isLead}
+                      momentum={momentumFor(it, history)}
+                      read={ready && seen.has(it.id)}
+                      onOpen={markRead}
+                      showDate={filters.range === "all"}
+                    />
+                  );
+
+                  return (
+                    <section key={day} className="mb-8 last:mb-0">
+                      {filters.range !== "latest" && (
+                        <h3 className="label-strong mb-1 border-b border-ink pb-2">
+                          {relativeDayLabel(day)}
+                        </h3>
+                      )}
+                      {split ? (
+                        <>
+                          <p className="label-strong mt-3 mb-0.5">Lead</p>
+                          <ul>{lead.map((it) => row(it, true))}</ul>
+                          <p className="label-strong mt-4 mb-0.5">
+                            Also in the brief
+                          </p>
+                          <ul>{rest.map((it) => row(it, false))}</ul>
+                        </>
+                      ) : (
+                        <ul>{dayItems.map((it) => row(it, lead.length > 0))}</ul>
+                      )}
+                    </section>
+                  );
+                })}
                 {totalPages > 1 && (
                   <Pagination
                     page={current}

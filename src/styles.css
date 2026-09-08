@@ -2,7 +2,13 @@
 @source "../src";
 
 /* =========================================================================
-   Daybreak design system
+   Daybreak design system — The Synoptic Brief
+
+   News reads like a morning weather briefing: conditions first, then
+   systems and stations, calm and precise. The palette is chart paper, not
+   the cream-and-serif "tasteful AI interface" cluster this category
+   defaults to, and the accent is a storm-warning colour reserved for one
+   job: a must-read story, never decoration.
 
    The previous stylesheet worked by redefining Tailwind's own utilities
    (.bg-white, .text-neutral-500, .shadow-lg ...) with !important. That made
@@ -17,35 +23,37 @@
 
 @theme {
   /* ---- Type -------------------------------------------------------- */
-  /* Three roles, three voices. Inter is gone: it is the default face of
+  /* Chart-grade grotesk for display, a workhorse sans built for dense
+     public reading as body/UI, and a mono reserved for real data: times,
+     counts, station indices. Inter is gone: it is the default face of
      every generated interface on the internet and reads as nothing.       */
-  --font-display: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
-  --font-ui: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-ui: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
   /* ---- Surface ----------------------------------------------------- */
-  /* Paper white, not cream. A warm beige page is the current house style
-     of AI-generated "tasteful" design; white with real contrast is not.   */
-  --color-paper: #ffffff;
-  --color-inset: #f4f3ef;
-  --color-sunk: #eceae3;
+  /* Cool chart-paper grey-blue, not the warm cream this category defaults
+     to. Real contrast, no warmth borrowed to read as "tasteful."          */
+  --color-paper: #f1f4f4;
+  --color-inset: #e7ecec;
+  --color-sunk: #dce3e3;
 
   /* ---- Ink --------------------------------------------------------- */
-  --color-ink: #12110f; /* 18.9:1 on paper */
-  --color-ink-2: #55524b; /*  7.6:1 on paper, AAA body      */
-  --color-ink-3: #6e6b63; /*  5.4:1 on paper, AA everything */
+  --color-ink: #12171b; /* ~16.3:1 on paper */
+  --color-ink-2: #46545a; /*  ~7.1:1 on paper, AAA body      */
+  --color-ink-3: #5f6d72; /*  ~4.8:1 on paper, AA everything */
 
   /* ---- Structure --------------------------------------------------- */
-  --color-rule: #e3e0d8;
-  --color-rule-2: #c8c4b8;
+  --color-rule: #d6dedf;
+  --color-rule-2: #b7c2c3;
 
   /* ---- Signal ------------------------------------------------------ */
-  /* One accent, one job: importance. It is not a brand colour, it is not
-     a hover state, it is not the caret. When everything is the accent
-     colour the accent means nothing.                                     */
-  --color-signal: #be3a11; /* 5.0:1 on paper, AA */
-  --color-signal-ink: #8f2b0c;
-  --color-signal-wash: #fbf0eb;
+  /* One accent, one job: a must-read (importance 5) story. It is not a
+     brand colour, it is not a hover state, it is not the caret. When
+     everything is the accent colour the accent means nothing.            */
+  --color-signal: #a83216; /* ~6.1:1 on paper, AA */
+  --color-signal-ink: #7a2410;
+  --color-signal-wash: #f7eae5;
 
   /* ---- Type scale -------------------------------------------------- */
   /* Real jumps between steps. Sizes that sit 1px apart are the reason so
@@ -98,6 +106,15 @@
   /* Prose should not run past a comfortable measure. */
   .measure {
     max-width: 68ch;
+  }
+
+  /* An editorial dek: the opening words carry a touch more weight, the way
+     a newspaper brief leads in, so a dense summary reads as scannable prose
+     rather than a flat wall of text. No markup, no truncation — just the
+     browser's own first-line box. */
+  .dek::first-line {
+    font-weight: 600;
+    color: var(--color-ink);
   }
 
   a {
@@ -165,7 +182,7 @@
     color: var(--color-ink-2);
     background: transparent;
     border: 1px solid var(--color-rule);
-    padding: 0.375rem 0.625rem;
+    padding: 0.3125rem 0.5625rem;
     line-height: 1.2;
     transition:
       border-color 120ms ease,

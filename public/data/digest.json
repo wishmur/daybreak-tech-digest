@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-09-08T12:50:25.481Z",
+  "lastUpdated": "2026-09-08T17:48:02.129Z",
   "days": [
     {
       "date": "2026-09-08",
-      "summary": "Mistral raised €3B to advance sovereign open-weight AI, signaling continued major investment in frontier open-source models as a counterweight to closed incumbents. Claude Fable 5.1 is now available on AWS, expanding Anthropic's enterprise reach through Amazon's cloud infrastructure. GPT-6 Astra and Grok Bot are generating significant practitioner attention, reflecting a rapidly shifting AI product landscape that PMs need to track closely.",
+      "summary": "OpenAI claims a solution to the Navier-Stokes Millennium Prize problem, a major scientific milestone that signals AI's expanding role in frontier mathematics. Mistral raises €3B at a €21B valuation, cementing sovereign AI as a serious market with major institutional backing. Google DeepMind released AlphaGenome Atlas, a predictive map of every possible DNA change in the human genome, while Google Cloud deepened its enterprise AI push via an Accenture partnership.",
       "items": [
         {
           "id": "fca2a8ea89",
@@ -184,6 +184,180 @@
             "regulation"
           ],
           "publishedAt": "2026-09-08T01:57:23.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "b4383194e4",
+          "title": "On the Navier–Stokes Millennium Prize Problem",
+          "link": "https://openai.com/index/navier-stokes-solution/",
+          "source": "Hacker News",
+          "summary": "OpenAI claims to have solved the Navier-Stokes Millennium Prize problem, a landmark moment that would validate AI as a genuine tool for frontier scientific research and raise OpenAI's prestige significantly.",
+          "topic": "AI Research Milestone",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T17:13:21.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "f37bc5517e",
+          "title": "Mistral raises €3B as sovereign AI becomes big business",
+          "link": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/",
+          "source": "TechCrunch AI",
+          "summary": "Mistral's €3B Series D at a €21B valuation led by Samsung and PSG Equity confirms that sovereign and non-US AI models are attracting serious capital, creating a credible competitive alternative to US labs.",
+          "topic": "AI Funding",
+          "company": "Mistral",
+          "secondaryCompanies": [
+            "Samsung"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T14:17:48.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "4208044b3e",
+          "title": "Google DeepMind Releases AlphaGenome Atlas",
+          "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/",
+          "source": "Hacker News",
+          "summary": "Google DeepMind released AlphaGenome Atlas, a predictive model covering every possible DNA letter change in the human genome, extending DeepMind's life sciences AI portfolio well beyond AlphaFold.",
+          "topic": "AI Research Launch",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-09-08T14:55:45.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "b60588e37b",
+          "title": "A new class action lawsuit questions whether Anthropic broke the law by misleading power users",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/990313/anthropic-class-action-lawsuit-pricing-subscription-plans",
+          "source": "The Verge",
+          "summary": "A class action lawsuit alleges Anthropic misled power users about service reliability and access, creating legal and reputational risk for a company that explicitly positions enterprise users as central to its strategy.",
+          "topic": "Legal Risk",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-09-08T17:27:31.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "d081e58264",
+          "title": "Google Cloud races to catch up in the AI deployment wars with Accenture deal",
+          "link": "https://techcrunch.com/2026/09/08/google-cloud-races-to-catch-up-in-the-ai-deployment-wars-with-accenture-deal/",
+          "source": "TechCrunch AI",
+          "summary": "Google Cloud is deploying forward-deployed engineers alongside an expanded Accenture partnership to close the AI adoption gap in enterprise, a direct competitive move against AWS and Azure professional services.",
+          "topic": "Enterprise AI Partnerships",
+          "company": "Google Cloud",
+          "secondaryCompanies": [
+            "Accenture"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-08T16:20:31.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "2372e1e4c4",
+          "title": "OpenAI fought dirty on career-making math problem, says NYU mathematician",
+          "link": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+          "source": "TechCrunch AI",
+          "summary": "An NYU mathematician publicly accused OpenAI of acting in bad faith around the Navier-Stokes problem, raising questions about OpenAI's research conduct and transparency that PMs at AI companies should monitor.",
+          "topic": "OpenAI Controversy",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-09-08T17:32:15.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "a5ca0d3ac8",
+          "title": "OUI-1: world's first model for Generative UI",
+          "link": "https://www.openui.com/blog/oui-1",
+          "source": "Hacker News",
+          "summary": "OUI-1 claims to be the world's first model purpose-built for generative UI, a capability directly relevant to PMs building AI-native product interfaces where UI generation could accelerate prototyping and personalization.",
+          "topic": "AI Tooling Launch",
+          "company": "OpenUI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-08T17:07:54.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "95a190e6d2",
+          "title": "Chrome is now shipping updates every 2 weeks as AI changes the security landscape",
+          "link": "https://techcrunch.com/2026/09/08/chrome-is-now-shipping-updates-every-2-weeks-as-ai-changes-the-security-landscape/",
+          "source": "TechCrunch AI",
+          "summary": "Google is moving Chrome to a two-week release cycle driven partly by AI's acceleration of the security threat landscape, which has downstream implications for web platform stability and enterprise browser management.",
+          "topic": "Browser Security",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-08T15:04:09.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "b10add06ba",
+          "title": "Microsoft breaks another patch Tuesday record",
+          "link": "https://www.theverge.com/tech/991178/microsoft-patch-tuesday-record-breaking-ai-notepad",
+          "source": "The Verge",
+          "summary": "Microsoft set a Patch Tuesday record for volume of security fixes, indicating that maintaining security hygiene on Windows infrastructure is becoming a heavier operational burden for enterprise product teams.",
+          "topic": "Security Patching",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "infra"
+          ],
+          "publishedAt": "2026-09-08T14:00:00.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "a91b380c0f",
+          "title": "Opaque recurrence, and other AI terms that you should probably know",
+          "link": "https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+          "source": "TechCrunch AI",
+          "summary": "TechCrunch published a glossary of key AI terminology including opaque recurrence, which is useful context for PMs who need shared vocabulary when working across technical and non-technical teams.",
+          "topic": "AI Literacy",
+          "company": "TechCrunch",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-09-07T19:24:00.000Z",
           "addedOn": "2026-09-08"
         }
       ]

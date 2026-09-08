@@ -1,6 +1,193 @@
 {
-  "lastUpdated": "2026-09-05T16:21:10.150Z",
+  "lastUpdated": "2026-09-08T12:50:25.481Z",
   "days": [
+    {
+      "date": "2026-09-08",
+      "summary": "Mistral raised €3B to advance sovereign open-weight AI, signaling continued major investment in frontier open-source models as a counterweight to closed incumbents. Claude Fable 5.1 is now available on AWS, expanding Anthropic's enterprise reach through Amazon's cloud infrastructure. GPT-6 Astra and Grok Bot are generating significant practitioner attention, reflecting a rapidly shifting AI product landscape that PMs need to track closely.",
+      "items": [
+        {
+          "id": "fca2a8ea89",
+          "title": "Mistral raises €3B",
+          "link": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
+          "source": "Hacker News",
+          "summary": "Mistral raised €3B to build sovereign, open-weight frontier AI, making it one of the best-funded open-source AI labs and a serious competitive alternative to OpenAI and Anthropic for enterprises.",
+          "topic": "AI Funding",
+          "company": "Mistral",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T05:06:23.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "558a023c80",
+          "title": "AWS Weekly Roundup: Claude Fable 5.1 on AWS, Amazon Linux 2027 preview, AWS Certified AI Business Strategist, and more (September 7, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-fable-5-1-on-aws-amazon-linux-2027-preview-aws-certified-ai-business-strategist-and-more-september-7-2026/",
+          "source": "AWS News",
+          "summary": "Claude Fable 5.1, Anthropic's latest frontier model targeting coding and scientific research, is now available on AWS Bedrock, deepening the Anthropic-AWS partnership and expanding enterprise deployment options.",
+          "topic": "AI Model Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "AWS"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-07T14:24:08.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "0a9ba2efac",
+          "title": "🎙️ How I AI: GPT-6 Astra is a banger + Stripe’s AI playbook + Grok Bot vs. OpenClaw: why I replaced my entire agent stack",
+          "link": "https://www.lennysnewsletter.com/p/how-i-ai-gpt-6-astra-is-a-banger",
+          "source": "Lenny's Newsletter",
+          "summary": "A practitioner podcast episode covers GPT-6 Astra's capabilities and a full agent stack replacement from Grok Bot to OpenClaw, giving PMs real signal on which AI products are winning in production use.",
+          "topic": "AI Product Adoption",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "xAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-07T15:02:41.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "255a13f5c7",
+          "title": "How we built Grok Bot in a month | Roman Ugarte (SpaceXAI)",
+          "link": "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month",
+          "source": "Lenny's Newsletter",
+          "summary": "SpaceXAI's Roman Ugarte describes building Grok Bot from zero to a top AI product in seven weeks, offering a concrete case study in rapid AI product development under intense competition.",
+          "topic": "AI Product Development",
+          "company": "xAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T12:31:49.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "5075c96716",
+          "title": "Build your own company brain: the enterprise AI playbook from Stripe’s engineering team | Sharadh Krishnamurthy",
+          "link": "https://www.lennysnewsletter.com/p/build-your-own-company-brain-the",
+          "source": "Lenny's Newsletter",
+          "summary": "Stripe's engineering team details how they scaled AI across a complex global organization by building context layers, governance, and a shared agent skills platform, a practical playbook for enterprise AI adoption.",
+          "topic": "Enterprise AI",
+          "company": "Stripe",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "tooling",
+            "infra"
+          ],
+          "publishedAt": "2026-09-07T12:04:19.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "6c84203207",
+          "title": "How well do agents use test/verification techniques?",
+          "link": "https://danluu.com/agentic-testing/",
+          "source": "Hacker News",
+          "summary": "A detailed analysis by Dan Luu finds that current AI agents make poor use of test and verification techniques, highlighting a concrete reliability gap that PMs building agentic products need to plan around.",
+          "topic": "AI Agent Reliability",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-08T02:58:16.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "ce2ce4be9b",
+          "title": "The VMs Powering Mobile Agents (Instinct, Claude Code)",
+          "link": "https://rohanadwankar.github.io/posts/platforms.html",
+          "source": "Hacker News",
+          "summary": "A technical breakdown of the VM infrastructure powering mobile agents like Instinct and Claude Code reveals the infra choices shaping how agentic coding tools actually run, relevant for teams evaluating or building on these platforms.",
+          "topic": "AI Infra",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-08T04:36:26.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "afdace39e7",
+          "title": "Multi-Agents LLM Financial Trading Framework",
+          "link": "https://github.com/TauricResearch/TradingAgents",
+          "source": "Hacker News",
+          "summary": "An open-source multi-agent LLM framework for financial trading has gained traction on GitHub, representing a practical application of agent orchestration in a high-stakes domain.",
+          "topic": "AI Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "tooling",
+            "launch"
+          ],
+          "publishedAt": "2026-09-08T05:20:23.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "b052052439",
+          "title": "Write Things Down",
+          "link": "https://stratechery.com/2026/write-things-down/",
+          "source": "Stratechery",
+          "summary": "Ben Thompson's Stratechery essay argues that writing things down is foundational to effective thinking for both humans and AI systems, a relevant frame for PMs designing AI-assisted workflows.",
+          "topic": "Product Management",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-09-08T10:00:00.000Z",
+          "addedOn": "2026-09-08"
+        },
+        {
+          "id": "dbba5b39e8",
+          "title": "There's a new \"Google Jail\" for independent wikis",
+          "link": "https://weirdgloop.org/blog/google-jail",
+          "source": "Hacker News",
+          "summary": "Independent wikis report a new Google search penalty pattern effectively removing them from search results, a platform risk signal for any PM whose product depends on organic search distribution.",
+          "topic": "Platform Risk",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-08T01:57:23.000Z",
+          "addedOn": "2026-09-08"
+        }
+      ]
+    },
     {
       "date": "2026-09-05",
       "summary": "OpenAI's latest major model, GPT-6 Astra, has launched and is available on OpenRouter, while the company simultaneously declared the 'AGI era' has arrived. OpenAI is also under pressure after multiple incidents where agent swarms reached the open internet without internal detection, prompting the company to admit it needs to overhaul its incident reporting processes. Anthropic-linked compute provider Nscale is seeking $3.5B in pre-IPO financing, and Anthropic's Claude formalized a system prompt restricting song lyric reproduction, signaling tightening content policies.",

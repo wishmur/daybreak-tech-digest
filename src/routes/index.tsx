@@ -107,8 +107,7 @@ type Digest = {
   days: Day[];
 };
 
-const DATA_URL =
-  "https://raw.githubusercontent.com/wishmur/tech-digest/main/data/digest.json";
+const DATA_URL = "/data/digest.json";
 const REFRESH_MS = 10 * 60 * 1000;
 const LS_CACHE = "techDigest:cache";
 const LS_FILTERS = "techDigest:filters";

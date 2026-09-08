@@ -1,0 +1,37 @@
+name: Daily Tech Digest
+
+on:
+  schedule:
+    # 14:00 UTC = 10 AM ET during EDT. Switch to "0 15 * * *" for 10 AM EST in winter.
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write # required so the job can commit the updated data file
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - name: Build digest
+        run: bun scripts/digest.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit updated digest data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update digest data [skip ci]"
+          file_pattern: public/data/digest.json

@@ -48,8 +48,7 @@ type Digest = {
 };
 
 // ---------- Constants ----------
-const DATA_URL =
-  "https://raw.githubusercontent.com/wishmur/tech-digest/main/data/digest.json";
+const DATA_URL = "/data/digest.json";
 const LS_CACHE = "techDigest:cache";
 const ACCENT = "#B3261E";
 const MONO_STYLE: React.CSSProperties = {

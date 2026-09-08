@@ -9,57 +9,63 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import daybreakLogo from "@/assets/daybreak-logo.png.asset.json";
+
+const DESCRIPTION =
+  "A script reads the feeds every morning, asks Claude what matters to a product manager today, and posts the ten stories worth reading by 10 AM ET.";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen items-center justify-center px-6">
+      <div className="max-w-md">
+        <p className="data">404</p>
+        <h1 className="mt-3 text-head-lg font-semibold">
+          There is nothing at this address.
+        </h1>
+        <p className="mt-3 text-ink-2">
+          The page may have moved, or the link may be wrong.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="ctl mt-6 inline-block no-underline"
+          data-active="true"
+        >
+          Back to today&rsquo;s brief
+        </Link>
       </div>
     </div>
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+// `error` is typed as unknown in current router versions and as Error in
+// older ones. Accepting unknown and narrowing works against both.
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  console.error(error instanceof Error ? error : new Error(String(error)));
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+    <div className="flex min-h-screen items-center justify-center px-6">
+      <div className="max-w-md">
+        <p className="data">Error</p>
+        <h1 className="mt-3 text-head-lg font-semibold">
+          This page didn&rsquo;t load.
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-3 text-ink-2">
+          Something broke while rendering. Reloading usually clears it.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="ctl"
+            data-active="true"
           >
             Try again
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
+          <a href="/" className="ctl no-underline">
+            Back to today&rsquo;s brief
           </a>
         </div>
       </div>
@@ -72,23 +78,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Daybreak - Tech Digest" },
-      { name: "description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Daybreak - Tech Digest" },
-      { property: "og:description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
+      { title: "Daybreak" },
+      { name: "description", content: DESCRIPTION },
+      { name: "author", content: "Shailvi Kumar" },
+      { name: "theme-color", content: "#ffffff" },
+      { property: "og:site_name", content: "Daybreak" },
+      { property: "og:title", content: "Daybreak" },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: daybreakLogo.url },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Daybreak - Tech Digest" },
-      { name: "twitter:description", content: "Tech Daily Brief delivers a curated AI and tech news feed for product managers." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04beffe3-a2fa-4a6f-9bf5-dec7601df62a/id-preview-ab46d8a6--ea6db3e6-4cad-4ca3-8a70-104f031997d6.lovable.app-1779933618279.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04beffe3-a2fa-4a6f-9bf5-dec7601df62a/id-preview-ab46d8a6--ea6db3e6-4cad-4ca3-8a70-104f031997d6.lovable.app-1779933618279.png" },
+      { name: "twitter:title", content: "Daybreak" },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: daybreakLogo.url },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: daybreakLogo.url },
+      // Fonts belong here, not on one route. Previously only the home route
+      // declared them, so opening /archive or /how-it-works directly rendered
+      // the whole site in Georgia and the system sans.
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap",
       },
     ],
   }),

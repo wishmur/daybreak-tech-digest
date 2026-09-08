@@ -9,7 +9,7 @@ import {
 } from "@/lib/digest";
 import { useDigest } from "@/lib/useDigest";
 import { useReadState } from "@/lib/useReadState";
-import { Masthead, SiteFooter, StatusBar, ViewTabs } from "@/components/digest/Chrome";
+import { SiteFooter, TopBar } from "@/components/digest/Chrome";
 import { EmptyState, StoryRow, StorySkeleton } from "@/components/digest/Story";
 
 export const Route = createFileRoute("/archive")({
@@ -53,32 +53,44 @@ function ArchivePage() {
 
   return (
     <div className="min-h-screen">
-      <StatusBar
+      <TopBar
+        archiveActive
         lastUpdated={digest?.lastUpdated}
         latestDate={digest?.days?.[0]?.date}
         totalItems={items.length}
         loading={loading && !digest}
         stale={stale && !loading}
       />
-      <Masthead tagline={false} />
-      <ViewTabs archiveActive />
 
-      <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <main className="mx-auto max-w-[100rem] px-5 py-6 sm:px-8">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-rule pb-4">
           <div>
-            <h2 className="text-head-lg font-semibold">Every brief so far</h2>
+            <h2 className="font-display text-head-lg font-extrabold">
+              Every brief so far
+            </h2>
             <p className="label mt-1">
               {days.length} {days.length === 1 ? "issue" : "issues"}
               {q.trim() ? " matching your search" : ""}
             </p>
           </div>
-          <label className="w-full sm:w-72">
+          <label className="relative w-full sm:w-72">
             <span className="sr-only">Search the archive</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+              className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-ink-3"
+            >
+              <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M11 11L14.5 14.5" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search every brief"
-              className="w-full border border-rule bg-transparent px-2.5 py-[7px] font-ui text-meta placeholder:text-ink-3"
+              className="search-field w-full"
             />
           </label>
         </div>

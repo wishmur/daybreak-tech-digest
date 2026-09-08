@@ -17,13 +17,7 @@ import {
 } from "@/lib/digest";
 import { useDigest } from "@/lib/useDigest";
 import { useReadState } from "@/lib/useReadState";
-import {
-  Masthead,
-  SiteFooter,
-  StatusBar,
-  ViewTabs,
-  type NavKey,
-} from "@/components/digest/Chrome";
+import { SiteFooter, TopBar, type NavKey } from "@/components/digest/Chrome";
 import {
   ActiveFilterChips,
   DEFAULT_FILTERS,
@@ -184,10 +178,12 @@ function TechDigestPage() {
       if (it.topic) topics.add(it.topic);
       if (it.source) sources.add(it.source);
     }
+    const rankedCompanies = [...companies.entries()].sort(
+      (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
+    );
     return {
-      companies: [...companies.entries()]
-        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-        .map(([n]) => n),
+      companies: rankedCompanies.map(([n]) => n),
+      companyCounts: rankedCompanies,
       topics: [...topics].sort(),
       sources: [...sources].sort(),
     };
@@ -235,6 +231,15 @@ function TechDigestPage() {
 
   const reset = useCallback(() => setFilters(DEFAULT_FILTERS), []);
   const active = hasActiveFilters(filters);
+
+  const toggleCompany = useCallback((c: string) => {
+    setFilters((f) => ({
+      ...f,
+      companies: f.companies.includes(c)
+        ? f.companies.filter((x) => x !== c)
+        : [...f.companies, c],
+    }));
+  }, []);
 
   /* ---- keyboard ---- */
   useEffect(() => {
@@ -326,7 +331,9 @@ function TechDigestPage() {
 
   return (
     <div className="min-h-screen">
-      <StatusBar
+      <TopBar
+        active={view}
+        onChange={setView}
         lastUpdated={digest?.lastUpdated}
         latestDate={digest?.days?.[0]?.date}
         totalItems={items.length}
@@ -334,80 +341,119 @@ function TechDigestPage() {
         stale={stale && !loading}
       />
 
-      <Masthead />
-      <ViewTabs active={view} onChange={setView} />
-
       {view === "digest" && (
-        <>
-          {/* ---- Lede ----
-              A masthead moment, not a hero. This is opened once a day and
-              read in under a minute; every pixel spent above the stories is
-              a pixel the reader has to scroll past first. */}
-          <section className="mx-auto max-w-5xl px-5 pt-6 sm:px-8 sm:pt-8">
-            {loading && !digest ? (
-              <div className="animate-pulse">
-                <div className="h-3 w-28 bg-sunk" />
-                <div className="mt-3 h-7 w-2/3 bg-sunk" />
-                <div className="mt-3 h-4 w-full max-w-xl bg-sunk" />
-              </div>
-            ) : latestDay ? (
-              <>
-                {/* The heading carries its own weight: no eyebrow riding
-                    above it. "Today" only earns a line of its own when it
-                    says something the date below does not. */}
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                  <h2 className="text-head-lg font-display font-bold tracking-[-0.01em] sm:text-display">
-                    Today&rsquo;s Outlook
-                  </h2>
-                  <p className="font-ui text-meta text-ink-3">
-                    {["Today", "Yesterday"].includes(
-                      relativeDayLabel(latestDay.date),
-                    )
-                      ? `${relativeDayLabel(latestDay.date)} — ${longDate(latestDay.date)}`
-                      : longDate(latestDay.date)}
-                  </p>
+        <div className="mx-auto max-w-[100rem] px-5 sm:px-8">
+          {/* ---- Brief ----
+              The day's synthesis, not a status line: this is the one
+              thing on the page that outranks the board below it, set in
+              its own flat field so the eye lands here first. */}
+          <section className="mt-5">
+            <div className="rounded-[6px] bg-inset px-5 py-5 sm:px-7 sm:py-6">
+              {loading && !digest ? (
+                <div className="animate-pulse">
+                  <div className="h-8 w-64 bg-sunk" />
+                  <div className="mt-3 h-4 w-full max-w-2xl bg-sunk" />
+                  <div className="mt-2 h-4 w-2/3 max-w-xl bg-sunk" />
                 </div>
+              ) : latestDay ? (
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+                  <div className="min-w-0 lg:flex-1">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h2 className="font-display text-display font-extrabold leading-[1.05] tracking-[-0.015em] text-ink">
+                        {["Today", "Yesterday"].includes(
+                          relativeDayLabel(latestDay.date),
+                        )
+                          ? relativeDayLabel(latestDay.date)
+                          : longDate(latestDay.date)}
+                      </h2>
+                      {["Today", "Yesterday"].includes(
+                        relativeDayLabel(latestDay.date),
+                      ) && (
+                        <span className="font-ui text-meta text-ink-3">
+                          {longDate(latestDay.date)}
+                        </span>
+                      )}
+                    </div>
 
-                {latestDay.summary && (
-                  <p className="dek measure mt-3 text-body leading-[1.45] text-ink-2">
-                    {latestDay.summary}
-                  </p>
-                )}
+                    {latestDay.summary && (
+                      <p className="measure mt-3 text-lede leading-[1.5] text-ink-2">
+                        {latestDay.summary}
+                      </p>
+                    )}
+                  </div>
 
-                {/* One honest sentence about whether today was a big day,
-                    set between contour rules like a chart's isobar band
-                    rather than flagged with a coloured border. Computed
-                    from data already in memory, so it costs the backend
-                    nothing and says more than another chart. */}
-                {stats && (
-                  <p className="measure mt-3 border-y border-rule py-2 font-ui text-meta text-ink-2">
-                    {signalSentence(stats)}
-                  </p>
-                )}
-
-                <div className="mt-4 flex flex-wrap items-center gap-2 no-print">
-                  <button onClick={copyBrief} className="ctl">
-                    {copied ? "Copied" : "Copy brief as markdown"}
-                  </button>
-                  {ready && unreadCount > 0 && !isFirstEverVisit && (
-                    <button onClick={markAllRead} className="ctl">
-                      {unreadCount} unread, mark all read
-                    </button>
-                  )}
+                  <div className="flex shrink-0 flex-col items-start gap-3 lg:w-64 lg:items-end">
+                    {stats && (
+                      <p className="font-ui text-meta text-ink-2 lg:text-right">
+                        {signalSentence(stats)}
+                      </p>
+                    )}
+                    <div className="flex items-center gap-2 no-print">
+                      {ready && unreadCount > 0 && !isFirstEverVisit && (
+                        <button onClick={markAllRead} className="ctl">
+                          {unreadCount} unread
+                        </button>
+                      )}
+                      <button
+                        onClick={copyBrief}
+                        className="ctl-primary inline-flex items-center gap-1.5"
+                      >
+                        {copied ? (
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M3.5 8.5L6.5 11.5L12.5 4.5"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              x="5.5"
+                              y="5.5"
+                              width="8"
+                              height="8"
+                              rx="1"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                            />
+                            <path
+                              d="M3.5 10.5V3.5a1 1 0 0 1 1-1H10.5"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                            />
+                          </svg>
+                        )}
+                        {copied ? "Copied" : "Copy brief"}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </>
-            ) : (
-              <EmptyState
-                title="Nothing published yet"
-                body="The morning job has not written a brief. Once it runs, the day's stories land here."
-              />
-            )}
+              ) : (
+                <EmptyState
+                  title="Nothing published yet"
+                  body="The morning job has not written a brief. Once it runs, the day's stories land here."
+                />
+              )}
+            </div>
           </section>
 
-          {/* ---- Filters ---- */}
-          <div className="sticky top-[41px] z-20 mt-5 border-y border-rule bg-paper no-print">
-            <div className="mx-auto max-w-5xl px-5 sm:px-8">
-              <div className="flex items-center gap-2 py-2 md:hidden">
+          {/* ---- Board: control rail, story lanes, companies panel ---- */}
+          <div className="grid grid-cols-1 gap-x-8 gap-y-5 py-6 lg:grid-cols-12">
+            <aside className="lg:col-span-3 xl:col-span-2">
+              <div className="flex items-center gap-2 no-print lg:hidden">
                 <button
                   onClick={() => setSheetOpen(true)}
                   className="ctl shrink-0"
@@ -415,15 +461,28 @@ function TechDigestPage() {
                 >
                   Filters
                 </button>
-                <input
-                  value={filters.q}
-                  onChange={(e) => setFilters({ ...filters, q: e.target.value })}
-                  placeholder="Search"
-                  aria-label="Search stories"
-                  className="min-w-0 flex-1 border border-rule bg-transparent px-2.5 py-[7px] font-ui text-meta placeholder:text-ink-3"
-                />
+                <div className="relative min-w-0 flex-1">
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-ink-3"
+                  >
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
+                    <path d="M11 11L14.5 14.5" stroke="currentColor" strokeWidth="1.5" />
+                  </svg>
+                  <input
+                    value={filters.q}
+                    onChange={(e) => setFilters({ ...filters, q: e.target.value })}
+                    placeholder="Search"
+                    aria-label="Search stories"
+                    className="search-field w-full"
+                  />
+                </div>
               </div>
-              <div className="hidden md:block">
+              <div className="no-print hidden lg:block">
                 <FilterControls
                   filters={filters}
                   setFilters={setFilters}
@@ -432,105 +491,115 @@ function TechDigestPage() {
                   sourceOptions={options.sources}
                 />
               </div>
-            </div>
-          </div>
+            </aside>
 
-          <FilterSheet open={sheetOpen} onClose={() => setSheetOpen(false)}>
-            <FilterControls
-              filters={filters}
-              setFilters={setFilters}
-              companyOptions={options.companies}
-              topicOptions={options.topics}
-              sourceOptions={options.sources}
-              stacked
-            />
-          </FilterSheet>
-
-          {/* ---- Stories ---- */}
-          <main className="mx-auto max-w-5xl px-5 py-5 sm:px-8">
-            <div className="no-print">
-              <ActiveFilterChips
+            <FilterSheet open={sheetOpen} onClose={() => setSheetOpen(false)}>
+              <FilterControls
                 filters={filters}
                 setFilters={setFilters}
-                onReset={reset}
+                companyOptions={options.companies}
+                topicOptions={options.topics}
+                sourceOptions={options.sources}
               />
-            </div>
+            </FilterSheet>
 
-            {loading && !digest ? (
-              <StorySkeleton />
-            ) : totalMatched === 0 ? (
-              <EmptyState
-                title={active ? "Nothing matches" : "No stories in this range"}
-                body={
-                  active
-                    ? "Every filter narrows the same list. Clearing one or two usually brings it back."
-                    : "Try a wider range. The archive goes back further than the latest brief."
-                }
-                actionLabel={active ? "Clear filters" : undefined}
-                onAction={active ? reset : undefined}
-              />
-            ) : (
-              <>
-                {pageGroups.map(([day, dayItems]) => {
-                  // Systems, translated for a flat paginated list: split each
-                  // day's already importance-sorted items at the must-read
-                  // line rather than re-deriving a topic hierarchy that would
-                  // fight the existing sort and pagination. A day with no
-                  // 5s renders as one plain list, same as before.
-                  const lead = dayItems.filter((it) => it.importance >= 5);
-                  const rest = dayItems.filter((it) => it.importance < 5);
-                  const split = lead.length > 0 && rest.length > 0;
+            <main className="lg:col-span-6 xl:col-span-7">
+              <div className="no-print">
+                <ActiveFilterChips
+                  filters={filters}
+                  setFilters={setFilters}
+                  onReset={reset}
+                />
+              </div>
 
-                  const row = (it: Item, isLead: boolean) => (
-                    <StoryRow
-                      key={it.id}
-                      item={it}
-                      lead={isLead}
-                      momentum={momentumFor(it, history)}
-                      read={ready && seen.has(it.id)}
-                      onOpen={markRead}
-                      showDate={filters.range === "all"}
+              {loading && !digest ? (
+                <StorySkeleton />
+              ) : totalMatched === 0 ? (
+                <EmptyState
+                  title={active ? "Nothing matches" : "No stories in this range"}
+                  body={
+                    active
+                      ? "Every filter narrows the same list. Clearing one or two usually brings it back."
+                      : "Try a wider range. The archive goes back further than the latest brief."
+                  }
+                  actionLabel={active ? "Clear filters" : undefined}
+                  onAction={active ? reset : undefined}
+                />
+              ) : (
+                <>
+                  {pageGroups.map(([day, dayItems]) => {
+                    // Priority lanes, translated for a flat paginated list:
+                    // split each day's already importance-sorted items at
+                    // the must-read line rather than re-deriving a topic
+                    // hierarchy that would fight the existing sort and
+                    // pagination. A day with no 5s renders as one lane.
+                    const lead = dayItems.filter((it) => it.importance >= 5);
+                    const rest = dayItems.filter((it) => it.importance < 5);
+                    const split = lead.length > 0 && rest.length > 0;
+
+                    const row = (it: Item, isLead: boolean) => (
+                      <StoryRow
+                        key={it.id}
+                        item={it}
+                        lead={isLead}
+                        momentum={momentumFor(it, history)}
+                        read={ready && seen.has(it.id)}
+                        onOpen={markRead}
+                        showDate={filters.range === "all"}
+                      />
+                    );
+
+                    return (
+                      <section key={day} className="mb-8 last:mb-0">
+                        {filters.range !== "latest" && (
+                          <h3 className="label-strong mb-1 border-b border-ink pb-2">
+                            {relativeDayLabel(day)}
+                          </h3>
+                        )}
+                        {split ? (
+                          <>
+                            <div className="band mb-1 mt-3 px-2.5 py-1.5">
+                              <span className="chip text-signal">Lead</span>
+                            </div>
+                            <ul>{lead.map((it) => row(it, true))}</ul>
+                            <div className="band mb-1 mt-4 px-2.5 py-1.5">
+                              <span className="chip text-lane">
+                                Also in the brief
+                              </span>
+                            </div>
+                            <ul>{rest.map((it) => row(it, false))}</ul>
+                          </>
+                        ) : (
+                          <ul>{dayItems.map((it) => row(it, lead.length > 0))}</ul>
+                        )}
+                      </section>
+                    );
+                  })}
+                  {totalPages > 1 && (
+                    <Pagination
+                      page={current}
+                      totalPages={totalPages}
+                      total={totalMatched}
+                      pageSize={PAGE_SIZE}
+                      onChange={(p) => {
+                        setPage(p);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                     />
-                  );
+                  )}
+                </>
+              )}
+            </main>
 
-                  return (
-                    <section key={day} className="mb-8 last:mb-0">
-                      {filters.range !== "latest" && (
-                        <h3 className="label-strong mb-1 border-b border-ink pb-2">
-                          {relativeDayLabel(day)}
-                        </h3>
-                      )}
-                      {split ? (
-                        <>
-                          <p className="label-strong mt-3 mb-0.5">Lead</p>
-                          <ul>{lead.map((it) => row(it, true))}</ul>
-                          <p className="label-strong mt-4 mb-0.5">
-                            Also in the brief
-                          </p>
-                          <ul>{rest.map((it) => row(it, false))}</ul>
-                        </>
-                      ) : (
-                        <ul>{dayItems.map((it) => row(it, lead.length > 0))}</ul>
-                      )}
-                    </section>
-                  );
-                })}
-                {totalPages > 1 && (
-                  <Pagination
-                    page={current}
-                    totalPages={totalPages}
-                    total={totalMatched}
-                    pageSize={PAGE_SIZE}
-                    onChange={(p) => {
-                      setPage(p);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  />
-                )}
-              </>
-            )}
-          </main>
-        </>
+            <aside className="hidden lg:col-span-3 lg:block xl:col-span-3">
+              <CompanyPanel
+                companies={options.companyCounts.slice(0, 10)}
+                active={filters.companies}
+                onToggle={toggleCompany}
+              />
+            </aside>
+          </div>
+        </div>
       )}
 
       {view === "companies" && (
@@ -664,5 +733,48 @@ function Pagination({
         </button>
       </div>
     </nav>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Companies panel                                                     */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The board's third column: who is showing up in the current range, ranked
+ * by mentions. A click narrows the story lanes to that company, same as
+ * the "Company" field in the control rail — this is a second way in, not a
+ * second filter model.
+ */
+function CompanyPanel({
+  companies,
+  active,
+  onToggle,
+}: {
+  companies: [string, number][];
+  active: string[];
+  onToggle: (c: string) => void;
+}) {
+  if (companies.length === 0) return null;
+  return (
+    <div className="no-print">
+      <div className="band px-2.5 py-1.5">
+        <p className="label-strong">Companies in range</p>
+      </div>
+      <ul className="mt-1">
+        {companies.map(([name, count]) => (
+          <li key={name}>
+            <button
+              onClick={() => onToggle(name)}
+              data-active={active.includes(name)}
+              className="flex w-full items-center justify-between gap-2 rounded-[3px] px-2.5 py-1.5 text-left font-ui text-meta font-medium text-ink-2 transition-colors hover:bg-inset data-[active=true]:bg-lane-wash data-[active=true]:text-lane-ink"
+            >
+              <span className="truncate">{name}</span>
+              <span className="data shrink-0">{count}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

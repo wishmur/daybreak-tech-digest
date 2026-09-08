@@ -26,17 +26,19 @@ import {
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { EmptyState, ImportanceMeter, StorySkeleton, StoryRow } from "./Story";
 
-/* Editorial chart palette, matching the Synoptic Brief token set in
-   styles.css. SVG fills can't read CSS custom properties reliably across
-   the export/print path, so the values are mirrored here rather than
-   computed — keep these in step with --color-* by hand. Ink first, one
-   accent, cool muted tones for the rest. No rainbow, no violet, no cyan. */
-const INK = "#12171b";
-const INK_2 = "#46545a";
-const INK_3 = "#5f6d72";
-const RULE = "#d6dedf";
-const SIGNAL = "#a83216";
-const SERIES = [INK, SIGNAL, "#5b7a8c", "#7a8c6b", "#8c7a5b", "#a3adaf"];
+/* Board chart palette, matching the Strip Board token set in styles.css.
+   SVG fills can't read CSS custom properties reliably across the
+   export/print path, so the values are mirrored here rather than computed
+   — keep these in step with --color-* by hand. Ink first, the two
+   functional accents (signal, lane), then a short run of distinct but
+   restrained series tones. No rainbow, no violet, no cyan. */
+const INK = "#14161a";
+const INK_2 = "#4a5057";
+const INK_3 = "#6b7178";
+const RULE = "#e2e2dc";
+const SIGNAL = "#c22f16";
+const LANE = "#2f5fb8";
+const SERIES = [INK, SIGNAL, LANE, "#4f9169", "#c98a2e", "#9aa0a6"];
 
 const axisTick = {
   fontSize: 12,
@@ -237,14 +239,14 @@ export function CompaniesView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
         <StorySkeleton />
       </div>
     );
 
   if (!ranked.length)
     return (
-      <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
         <EmptyState
           title="No companies yet"
           body="Once the morning job has run a few times, the companies it keeps naming will show up here."
@@ -253,7 +255,7 @@ export function CompaniesView({
     );
 
   return (
-    <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+    <main className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
       {/* Below md this is a scrolling chip row. It used to be a list box 70%
           of the viewport tall, which pushed the actual content off screen. */}
       <div className="scroll-x -mx-5 mb-6 flex gap-1.5 px-5 pb-2 md:hidden">
@@ -436,14 +438,14 @@ export function CoOccurrenceView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
         <StorySkeleton />
       </div>
     );
 
   if (maxVal <= 1 && rankedPairs.length === 0)
     return (
-      <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
         <EmptyState
           title="Not enough overlap yet"
           body="This fills in once the same companies start turning up in each other's stories."
@@ -461,81 +463,114 @@ export function CoOccurrenceView({
   const shade = (v: number) => {
     if (v === 0) return "transparent";
     const t = Math.pow(v / maxVal, 0.65);
-    return `rgb(18 17 15 / ${(0.06 + t * 0.82).toFixed(3)})`;
+    return `rgb(20 22 26 / ${(0.06 + t * 0.82).toFixed(3)})`;
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+    <main className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
       <SectionHead
         title="Who appears together"
         note={`Top ${companies.length} companies. The strongest pair shares ${maxVal} stories.`}
       />
 
       {wide ? (
-        <div className="scroll-x border border-rule p-4">
-          <table className="border-separate" style={{ borderSpacing: 2 }}>
-            <caption className="sr-only">
-              Company co-occurrence counts. Darker cells share more stories.
-            </caption>
-            <thead>
-              <tr>
-                <th />
-                {companies.map((c) => (
-                  <th key={c} className="h-28 w-8 align-bottom">
-                    <div
-                      className="data origin-bottom-left -rotate-45 whitespace-nowrap pl-2 text-left"
-                      style={{ width: 24 }}
-                    >
-                      {c}
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {companies.map((rowC, i) => (
-                <tr key={rowC}>
-                  <th className="data whitespace-nowrap pr-2.5 text-right font-normal">
-                    {rowC}
-                  </th>
-                  {companies.map((colC, j) => {
-                    const v = matrix[i][j];
-                    const diag = i === j;
-                    const on =
-                      sel &&
-                      ((sel[0] === rowC && sel[1] === colC) ||
-                        (sel[0] === colC && sel[1] === rowC));
-                    return (
-                      <td key={colC} className="p-0">
-                        <button
-                          disabled={diag || v === 0}
-                          onClick={() => setSel([rowC, colC])}
-                          title={
-                            diag
-                              ? rowC
-                              : `${rowC} and ${colC}: ${v} shared ${v === 1 ? "story" : "stories"}`
-                          }
-                          className={`block h-8 w-8 font-data text-micro tabular-nums transition ${
-                            diag
-                              ? "cursor-default bg-inset"
-                              : v === 0
-                                ? "cursor-default"
-                                : "hover:outline hover:outline-1 hover:outline-ink"
-                          } ${on ? "outline outline-2 outline-signal" : ""}`}
-                          style={{
-                            background: diag ? undefined : shade(v),
-                            color: v / maxVal > 0.5 ? "#fff" : INK_2,
-                          }}
-                        >
-                          {diag ? "" : v > 0 ? v : ""}
-                        </button>
-                      </td>
-                    );
-                  })}
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+          <div className="scroll-x border border-rule p-4">
+            <table className="border-separate" style={{ borderSpacing: 2 }}>
+              <caption className="sr-only">
+                Company co-occurrence counts. Darker cells share more stories.
+              </caption>
+              <thead>
+                <tr>
+                  <th />
+                  {companies.map((c) => (
+                    <th key={c} className="h-28 w-8 align-bottom">
+                      <div
+                        className="data origin-bottom-left -rotate-45 whitespace-nowrap pl-2 text-left"
+                        style={{ width: 24 }}
+                      >
+                        {c}
+                      </div>
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {companies.map((rowC, i) => (
+                  <tr key={rowC}>
+                    <th className="data whitespace-nowrap pr-2.5 text-right font-normal">
+                      {rowC}
+                    </th>
+                    {companies.map((colC, j) => {
+                      const v = matrix[i][j];
+                      const diag = i === j;
+                      const on =
+                        sel &&
+                        ((sel[0] === rowC && sel[1] === colC) ||
+                          (sel[0] === colC && sel[1] === rowC));
+                      return (
+                        <td key={colC} className="p-0">
+                          <button
+                            disabled={diag || v === 0}
+                            onClick={() => setSel([rowC, colC])}
+                            title={
+                              diag
+                                ? rowC
+                                : `${rowC} and ${colC}: ${v} shared ${v === 1 ? "story" : "stories"}`
+                            }
+                            className={`block h-8 w-8 font-data text-micro tabular-nums transition ${
+                              diag
+                                ? "cursor-default bg-inset"
+                                : v === 0
+                                  ? "cursor-default"
+                                  : "hover:outline hover:outline-1 hover:outline-ink"
+                            } ${on ? "outline outline-2 outline-signal" : ""}`}
+                            style={{
+                              background: diag ? undefined : shade(v),
+                              color: v / maxVal > 0.5 ? "#fff" : INK_2,
+                            }}
+                          >
+                            {diag ? "" : v > 0 ? v : ""}
+                          </button>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* The board's freed width does real work: the same ranked pairs
+              that carry the whole view on a narrow screen sit beside the
+              matrix here, not hidden behind it. */}
+          <div className="lg:w-80 lg:shrink-0">
+            <div className="band px-2.5 py-1.5">
+              <p className="label-strong">Strongest pairs</p>
+            </div>
+            <ul className="mt-1">
+              {rankedPairs.slice(0, 12).map(({ pair, n }) => {
+                const on =
+                  sel &&
+                  ((sel[0] === pair[0] && sel[1] === pair[1]) ||
+                    (sel[0] === pair[1] && sel[1] === pair[0]));
+                return (
+                  <li key={pair.join()}>
+                    <button
+                      onClick={() => setSel(pair)}
+                      data-active={!!on}
+                      className="flex w-full items-baseline justify-between gap-3 rounded-[3px] px-2.5 py-1.5 text-left font-ui text-meta transition-colors hover:bg-inset data-[active=true]:bg-lane-wash data-[active=true]:text-lane-ink"
+                    >
+                      <span className="truncate">
+                        {pair[0]} <span className="text-ink-3">+</span> {pair[1]}
+                      </span>
+                      <span className="data shrink-0">{n}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       ) : (
         <ul className="border-t border-rule">
@@ -719,7 +754,7 @@ export function TrendsView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
         <StorySkeleton />
       </div>
     );
@@ -731,18 +766,15 @@ export function TrendsView({
   );
 
   return (
-    <main className="mx-auto max-w-5xl space-y-14 px-5 py-8 sm:px-8">
-      <div className="scroll-x -mx-5 flex gap-1.5 px-5 pb-1">
-        {(["7d", "30d", "90d", "all"] as TrendRange[]).map((r) => (
-          <button
-            key={r}
-            onClick={() => setRange(r)}
-            data-active={range === r}
-            className="ctl shrink-0"
-          >
-            {r === "all" ? "All time" : `Last ${r.replace("d", " days")}`}
-          </button>
-        ))}
+    <main className="mx-auto max-w-[100rem] space-y-14 px-5 py-8 sm:px-8">
+      <div className="scroll-x -mx-5 px-5 pb-1">
+        <div className="seg inline-flex">
+          {(["7d", "30d", "90d", "all"] as TrendRange[]).map((r) => (
+            <button key={r} onClick={() => setRange(r)} data-active={range === r}>
+              {r === "all" ? "All time" : `Last ${r.replace("d", " days")}`}
+            </button>
+          ))}
+        </div>
       </div>
 
       <section>
@@ -859,18 +891,16 @@ export function TrendsView({
               : model.windowLabel
           }
         >
-          <div className="flex gap-1.5">
+          <div className="seg">
             <button
               onClick={() => setSortBy("mentions")}
               data-active={sortBy === "mentions"}
-              className="ctl"
             >
               By volume
             </button>
             <button
               onClick={() => setSortBy("avgImportance")}
               data-active={sortBy === "avgImportance"}
-              className="ctl"
             >
               By importance
             </button>

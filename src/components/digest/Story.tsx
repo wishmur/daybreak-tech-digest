@@ -108,9 +108,7 @@ export function StoryRow({
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
           <ImportanceMeter value={item.importance} />
           {item.importance >= 5 && (
-            <span className="font-ui text-micro font-semibold uppercase tracking-[0.04em] text-signal">
-              Must read
-            </span>
+            <span className="chip text-signal">Must read</span>
           )}
           {/* Spacing separates these, not punctuation. Interpuncts between
               wrapping items strand a lone dot at the start of a line, which
@@ -193,7 +191,7 @@ export function EmptyState({
   onAction?: () => void;
 }) {
   return (
-    <div className="border border-rule bg-inset px-6 py-12 text-center">
+    <div className="rounded-[3px] border border-rule bg-inset px-6 py-12 text-center">
       <p className="text-head font-semibold">{title}</p>
       <p className="measure mx-auto mt-2 text-ink-2">{body}</p>
       {actionLabel && onAction && (

@@ -6,216 +6,236 @@
     "colorMeta": {
       "signal": {
         "role": "primary",
-        "displayName": "Storm Signal",
-        "canonical": "#a83216",
-        "tonalRamp": ["#3a1108", "#5a1a0c", "#7a2410", "#a83216", "#c34a2c", "#d97a5f", "#e9ac97", "#f7eae5"]
+        "displayName": "Signal",
+        "canonical": "#c22f16",
+        "tonalRamp": ["#3f0f07", "#5e160a", "#7d1e0e", "#a3280f", "#c22f16", "#d75f45", "#e79a86", "#f6d5cb"]
       },
       "signal-ink": {
         "role": "primary",
         "displayName": "Signal Ink",
-        "canonical": "#7a2410",
-        "tonalRamp": ["#2a0c05", "#451209", "#5f1a0d", "#7a2410", "#96371f", "#b65840", "#d68d78", "#f0c9ba"]
+        "canonical": "#a32c15",
+        "tonalRamp": ["#331009", "#4e180d", "#682011", "#872914", "#a32c15", "#c15641", "#dd917f", "#f2ccc2"]
       },
       "signal-wash": {
         "role": "primary",
         "displayName": "Signal Wash",
-        "canonical": "#f7eae5",
-        "tonalRamp": ["#5a2314", "#7a3420", "#9a4c30", "#bd6c48", "#d99172", "#ecb8a0", "#f7eae5", "#fdf7f4"]
+        "canonical": "#fce9e5",
+        "tonalRamp": ["#5c2013", "#7d2f1e", "#a1442c", "#c26847", "#dc8f74", "#eeb9a6", "#fce9e5", "#fef6f4"]
+      },
+      "lane": {
+        "role": "secondary",
+        "displayName": "Lane",
+        "canonical": "#2f5fb8",
+        "tonalRamp": ["#0f1f3d", "#16305c", "#1e4180", "#2450a0", "#2f5fb8", "#5f83cc", "#9cb4e0", "#d6e0f4"]
+      },
+      "lane-ink": {
+        "role": "secondary",
+        "displayName": "Lane Ink",
+        "canonical": "#234a92",
+        "tonalRamp": ["#0b1730", "#12234a", "#19306a", "#1e3c7f", "#234a92", "#4e70ae", "#8ba1cd", "#cbd8ec"]
+      },
+      "lane-wash": {
+        "role": "secondary",
+        "displayName": "Lane Wash",
+        "canonical": "#e8eefb",
+        "tonalRamp": ["#152449", "#20366a", "#2d4c92", "#5171b2", "#84a0cc", "#b6c7e4", "#e8eefb", "#f7faff"]
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Chart Paper",
-        "canonical": "#f1f4f4",
-        "tonalRamp": ["#1a1f1f", "#33393a", "#4d5556", "#666f70", "#9aa3a3", "#c3cbcb", "#e7ecec", "#f1f4f4"]
+        "displayName": "Paper",
+        "canonical": "#fcfcfa",
+        "tonalRamp": ["#1c1c19", "#37372f", "#525247", "#6f6f61", "#a1a192", "#c9c9bc", "#eeeee9", "#fcfcfa"]
       },
       "inset": {
         "role": "neutral",
         "displayName": "Inset",
-        "canonical": "#e7ecec",
-        "tonalRamp": ["#181d1d", "#303737", "#484f4f", "#616969", "#8f9797", "#bcc4c4", "#dce3e3", "#e7ecec"]
+        "canonical": "#f2f2ee",
+        "tonalRamp": ["#181815", "#2f2f29", "#46463e", "#5e5e53", "#8c8c7d", "#bcbcac", "#e2e2da", "#f2f2ee"]
       },
       "sunk": {
         "role": "neutral",
         "displayName": "Sunk",
-        "canonical": "#dce3e3",
-        "tonalRamp": ["#14191a", "#2b3132", "#42494a", "#596162", "#87908f", "#b4bebe", "#d6dedf", "#dce3e3"]
+        "canonical": "#e8e8e2",
+        "tonalRamp": ["#16161389", "#2c2c26", "#42423a", "#59594e", "#85857419", "#b4b4a4", "#d6d6cb", "#e8e8e2"]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Chart Ink",
-        "canonical": "#12171b",
-        "tonalRamp": ["#12171b", "#20272c", "#333c42", "#4a555c", "#6a767d", "#96a1a6", "#c5cdcf", "#e7ecec"]
+        "displayName": "Ink",
+        "canonical": "#14161a",
+        "tonalRamp": ["#14161a", "#242730", "#383c46", "#4f5460", "#6f7581", "#9aa0aa", "#c7cbd1", "#e9ebee"]
       },
       "ink-2": {
         "role": "neutral",
         "displayName": "Ink Secondary",
-        "canonical": "#46545a",
-        "tonalRamp": ["#12171b", "#22292e", "#333c42", "#46545a", "#5f6d72", "#8c979b", "#bec7ca", "#e7ecec"]
+        "canonical": "#4a5057",
+        "tonalRamp": ["#15171a", "#262a2e", "#383c42", "#4a5057", "#656c73", "#8d949b", "#bdc2c7", "#e6e8ea"]
       },
       "ink-3": {
         "role": "neutral",
         "displayName": "Ink Tertiary",
-        "canonical": "#5f6d72",
-        "tonalRamp": ["#191f21", "#2f383b", "#465155", "#5f6d72", "#7c898d", "#a4aeb1", "#ccd2d4", "#e9ecec"]
+        "canonical": "#6b7178",
+        "tonalRamp": ["#1c1e21", "#33363a", "#4a4e53", "#6b7178", "#868c92", "#aab0b5", "#cfd3d6", "#eceeef"]
       },
       "rule": {
         "role": "neutral",
         "displayName": "Rule",
-        "canonical": "#d6dedf",
-        "tonalRamp": ["#1c2224", "#363f41", "#515c5e", "#6c797b", "#98a2a3", "#b7c2c3", "#d6dedf", "#eef2f2"]
+        "canonical": "#e2e2dc",
+        "tonalRamp": ["#1e1e1a", "#383832", "#52524a", "#6d6d62", "#9c9c8e", "#c3c3b8", "#e2e2dc", "#f3f3f0"]
       },
       "rule-2": {
         "role": "neutral",
         "displayName": "Rule Strong",
-        "canonical": "#b7c2c3",
-        "tonalRamp": ["#171c1d", "#2d3536", "#434d4e", "#5a6566", "#828e8f", "#b7c2c3", "#d3dadb", "#ecf0f0"]
-      },
-      "chart-teal": {
-        "role": "chart-series",
-        "displayName": "Chart Teal",
-        "canonical": "#5b7a8c",
-        "tonalRamp": ["#161d20", "#293439", "#3c4b52", "#4f636c", "#5b7a8c", "#84a0af", "#b2c5cf", "#dde7ea"]
-      },
-      "chart-olive": {
-        "role": "chart-series",
-        "displayName": "Chart Olive",
-        "canonical": "#7a8c6b",
-        "tonalRamp": ["#1c2018", "#353d2e", "#4e5a43", "#647159", "#7a8c6b", "#9dab8e", "#c1ccb6", "#e5ebde"]
-      },
-      "chart-tan": {
-        "role": "chart-series",
-        "displayName": "Chart Tan",
-        "canonical": "#8c7a5b",
-        "tonalRamp": ["#201b13", "#3d3423", "#594c33", "#716043", "#8c7a5b", "#ab9c81", "#c9bdab", "#e8e1d5"]
-      },
-      "chart-slate": {
-        "role": "chart-series",
-        "displayName": "Chart Slate",
-        "canonical": "#a3adaf",
-        "tonalRamp": ["#25282a", "#404648", "#5b6265", "#7c8385", "#a3adaf", "#bcc4c5", "#d5dadb", "#eef1f1"]
+        "canonical": "#c7c7bf",
+        "tonalRamp": ["#1a1a17", "#31312c", "#484841", "#606056", "#8b8b7e", "#c7c7bf", "#dcdcd6", "#efefeb"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The 'Daybreak' masthead wordmark only." },
-      "headline": { "displayName": "Headline", "purpose": "The 'Today's Outlook' lede heading, set on one baseline row with the date. Shrunk this pass from an oversized hero clamp to text-head-lg/text-display so the story list is reached sooner." },
-      "title": { "displayName": "Title", "purpose": "Story row headlines, lead and standard weight." },
-      "body": { "displayName": "Body", "purpose": "Running prose: story summaries, the day's dek summary (moved here from Body/Lede this pass), capped at 68ch." },
-      "label": { "displayName": "Label", "purpose": "Metadata, control labels, filter text." },
-      "label-strong": { "displayName": "Label Strong", "purpose": "Section headers, day headings, the 'Must read' tag. Uppercase." },
-      "data": { "displayName": "Data", "purpose": "Mono, tabular: dates, counts, source lines, timestamps, chart axis ticks." }
+      "display": { "displayName": "Display", "purpose": "The base h1-h4 rule (family, weight, tracking); in practice used at text-head scale, no oversized hero anywhere in the build." },
+      "headline": { "displayName": "Headline", "purpose": "The overview-band day heading and the TopBar wordmark." },
+      "title": { "displayName": "Title", "purpose": "Story row headlines: text-head-lg in the Lead lane, text-head elsewhere." },
+      "body": { "displayName": "Body", "purpose": "Story summaries and running prose, capped at 68ch (.measure)." },
+      "label": { "displayName": "Label", "purpose": "Control text, metadata, dropdown field labels." },
+      "label-strong": { "displayName": "Label Strong", "purpose": "Uppercase section headers inside .band fills (Lead, Also in the brief, Companies in range, Strongest pairs)." },
+      "data": { "displayName": "Data", "purpose": "Mono, tabular: dates, counts, source lines, chart axis ticks. The type-scale floor." }
     },
     "shadows": [
-      { "name": "menu-surface", "value": "0 6px 16px -8px rgb(18 17 15 / 0.28)", "purpose": "Floating dropdown/multi-select popovers and chart tooltips, paired with a rule-2 border." }
+      { "name": "menu-surface", "value": "0 6px 16px -8px rgb(20 22 26 / 0.24)", "purpose": "Floating dropdown/multi-select popovers and Recharts tooltips, paired with a rule-2 border and 4px radius." }
     ],
     "motion": [
-      { "name": "fade-up", "value": "220ms cubic-bezier(0.22, 0.61, 0.36, 1)", "purpose": "Entrance animation tied to a real state change (.anim-in), never decorative looping." },
-      { "name": "control-transition", "value": "120ms ease", "purpose": "Border-color/text-color/background-color transitions on .ctl controls." }
+      { "name": "fade-up", "value": "220ms cubic-bezier(0.22, 0.61, 0.36, 1)", "purpose": "Entrance animation tied to a real state change (.anim-in class), never decorative looping." },
+      { "name": "control-transition", "value": "120ms ease", "purpose": "Border-color/text-color/background-color transitions on .ctl, .seg, .field, .search-field, .toggle." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px (filter strip collapses to sheet below this)" },
-      { "name": "matrix", "value": "900px (co-occurrence view switches from ranked list to full grid)" }
+      { "name": "lg", "value": "1024px (board grid: control rail | story lanes | companies panel appear together; filter sheet collapses below this)" },
+      { "name": "xl", "value": "1280px (board grid column spans widen: rail 2->2, lanes 6->7)" }
     ]
   },
   "components": [
     {
       "name": "Control (default)",
       "kind": "button",
-      "refersTo": "control-default",
-      "description": "The single shared control class used for filters, pagination, and page actions like 'Copy brief.'",
+      "refersTo": "ctl-default",
+      "description": "The press-button used for filters trigger, pagination, 'Copy brief,' and 'mark all read.' One of four distinct control chromes on the board (see .seg, .field, .toggle).",
       "html": "<button class=\"ds-ctl\">Copy brief as markdown</button>",
-      "css": ".ds-ctl { font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: #46545a; background: transparent; border: 1px solid #d6dedf; padding: 0.3125rem 0.5625rem; line-height: 1.2; border-radius: 0; transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease; } .ds-ctl:hover { border-color: #b7c2c3; color: #12171b; } .ds-ctl:focus-visible { outline: 2px solid #a83216; outline-offset: 2px; border-radius: 2px; }"
+      "css": ".ds-ctl { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; color: #4a5057; background: #fcfcfa; border: 1px solid #c7c7bf; border-radius: 3px; padding: 0.3125rem 0.625rem; line-height: 1.2; transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease; } .ds-ctl:hover { border-color: #6b7178; color: #14161a; } .ds-ctl:focus-visible { outline: 2px solid #c22f16; outline-offset: 2px; border-radius: 2px; }"
     },
     {
       "name": "Control (active)",
       "kind": "button",
-      "refersTo": "control-active",
-      "description": "The active/selected state of the shared control (current range, open filter, toggled-on 'High signal only').",
-      "html": "<button class=\"ds-ctl-active\" aria-pressed=\"true\">Latest</button>",
-      "css": ".ds-ctl-active { font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: #12171b; background: #e7ecec; border: 1px solid #12171b; padding: 0.3125rem 0.5625rem; border-radius: 0; } .ds-ctl-active:focus-visible { outline: 2px solid #a83216; outline-offset: 2px; border-radius: 2px; }"
+      "refersTo": "ctl-active",
+      "description": "The active/selected state of the press-button (open filter sheet, current pagination page, 'Done' in the filter sheet).",
+      "html": "<button class=\"ds-ctl-active\" aria-pressed=\"true\" data-active=\"true\">Done</button>",
+      "css": ".ds-ctl-active { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; color: #fcfcfa; background: #14161a; border: 1px solid #14161a; border-radius: 3px; padding: 0.3125rem 0.625rem; } .ds-ctl-active:focus-visible { outline: 2px solid #c22f16; outline-offset: 2px; border-radius: 2px; }"
     },
     {
-      "name": "Filter Chip",
-      "kind": "chip",
-      "refersTo": "control-default",
-      "description": "Removable active-filter chip shown below the filter strip. The remove glyph was redrawn as SVG this pass (was a unicode '×').",
-      "html": "<button class=\"ds-chip\">Anthropic <svg width=\"8\" height=\"8\" viewBox=\"0 0 12 12\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2.5 2.5L9.5 9.5M9.5 2.5L2.5 9.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
-      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.375rem; border: 1px solid #b7c2c3; padding: 0.25rem 0.5rem; font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; color: #46545a; border-radius: 0; background: transparent; transition: border-color 120ms ease, color 120ms ease; } .ds-chip:hover, .ds-chip:focus-visible { border-color: #12171b; color: #12171b; }"
-    },
-    {
-      "name": "Text Input",
-      "kind": "input",
-      "refersTo": null,
-      "description": "Search and filter text field.",
-      "html": "<input class=\"ds-input\" placeholder=\"Search headlines and summaries\" />",
-      "css": ".ds-input { width: 100%; background: transparent; border: 1px solid #d6dedf; border-radius: 0; padding: 0.4375rem 0.625rem; font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; color: #12171b; } .ds-input::placeholder { color: #5f6d72; } .ds-input:focus-visible { outline: 2px solid #a83216; outline-offset: 2px; border-radius: 2px; }"
-    },
-    {
-      "name": "View Tab",
-      "kind": "nav",
-      "refersTo": null,
-      "description": "Horizontal section tab with an underline active indicator, no background treatment.",
-      "html": "<nav aria-label=\"Sections\"><a class=\"ds-tab ds-tab-active\">Brief</a><a class=\"ds-tab\">Companies</a></nav>",
-      "css": ".ds-tab { display: inline-block; white-space: nowrap; border-bottom: 2px solid transparent; padding: 0.625rem 0.25rem; font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: #5f6d72; text-decoration: none; transition: color 120ms ease, border-color 120ms ease; } .ds-tab:hover { color: #12171b; } .ds-tab-active { border-color: #12171b; color: #12171b; }"
-    },
-    {
-      "name": "Filter Bar Cluster Divider",
+      "name": "Segmented Control",
       "kind": "custom",
       "refersTo": null,
-      "description": "Thin vertical rule separating the three control clusters (range / narrowing filters / search) in the inline filter strip. New this pass; omitted in the stacked mobile sheet.",
-      "html": "<div class=\"ds-filter-bar\"><div class=\"ds-cluster\">...range buttons...</div><span class=\"ds-cluster-divider\" aria-hidden=\"true\"></span><div class=\"ds-cluster\">...multi-selects...</div><span class=\"ds-cluster-divider\" aria-hidden=\"true\"></span><div class=\"ds-cluster\">...search input...</div></div>",
-      "css": ".ds-filter-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; padding: 0.375rem 0; } .ds-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; } .ds-cluster-divider { display: block; height: 1.25rem; width: 1px; flex-shrink: 0; background: #d6dedf; }"
+      "description": "One connected strip for a closed, mutually-exclusive choice (date range). A 2-column grid variant (.seg-grid) exists for narrow rails where a single row would wrap labels mid-word.",
+      "html": "<div class=\"ds-seg\"><button data-active=\"true\">Latest</button><button>7 days</button><button>30 days</button><button>All</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1px solid #c7c7bf; border-radius: 3px; background: #fcfcfa; overflow: hidden; } .ds-seg button { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; color: #4a5057; background: transparent; padding: 0.3125rem 0.625rem; border: none; border-right: 1px solid #c7c7bf; transition: background-color 120ms ease, color 120ms ease; } .ds-seg button:last-child { border-right: none; } .ds-seg button:hover { background: #f2f2ee; color: #14161a; } .ds-seg button[data-active='true'] { background: #14161a; color: #fcfcfa; }"
+    },
+    {
+      "name": "Dropdown Field",
+      "kind": "input",
+      "refersTo": "field-default",
+      "description": "Filled, recessed chrome for a 'choose from a list' control (company/topic/source/tag multi-select), distinct from the press-button's outlined chrome.",
+      "html": "<button class=\"ds-field\" aria-haspopup=\"listbox\">Company <svg width=\"9\" height=\"9\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M3 4.5L6 7.5L9 4.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-field { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.375rem; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; color: #4a5057; background: #f2f2ee; border: 1px solid transparent; border-radius: 3px; padding: 0.3125rem 0.625rem; line-height: 1.2; transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease; } .ds-field:hover { background: #e8e8e2; } .ds-field[data-active='true'] { background: #e8eefb; border-color: #2f5fb8; color: #234a92; } .ds-field:focus-visible { outline: 2px solid #c22f16; outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Toggle Switch",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A true pill switch affordance for a binary state ('High signal only'), not a button standing in for two labels.",
+      "html": "<button role=\"switch\" aria-checked=\"true\" data-active=\"true\" class=\"ds-toggle\"></button>",
+      "css": ".ds-toggle { position: relative; display: inline-flex; align-items: center; width: 2rem; height: 1.125rem; border-radius: 999px; background: #c7c7bf; border: none; padding: 2px; transition: background-color 120ms ease; } .ds-toggle[data-active='true'] { background: #c22f16; } .ds-toggle::after { content: ''; display: block; width: 0.875rem; height: 0.875rem; border-radius: 999px; background: #fcfcfa; transition: transform 120ms ease; } .ds-toggle[data-active='true']::after { transform: translateX(0.875rem); }"
+    },
+    {
+      "name": "Lane Chip",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Small filled-square marker plus uppercase label; marks lane/status meaning ('Lead' in signal red, 'Also in the brief' in lane blue, 'Must read'). Replaces any colored-border-left device.",
+      "html": "<span class=\"ds-chip\" style=\"color:#c22f16\">Lead</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; } .ds-chip::before { content: ''; display: block; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: currentColor; }"
+    },
+    {
+      "name": "Active Filter Chip",
+      "kind": "chip",
+      "refersTo": "field-active",
+      "description": "Removable active-filter pill built on the field's active (lane) chrome, with a drawn-SVG remove icon.",
+      "html": "<button class=\"ds-filter-chip\">Anthropic <svg width=\"8\" height=\"8\" viewBox=\"0 0 12 12\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2.5 2.5L9.5 9.5M9.5 2.5L2.5 9.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-filter-chip { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; background: #e8eefb; color: #234a92; border: 1px solid transparent; border-radius: 3px; padding: 0.3125rem 0.625rem; } .ds-filter-chip:hover { background: #d6e0f4; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Icon-prefixed search input with its own recessed chrome, never a bordered box among buttons.",
+      "html": "<div style=\"position:relative\"><svg width=\"13\" height=\"13\" viewBox=\"0 0 16 16\" fill=\"none\" style=\"position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#6b7178\"><circle cx=\"7\" cy=\"7\" r=\"5\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M11 11L14.5 14.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><input class=\"ds-search\" placeholder=\"Search headlines and summaries\" /></div>",
+      "css": ".ds-search { width: 100%; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; color: #14161a; background: #f2f2ee; border: 1px solid transparent; border-radius: 3px; padding: 0.375rem 0.625rem 0.375rem 2rem; transition: background-color 120ms ease, border-color 120ms ease; } .ds-search:hover { background: #e8e8e2; } .ds-search:focus { background: #fcfcfa; border-color: #c7c7bf; } .ds-search::placeholder { color: #6b7178; }"
+    },
+    {
+      "name": "Board Panel Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Flat colour-field (.band) section header used for lane headers, 'Companies in range,' and 'Strongest pairs' — grouping by filled band, not by boxing the whole cluster.",
+      "html": "<div class=\"ds-band\"><span class=\"ds-band-label\">Companies in range</span></div>",
+      "css": ".ds-band { background: #f2f2ee; border-radius: 3px; padding: 0.375rem 0.625rem; } .ds-band-label { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #4a5057; }"
     },
     {
       "name": "Story Row",
       "kind": "custom",
       "refersTo": null,
-      "description": "The station-report pattern: importance meter, metadata line, headline with signal-color hover underline, provenance/tags footer separated by a rule divider. Row padding tightened from py-6 to py-4 this pass. Signature component of the redesign.",
-      "html": "<li class=\"ds-story\"><a href=\"#\" class=\"ds-story-link\"><div class=\"ds-story-meta-row\"><span class=\"ds-meter\"><span class=\"ds-bar\" style=\"height:5px;background:#12171b\"></span><span class=\"ds-bar\" style=\"height:7px;background:#12171b\"></span><span class=\"ds-bar\" style=\"height:9px;background:#12171b\"></span><span class=\"ds-bar\" style=\"height:11px;background:#dce3e3\"></span><span class=\"ds-bar\" style=\"height:13px;background:#dce3e3\"></span></span><span class=\"ds-label\">Anthropic · Model releases</span></div><h3 class=\"ds-story-title\">Claude ships a new context window</h3><p class=\"ds-story-summary\">Short summary of what changed and why it matters, capped to a comfortable reading measure.</p><div class=\"ds-story-footer\"><span class=\"ds-data\">The Verge</span><span class=\"ds-rule\" aria-hidden=\"true\"></span><span class=\"ds-data\">AI</span></div></a></li>",
-      "css": ".ds-story { border-bottom: 1px solid #d6dedf; list-style: none; } .ds-story-link { display: block; padding: 1rem 0; text-decoration: none; color: inherit; transition: background-color 120ms ease; } .ds-story-link:hover { background: #e7ecec; } .ds-story-meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem 0.625rem; } .ds-meter { display: inline-flex; align-items: center; gap: 2px; } .ds-bar { display: block; width: 3px; } .ds-label { font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: #5f6d72; } .ds-story-title { margin-top: 0.5rem; font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.4375rem; line-height: 1.16; color: #12171b; text-decoration-color: #a83216; text-underline-offset: 6px; } .ds-story-link:hover .ds-story-title { text-decoration: underline; text-decoration-thickness: 2px; } .ds-story-summary { margin-top: 0.5rem; font-size: 1rem; line-height: 1.5; color: #46545a; max-width: 68ch; } .ds-story-footer { margin-top: 0.75rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 0.375rem; } .ds-data { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #5f6d72; font-variant-numeric: tabular-nums; } .ds-rule { height: 12px; width: 1px; background: #d6dedf; }"
+      "description": "Signature component: importance meter, metadata row, headline with signal-colour hover underline, provenance/tags footer separated by a rule divider. Full-bleed <li>, no card.",
+      "html": "<li class=\"ds-story\"><a href=\"#\" class=\"ds-story-link\"><div class=\"ds-story-meta-row\"><span class=\"ds-meter\"><span class=\"ds-bar\" style=\"height:5px;background:#14161a\"></span><span class=\"ds-bar\" style=\"height:7px;background:#14161a\"></span><span class=\"ds-bar\" style=\"height:9px;background:#14161a\"></span><span class=\"ds-bar\" style=\"height:11px;background:#e8e8e2\"></span><span class=\"ds-bar\" style=\"height:13px;background:#e8e8e2\"></span></span><span class=\"ds-label\">Anthropic · Model releases</span></div><h3 class=\"ds-story-title\">Claude ships a new context window</h3><p class=\"ds-story-summary\">Short summary of what changed and why it matters, capped to a comfortable reading measure.</p><div class=\"ds-story-footer\"><span class=\"ds-data\">The Verge</span><span class=\"ds-rule\" aria-hidden=\"true\"></span><span class=\"ds-data\">AI</span></div></a></li>",
+      "css": ".ds-story { border-bottom: 1px solid #e2e2dc; list-style: none; } .ds-story-link { display: block; padding: 1rem 0; text-decoration: none; color: inherit; transition: background-color 120ms ease; } .ds-story-link:hover { background: #f2f2ee; } .ds-story-meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem; } .ds-meter { display: inline-flex; align-items: center; gap: 2px; } .ds-bar { display: block; width: 3px; } .ds-label { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; color: #6b7178; } .ds-story-title { margin-top: 0.5rem; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.4375rem; line-height: 1.16; color: #14161a; text-decoration-color: #c22f16; text-underline-offset: 6px; } .ds-story-link:hover .ds-story-title { text-decoration: underline; text-decoration-thickness: 2px; } .ds-story-summary { margin-top: 0.5rem; font-size: 1rem; line-height: 1.5; color: #4a5057; max-width: 68ch; } .ds-story-footer { margin-top: 0.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 0.375rem; } .ds-data { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #6b7178; font-variant-numeric: tabular-nums; } .ds-rule { height: 12px; width: 1px; background: #e2e2dc; }"
     },
     {
       "name": "Chart Tooltip",
       "kind": "custom",
       "refersTo": "surface-menu",
-      "description": "Recharts tooltip reused as the .surface menu treatment, now on-token after this pass fixed the charts' hardcoded pre-redesign palette.",
-      "html": "<div class=\"ds-chart-tooltip\"><div class=\"ds-chart-tooltip-label\">9/3</div><div class=\"ds-chart-tooltip-row\"><span class=\"ds-chart-tooltip-swatch\" style=\"background:#a83216\"></span><span class=\"ds-chart-tooltip-name\">Average</span><span class=\"ds-chart-tooltip-value\">3.40</span></div></div>",
-      "css": ".ds-chart-tooltip { background: #f1f4f4; border: 1px solid #b7c2c3; box-shadow: 0 6px 16px -8px rgb(18 17 15 / 0.28); padding: 0.5rem 0.75rem; } .ds-chart-tooltip-label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #46545a; margin-bottom: 0.375rem; } .ds-chart-tooltip-row { display: flex; align-items: center; gap: 0.625rem; } .ds-chart-tooltip-swatch { display: block; width: 0.5rem; height: 0.5rem; flex-shrink: 0; } .ds-chart-tooltip-name { font-family: 'Public Sans', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; color: #46545a; } .ds-chart-tooltip-value { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #12171b; margin-left: auto; }"
+      "description": "Recharts tooltip reusing the .surface menu treatment; colours hand-synced from --color-* since SVG fills can't read CSS custom properties reliably.",
+      "html": "<div class=\"ds-chart-tooltip\"><div class=\"ds-chart-tooltip-label\">9/3</div><div class=\"ds-chart-tooltip-row\"><span class=\"ds-chart-tooltip-swatch\" style=\"background:#c22f16\"></span><span class=\"ds-chart-tooltip-name\">Average</span><span class=\"ds-chart-tooltip-value\">3.40</span></div></div>",
+      "css": ".ds-chart-tooltip { background: #fcfcfa; border: 1px solid #c7c7bf; box-shadow: 0 6px 16px -8px rgb(20 22 26 / 0.24); border-radius: 4px; padding: 0.5rem 0.75rem; } .ds-chart-tooltip-label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #4a5057; margin-bottom: 0.375rem; } .ds-chart-tooltip-row { display: flex; align-items: center; gap: 0.625rem; } .ds-chart-tooltip-swatch { display: block; width: 0.5rem; height: 0.5rem; flex-shrink: 0; } .ds-chart-tooltip-name { font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; color: #4a5057; } .ds-chart-tooltip-value { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: #14161a; margin-left: auto; }"
     }
   ],
   "narrative": {
-    "northStar": "The Synoptic Brief",
-    "overview": "Daybreak reads today's AI/tech news the way a weather service reads the atmosphere: conditions stated in plain language first, then the individual \"station reports\" (stories) that make up the picture. The build rejects the badge-and-card dashboard grid this category defaults to — there are no pill badges, no colored corner ribbons, no drop-shadowed cards stacked in a masonry feed. Structure comes from contour-rule dividers (hairline horizontal rules) and typographic weight, not boxes.\n\nThe palette is a cool, grey-blue chart-paper (#f1f4f4), explicitly chosen against the warm cream-and-serif \"tasteful AI interface\" look this category clusters around. One accent — a storm-warning red — exists for exactly one job: marking a must-read (importance 5) story. It never functions as a brand color, a hover state, or decoration; a five-segment importance meter (filled bars, not dots or badges) is the only place intensity is encoded, replacing an earlier build that showed importance three redundant ways at once.\n\nThe system is deliberately flat: no border-radius anywhere in the sampled components, no drop shadows except one restrained tinted shadow under floating menu surfaces, and a single light theme with no unfinished dark-mode scaffolding. A follow-up polish pass tightened the reading rhythm (a shrunk, baseline-aligned lede in place of an oversized hero heading, tighter row and section spacing throughout) and finished two loose ends: the Companies/Matrix/Trends charts, which had been left on an old pre-redesign palette and mono stack, are now built from the same tokens as everything else, and the last two unicode glyphs in the interface were replaced with drawn SVG. The token system and every named rule now apply consistently across the whole site — digest, Companies, Matrix, Trends, Archive, and How It Works all read as one product.",
+    "northStar": "The Strip Board",
+    "overview": "Daybreak triages today's AI/tech news the way an operations board triages anything under active management: priority lanes, status colour, a compact status readout, and a working surface sized to use the room it has — not a page that hides the board behind a masthead. The system is abstracted deliberately per an explicit steer against theatricality: there is no literal aviation texture, iconography, or motif anywhere in the build. What survived the abstraction is the discipline underneath the metaphor — a Lead lane and a secondary lane, two functional accent colours reserved for status/priority, a flat colour-field band that does real grouping work, and distinct control chrome per control role — not the metaphor's surface dressing.\n\nThe palette is bright near-white (#fcfcfa), not the grey chart-paper or warm cream this category defaults to — it reads as a tool lit for desk work, not a printed page. Two functional accents carry meaning: signal red for importance/must-read/active-state, and a second blue 'lane' tone for the secondary-priority lane and for filter-active chrome. Everything else is ink and structural neutrals. One grotesk family, Hanken Grotesk, carries both display and UI type — a deliberate rejection of the prior build's three-typeface, editorial-versus-UI split — because a tool should read as one voice throughout, not a masthead layered over a UI kit. JetBrains Mono is reserved strictly for data that needs to line up in a column.\n\nThe board uses the full canvas: a 12-column desktop grid puts a control rail, the story lanes, and a companies-in-range panel in view together, collapsing to one column with a bottom filter sheet on mobile. Structure comes from two devices working together — hairline rules between rows, and flat .band colour fields for section headers — rather than either device alone. The system carries one confirmed defect forward rather than concealing it: the TopBar's two-row layout (wordmark+status on row one, full-width nav on row two) exists because a single combined row crushed nav labels to a single letter at mobile widths under real content pressure; it is documented here as the working pattern that fixed a real bug, not retconned as an aesthetic choice.",
     "keyCharacteristics": [
-      "Chart-paper cool-grey ground, near-black ink, one red accent reserved for a single semantic meaning (must-read)",
-      "Hairline rules substitute for card borders, badges, and shadows as the primary structural device",
-      "Three-typeface system with a clear division of labor: Archivo (display/headlines), Public Sans (UI/body/labels), JetBrains Mono (data — times, counts, tabular numbers, and chart axes)",
-      "Real jumps between type-scale steps; no two sizes sit within a few px of each other",
-      "Flat controls: no rounded pills, no gradients, no shadows on buttons/chips",
-      "A tightened, low-ceremony reading rhythm: the lede is scaled to a working heading, not a hero, so the story list starts within the first viewport"
+      "Bright near-white ground (#fcfcfa), near-black ink, two functional accents (signal red, lane blue), each reserved for one job",
+      "One grotesk voice (Hanken Grotesk) for display and UI; JetBrains Mono reserved for tabular data only",
+      "A full-width, real multi-column desktop board (control rail | story lanes | companies panel) instead of a centered reading column",
+      "Distinct control chrome per role — press-button, segmented control, filled dropdown field, toggle switch, search field — never one button shape standing in for five behaviors",
+      "Flat colour-field .band headers plus hairline rules as the two structural devices, replacing colored-border-left cards",
+      "Small filled-square .chip markers (never a colored left-border) mark lane and status meaning"
     ],
     "rules": [
-      { "name": "The One Job Rule", "body": "Storm Signal red has exactly one meaning: importance 5 (\"must-read\"). It never doubles as a link color, an active-state color, or a decorative brand mark — if red starts showing up anywhere else, the signal has been diluted. This now extends to chart surfaces: Signal is the sole warm note in any chart.", "section": "colors" },
-      { "name": "The Rule-Not-Card Rule", "body": "Content groupings (story rows, day sections, the signal-stats line) are separated by a 1px rule divider, not a bordered/shadowed card. A card or badge introduced for a new surface breaks the system's own material logic.", "section": "colors" },
-      { "name": "The No-Eyebrow Rule", "body": "Headings carry their own weight; nothing rides above a headline as a kicker/eyebrow line. \"Today's Outlook\" and story headlines stand alone — a label only appears when it says something the heading itself doesn't (e.g., \"Must read\" beside the importance meter, not above the title).", "section": "typography" },
-      { "name": "The Real-Jump Rule", "body": "Type-scale steps differ by meaningful amounts (12/13/16/19/23/30/40px), never by a near-invisible 1–2px increment.", "section": "typography" },
-      { "name": "The Dek Rule", "body": "The day's opening summary is set as an editorial dek: plain text-body (16px) with only its first line weighted up via CSS ::first-line, not markup-driven bolding or truncation. One paragraph gets exactly one weighted lead-in.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Story rows, sections, the lede band, and the filter strip carry zero shadow and zero border-radius. Only a genuinely floating surface (a popover or tooltip that overlaps content) earns the one shadow token.", "section": "elevation" }
+      { "name": "The Two-Signal Rule", "body": "Signal red and Lane blue each carry exactly one status meaning — importance/must-read/active-state for Signal, secondary-priority/filter-active for Lane — and never swap jobs or double as decoration. A third accent, or either color appearing outside these roles, dilutes the coding a status board depends on.", "section": "colors" },
+      { "name": "The Chip-Not-Border Rule", "body": "Lane and status meaning is marked with a small filled-square .chip marker plus label, never a colored left-border on a row or card. A colored-border-left device is the one thing this system explicitly does not use to encode priority.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "Display and UI type are the same family (Hanken Grotesk) at different weights, not two typefaces standing in for 'editorial' versus 'product.' A new surface should never reach for a second display face.", "section": "typography" },
+      { "name": "The Real-Jump Rule", "body": "Type-scale steps differ by meaningful amounts (12/13/16/19/23/30/40px), never a near-invisible 1-2px increment.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Story rows, the overview band, and the control rail carry zero shadow. Only a surface that overlaps content it floats above — a popover or tooltip — earns the one shadow token.", "section": "elevation" }
     ],
     "dos": [
-      "Do reserve signal red for importance-5 \"must-read\" marking only — the meter fill, the \"Must read\" label, the focus ring, text selection, and (in charts) the single importance-signal series or point.",
-      "Do separate content groups with a 1px rule hairline instead of a card border or shadow — including grouping filter-bar controls into clusters via a vertical rule divider rather than boxing each cluster.",
-      "Do keep every interactive control (.ctl) flat, square-cornered, and bordered — no rounded pills, gradients, or button shadows.",
-      "Do use JetBrains Mono with tabular figures for anything meant to line up in a column (dates, counts, source lines, chart axes).",
-      "Do cap running prose at the measure (68ch) even when its container is wider.",
-      "Do draw interface icons (remove, chevron, expand caret) as inline SVG at 8-10px using currentColor; never set an icon as a unicode text glyph."
+      "Do reserve signal red for importance-5/must-read/active-state only, and lane blue for secondary-lane/filter-active state only — each accent keeps exactly one job.",
+      "Do mark lane/status meaning with a small filled-square .chip plus label, never a colored left-border on a row or card.",
+      "Do give each control role its own chrome — press-button (.ctl), segmented control (.seg/.seg-grid), filled dropdown field (.field), toggle switch (.toggle), search field — instead of reusing one button shape for every interaction.",
+      "Do group sections with a flat .band colour field or a rule hairline, not a bordered/shadowed card.",
+      "Do let a board surface use the full max-w-[100rem] frame; reserve the narrower max-w-[65rem] reading column for long-form pages like How It Works.",
+      "Do keep the TopBar's two-row split (identity+status / full-width nav) on any new top-level nav — it fixed a real mobile label-crushing bug, not a stylistic preference.",
+      "Do hand-sync any hardcoded chart color/font constant (Analysis.tsx's INK/SIGNAL/LANE/SERIES) with --color-* whenever a token changes; SVG chart fills cannot read CSS custom properties reliably across export/print.",
+      "Do draw interface icons (remove, chevron, search) as inline SVG using currentColor; never set an icon as a unicode text glyph."
     ],
     "donts": [
-      "Don't introduce a kicker/eyebrow line above a heading. The build deliberately removed one (\"the heading carries its own weight\") — treat this as confirmed system doctrine, not just a one-page choice.",
-      "Don't use rule-2 for text; it sits at ~1.7:1 contrast on paper and is border-only by design. Use ink-3 as the contrast floor for text.",
-      "Don't add a card, badge, or drop-shadow treatment to a new list or grid surface — the system's structural language is rules and tonal steps, not boxed containers.",
-      "Don't add border-radius to controls, inputs, or containers; the one confirmed exception is the 2px focus-ring corner, not a general shape allowance.",
-      "Don't give a chart its own palette. Every chart surface draws from the same --color-* tokens as the rest of the site; a hardcoded hex/font-family constant local to one component is exactly the drift this pass fixed."
+      "Don't introduce a colored left-border on a card or row to encode status or priority — that device was explicitly replaced by the .chip filled-square marker.",
+      "Don't add literal aviation texture, iconography, or theming (strip-board graphics, radar/runway motifs, ATC-styled labels) anywhere in the interface — the metaphor was deliberately abstracted away per an explicit steer against theatricality; the shipped discipline is priority lanes and status colour, not decoration referencing the source metaphor.",
+      "Don't reach for a second display typeface. Hanken Grotesk carries both display and UI roles; JetBrains Mono is for tabular data only.",
+      "Don't use rule-2 for text; it is border-only by design. Use ink-3 as the contrast floor for text.",
+      "Don't add a third functional accent color, or let signal/lane double as decoration or a general brand color.",
+      "Don't collapse the desktop board back into a single centered reading column outside How It Works; the 12-column control-rail/lanes/panel grid is the system's spatial model for board-type views."
     ]
   }
 }

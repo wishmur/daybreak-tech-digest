@@ -1,223 +1,253 @@
 ---
 name: Daybreak
-description: A daily AI/tech brief that reads like a morning weather briefing, not a card dashboard.
+description: An operate-first triage board for daily AI/tech news, not a branded reading page.
 colors:
-  paper: "#f1f4f4"
-  inset: "#e7ecec"
-  sunk: "#dce3e3"
-  ink: "#12171b"
-  ink-2: "#46545a"
-  ink-3: "#5f6d72"
-  rule: "#d6dedf"
-  rule-2: "#b7c2c3"
-  signal: "#a83216"
-  signal-ink: "#7a2410"
-  signal-wash: "#f7eae5"
-  chart-teal: "#5b7a8c"
-  chart-olive: "#7a8c6b"
-  chart-tan: "#8c7a5b"
-  chart-slate: "#a3adaf"
+  paper: "#fcfcfa"
+  inset: "#f2f2ee"
+  sunk: "#e8e8e2"
+  ink: "#14161a"
+  ink-2: "#4a5057"
+  ink-3: "#6b7178"
+  rule: "#e2e2dc"
+  rule-2: "#c7c7bf"
+  signal: "#c22f16"
+  signal-ink: "#a32c15"
+  signal-wash: "#fce9e5"
+  lane: "#2f5fb8"
+  lane-ink: "#234a92"
+  lane-wash: "#e8eefb"
 typography:
   display:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.75rem, 12vw, 5.5rem)"
-    fontWeight: 900
-    lineHeight: 0.92
-    letterSpacing: "-0.03em"
-  headline:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.875rem (30px, sm: 2.5rem/40px)"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.5rem (text-display, 40px)"
     fontWeight: 700
-    lineHeight: 1.16
+    lineHeight: 1.15
+    letterSpacing: "-0.014em"
+  headline:
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.4375rem (text-head, 23px)"
+    fontWeight: 800
+    lineHeight: 1.15
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.4375rem"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.4375rem–1.875rem (text-head/text-head-lg, 23–30px)"
     fontWeight: 700
     lineHeight: 1.16
-    letterSpacing: "-0.014em"
   body:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem (text-body, 16px)"
     fontWeight: 400
     lineHeight: 1.5
   label:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.8125rem (text-meta, 13px)"
     fontWeight: 500
     letterSpacing: "0.01em"
   label-strong:
-    fontFamily: "Public Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
-    fontWeight: 600
+    fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.8125rem (text-meta, 13px)"
+    fontWeight: 700
     letterSpacing: "0.04em"
   data:
     fontFamily: "JetBrains Mono, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.75rem"
+    fontSize: "0.75rem (text-micro, 12px)"
+rounded:
+  none: "0px"
+  control: "3px"
+  surface: "4px"
+  pill: "999px"
+spacing:
+  xs: "0.375rem"
+  sm: "0.625rem"
+  md: "1.25rem"
+  lg: "2rem"
 components:
-  control-default:
-    backgroundColor: "transparent"
+  ctl-default:
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink-2}"
     typography: "{typography.label}"
-    rounded: "0px"
-    padding: "0.3125rem 0.5625rem"
-  control-active:
-    backgroundColor: "{colors.inset}"
-    textColor: "{colors.ink}"
+    rounded: "{rounded.control}"
+    padding: "0.3125rem 0.625rem"
+  ctl-active:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.label}"
-    rounded: "0px"
-    padding: "0.3125rem 0.5625rem"
+    rounded: "{rounded.control}"
+    padding: "0.3125rem 0.625rem"
+  field-default:
+    backgroundColor: "{colors.inset}"
+    textColor: "{colors.ink-2}"
+    typography: "{typography.label}"
+    rounded: "{rounded.control}"
+    padding: "0.3125rem 0.625rem"
+  field-active:
+    backgroundColor: "{colors.lane-wash}"
+    textColor: "{colors.lane-ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.control}"
+    padding: "0.3125rem 0.625rem"
   surface-menu:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    rounded: "0px"
-    padding: "0.25rem"
+    rounded: "{rounded.surface}"
+    padding: "0.5rem 0.75rem"
 ---
 
 # Design System: Daybreak
 
 ## Overview
 
-**Creative North Star: "The Synoptic Brief"**
+**Creative North Star: "The Strip Board"**
 
-Daybreak reads today's AI/tech news the way a weather service reads the atmosphere: conditions stated in plain language first, then the individual "station reports" (stories) that make up the picture. The build rejects the badge-and-card dashboard grid this category defaults to — there are no pill badges, no colored corner ribbons, no drop-shadowed cards stacked in a masonry feed. Structure comes from contour-rule dividers (hairline horizontal rules) and typographic weight, not boxes.
+Daybreak triages today's AI/tech news the way an operations board triages anything under active management: priority lanes, status colour, a compact status readout, and a working surface sized to use the room it has — not a page that hides the board behind a masthead. The system is abstracted deliberately per an explicit steer against theatricality: there is no literal aviation texture, iconography, or motif anywhere in the build. What survived the abstraction is the *discipline* underneath the metaphor — a Lead lane and a secondary lane, two functional accent colours reserved for status/priority, a flat colour-field band that does real grouping work, and distinct control chrome per control role — not the metaphor's surface dressing.
 
-The palette is a cool, grey-blue chart-paper (`#f1f4f4`), explicitly chosen against the warm cream-and-serif "tasteful AI interface" look this category clusters around. One accent — a storm-warning red — exists for exactly one job: marking a must-read (importance 5) story. It never functions as a brand color, a hover state, or decoration; a five-segment importance meter (filled bars, not dots or badges) is the only place intensity is encoded, replacing an earlier build that showed importance three redundant ways at once.
+The palette is bright near-white (`#fcfcfa`), not the grey chart-paper or warm cream this category defaults to — it reads as a tool lit for desk work, not a printed page. Two functional accents carry meaning: signal red for importance/must-read/active-state, and a second blue "lane" tone for the secondary-priority lane and for filter-active chrome. Everything else is ink and structural neutrals. One grotesk family, Hanken Grotesk, carries both display and UI type — a deliberate rejection of the prior build's three-typeface, editorial-versus-UI split — because a tool should read as one voice throughout, not a masthead layered over a UI kit. JetBrains Mono is reserved strictly for data that needs to line up in a column.
 
-The system is deliberately flat: no border-radius anywhere in the sampled components, no drop shadows except one restrained tinted shadow under floating menu surfaces, and a single light theme with no unfinished dark-mode scaffolding. A follow-up polish pass tightened the reading rhythm (a shrunk, baseline-aligned lede in place of an oversized hero heading, tighter row and section spacing throughout) and finished two loose ends: the Companies/Matrix/Trends charts, which had been left on an old pre-redesign palette and mono stack, are now built from the same tokens as everything else, and the last two unicode glyphs in the interface (a remove-chip "×", an archive-row "▾") were replaced with drawn SVG to match the rest of the icon vocabulary. **The token system, the rule-not-card structure, and every named rule below now apply consistently across the whole site — digest, Companies, Matrix (co-occurrence), Trends, Archive, and How It Works all read as one product**; this is a change from the prior pass, which covered only the digest view and shared chrome.
+The board uses the full canvas: a 12-column desktop grid puts a control rail, the story lanes, and a companies-in-range panel in view together, collapsing to one column with a bottom filter sheet on mobile. Structure comes from two devices working together — hairline rules between rows, and flat `.band` colour fields for section headers — rather than either device alone. The system carries one confirmed defect forward rather than concealing it: the TopBar's two-row layout (wordmark+status on row one, full-width nav on row two) exists because a single combined row crushed nav labels to a single letter at mobile widths under real content pressure; it is documented here as the working pattern that fixed a real bug, not retconned as an aesthetic choice.
 
 **Key Characteristics:**
-- Chart-paper cool-grey ground, near-black ink, one red accent reserved for a single semantic meaning (must-read)
-- Hairline rules substitute for card borders, badges, and shadows as the primary structural device
-- Three-typeface system with a clear division of labor: Archivo (display/headlines), Public Sans (UI/body/labels), JetBrains Mono (data — times, counts, tabular numbers, and chart axes)
-- Real jumps between type-scale steps; no two sizes sit within a few px of each other
-- Flat controls: no rounded pills, no gradients, no shadows on buttons/chips
-- A tightened, low-ceremony reading rhythm: the lede is scaled to a working heading, not a hero, so the story list starts within the first viewport
+- Bright near-white ground (`#fcfcfa`), near-black ink, two functional accents (signal red, lane blue), each reserved for one job
+- One grotesk voice (Hanken Grotesk) for display and UI; JetBrains Mono reserved for tabular data only
+- A full-width, real multi-column desktop board (control rail | story lanes | companies panel) instead of a centered reading column
+- Distinct control chrome per role — press-button, segmented control, filled dropdown field, toggle switch, search field — never one button shape standing in for five behaviors
+- Flat colour-field `.band` headers plus hairline rules as the two structural devices, replacing colored-border-left cards
+- Small filled-square `.chip` markers (never a colored left-border) mark lane and status meaning
 
 ## Colors
 
-A cool chart-paper palette with a single reserved warning-red accent; no secondary or tertiary accent exists. The Companies/Matrix/Trends charts, previously built on an unrelated warm-toned palette left over from the pre-redesign build, now draw from this same set.
+A bright, near-white board with two reserved functional accents and no decorative color.
 
 ### Primary
-- **Storm Signal** (`#a83216`): The must-read marker. Fills the importance meter only when a story scores 5, labels it "Must read," and colors the focus ring and text selection highlight. In charts, it is the one warm line (Trends' "average importance" line, the sparkline's latest-point dot, a selected cell's outline in the co-occurrence matrix) — the same single-job discipline carried into data visualization. Nothing else in the interface uses it — not links, not active nav, not brand chrome.
-- **Signal Ink** (`#7a2410`): Deepened signal red, used for the one small warning line in the status bar ("No new brief for N days...").
-- **Signal Wash** (`#f7eae5`): Pale tint of the signal color, used only as the `::selection` background.
+- **Signal** (`#c22f16`, ~5.3:1 on paper, AA): Importance-5 / "must-read" marking, the "Lead" lane chip, the active state of the `.toggle` switch, the focus ring, and text selection. Reused in charts as the sole warm series/point for the importance signal. Nothing else wears this color.
+- **Signal Ink** (`#a32c15`): Deepened signal red for the one status-bar warning line ("No new brief for N days...").
+- **Signal Wash** (`#fce9e5`): Pale signal tint, used only for `::selection`.
+
+### Secondary
+- **Lane** (`#2f5fb8`, ~5.4:1 on paper, AA): The secondary-priority lane's "Also in the brief" chip, the active/filled state of `.field` dropdowns, active-filter chip fill, and the checkbox accent inside open multi-select menus. Marks "developing, filtered-on" status the way Signal marks "must-read, active" status — a second, distinct semantic role, not a lighter version of Signal.
+- **Lane Ink** (`#234a92`): Deepened lane blue for active-filter chip text and the company-panel active state.
+- **Lane Wash** (`#e8eefb`): Pale lane tint, the fill behind active dropdown fields, active-filter chips, and the selected row in the companies panel.
 
 ### Neutral
-- **Chart Paper** (`#f1f4f4`): Page background. Cool grey-blue, not warm cream.
-- **Inset** (`#e7ecec`): Hover/active surface for rows and controls (`data-active="true"`), and skeleton-loading blocks.
-- **Sunk** (`#dce3e3`): Deepest neutral step; unfilled importance-meter segments and loading skeletons.
-- **Ink** (`#12171b`, ~16.3:1 on paper): Primary text and headline color; also the default fill for single-series bar/column charts (mentions, importance).
-- **Ink-2** (`#46545a`, ~7.1:1 on paper, AAA body): Body copy, deks, secondary control text, sparkline strokes.
-- **Ink-3** (`#5f6d72`, ~4.8:1 on paper, AA floor): Labels, meta text, inactive nav, tertiary info, chart axis ticks. Never used for text needing higher contrast — the build has a code comment explicitly rejecting `rule-2` (a border color at 1.7:1) as text for exactly this reason.
-- **Rule** (`#d6dedf`): The primary hairline divider — between story rows, filter strip, status bar, section boundaries, and chart gridlines/axis lines.
-- **Rule-2** (`#b7c2c3`): A stronger hairline for borders that need more presence (menu surfaces, active-chip borders, bottom-sheet edge, filter-cluster dividers). Reserved for border use, not text.
-
-### Chart Series
-- **Chart Teal** (`#5b7a8c`), **Chart Olive** (`#7a8c6b`), **Chart Tan** (`#8c7a5b`), **Chart Slate** (`#a3adaf`): A four-step muted, cool-toned series palette used alongside Ink and Signal (in that order — ink and signal always lead) for the Trends "what the coverage is about" stacked area chart's tag series. Deliberately desaturated; no rainbow, no violet, no cyan, so a five-series chart still reads as part of the same restrained system rather than a generic charting-library default.
+- **Paper** (`#fcfcfa`): Page background. Bright near-white, not grey and not cream.
+- **Inset** (`#f2f2ee`): Hover surface for rows/controls, `.band` section-header fill, filled-field resting background, loading skeleton blocks.
+- **Sunk** (`#e8e8e2`): Deepest neutral step; unfilled importance-meter segments, hover state of filled fields, loading skeletons.
+- **Ink** (`#14161a`, ~17.7:1 on paper): Primary text, headline color, active-control fill/text, chart single-series default.
+- **Ink-2** (`#4a5057`, ~7.7:1 on paper, AAA body): Body copy, control default text, metadata company name, chart tooltip labels.
+- **Ink-3** (`#6b7178`, ~4.9:1 on paper, AA floor): Labels, meta text, inactive nav, placeholder text, chart axis ticks. The contrast floor for text — never `rule-2`.
+- **Rule** (`#e2e2dc`): Primary hairline divider between story rows, sections, status-bar/nav borders, tag separators, chart gridlines.
+- **Rule-2** (`#c7c7bf`): Stronger hairline for control borders (`.ctl`, `.seg`), the mobile filter-sheet edge. Border use only, never text.
 
 ### Named Rules
-**The One Job Rule.** Storm Signal red has exactly one meaning: importance 5 ("must-read"). It never doubles as a link color, an active-state color, or a decorative brand mark — if red starts showing up anywhere else, the signal has been diluted. This now extends to the chart surfaces: Signal is the sole warm note in any chart, reserved for the one series or point that is the importance signal.
+**The Two-Signal Rule.** Signal red and Lane blue each carry exactly one status meaning — importance/must-read/active-state for Signal, secondary-priority/filter-active for Lane — and never swap jobs or double as decoration. A third accent, or either color appearing outside these roles, dilutes the coding a status board depends on.
 
-**The Rule-Not-Card Rule.** Content groupings (story rows, day sections, the signal-stats line) are separated by a 1px `rule` divider, not a bordered/shadowed card. A card or badge introduced for a new surface breaks the system's own material logic.
+**The Chip-Not-Border Rule.** Lane and status meaning is marked with a small filled-square `.chip` marker plus label, never a colored left-border on a row or card. A colored-border-left device is the one thing this system explicitly does not use to encode priority.
 
 ## Typography
 
-**Display Font:** Archivo (with ui-sans-serif, system-ui, sans-serif)
-**Body Font:** Public Sans (with ui-sans-serif, system-ui, sans-serif)
+**Display Font:** Hanken Grotesk (with ui-sans-serif, system-ui, sans-serif)
+**Body Font:** Hanken Grotesk (with ui-sans-serif, system-ui, sans-serif)
 **Label/Mono Font:** JetBrains Mono (with ui-monospace, SFMono-Regular, monospace)
 
-**Character:** A chart-grade grotesk (Archivo) for anything that needs to command attention — the masthead, story headlines — paired with a workhorse sans (Public Sans) built for dense reading in UI text, labels, and running body copy, plus a monospace reserved strictly for data that needs to line up in a column, now including chart axis labels. Archivo is also the CSS `body` font-family fallback, but visible body/UI copy is explicitly set to Public Sans; Archivo is functionally a display-only face in practice. Inter is deliberately absent — it's called out in the stylesheet as "the default face of every generated interface on the internet."
+**Character:** One grotesk family across every role — display, headline, body, and label all resolve to Hanken Grotesk at different weights and sizes, so the product reads as a single, consistent tool voice rather than an editorial face layered over a UI kit. JetBrains Mono is held back strictly for real tabular data: counts, timestamps, source lines, chart axis ticks — never decoration and never a second "brand" face.
 
 ### Hierarchy
-- **Display** (900, `clamp(2.75rem, 12vw, 5.5rem)`, line-height 0.92, `-0.03em` tracking): The "Daybreak" masthead wordmark only.
-- **Headline** (700, `text-head-lg`/30px stepping up to `text-display`/40px at `sm:`, line-height 1.16, `-0.01em`): The "Today's Outlook" lede heading. As of this pass it is a working heading set on the same baseline row as the date, not an oversized hero — it was scaled down from a `clamp(2.75rem, 7vw, 4.75rem)` display-scale treatment specifically so the story list is reached sooner. It shares its size steps with the Title tier rather than owning a unique clamp value; what makes it "Headline" is its role (the one per-page-load statement) and its baseline pairing with the date, not a bigger number.
-- **Title / Lead story** (700, 30px / `text-head-lg`, line-height 1.16): Headline of a lead (importance ≥5 group) story row.
-- **Title / Standard story** (700, 23px / `text-head`, line-height 1.16): Headline of a non-lead story row; also used for empty-state titles and dialog headings.
-- **Body / Lede** (400, 19px / `text-lede`, line-height 1.5–1.55): The masthead tagline. No longer the size of the day's summary paragraph (see Body, below) — that dropped a step this pass.
-- **Body** (400, 16px / `text-body`, line-height 1.5, `measure` cap of 68ch): Story summaries, running prose, and — as of this pass — the day's one-sentence conditions summary (the `.dek`), which was reduced from 19px so it reads as scannable brief prose rather than a second display line. Paragraphs use old-style figures (`font-variant-numeric: oldstyle-nums`) for better in-line number reading.
-- **Label** (500, 13px / `text-meta`, `0.01em` tracking): Story metadata (company, topic, momentum note), control labels.
-- **Label Strong** (600, 13px, `0.04em` tracking, uppercase): Section headers ("Lead," "Also in the brief," day headings), the "Must read" tag.
-- **Data** (400, 12px / `text-micro`, tabular nums, mono): Source attribution, dates, tag chips, story counts, timestamps, chart axis ticks — anything meant to line up in a column.
+- **Display** (700, `text-display`/40px, line-height 1.15, `-0.014em`): Reserved for the largest headings the base stylesheet defines (h1–h4 share this family/weight/tracking rule); in practice the wordmark and overview-band day heading sit at `text-head` (23px), not the full display size — there is no oversized hero treatment in this build.
+- **Headline** (800, `text-head`/23px, `-0.01em`): The overview-band day heading ("Today"/date) and the TopBar wordmark.
+- **Title / Lead story** (700, `text-head-lg`/30px, line-height 1.16): Headline of a Lead-lane (importance ≥5) story row.
+- **Title / Standard story** (700, `text-head`/23px, line-height 1.16): Headline of a secondary-lane story row; also empty-state and dialog headings.
+- **Body** (400, `text-body`/16px, line-height 1.5, `measure` cap 68ch): Story summaries and running prose.
+- **Label** (500, `text-meta`/13px, `0.01em` tracking): Control text, metadata (company/topic/momentum), dropdown field labels.
+- **Label Strong** (700, `text-meta`/13px, `0.04em` tracking, uppercase): Section headers inside `.band` fills ("Lead," "Also in the brief," "Companies in range," "Range," "Narrow," "Strongest pairs").
+- **Data** (400, `text-micro`/12px, tabular nums, mono): Source, dates, tag chips, story counts, timestamps, chart axis ticks — anything meant to line up in a column. This is the type-scale floor; nothing ships smaller.
 
 ### Named Rules
-**The No-Eyebrow Rule.** Headings carry their own weight; nothing rides above a headline as a kicker/eyebrow line. "Today's Outlook" and story headlines stand alone — a label only appears when it says something the heading itself doesn't (e.g., "Must read" beside the importance meter, not above the title).
+**The One Voice Rule.** Display and UI type are the same family (Hanken Grotesk) at different weights, not two typefaces standing in for "editorial" versus "product." A new surface should never reach for a second display face.
 
-**The Real-Jump Rule.** Type-scale steps differ by meaningful amounts (12/13/16/19/23/30/40px), never by a near-invisible 1–2px increment.
-
-**The Dek Rule.** The day's opening summary is set as an editorial dek: plain `text-body` (16px) with only its first line weighted up via CSS `::first-line` (`.dek`, 600 weight, full `ink`), not markup-driven bolding or truncation. One paragraph gets exactly one weighted lead-in; nothing else in running prose uses `::first-line`.
+**The Real-Jump Rule.** Type-scale steps differ by meaningful amounts (12/13/16/19/23/30/40px), never a near-invisible 1–2px increment.
 
 ## Layout
 
-Single-column, centrally-constrained reading layout: a `max-w-5xl` container with `px-5`/`sm:px-8` gutters holds the masthead, lede, filter strip, and story list. Prose elements (lede paragraph, story summaries, empty-state body) are additionally capped at a 68ch measure (`.measure`) inside that container, so the container is wider than the comfortable reading line — the container sets rhythm, the measure sets legibility.
+A full-width working board, not a centered reading column: the frame is `max-w-[100rem]` with `px-5`/`sm:px-8` gutters across the digest, Companies, Matrix, Trends, and Archive views — only How It Works keeps a narrower `max-w-[65rem]` reading column, because its job is long-form reading rather than board-scanning.
 
-The page stacks vertically: sticky status bar → masthead → view tabs → lede band → sticky filter strip (offset below the status bar) → story list, grouped by pipeline day and paginated 12 items at a time without breaking a day group mid-list. This pass tightened the vertical rhythm end to end: the lede band now opens at `pt-6`/`sm:pt-8` instead of a larger top gap, the heading sits on one baseline row with the date instead of stacking above it, and the filter strip sits `mt-5` below rather than further down — the combined effect is that the story list starts noticeably sooner on first load, which matters for a page meant to be read once a day in under a minute. Within a day group with at least one importance-5 story, the list splits into two labeled sub-lists — "Lead" and "Also in the brief" — rather than a separate visual hierarchy; a day with no 5s renders as a single flat list.
+The digest view is a 12-column desktop grid below the overview band: a control rail (`lg:col-span-3 xl:col-span-2`), the story lanes (`lg:col-span-6 xl:col-span-7`), and a companies-in-range panel (`lg:col-span-3`), all visible together at `lg` and above. Below `lg` this collapses to a single column: the control rail becomes a "Filters" trigger plus inline search, opening a bottom `FilterSheet` that stacks controls vertically and locks body scroll while open; the companies panel drops entirely rather than being squeezed into the flow.
 
-Filter controls run inline in a horizontal strip at `md` and above; below `md` they collapse to a "Filters" trigger plus inline search, opening a bottom sheet (`FilterSheet`) that stacks controls vertically and locks body scroll while open. The inline strip is now grouped into three visual clusters — date range, then narrowing filters (company/topic/source/tag/high-signal), then search — separated by a thin `rule` vertical divider rather than left as one undifferentiated run of controls; control padding within the strip was also tightened. Story rows are single-column at all widths, with per-row vertical padding reduced from `py-6` to `py-4` this pass; there is no responsive multi-column card grid anywhere in the redesigned surface.
+The overview band that opens the page is a compact status readout — a day heading, one summary line, a signal-stats sentence, and two page actions — never a hero. Below it, stories group by pipeline day; a day containing at least one importance-5 story splits into two `.band`-headed lanes ("Lead" and "Also in the brief"); a day with no 5s renders as one flat lane. Pagination holds 12 items per page without breaking a day group mid-list.
+
+The TopBar is two compact rows rather than one combined row or a stacked three-section masthead: row one holds the wordmark and live status (last-run time, archived count, "How it works" link) with room to breathe; row two is section nav at full width. This split exists because a single-row layout crushed nav labels under mobile width pressure — the working pattern to carry forward, not a stacked-masthead aesthetic choice.
+
+The filter rail groups controls by role in a fixed vertical order — Range (segmented control), Narrow (stacked dropdown fields for company/topic/source/tag), a High-signal toggle, then Search — never one undifferentiated run of identical buttons. The Matrix (co-occurrence) view puts a "Strongest pairs" ranked list beside the matrix table on wide screens (`lg:flex-row`), using the freed board width rather than stranding the list mobile-only and leaving the matrix isolated in empty space on desktop.
 
 ## Elevation & Depth
 
-Flat by default. Structure comes from hairline rules and tonal steps (paper → inset → sunk), not shadows. The one shadow in the system is a tight, tinted shadow used exclusively on floating menu/dropdown surfaces (`.surface`) — explicitly a hairline border paired with a *tight* shadow rather than a hairline paired with a wide diffuse cloud. Chart tooltips reuse this same `.surface` treatment rather than inventing a separate elevated card for data views.
+Flat by default. Structure comes from two devices working together — hairline `rule` dividers between rows/sections, and flat `.band` colour-field fills for section headers — not shadows or cards. The one shadow in the system is a tight, tinted shadow reserved for genuinely floating surfaces: dropdown/multi-select popovers and chart tooltips (`.surface`), paired with a `rule-2` border.
 
 ### Shadow Vocabulary
-- **Menu surface** (`box-shadow: 0 6px 16px -8px rgb(18 17 15 / 0.28)`): Dropdown/multi-select popovers and chart tooltips. Paired with a `rule-2` border.
+- **Menu surface** (`box-shadow: 0 6px 16px -8px rgb(20 22 26 / 0.24)`): Dropdown/multi-select popovers (`MultiSelect`) and Recharts tooltips. Paired with a `rule-2` border and 4px radius.
 
 ### Named Rules
-**The Flat-By-Default Rule.** Story rows, sections, the lede band, and the filter strip carry zero shadow and zero border-radius. Only a genuinely floating surface (a popover or tooltip that overlaps content) earns the one shadow token.
+**The Flat-By-Default Rule.** Story rows, the overview band, and the control rail carry zero shadow. Only a surface that overlaps content it floats above — a popover or tooltip — earns the one shadow token.
 
 ## Shapes
 
-Uncompromisingly rectangular: no `border-radius` appears anywhere in the sampled stylesheet or components. Controls, inputs, menu surfaces, chips, and the empty-state block are all sharp-cornered. Borders are 1px hairlines in `rule` or `rule-2`; the only "shape" vocabulary beyond the rectangle is the importance meter's five ascending bars (a small bar chart, not a badge or dot row), the underline decoration on story headlines (2px, signal color, 6px offset), and small square swatches (not circular dots) used as chart legend keys.
+Mostly square with small, consistent softening at the control layer: buttons, fields, and menu surfaces carry a 3–4px radius (`rounded-control`/`rounded-surface`) rather than either sharp rectangles or rounded pills — the one exception is the `.toggle` switch, which is a true pill (999px) because it is a binary physical affordance, not a press-button. Borders are 1px hairlines in `rule` or `rule-2`. The chip/lane marker is a small filled square (2px radius), never a circular dot or a colored border-left. The co-occurrence matrix encodes density as ink opacity on square cells rather than a hue ramp — "one colour, varying presence," consistent with the two-signal discipline elsewhere.
 
 ## Components
 
-### Buttons / Controls (`.ctl`)
-- **Shape:** Flat rectangle, no radius, 1px `rule` border.
-- **Default:** Transparent background, `ink-2` text, `rule` border, Public Sans 13px/500.
-- **Hover:** Border shifts to `rule-2`, text to `ink`.
-- **Active** (`data-active="true"`): `inset` background, `ink` border and text — used for the currently-selected range, an open filter, "High signal only" toggled on, the current pagination page.
-- **Disabled:** 40% opacity, `not-allowed` cursor.
-- Every control shares one class; there is no separate primary/secondary/ghost button family in this surface — filters, pagination, "Copy brief," and "mark all read" are all `.ctl`.
+### Buttons / Controls
+Four distinct control types share the board, deliberately not one shape standing in for every role:
+- **`.ctl` (press-button):** Flat paper background, `rule-2` border, 3px radius. Default: `ink-2` text. Hover: border to `ink-3`, text to `ink`. Active (`data-active="true"`): filled `ink` background, `paper` text. Disabled: 40% opacity, `not-allowed` cursor. Used for filters trigger, pagination, "Copy brief," "mark all read," dialog actions.
+- **`.seg` / `.seg-grid` (segmented control):** A single connected strip (or, on a narrow rail, a 2-column grid — `.seg-grid` — so a 4-way choice doesn't wrap its own labels mid-word) for closed, mutually-exclusive choices like date range. Active segment: filled `ink` background, `paper` text.
+- **`.field` (filled dropdown):** Recessed `inset` background, no border at rest, 3px radius — reads as "choose from a list," distinct from a press-button. Active (has a selection): `lane-wash` fill, `lane` border, `lane-ink` text.
+- **`.toggle` (switch):** A true pill affordance (2rem × 1.125rem track, sliding thumb), not a button with two label states. Active: `signal` fill.
 
 ### Chips
-- **Style:** Active-filter chips are `rule-2`-bordered rectangles, `ink-2` text (13px micro), with a trailing remove icon; hover darkens border and text to `ink`. No fill, no radius — visually a lighter-weight sibling of `.ctl`, not a pill.
-- **Icon:** The remove control is now a drawn SVG "×" (two 1.5px strokes, 8×8px, `currentColor`), replacing a unicode "×" glyph. Matches the drawn-SVG icon vocabulary used everywhere else in the interface (multi-select chevrons, archive expand carets) — no interface icon is set as a text glyph.
+- **Lane/status chip (`.chip`):** A small filled 2px-radius square swatch in `currentColor` plus an uppercase 12px label — "Lead" (signal), "Also in the brief" (lane), "Must read." Never a colored left-border on the row it marks.
+- **Active-filter chip:** Built on `.field` chrome (`lane-wash` background, `lane-ink` text) with a trailing drawn-SVG "×" (8×8px, `currentColor`, two 1.5px strokes) — no unicode glyph.
 
 ### Cards / Containers
-- There are no cards in the redesigned surface. Story rows are `<li>` items separated by a bottom `rule` hairline (`border-b`, `last:border-b-0`), full-bleed within the content column, with `hover`/`focus-visible` state shown as an `inset` background wash rather than an elevated card. The one boxed container is the empty state (`border border-rule`, `inset` background, centered text, no radius).
+No cards. Story rows are `<li>` items full-bleed within their column, separated by a bottom `rule` hairline, with hover/focus shown as an `inset` background wash. The one boxed container is the empty state (`border-rule`, `inset` background, 3px radius, centered text).
 
 ### Inputs / Fields
-- **Style:** Transparent background, 1px `rule` border, no radius, Public Sans 13px, `ink-3` placeholder.
-- **Focus:** The global focus-visible ring — 2px solid `signal` outline, 2px offset, 2px corner radius (the one radius value in the system, applied only to the focus ring itself, not to the input's resting shape).
+- **`.search-field`:** Recessed `inset` background, icon-prefixed (13px SVG magnifier), no border at rest; focus moves to `paper` background with a `rule-2` border.
+- **`MultiSelect` dropdown:** `.field` trigger opens a `.surface` listbox (checkbox rows, `lane`-accented checkboxes, `inset` hover).
+- **Focus:** The global focus-visible ring — 2px solid `signal` outline, 2px offset, 2px corner radius — applies to every interactive control regardless of its resting shape.
 
-### Navigation (ViewTabs)
-- **Style:** A horizontal, horizontally-scrolling strip of text tabs with a 2px bottom border indicator. Active tab: `ink` border and text. Inactive: transparent border, `ink-3` text, hover to `ink`. No pill/background treatment on the active tab — the underline is the only state signal.
-
-### Filter Bar (signature component)
-Controls are grouped into three visual clusters in fixed order — date range, then narrowing filters (company/topic/source/tag multi-selects plus the "High signal only" toggle), then search — separated by a thin (`h-5 w-1px`) `rule`-colored vertical divider rather than left as one undifferentiated run. The divider is omitted in the stacked mobile-sheet layout, where the clusters already read as distinct vertical groups. This is the filter bar's equivalent of the rule-not-card discipline: grouping by hairline, not by boxing each cluster.
+### Navigation (TopBar)
+Two compact rows: row one is wordmark + live status (never contending with nav for width); row two is a horizontally-scrolling strip of section tabs ("Brief," "Companies," "Who appears together," "Trends," "Archive") with pill-style active state (filled `ink` background, `paper` text via the shared `tabOn`/`tabOff` classes) rather than an underline indicator. This two-row split is a fix for a real mobile bug — nav text was crushed to single letters when squeezed into one row with the wordmark and status — and is the pattern to reuse for any future top-level nav, not a stacked-masthead throwback.
 
 ### Story Row (signature component)
-The station-report pattern: importance meter (five ascending bars, filled dark or signal-red) leads the row, followed by a "Must read" label only when importance is 5, then metadata (`company` bold, `topic`, momentum text) in `.label` style. The headline follows at `text-head` (or `text-head-lg` when it's a lead story) with a signal-colored underline that appears on hover. A final metadata line separates provenance (source, optional date) from subject tags with a 1px vertical `rule` divider rather than punctuation — a deliberate fix for interpuncts stranding at line-wrap on narrow screens. Read stories dim their headline to `ink-3` and append a "read" marker after the same vertical-rule separator. Row padding is `py-4` (tightened from `py-6` this pass) to bring more of the day's list into view without scrolling.
+Importance meter (five ascending bars, 5–13px tall) leads the row, followed by a "Must read" `.chip` only at importance 5, then metadata (`company` bold, `topic`, momentum text) in `.label` style. The headline follows at `text-head` (or `text-head-lg` in the Lead lane) with a signal-colored underline on hover. A footer line separates provenance (source, optional date) from subject tags with a 1px vertical rule divider rather than punctuation, avoiding stranded interpuncts at line-wrap. Read stories dim to `ink-3` and append a "read" marker after the same rule divider.
 
 ### Importance Meter (signature component)
-Five vertical bars of increasing height (5px to 13px), not dots or a badge. Bars are filled left-to-right up to the story's score: `ink-3`-tinted for 1–2, `ink` for 3–4, `signal` red only at exactly 5. This is the sole encoding of importance in the interface — the build's own history notes a prior version encoded it three redundant ways (dot column, colored pill, red card border) and this consolidates to one. Reused verbatim (not reinvented) on the Companies view's "Avg importance" stat.
+Five vertical bars of increasing height (5–13px), filled left-to-right: `ink-3` for 1–2, `ink` for 3–4, `signal` only at exactly 5. The sole encoding of importance — reused verbatim on the Companies view's "Avg importance" stat.
+
+### Board Panels (signature component)
+`.band` (flat `inset`-colored fill, 3px radius) headers group content sections without a bordered box — "Lead"/"Also in the brief" lane headers, "Companies in range," "Strongest pairs." This is the filter bar's and the companies panel's shared structural language: group by flat colour field, not by boxing each cluster.
 
 ### Charts (Companies / Matrix / Trends)
-Recharts-based area, line, and bar charts, plus one hand-drawn SVG sparkline, all now built from the same token set as the rest of the site rather than a separate palette. Gridlines and axis lines are `rule`; axis ticks are 12px JetBrains Mono in `ink-3`; a single series defaults to `ink`; the importance-signal line/point is always `signal`; a multi-series chart (the Trends tag breakdown) adds the four muted Chart Series colors after ink and signal. Tooltips reuse the `.surface` menu treatment. The company co-occurrence matrix encodes density by `ink` opacity rather than a hue ramp ("one colour, varying presence"), with the selected-pair cell outlined in `signal` — consistent with the One Job Rule's use of red as a single pointer, not a heat scale.
+Recharts-based area, line, and bar charts drawing from the same token set as the rest of the board. Gridlines/axis lines are `rule`; axis ticks are 12px JetBrains Mono in `ink-3`; a single series defaults to `ink`; the importance-signal line/point is always `signal`; a multi-series chart adds a short, restrained run of additional tones after ink and signal (`lane`, then muted green/tan/grey — no rainbow, no violet, no cyan). Tooltips reuse the `.surface` menu treatment. **The SVG fills can't reliably read CSS custom properties across the export/print path, so `Analysis.tsx` hardcodes `INK`/`INK_2`/`INK_3`/`RULE`/`SIGNAL`/`LANE`/`SERIES` constants mirroring `--color-*` by hand near the top of the file — this hand-sync is a real, documented system rule, not a one-off shortcut, and any future token change must update both places.** The co-occurrence matrix encodes density by `ink` opacity on square cells rather than a hue ramp, with the selected pair outlined in `signal`; on wide screens a "Strongest pairs" ranked list sits beside the matrix (`.band`-headed), using the board's freed width rather than leaving the matrix isolated in empty space.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** reserve `signal` red for importance-5 "must-read" marking only — the meter fill, the "Must read" label, the focus ring, text selection, and (in charts) the single importance-signal series or point.
-- **Do** separate content groups with a 1px `rule` hairline instead of a card border or shadow — including grouping filter-bar controls into clusters via a vertical rule divider rather than boxing each cluster.
-- **Do** keep every interactive control (`.ctl`) flat, square-cornered, and bordered — no rounded pills, gradients, or button shadows.
-- **Do** use JetBrains Mono with tabular figures for anything meant to line up in a column (dates, counts, source lines, chart axes).
-- **Do** cap running prose at the `measure` (68ch) even when its container is wider.
-- **Do** draw interface icons (remove, chevron, expand caret) as inline SVG at 8–10px using `currentColor`; never set an icon as a unicode text glyph (`×`, `▾`, etc.).
+- **Do** reserve `signal` red for importance-5/must-read/active-state only, and `lane` blue for secondary-lane/filter-active state only — each accent keeps exactly one job.
+- **Do** mark lane/status meaning with a small filled-square `.chip` plus label, never a colored left-border on a row or card.
+- **Do** give each control role its own chrome — press-button (`.ctl`), segmented control (`.seg`/`.seg-grid`), filled dropdown field (`.field`), toggle switch (`.toggle`), search field — instead of reusing one button shape for every interaction.
+- **Do** group sections with a flat `.band` colour field or a `rule` hairline, not a bordered/shadowed card.
+- **Do** let a board surface use the full `max-w-[100rem]` frame; reserve the narrower `max-w-[65rem]` reading column for long-form pages like How It Works.
+- **Do** keep the TopBar's two-row split (identity+status / full-width nav) on any new top-level nav — it fixed a real mobile label-crushing bug, not a stylistic preference.
+- **Do** hand-sync any hardcoded chart color/font constant (`Analysis.tsx`'s `INK`/`SIGNAL`/`LANE`/`SERIES`) with `--color-*` whenever a token changes; SVG chart fills cannot read CSS custom properties reliably across export/print.
+- **Do** draw interface icons (remove, chevron, search) as inline SVG using `currentColor`; never set an icon as a unicode text glyph.
 
 ### Don't:
-- **Don't** introduce a kicker/eyebrow line above a heading. The build deliberately removed one ("the heading carries its own weight") — treat this as confirmed system doctrine, not just a one-page choice.
-- **Don't** use `rule-2` for text; it sits at ~1.7:1 contrast on paper and is border-only by design. Use `ink-3` as the contrast floor for text.
-- **Don't** add a card, badge, or drop-shadow treatment to a new list or grid surface — the system's structural language is rules and tonal steps, not boxed containers.
-- **Don't** add border-radius to controls, inputs, or containers; the one confirmed exception is the 2px focus-ring corner, not a general shape allowance.
-- **Don't** give a chart its own palette. Every chart surface (Companies, Matrix, Trends) draws from the same `--color-*` tokens as the rest of the site; a hardcoded hex/font-family constant local to one component is exactly the drift this pass fixed and should not recur.
+- **Don't** introduce a colored left-border on a card or row to encode status or priority — that device was explicitly replaced by the `.chip` filled-square marker.
+- **Don't** add literal aviation texture, iconography, or theming (strip-board graphics, radar/runway motifs, ATC-styled labels) anywhere in the interface — the metaphor was deliberately abstracted away per an explicit steer against theatricality; the shipped discipline is priority lanes and status colour, not decoration referencing the source metaphor.
+- **Don't** reach for a second display typeface. Hanken Grotesk carries both display and UI roles; JetBrains Mono is for tabular data only.
+- **Don't** use `rule-2` for text; it is border-only by design. Use `ink-3` as the contrast floor for text.
+- **Don't** add a third functional accent color, or let `signal`/`lane` double as decoration or a general brand color.
+- **Don't** collapse the desktop board back into a single centered reading column outside How It Works; the 12-column control-rail/lanes/panel grid is the system's spatial model for board-type views.
+
+## Not canonized
+
+The TopBar's pill-style active nav-tab treatment (filled `ink`/`paper`, no underline) is recorded as observed component behavior above, but is not elevated to a named system rule — it is one workable choice among the control vocabulary, not a doctrine future nav components must repeat exactly. No kicker/eyebrow, hard-offset shadow, glyph icon, or system-display-face pattern was found in this build to flag as a craft-floor defect; the system's own devices (chips, bands, hairlines) are the ones actually shipped and are canonized as such.

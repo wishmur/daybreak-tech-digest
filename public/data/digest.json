@@ -1,6 +1,189 @@
 {
-  "lastUpdated": "2026-09-08T17:48:02.129Z",
+  "lastUpdated": "2026-09-09T17:38:32.929Z",
   "days": [
+    {
+      "date": "2026-09-09",
+      "summary": "Meta launched Muse, a personal AI agent seeking access to email, calendars, payments, and health data, representing its largest consumer AI bet and a significant trust test. Cognition reached a $48B valuation, signaling continued investor conviction in AI coding despite a crowded field. An Anthropic researcher publicly resigned over AI extinction concerns, and Claude token theft from subscribers highlights growing security risks around AI platform accounts.",
+      "items": [
+        {
+          "id": "20d984cb02",
+          "title": "Meta debuts its Muse AI agent. Will consumers trust it?",
+          "link": "https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/",
+          "source": "TechCrunch AI",
+          "summary": "Meta's Muse personal AI agent is a major product launch that requests deep access to user data across email, calendars, payments, and health, making it a direct competitor to Apple Intelligence and Google Gemini in the personal agent space.",
+          "topic": "AI Personal Agent Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T19:00:00.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "ba0725adef",
+          "title": "Cognition hits $48B valuation, signaling investors believe AI coding is far from a winner-take-all market",
+          "link": "https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/",
+          "source": "TechCrunch AI",
+          "summary": "Cognition's $48B valuation shows investors see AI coding as a multi-winner market, which matters for PMs evaluating competitive dynamics and resource allocation in developer tooling.",
+          "topic": "AI Coding Startup Valuation",
+          "company": "Cognition",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-08T21:04:06.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "46698576bf",
+          "title": "‘Gambling with our lives’: Anthropic researcher quits, warns against self-improving AI",
+          "link": "https://techcrunch.com/2026/09/09/gambling-with-our-lives-anthropic-researcher-quits-warns-against-self-improving-ai/",
+          "source": "TechCrunch AI",
+          "summary": "A public resignation from an Anthropic researcher citing AI extinction risk and calling for inter-lab pacing agreements could signal internal cultural tension and regulatory pressure building around frontier AI development.",
+          "topic": "AI Safety / Leadership",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-09T15:02:47.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "baf4c2ebab",
+          "title": "Hackers are stealing Claude tokens from subscribers",
+          "link": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/",
+          "source": "TechCrunch AI",
+          "summary": "Hackers are stealing Anthropic Claude API tokens from subscribers, a concrete security threat PMs building on Claude or advising enterprise adoption need to communicate to security teams.",
+          "topic": "AI Platform Security",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-08T21:10:27.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "04755a5637",
+          "title": "Suno replaces its AI models with a new one trained on licensed music as copyright suits pile up",
+          "link": "https://techcrunch.com/2026/09/09/suno-replaces-its-ai-models-with-a-new-one-trained-on-licensed-music-as-copyright-suits-pile-up/",
+          "source": "TechCrunch AI",
+          "summary": "Suno replaced its AI music models with one trained entirely on licensed music to address copyright litigation, a significant precedent for how AI product teams handle training data liability.",
+          "topic": "AI Model Retraining / Copyright",
+          "company": "Suno",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-09-09T12:05:34.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "12dcfd350b",
+          "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
+          "link": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/",
+          "source": "TechCrunch AI",
+          "summary": "Sequoia's $25M Series A in Cymphony at over $100M valuation reflects growing enterprise investment in AI agent security, a nascent but fast-growing category PMs in enterprise software should track.",
+          "topic": "AI Security Funding",
+          "company": "Cymphony",
+          "secondaryCompanies": [
+            "Sequoia"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-09-09T13:00:00.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "bd1732c25d",
+          "title": "GPT-6 Astra, looped transformers, and hidden reasoning",
+          "link": "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and",
+          "source": "Hacker News",
+          "summary": "A well-regarded technical newsletter covering GPT-6 Astra and looped transformers provides useful signal on where OpenAI's next major model may be headed, relevant for PMs planning product roadmaps around AI capabilities.",
+          "topic": "AI Model Research Outlook",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-09T14:37:47.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "1ddba9d33f",
+          "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
+          "link": "https://blogs.nvidia.com/blog/ibc-news-2026/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA is showcasing real-time AI capabilities for broadcast, sports, and streaming at IBC 2026, extending its footprint beyond data centers into media production infrastructure.",
+          "topic": "NVIDIA AI Media Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-09-09T16:00:42.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "5f6bd3058b",
+          "title": "AI spend per employee slumped at top firms in August — summer doldrums or a warning sign?",
+          "link": "https://techcrunch.com/2026/09/09/ai-spend-per-employee-slumped-at-top-firms-in-august-summer-doldrums-or-a-warning-sign/",
+          "source": "TechCrunch AI",
+          "summary": "Declining AI spend per employee at top firms in August raises a real question about whether enterprise AI adoption is plateauing or just normalizing as token costs fall, directly relevant for PMs sizing AI product markets.",
+          "topic": "Enterprise AI Adoption Trends",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-09-09T14:18:34.000Z",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "9957c79ffe",
+          "title": "Tailwind Labs is joining Shopify",
+          "link": "https://tailwindcss.com/blog/tailwind-is-joining-shopify",
+          "source": "Hacker News",
+          "summary": "Tailwind Labs joining Shopify is a notable acquisition of a widely used open-source CSS framework, signaling Shopify's intent to own more of the developer tooling stack.",
+          "topic": "Developer Tooling Acquisition",
+          "company": "Shopify",
+          "secondaryCompanies": [
+            "Tailwind Labs"
+          ],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "open-source"
+          ],
+          "publishedAt": "2026-09-09T13:27:11.000Z",
+          "addedOn": "2026-09-09"
+        }
+      ]
+    },
     {
       "date": "2026-09-08",
       "summary": "OpenAI claims a solution to the Navier-Stokes Millennium Prize problem, a major scientific milestone that signals AI's expanding role in frontier mathematics. Mistral raises €3B at a €21B valuation, cementing sovereign AI as a serious market with major institutional backing. Google DeepMind released AlphaGenome Atlas, a predictive map of every possible DNA change in the human genome, while Google Cloud deepened its enterprise AI push via an Accenture partnership.",

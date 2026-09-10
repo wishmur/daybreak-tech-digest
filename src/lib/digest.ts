@@ -33,7 +33,11 @@ export type Digest = {
   days: Day[];
 };
 
-export const DATA_URL = "/data/digest.json";
+// Fetched cross-origin straight from the repo (not the app's own bundle) so a
+// new digest goes live the moment the daily pipeline commits it — no Lovable
+// publish step required. Requires the repo to be public.
+export const DATA_URL =
+  "https://raw.githubusercontent.com/wishmur/daybreak-tech-digest/main/public/data/digest.json";
 
 /** How often the client re-checks for a new digest, in ms. */
 export const REFRESH_MS = 15 * 60 * 1000;

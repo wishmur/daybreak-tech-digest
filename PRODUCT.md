@@ -20,7 +20,7 @@ The differentiator is contextual synthesis, not link aggregation: collapsing man
 
 ## Operating Context
 
-Runs as a scheduled GitHub Action once daily (14:00 UTC / ~10 AM ET, can be triggered manually), with nothing running the rest of the day — no server. The frontend is a static TanStack Start/Vite app that fetches a single `digest.json` from the repo and refreshes client-side. Filter state and read state persist to the URL and localStorage. Deployed via Lovable at daybreak-tech-digest.lovable.app, synced with GitHub.
+Runs as a scheduled GitHub Action once daily (14:00 UTC / ~10 AM ET, can be triggered manually), with nothing running the rest of the day — no server. The frontend is a static TanStack Start/Vite app that fetches `digest.json` cross-origin straight from the public GitHub repo (not its own bundle) and refreshes client-side, so a new digest goes live the moment the pipeline commits it — Lovable's GitHub sync updates the editor but never auto-publishes, so the app can't depend on a same-origin copy without a manual publish after every run. Filter state and read state persist to the URL and localStorage. Deployed via Lovable at daybreak-tech-digest.lovable.app, synced with GitHub. The repo must stay public for this to work.
 
 ## Capabilities and Constraints
 

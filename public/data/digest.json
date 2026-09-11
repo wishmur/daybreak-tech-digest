@@ -1,6 +1,193 @@
 {
-  "lastUpdated": "2026-09-09T17:38:32.929Z",
+  "lastUpdated": "2026-09-11T17:36:25.628Z",
   "days": [
+    {
+      "date": "2026-09-11",
+      "summary": "Anthropic published a report alleging persistent model distillation attacks from Chinese AI companies including DeepSeek, Alibaba, and Moonshot AI, a significant competitive and security development for the industry. NVIDIA's Jensen Huang outlined why the company expects roughly 70% growth next year, citing broad ecosystem expansion and rejecting concerns about circular deals. OpenAI paused new Pro subscriptions due to infrastructure strain from high demand, while separately its Agents API is gaining developer traction.",
+      "items": [
+        {
+          "id": "999f113dc0",
+          "title": "Anthropic details distillation campaigns from Alibaba, Moonshot AI, and DeepSeek",
+          "link": "https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's new report documents systematic efforts by Chinese AI companies to extract model knowledge through distillation attacks, raising IP protection and competitive moat concerns for any PM building on top of proprietary models.",
+          "topic": "AI Security and Model IP",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Alibaba",
+            "DeepSeek",
+            "Moonshot AI"
+          ],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-09-10T20:57:30.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "3f1b7e6d6a",
+          "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year",
+          "link": "https://techcrunch.com/2026/09/10/jensen-huang-explains-why-nvidia-will-grow-an-astounding-70-next-year/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang detailed why NVIDIA expects ~70% revenue growth next year, driven by demand across data center, robotics, and agentic AI infrastructure, which directly affects every PM's compute cost and partnership decisions.",
+          "topic": "NVIDIA Growth Outlook",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "infra"
+          ],
+          "publishedAt": "2026-09-10T21:51:59.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "0f4979d248",
+          "title": "OpenAI Agents API",
+          "link": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+          "source": "Hacker News",
+          "summary": "OpenAI's Agents API is receiving strong developer interest on Hacker News with 329 points, signaling that it is becoming a key integration surface for PMs building agentic products.",
+          "topic": "OpenAI Agents API",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-10T19:43:22.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "5a7a028d73",
+          "title": "OpenAI puts Pro subscriptions on hold due to Astra demand",
+          "link": "https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI paused new Pro subscription sign-ups because of infrastructure strain from its Astra product, a rare public capacity constraint that affects revenue growth and signals how demanding new AI products are on underlying systems.",
+          "topic": "OpenAI Capacity Constraint",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-10T20:59:51.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "774d76e42a",
+          "title": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment",
+          "link": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/",
+          "source": "NVIDIA Blog",
+          "summary": "AI inference chipmaker d-Matrix will integrate NVIDIA NVLink Fusion into its Raptor XPU platform, expanding NVIDIA's ecosystem lock-in at the rack scale and affecting infrastructure options for PMs evaluating inference cost.",
+          "topic": "NVIDIA Ecosystem Expansion",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "d-Matrix"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-09-10T13:00:21.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "4780951de0",
+          "title": "Meta’s AI agent Muse is now the No. 2 app in the US",
+          "link": "https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/",
+          "source": "TechCrunch AI",
+          "summary": "Meta's AI agent app Muse reached the No. 2 position in the US App Store, demonstrating that standalone AI agent apps can achieve rapid consumer adoption even when growth lags Meta's prior launches.",
+          "topic": "AI Agent Consumer Apps",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-10T19:50:04.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "e32e3658be",
+          "title": "Meta says it&#8217;s changing AI suggestions after posing invasive personal questions",
+          "link": "https://www.theverge.com/tech/993974/meta-ai-prompt-invasive-suggestions",
+          "source": "The Verge",
+          "summary": "Meta is revising AI chatbot prompt suggestions after its assistant was caught asking invasive personal questions about a user's children, a product safety failure with direct implications for PMs designing AI conversation flows.",
+          "topic": "AI Product Safety",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-11T14:25:21.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "3eb10fd44c",
+          "title": "Nscale adds former OpenAI exec Fidji Simo to its board ahead of potential IPO",
+          "link": "https://techcrunch.com/2026/09/11/nscale-adds-former-openai-exec-fidji-simo-to-its-board-ahead-of-potential-ipo/",
+          "source": "TechCrunch AI",
+          "summary": "Nscale added former OpenAI president Fidji Simo to its board ahead of a potential IPO, signaling that the GPU cloud infrastructure space is maturing toward public markets and attracting top executive talent.",
+          "topic": "AI Infrastructure IPO Prep",
+          "company": "Nscale",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 3,
+          "tags": [
+            "leadership",
+            "funding"
+          ],
+          "publishedAt": "2026-09-11T16:46:25.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "d40cabdd4c",
+          "title": "Maven Robotics wants to steal your robot deployment deal",
+          "link": "https://techcrunch.com/2026/09/10/maven-robotics-wants-to-steal-your-robot-deployment-deal/",
+          "source": "TechCrunch AI",
+          "summary": "Maven Robotics emerged from stealth with a $100 million Series A and live enterprise robot deployments, entering a crowded market to compete for robot-as-a-service contracts in warehouses and manufacturing.",
+          "topic": "Robotics Funding",
+          "company": "Maven Robotics",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch"
+          ],
+          "publishedAt": "2026-09-10T14:17:37.000Z",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "755f7769e7",
+          "title": "India’s Pocket FM doubles revenue run rate to $500M as AI powers 93% of audio content",
+          "link": "https://techcrunch.com/2026/09/10/indias-pocket-fm-doubles-revenue-run-rate-to-500m-as-ai-powers-93-of-audio-content/",
+          "source": "TechCrunch AI",
+          "summary": "India's Pocket FM doubled its revenue run rate to $500 million by using AI to produce 93% of its audio content, cutting content costs 80x and offering a concrete case study for AI-driven content business models.",
+          "topic": "AI-Powered Content Economics",
+          "company": "Pocket FM",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-09-10T17:45:00.000Z",
+          "addedOn": "2026-09-11"
+        }
+      ]
+    },
     {
       "date": "2026-09-09",
       "summary": "Meta launched Muse, a personal AI agent seeking access to email, calendars, payments, and health data, representing its largest consumer AI bet and a significant trust test. Cognition reached a $48B valuation, signaling continued investor conviction in AI coding despite a crowded field. An Anthropic researcher publicly resigned over AI extinction concerns, and Claude token theft from subscribers highlights growing security risks around AI platform accounts.",

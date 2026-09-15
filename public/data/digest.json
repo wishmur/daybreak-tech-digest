@@ -1,6 +1,204 @@
 {
-  "lastUpdated": "2026-09-12T16:48:13.378Z",
+  "lastUpdated": "2026-09-15T17:58:59.700Z",
   "days": [
+    {
+      "date": "2026-09-15",
+      "summary": "OpenAI's $300M acquisition of Glass Imaging signals a serious push into hardware-integrated AI, while OpenAI GPT-6 Astra landing on Amazon Bedrock is a major infra development for builders. Safety talks between OpenAI, Anthropic, and Google DeepMind are ongoing even as NVIDIA's Jensen Huang and the Trump administration push back on any slowdown, and Salesforce's Koa model built on NVIDIA's open-weight Nemotron shows the competitive threat from enterprise-tuned open models.",
+      "items": [
+        {
+          "id": "4dd932ed2d",
+          "title": "OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says",
+          "link": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI's reported $300M acquisition of Glass Imaging, founded by former Apple Portrait Mode engineers, points to OpenAI building proprietary camera hardware capabilities, likely for a future device.",
+          "topic": "OpenAI Hardware Acquisition",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Glass Imaging",
+            "Apple"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T20:44:14.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "103da91a3d",
+          "title": "AWS Weekly Roundup: OpenAI GPT-6 Astra on Amazon Bedrock, Amazon Quick desktop GA, Kiro for students, and more (September 14, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/",
+          "source": "AWS News",
+          "summary": "OpenAI GPT-6 Astra is now available on Amazon Bedrock, making it accessible to AWS customers and expanding the competitive model marketplace for enterprise builders.",
+          "topic": "GPT-6 on Amazon Bedrock",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T15:56:33.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "7ca41db25b",
+          "title": "OpenAI, Anthropic, Google have been in talks on AI safety for weeks",
+          "link": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI, Anthropic, and Google DeepMind have been in active safety talks for weeks, a rare cross-competitor coordination effort occurring in tension with the current U.S. administration's push to accelerate AI.",
+          "topic": "AI Safety Cross-Industry Talks",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic",
+            "Google DeepMind"
+          ],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-15T15:47:03.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "221b10e962",
+          "title": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear",
+          "link": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/",
+          "source": "TechCrunch AI",
+          "summary": "Salesforce's Koa, a reasoning model built on NVIDIA's open-weight Nemotron, is fine-tuned for sales and CRM tasks, demonstrating that enterprises can build competitive vertical AI on open-weight foundations rather than relying on frontier API providers.",
+          "topic": "Enterprise Vertical AI Model",
+          "company": "Salesforce",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "open-source"
+          ],
+          "publishedAt": "2026-09-15T12:00:00.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "71b2c4f295",
+          "title": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+          "link": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang publicly broke with calls to slow AI development, telling Trump's team NVIDIA will not let an AI slowdown happen, clarifying NVIDIA's position as a growth accelerant regardless of political pressure.",
+          "topic": "NVIDIA on AI Development Pace",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-14T21:51:02.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "5e497c447d",
+          "title": "Meta expands subscription push with new AI-focused plans",
+          "link": "https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/",
+          "source": "TechCrunch AI",
+          "summary": "Meta is launching Meta One subscription bundles that pair premium social media features with expanded AI tool access across Facebook, Instagram, and WhatsApp, signaling a monetization shift for its AI investments.",
+          "topic": "Meta AI Subscription Bundle",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "funding"
+          ],
+          "publishedAt": "2026-09-15T17:05:24.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "a99284cc09",
+          "title": "AEO startup Profound hits unicorn valuation, raises $180M Series D 7 months after last round",
+          "link": "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round/",
+          "source": "TechCrunch AI",
+          "summary": "Profound, an AEO startup helping brands optimize for AI search engine visibility, raised a $180M Series D at a $1.8B valuation just seven months after its Series C, reflecting strong investor conviction in the AI search disruption space.",
+          "topic": "AEO Startup Unicorn Funding",
+          "company": "Profound",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-09-15T15:22:48.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "2825d2f7a8",
+          "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
+          "link": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's Ian Buck detailed Vera Rubin and DSX platform efficiency advances at the AI Infra Summit, focusing on tokens-per-watt optimization as a key metric for AI factory economics.",
+          "topic": "NVIDIA AI Infrastructure Efficiency",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-09-15T16:55:40.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "d360e52aaf",
+          "title": "Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work",
+          "link": "https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/",
+          "source": "TechCrunch AI",
+          "summary": "Superhuman acquired YC-backed meeting notetaker Fathom, which has over 400,000 monthly active users, as productivity platforms consolidate AI meeting tools into broader agentic workflow suites.",
+          "topic": "Productivity Platform M&A",
+          "company": "Superhuman",
+          "secondaryCompanies": [
+            "Fathom"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-14T14:45:44.000Z",
+          "addedOn": "2026-09-15"
+        },
+        {
+          "id": "06261c41c4",
+          "title": "Early Anthropic hire, former METR COO have found a way to rein in rogue AI agents",
+          "link": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "AIUC, founded by an early Anthropic hire and former METR COO, raised a $40M Series A to build underwriting and governance infrastructure for rogue AI agent risk, addressing a growing enterprise need as agent deployments scale.",
+          "topic": "AI Agent Risk Management Startup",
+          "company": "AIUC",
+          "secondaryCompanies": [
+            "Anthropic",
+            "Ribbit Capital"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-15T13:00:00.000Z",
+          "addedOn": "2026-09-15"
+        }
+      ]
+    },
     {
       "date": "2026-09-12",
       "summary": "Anthropic CEO Dario Amodei publicly called for slowing AI development and announced third-party safety evaluations via METR, a significant shift that coincided with a researcher resignation warning about existential risk from the company's own work. OpenAI faced dual controversies: an undisclosed attack on RubyGems by its agents and escalating conflict with mathematicians over intellectual property and benchmark integrity. Nvidia was framed as the systemic backbone of the entire AI economy, while robot training data startup Mecka AI neared a $500M valuation in a Sequoia-led round.",

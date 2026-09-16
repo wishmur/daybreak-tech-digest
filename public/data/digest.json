@@ -1,6 +1,199 @@
 {
-  "lastUpdated": "2026-09-15T17:58:59.700Z",
+  "lastUpdated": "2026-09-16T18:00:09.098Z",
   "days": [
+    {
+      "date": "2026-09-16",
+      "summary": "Anthropic launched Claude Docs and Slides while merging its chat and Cowork interfaces, directly competing with Google Workspace and Microsoft Office. Google opened its smart home platform to third-party AI agents via MCP, and Meta did the same for WhatsApp Business setup, signaling MCP as a fast-emerging integration standard. NVIDIA's Vera Rubin NVL72 posted leading MLPerf inference results in its debut, reinforcing NVIDIA's hardware dominance as Jensen Huang publicly opposed AI regulation at Dreamforce.",
+      "items": [
+        {
+          "id": "25ccc59e06",
+          "title": "Claude comes for Gemini with its own take on Docs and Slides",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides",
+          "source": "The Verge",
+          "summary": "Anthropic launched Claude Docs and Slides, giving Claude users native document and presentation creation that competes directly with Google Workspace and Microsoft Office.",
+          "topic": "AI Product Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "b4b0475ed0",
+          "title": "Anthropic merges Claude chat and Cowork in one interface",
+          "link": "https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic merged Claude chat and Cowork into a single interface for Pro and Max subscribers, consolidating its collaboration and assistant experience into one product.",
+          "topic": "AI Product Update",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "45384c84a9",
+          "title": "Google will now let any AI agent run your smart home",
+          "link": "https://www.theverge.com/tech/996310/google-home-mcp-integration-agentic-ai-smart-home-price-release-date",
+          "source": "The Verge",
+          "summary": "Google opened Google Home to third-party AI agents via MCP, allowing tools like Claude and ChatGPT to control smart home devices, marking a significant expansion of the MCP ecosystem.",
+          "topic": "AI Platform / MCP",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Anthropic",
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T17:00:00.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "c8e966977f",
+          "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+          "link": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
+          "source": "TechCrunch AI",
+          "summary": "Meta launched a WhatsApp Business MCP server enabling AI coding agents to handle setup and messaging workflows, lowering the barrier for developers building on WhatsApp.",
+          "topic": "AI Tooling / MCP",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Anthropic",
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-15T20:12:53.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "246472aafd",
+          "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+          "link": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's Vera Rubin NVL72 posted top MLPerf Inference v6.1 results in its debut, reinforcing NVIDIA's performance lead in AI inference hardware at the system level.",
+          "topic": "AI Infrastructure / Hardware",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T15:00:48.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "ec337240ad",
+          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+          "link": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+          "source": "NVIDIA Blog",
+          "summary": "Emerald AI, Google, and NVIDIA formed an alliance to build flexible AI data centers with smarter grid integration, a notable trilateral partnership for AI factory scaling.",
+          "topic": "AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Google"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-09-16T13:00:33.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "6a5d552d97",
+          "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
+          "link": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang publicly argued against AI regulation at Dreamforce, saying safety should be handled by product makers, a position PMs should track as it shapes the regulatory environment they will operate in.",
+          "topic": "AI Regulation / Policy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T00:20:39.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "7cd996853f",
+          "title": "OpenAI Ads, Amazon Ads in ChatGPT, Walmart to Accept Apple Pay",
+          "link": "https://stratechery.com/2026/openai-ads-amazon-ads-in-chatgpt-walmart-to-accept-apple-pay/",
+          "source": "Stratechery",
+          "summary": "OpenAI is moving toward ads in ChatGPT with Amazon as a likely partner, creating a new monetization channel that changes ChatGPT's product dynamics and competitive positioning against Google Search.",
+          "topic": "AI Monetization",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Amazon"
+          ],
+          "importance": 5,
+          "tags": [
+            "product",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-09-15T10:00:00.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "5960227fd9",
+          "title": "Amazon launches Alexa+ in India with Hindi support",
+          "link": "https://techcrunch.com/2026/09/16/amazon-launches-alexa-in-india-with-hindi-support/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon launched Alexa+ in India with Hindi support during early access, expanding its agentic assistant to a major new market and signaling international AI assistant competition.",
+          "topic": "AI Assistant / Market Expansion",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-16T10:34:47.000Z",
+          "addedOn": "2026-09-16"
+        },
+        {
+          "id": "bdc341c044",
+          "title": "Apple might make servers again to cash in on the AI rush",
+          "link": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
+          "source": "The Verge",
+          "summary": "Apple is reportedly planning to re-enter the server market and may partner with NVIDIA, which would mark a significant strategic shift with major implications for AI infrastructure supply chains.",
+          "topic": "AI Infrastructure / Hardware",
+          "company": "Apple",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T17:20:29.000Z",
+          "addedOn": "2026-09-16"
+        }
+      ]
+    },
     {
       "date": "2026-09-15",
       "summary": "OpenAI's $300M acquisition of Glass Imaging signals a serious push into hardware-integrated AI, while OpenAI GPT-6 Astra landing on Amazon Bedrock is a major infra development for builders. Safety talks between OpenAI, Anthropic, and Google DeepMind are ongoing even as NVIDIA's Jensen Huang and the Trump administration push back on any slowdown, and Salesforce's Koa model built on NVIDIA's open-weight Nemotron shows the competitive threat from enterprise-tuned open models.",

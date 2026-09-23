@@ -12,7 +12,7 @@ import appCss from "../styles.css?url";
 import daybreakLogo from "@/assets/daybreak-logo.png.asset.json";
 
 const DESCRIPTION =
-  "A script reads the feeds every morning, asks Claude what matters to a product manager today, and posts the ten stories worth reading by 10 AM ET.";
+  "A script reads the feeds every morning, asks Claude what matters to a product manager today, and posts the ten stories worth reading.";
 
 function NotFoundComponent() {
   return (

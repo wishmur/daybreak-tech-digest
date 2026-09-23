@@ -40,7 +40,7 @@ const STEPS = [
   {
     n: "01",
     title: "A scheduled job wakes up",
-    body: "A GitHub Action runs at 14:00 UTC, which is 10 AM Eastern in summer. It can also be triggered by hand from the Actions tab. Nothing is running the rest of the day: there is no server.",
+    body: "A GitHub Action is scheduled for 09:13 UTC, aimed at early morning on the US West Coast. GitHub queues scheduled jobs when it is busy, and this one has started up to five hours after its cron time, so the brief arrives in the morning rather than at a fixed minute. It can also be triggered by hand from the Actions tab. Nothing is running the rest of the day: there is no server.",
   },
   {
     n: "02",

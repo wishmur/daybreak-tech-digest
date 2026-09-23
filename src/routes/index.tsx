@@ -9,11 +9,11 @@ import {
   longDate,
   momentumFor,
   relativeDayLabel,
-  signalSentence,
   signalStats,
   sortByImportance,
   type Item,
   type RangeKey,
+  type SignalStats,
 } from "@/lib/digest";
 import { useDigest } from "@/lib/useDigest";
 import { useReadState } from "@/lib/useReadState";
@@ -347,19 +347,23 @@ function TechDigestPage() {
               The day's synthesis, not a status line: this is the one
               thing on the page that outranks the board below it, set in
               its own flat field so the eye lands here first. */}
-          <section className="mt-5">
-            <div className="rounded-[6px] bg-inset px-5 py-5 sm:px-7 sm:py-6">
+          <section className="border-b border-ink">
+            <div className="py-3">
               {loading && !digest ? (
                 <div className="animate-pulse">
-                  <div className="h-8 w-64 bg-sunk" />
-                  <div className="mt-3 h-4 w-full max-w-2xl bg-sunk" />
-                  <div className="mt-2 h-4 w-2/3 max-w-xl bg-sunk" />
+                  <div className="h-6 w-48 bg-sunk" />
+                  <div className="mt-3 h-3 w-full max-w-3xl bg-sunk" />
+                  <div className="mt-2 h-3 w-2/3 max-w-xl bg-sunk" />
                 </div>
               ) : latestDay ? (
-                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-                  <div className="min-w-0 lg:flex-1">
+                /* A masthead line, not a hero. The day, the day's numbers and
+                   the page actions sit on one rule; the brief runs beneath it
+                   in columns so three sentences cost three lines of height
+                   instead of seven. */
+                <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-baseline lg:gap-x-8">
+                  <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h2 className="font-display text-display font-extrabold leading-[1.05] tracking-[-0.015em] text-ink">
+                      <h2 className="font-display text-head font-extrabold leading-[1.1] tracking-[-0.012em] text-ink">
                         {["Today", "Yesterday"].includes(
                           relativeDayLabel(latestDay.date),
                         )
@@ -373,21 +377,16 @@ function TechDigestPage() {
                           {longDate(latestDay.date)}
                         </span>
                       )}
+                      {stats && (
+                        <>
+                          <span aria-hidden className="hidden h-3 w-px bg-rule-2 sm:block" />
+                          <SignalReadout s={stats} />
+                        </>
+                      )}
                     </div>
-
-                    {latestDay.summary && (
-                      <p className="measure mt-3 text-lede leading-[1.5] text-ink-2">
-                        {latestDay.summary}
-                      </p>
-                    )}
                   </div>
 
-                  <div className="flex shrink-0 flex-col items-start gap-3 lg:w-64 lg:items-end">
-                    {stats && (
-                      <p className="font-ui text-meta text-ink-2 lg:text-right">
-                        {signalSentence(stats)}
-                      </p>
-                    )}
+                  <div className="order-last flex flex-wrap items-center gap-x-4 gap-y-2 lg:order-none lg:shrink-0 lg:justify-end">
                     <div className="flex items-center gap-2 no-print">
                       {ready && unreadCount > 0 && !isFirstEverVisit && (
                         <button onClick={markAllRead} className="ctl">
@@ -440,6 +439,12 @@ function TechDigestPage() {
                       </button>
                     </div>
                   </div>
+
+                  {latestDay.summary && (
+                    <p className="text-body leading-[1.55] text-ink-2 lg:col-span-2 lg:columns-2 lg:gap-10 xl:columns-3 xl:gap-12">
+                      {latestDay.summary}
+                    </p>
+                  )}
                 </div>
               ) : (
                 <EmptyState
@@ -450,9 +455,9 @@ function TechDigestPage() {
             </div>
           </section>
 
-          {/* ---- Board: control rail, story lanes, companies panel ---- */}
-          <div className="grid grid-cols-1 gap-x-8 gap-y-5 py-6 lg:grid-cols-12">
-            <aside className="lg:col-span-3 xl:col-span-2">
+          {/* ---- Board: control rail (filters + companies), story lanes ---- */}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-4 py-4 lg:grid-cols-[14rem_minmax(0,1fr)]">
+            <aside className="lg:sticky lg:top-4 lg:self-start">
               <div className="flex items-center gap-2 no-print lg:hidden">
                 <button
                   onClick={() => setSheetOpen(true)}
@@ -490,6 +495,13 @@ function TechDigestPage() {
                   topicOptions={options.topics}
                   sourceOptions={options.sources}
                 />
+                <div className="mt-5">
+                  <CompanyPanel
+                    companies={options.companyCounts.slice(0, 12)}
+                    active={filters.companies}
+                    onToggle={toggleCompany}
+                  />
+                </div>
               </div>
             </aside>
 
@@ -503,7 +515,7 @@ function TechDigestPage() {
               />
             </FilterSheet>
 
-            <main className="lg:col-span-6 xl:col-span-7">
+            <main className="min-w-0">
               <div className="no-print">
                 <ActiveFilterChips
                   filters={filters}
@@ -550,7 +562,7 @@ function TechDigestPage() {
                     );
 
                     return (
-                      <section key={day} className="mb-8 last:mb-0">
+                      <section key={day} className="mb-6 last:mb-0">
                         {filters.range !== "latest" && (
                           <h3 className="label-strong mb-1 border-b border-ink pb-2">
                             {relativeDayLabel(day)}
@@ -558,19 +570,25 @@ function TechDigestPage() {
                         )}
                         {split ? (
                           <>
-                            <div className="band mb-1 mt-3 px-2.5 py-1.5">
+                            <div className="band mb-1 mt-2 px-2.5 py-1">
                               <span className="chip text-signal">Lead</span>
                             </div>
-                            <ul>{lead.map((it) => row(it, true))}</ul>
-                            <div className="band mb-1 mt-4 px-2.5 py-1.5">
+                            <ul className="grid gap-x-10 xl:grid-cols-2">
+                              {lead.map((it) => row(it, true))}
+                            </ul>
+                            <div className="band mb-1 mt-5 px-2.5 py-1">
                               <span className="chip text-lane">
                                 Also in the brief
                               </span>
                             </div>
-                            <ul>{rest.map((it) => row(it, false))}</ul>
+                            <ul className="grid gap-x-10 xl:grid-cols-2">
+                              {rest.map((it) => row(it, false))}
+                            </ul>
                           </>
                         ) : (
-                          <ul>{dayItems.map((it) => row(it, lead.length > 0))}</ul>
+                          <ul className="grid gap-x-10 xl:grid-cols-2">
+                            {dayItems.map((it) => row(it, lead.length > 0))}
+                          </ul>
                         )}
                       </section>
                     );
@@ -590,14 +608,6 @@ function TechDigestPage() {
                 </>
               )}
             </main>
-
-            <aside className="hidden lg:col-span-3 lg:block xl:col-span-3">
-              <CompanyPanel
-                companies={options.companyCounts.slice(0, 10)}
-                active={filters.companies}
-                onToggle={toggleCompany}
-              />
-            </aside>
           </div>
         </div>
       )}
@@ -609,12 +619,8 @@ function TechDigestPage() {
           initial={filters.companies[0]}
         />
       )}
-      {view === "matrix" && (
-        <CoOccurrenceView items={items} loading={loading && !digest} />
-      )}
-      {view === "trends" && (
-        <TrendsView items={items} loading={loading && !digest} />
-      )}
+      {view === "matrix" && <CoOccurrenceView items={items} loading={loading && !digest} />}
+      {view === "trends" && <TrendsView items={items} loading={loading && !digest} />}
 
       <SiteFooter hint="press j and k to move, enter to open" />
 
@@ -746,6 +752,43 @@ function Pagination({
  * the "Company" field in the control rail — this is a second way in, not a
  * second filter model.
  */
+/* The day's numbers read as a row of figures rather than a gray sentence.
+   Signal red stays on its one job: it appears here only when the day
+   actually has a must-read. */
+function SignalReadout({ s }: { s: SignalStats }) {
+  const unit = (value: string, label: string, accent = false) => (
+    <span className="flex items-baseline gap-1.5">
+      <span
+        className={`font-display text-meta font-bold tabular-nums ${
+          accent ? "text-signal" : "text-ink"
+        }`}
+      >
+        {value}
+      </span>
+      <span className="font-ui text-micro uppercase tracking-[0.04em] text-ink-3">{label}</span>
+    </span>
+  );
+  const rule = <span aria-hidden className="h-3 w-px bg-rule" />;
+  const trend = Math.abs(s.delta) < 0.15 ? "level with" : s.delta > 0 ? "above" : "below";
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+      {unit(String(s.todayCount), "stories")}
+      {rule}
+      {unit(String(s.mustReads), "must read", s.mustReads > 0)}
+      {rule}
+      {unit(s.todayAvg.toFixed(1), "avg")}
+      {s.baselineDays > 0 && (
+        <>
+          {rule}
+          <span className="font-ui text-micro text-ink-3">
+            {trend} {s.baselineDays}-day avg {s.baselineAvg.toFixed(1)}
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
+
 function CompanyPanel({
   companies,
   active,

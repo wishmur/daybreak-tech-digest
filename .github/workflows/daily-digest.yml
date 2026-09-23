@@ -16,6 +16,9 @@ concurrency:
 jobs:
   digest:
     runs-on: ubuntu-latest
+    # The whole job is a few minutes of network plus one model call. Without a
+    # cap, a wedged step runs until GitHub's 6-hour default timeout.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 

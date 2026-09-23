@@ -112,24 +112,6 @@
           "addedOn": "2026-09-23"
         },
         {
-          "id": "3e43c270c4",
-          "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
-          "link": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
-          "source": "NVIDIA Blog",
-          "summary": "NVIDIA released Isaac ROS 5.0, an open-source robotics framework update that adds new physical AI models and tools for building agentic, perception-capable robots.",
-          "topic": "Robotics AI Platform",
-          "company": "NVIDIA",
-          "secondaryCompanies": [],
-          "importance": 3,
-          "tags": [
-            "launch",
-            "open-source",
-            "infra"
-          ],
-          "publishedAt": "2026-09-22T12:00:41.000Z",
-          "addedOn": "2026-09-23"
-        },
-        {
           "id": "ca7a2de7d1",
           "title": "Ema raises $77M as AI starts eating into enterprise software and services",
           "link": "https://techcrunch.com/2026/09/23/ema-raises-77m-as-ai-starts-eating-into-enterprise-software-and-services/",
@@ -184,6 +166,391 @@
           ],
           "publishedAt": "2026-09-23T12:15:33.000Z",
           "addedOn": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "summary": "Anthropic released Claude Opus 5.5, claiming it as their strongest model yet with improved cybersecurity safeguards and competitive pricing, making it the dominant story of the day. Meta's Muse AI agent is outpacing ChatGPT's early mobile growth metrics, and OpenAI is forming a math advisory group after its AI solved over 100 open mathematical problems. NVIDIA released Isaac ROS 5.0 for agentic robotics development, signaling continued infrastructure investment in physical AI.",
+      "items": [
+        {
+          "id": "3b73af80ba",
+          "title": "Anthropic launches Claude Opus 5.5 with stricter safeguards for cybersecurity",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/998868/anthropic-claude-opus-5-5-cybersecurity",
+          "source": "The Verge",
+          "summary": "Anthropic's Claude Opus 5.5 launches with stronger cybersecurity safeguards and claims top benchmark performance, directly relevant to product teams evaluating frontier models for safety-sensitive applications.",
+          "topic": "AI Model Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-22T16:30:00.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "285c3f8892",
+          "title": "Meta’s Muse is outpacing ChatGPT’s early mobile launch",
+          "link": "https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/",
+          "source": "TechCrunch AI",
+          "summary": "Meta's Muse AI agent surpassed ChatGPT's early mobile download and DAU numbers in the US and Canada, indicating strong consumer adoption momentum that PMs in the AI space need to track.",
+          "topic": "AI Product Growth",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-21T19:19:21.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "c06d2cf008",
+          "title": "OpenAI forms math advisory group as its AI resolves more than 100 open problems",
+          "link": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI has formed a math advisory group after its AI resolved over 100 open mathematical problems, a signal of frontier capability expansion with implications for scientific and reasoning AI products.",
+          "topic": "AI Capability Research",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-09-21T20:15:58.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "3e43c270c4",
+          "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
+          "link": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA released Isaac ROS 5.0, an open-source robotics framework supporting agentic and physical AI applications, expanding the tooling ecosystem for developers building autonomous systems.",
+          "topic": "Robotics AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-09-22T12:00:41.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "48cf5f03e1",
+          "title": "Amazon Blocks Muse, Amazon’s Moat, Aggregator v Aggregator",
+          "link": "https://stratechery.com/2026/amazon-blocks-muse-amazons-moat-aggregator-v-aggregator/",
+          "source": "Stratechery",
+          "summary": "Stratechery analyzes Amazon blocking Meta's Muse while arguing Amazon's physical-world infrastructure gives it a defensible AI moat, a useful strategic framing for PMs thinking about platform competition.",
+          "topic": "Platform Strategy",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-22T10:00:00.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "8a69f658d4",
+          "title": "I asked Meta’s Muse for its filesystem and it sent me 6.8GB",
+          "link": "https://mouse.dev/blog/muse-runtime-export/",
+          "source": "Hacker News",
+          "summary": "A researcher probing Meta's Muse received 6.8GB of its internal filesystem, exposing a significant data leak risk that product and security teams at AI companies should treat as a cautionary example.",
+          "topic": "AI Product Security",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-22T15:25:12.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "5189ec7c6c",
+          "title": "Advanced evals: How to find (and fix) hidden AI failures in your product",
+          "link": "https://www.lennysnewsletter.com/p/advanced-evals-how-to-find-and-fix",
+          "source": "Lenny's Newsletter",
+          "summary": "Lenny's Newsletter covers advanced eval techniques for finding hidden AI failures in products, directly actionable for PMs managing AI-powered features in production.",
+          "topic": "AI Product Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-22T12:45:14.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "020fc8cb0d",
+          "title": "Nscale’s IPO will test Wall Street’s appetite for concentrated AI bets once again",
+          "link": "https://techcrunch.com/2026/09/22/nscales-ipo-will-test-wall-streets-appetite-for-concentrated-ai-bets-once-again/",
+          "source": "TechCrunch AI",
+          "summary": "Nscale's upcoming IPO, with revenue concentrated from Microsoft and Anthropic, will test whether public markets will fund AI infrastructure plays with customer concentration risk.",
+          "topic": "AI Infrastructure Funding",
+          "company": "Nscale",
+          "secondaryCompanies": [
+            "Microsoft",
+            "Anthropic"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-09-22T12:23:05.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "262004370c",
+          "title": "Andreessen Horowitz is launching an ‘academy’ with no homework and partnerships with Palantir, Google, and Meta",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/998813/andreessen-horowitz-ai-academy",
+          "source": "The Verge",
+          "summary": "Andreessen Horowitz is launching a startup-focused academy with curriculum partners including Google, Meta, and Palantir, positioning a16z as a talent pipeline influencer for the next generation of founders.",
+          "topic": "Startup Ecosystem",
+          "company": "Andreessen Horowitz",
+          "secondaryCompanies": [
+            "Google",
+            "Meta",
+            "Palantir"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-22T16:34:08.000Z",
+          "addedOn": "2026-09-22"
+        },
+        {
+          "id": "aadfdc721b",
+          "title": "AI Security Is an Engineering Problem — How to Solve It at Every Layer of the Agent Stack",
+          "link": "https://blogs.nvidia.com/blog/ai-security-agent-stack/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA published a detailed engineering framework for AI security across the agent stack, useful reference material for PMs building agentic products who need to define security requirements with their teams.",
+          "topic": "AI Security",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-21T14:51:34.000Z",
+          "addedOn": "2026-09-22"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "summary": "Google launched the Googlebook laptop lineup today, a major hardware bet integrating Gemini deeply into the OS across five OEM partners starting at $899. xAI released Grok 4.7, continuing rapid model iteration in the competitive frontier AI race. Amazon blocked Meta's Muse AI shopping agent from its platform, signaling a new front in the conflict between AI agents and e-commerce gatekeepers.",
+      "items": [
+        {
+          "id": "6c467c06ba",
+          "title": "These are the first five Googlebook laptops",
+          "link": "https://www.theverge.com/gadgets/997659/googlebooks-breakdown-acer-asus-hp-lenovo-dell",
+          "source": "The Verge",
+          "summary": "Google officially launched the Googlebook platform with five OEM partners (Acer, Asus, Dell, HP, Lenovo), marking a significant push to make Gemini the center of a new laptop category and directly compete with Microsoft's Copilot+ PCs.",
+          "topic": "AI Hardware Platform Launch",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Acer",
+            "Asus",
+            "Dell",
+            "HP",
+            "Lenovo"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-21T13:01:00.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "445ea2dff5",
+          "title": "Grok 4.7",
+          "link": "https://x.ai/news/grok-4-7",
+          "source": "Hacker News",
+          "summary": "xAI released Grok 4.7, continuing rapid versioning that keeps competitive pressure on OpenAI, Anthropic, and Google in the frontier model race and signals xAI's intent to ship frequently rather than in big annual drops.",
+          "topic": "AI Model Release",
+          "company": "xAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-09-21T15:50:15.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "cfff59da9d",
+          "title": "Meta’s AI agent has been blocked from using Amazon.com",
+          "link": "https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon blocked Meta's Muse AI agent from shopping on its platform, establishing a precedent that major platforms will actively gate AI agents from accessing their ecosystems, which has direct implications for agentic product strategies.",
+          "topic": "AI Agent Platform Access",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-21T17:55:18.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "ce68e24858",
+          "title": "Google’s $899 Googlebook is a bet that you’ll buy a new laptop for Gemini",
+          "link": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/",
+          "source": "TechCrunch AI",
+          "summary": "Google's $899 Googlebook integrates Gemini into the cursor, dictation, and core desktop experience, representing Google's attempt to ship an AI-native OS-level product that ties model capability directly to hardware differentiation.",
+          "topic": "AI-Native Laptop",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-21T14:39:22.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "c7bd60ab45",
+          "title": "Advisory Group on Mathematics and Artificial Intelligence",
+          "link": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+          "source": "Hacker News",
+          "summary": "OpenAI formed an advisory group on mathematics and AI, a signal that the company is investing in formal reasoning and math capabilities as a next frontier for model improvement and potential research breakthroughs.",
+          "topic": "AI Research Advisory",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-09-21T17:27:49.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "38ff44f2e7",
+          "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
+          "link": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA launched DSX Ready, a qualification program for power and cooling products for AI factories, addressing a critical infrastructure bottleneck that is limiting AI data center deployment at scale.",
+          "topic": "AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-09-21T18:00:07.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "21ff88f125",
+          "title": "AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more (September 21, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/",
+          "source": "AWS News",
+          "summary": "AWS's weekly roundup highlights the GA of Amazon Connect Talent and new mobile Builder Center apps, showing AWS is shipping production-ready AI-adjacent services for enterprise workflows.",
+          "topic": "AWS Product Updates",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-21T16:11:24.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "662a92dfcc",
+          "title": "How Warp ships 2,000 PRs a month with AI factories | Zach Lloyd (CEO, Warp)",
+          "link": "https://www.lennysnewsletter.com/p/how-warp-ships-2000-prs-a-month-with",
+          "source": "Lenny's Newsletter",
+          "summary": "Warp CEO Zach Lloyd detailed how his team ships 2,000 PRs per month using AI factories that convert Slack and Linear inputs into tracked pull requests, offering a concrete operational model for AI-accelerated engineering teams.",
+          "topic": "AI Dev Tooling",
+          "company": "Warp",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-21T12:04:11.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "421f893eaa",
+          "title": "Frontier Overhangs",
+          "link": "https://stratechery.com/2026/frontier-overhangs/",
+          "source": "Stratechery",
+          "summary": "Stratechery argues that frontier labs calling for slower AI pacing may be strategically motivated by needing time to close model-advancement overhangs, a useful framing for PMs assessing vendor roadmap credibility.",
+          "topic": "AI Industry Strategy",
+          "company": "",
+          "secondaryCompanies": [
+            "OpenAI",
+            "Anthropic",
+            "Google DeepMind"
+          ],
+          "importance": 3,
+          "tags": [
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-09-21T10:00:00.000Z",
+          "addedOn": "2026-09-21"
+        },
+        {
+          "id": "ce51cb90b8",
+          "title": "M5 Ultra Mac Studio Review",
+          "link": "https://www.macstories.net/stories/m5-ultra-mac-studio-review-the-dream-mac-for-local-ai-agents/",
+          "source": "Hacker News",
+          "summary": "The M5 Ultra Mac Studio review positions Apple's new hardware as a top-tier local AI agent machine, relevant for PMs evaluating on-device AI deployment options versus cloud inference for latency-sensitive or privacy-constrained use cases.",
+          "topic": "Local AI Hardware",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-09-21T13:53:27.000Z",
+          "addedOn": "2026-09-21"
         }
       ]
     },
@@ -559,6 +926,202 @@
           ],
           "publishedAt": "2026-09-18T15:22:48.000Z",
           "addedOn": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "summary": "The biggest story today is the brewing AI safety debate, with Microsoft AI CEO Mustafa Suleiman publicly criticizing Anthropic while both Anthropic and OpenAI push for embedded independent safety evaluators whose independence researchers are questioning. On the hardware front, Huawei is targeting a Q1 2027 launch for its Ascend 960DT chip to challenge Nvidia, and Google, Nvidia, and Anthropic have formed a coalition to secure 100 GW of grid capacity for data centers. Meta's Muse personal AI agent is drawing strong consumer reviews, signaling that agentic UX is maturing for mainstream users.",
+      "items": [
+        {
+          "id": "74a1f4fa23",
+          "title": "Microsoft AI CEO says AI threats are real, and Anthropic is making it worse",
+          "link": "https://www.theverge.com/podcast/996412/microsoft-ai-ceo-mustafa-suleyman-regulation-safety-anthropic-claude",
+          "source": "The Verge",
+          "summary": "Microsoft AI CEO Mustafa Suleiman publicly stated that AI threats are real and specifically called out Anthropic as making the situation worse, injecting high-profile corporate tension into the AI safety debate that PMs need to monitor for regulatory and partnership implications.",
+          "topic": "AI Safety Debate",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "regulation",
+            "leadership"
+          ],
+          "publishedAt": "2026-09-17T14:00:00.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "a4f0cae5cc",
+          "title": "Anthropic and OpenAI want to embed safety evaluators. Will they really be independent?",
+          "link": "https://techcrunch.com/2026/09/16/anthropic-and-openai-want-to-embed-safety-evaluators-will-they-really-be-independent/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic and OpenAI are proposing to embed independent safety evaluators inside their labs, but researchers are raising legitimate concerns about transparency and true independence, which will shape how AI governance frameworks develop.",
+          "topic": "AI Safety Governance",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-09-16T21:07:24.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "3451114a79",
+          "title": "Google, Nvidia, and Anthropic want Emerald AI to find space on the grid for more data centers",
+          "link": "https://techcrunch.com/2026/09/17/google-nvidia-and-anthropic-want-emerald-ai-to-find-space-on-the-grid-for-more-data-centers/",
+          "source": "TechCrunch AI",
+          "summary": "Google, Nvidia, and Anthropic have joined a coalition with Emerald AI targeting 100 GW of new grid capacity for data centers, signaling that infrastructure constraints are now a top strategic priority for the leading AI players.",
+          "topic": "AI Infrastructure",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Nvidia",
+            "Anthropic",
+            "Emerald AI"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-17T13:38:33.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "5d18789efa",
+          "title": "Huawei plans Q1 2027 launch of new AI chip as it takes on Nvidia",
+          "link": "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/",
+          "source": "TechCrunch AI",
+          "summary": "Huawei is accelerating its Ascend 960DT AI chip for a Q1 2027 launch to compete directly with Nvidia, which matters for PMs assessing the long-term supply and competitive landscape for AI compute, especially for China-adjacent markets.",
+          "topic": "AI Chips",
+          "company": "Huawei",
+          "secondaryCompanies": [
+            "Nvidia"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "launch",
+            "infra"
+          ],
+          "publishedAt": "2026-09-17T14:06:14.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "9fca081b9a",
+          "title": "Muse review: The personal AI agent that gets consumer UX right",
+          "link": "https://www.lennysnewsletter.com/p/muse-review-the-personal-ai-agent",
+          "source": "Lenny's Newsletter",
+          "summary": "A hands-on review of Meta's Muse personal AI agent praises it for strong consumer UX, successfully handling calendar, email, and complex scheduling tasks, suggesting agentic products are reaching a usability threshold that will raise user expectations broadly.",
+          "topic": "AI Agents",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-16T12:02:14.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "354af63869",
+          "title": "Rival AI agents, Instinct and Meta’s Muse, both add the ability to make calls",
+          "link": "https://techcrunch.com/2026/09/17/rival-ai-agents-instinct-and-metas-muse-both-add-the-ability-to-make-calls/",
+          "source": "TechCrunch AI",
+          "summary": "Both Instinct and Meta's Muse AI agents now support making phone calls for tasks like restaurant reservations and subscription cancellations, marking a concrete step in agents moving from text to real-world action.",
+          "topic": "AI Agents",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-17T13:46:16.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "16f23417fc",
+          "title": "Artificial intelligence now beats some of the best human forecasters",
+          "link": "https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters",
+          "source": "Hacker News",
+          "summary": "A new study shows AI now outperforms some of the best human forecasters, a finding with direct implications for PMs evaluating where to apply AI in planning, risk assessment, and decision support workflows.",
+          "topic": "AI Capabilities Research",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-17T15:13:30.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "80716b9be3",
+          "title": "Base Labs launches an open-weight AI safety partnership with Hugging Face and Goodfire",
+          "link": "https://techcrunch.com/2026/09/17/base-labs-launches-an-open-weight-ai-safety-partnership-with-hugging-face-and-goodfire/",
+          "source": "TechCrunch AI",
+          "summary": "Base Labs, spun out of Baseten, is launching an open-weight AI safety research partnership with Hugging Face and Goodfire to develop and publish training and monitoring methods, adding organizational focus to open-source AI safety tooling.",
+          "topic": "AI Safety Tooling",
+          "company": "Baseten",
+          "secondaryCompanies": [
+            "Hugging Face",
+            "Goodfire"
+          ],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-17T17:15:59.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "219b3ac37d",
+          "title": "AWS reimagines the getting started experience",
+          "link": "https://aws.amazon.com/blogs/aws/aws-reimagines-the-getting-started-experience/",
+          "source": "AWS News",
+          "summary": "AWS has redesigned its getting started experience with smarter defaults to reduce friction for new developers, a product change that can affect adoption rates and how quickly teams onboard to AWS services.",
+          "topic": "Cloud Developer Experience",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-09-16T17:50:14.000Z",
+          "addedOn": "2026-09-17"
+        },
+        {
+          "id": "bee9ec0050",
+          "title": "How GLM built its own inference infrastructure",
+          "link": "https://z.ai/blog/glm-built-its-inference-infrastructure",
+          "source": "Hacker News",
+          "summary": "GLM published a detailed breakdown of how it built its own inference infrastructure, offering practical architectural insights relevant to PMs and engineers evaluating build-vs-buy decisions for LLM serving at scale.",
+          "topic": "LLM Inference Infrastructure",
+          "company": "GLM",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "tooling",
+            "research"
+          ],
+          "publishedAt": "2026-09-17T08:27:09.000Z",
+          "addedOn": "2026-09-17"
         }
       ]
     },
@@ -954,6 +1517,155 @@
       ]
     },
     {
+      "date": "2026-09-14",
+      "summary": "Apple shipped iOS 27, macOS 27, and iPadOS 27 today, headlined by a rebuilt Siri that integrates Apple Intelligence more deeply into daily use. AWS confirmed OpenAI GPT-6 Astra is available on Amazon Bedrock, a significant competitive and partnership signal for cloud AI infrastructure. Perplexity launched a local AI agent for Windows PCs powered by NVIDIA RTX, advancing the on-device AI trend.",
+      "items": [
+        {
+          "id": "18c3a18638",
+          "title": "Apple releases iOS 27 with Siri AI overhaul",
+          "link": "https://www.theverge.com/news/994756/apple-ios-27-launch-iphone-siri-ai-update",
+          "source": "The Verge",
+          "summary": "Apple released iOS 27 with a rebuilt Siri powered by Apple Intelligence, timed with iPhone 18 Pro launch, representing Apple's most significant AI product move in years.",
+          "topic": "Apple AI / iOS Platform",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T17:08:49.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "2947a8c95f",
+          "title": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX",
+          "link": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs/",
+          "source": "NVIDIA Blog",
+          "summary": "Perplexity's Portable Computer local AI agent is now available on Windows with NVIDIA RTX acceleration, bringing agentic on-device AI to mainstream PCs with privacy advantages.",
+          "topic": "Local AI Agents",
+          "company": "Perplexity",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-09-14T15:00:52.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "ef2258816f",
+          "title": "macOS 27 is available now",
+          "link": "https://www.theverge.com/tech/994818/apple-macos-27-golden-gate-available-now",
+          "source": "The Verge",
+          "summary": "macOS 27 Golden Gate launched today with the new Siri, Liquid Glass UI updates, and performance improvements, completing Apple's cross-platform AI rollout.",
+          "topic": "Apple AI / macOS Platform",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T17:10:13.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "c2be321fde",
+          "title": "Microsoft’s new AI ‘code of conduct’ tells models not to hack systems or trick humans",
+          "link": "https://techcrunch.com/2026/09/14/microsofts-new-ai-code-of-conduct-tells-models-not-to-hack-systems-or-trick-humans/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft published a formal AI code of conduct for its models covering harms like deception and system compromise, a governance benchmark that may influence enterprise AI adoption standards.",
+          "topic": "AI Governance",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T16:27:53.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "a047fb9f02",
+          "title": "Fashion app Daydream uses Apple Intelligence to help you shop the outfits in your camera roll",
+          "link": "https://techcrunch.com/2026/09/14/fashion-discovery-app-daydream-uses-apple-intelligence-to-help-you-shop-the-outfits-saved-in-your-camera-roll/",
+          "source": "TechCrunch AI",
+          "summary": "Fashion app Daydream integrated Apple Intelligence to let users search outfits from photos via Siri, illustrating how third-party apps are rapidly building on iOS 27's new AI capabilities.",
+          "topic": "AI-Powered App / Apple Intelligence",
+          "company": "Daydream",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-14T17:00:00.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "a50bc73887",
+          "title": "Pion, an agent designed to run any company autonomously",
+          "link": "https://andonlabs.com/blog/why-we-built-pion",
+          "source": "Hacker News",
+          "summary": "Andon Labs launched Pion, an autonomous agent designed to run entire companies without human management, raising the bar for what agentic AI startups are claiming and building toward.",
+          "topic": "Autonomous AI Agents",
+          "company": "Andon Labs",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-09-14T17:16:06.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "a6065caaba",
+          "title": "Show HN: Nari Qwen3-TTS and Qwen3-ASR – High accuracy, low latency and cost",
+          "link": "https://narilabs.com/blog/nari-labs-leads-coval-voice-ai-benchmarks/",
+          "source": "Hacker News",
+          "summary": "Nari Labs released open-source Qwen3-TTS and Qwen3-ASR speech models claiming high accuracy and low latency, advancing the open-source voice AI stack for developers.",
+          "topic": "Open-Source Speech AI",
+          "company": "Nari Labs",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "launch",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-14T16:07:58.000Z",
+          "addedOn": "2026-09-14"
+        },
+        {
+          "id": "cc3be0b0fb",
+          "title": "Pacing the Frontier, AI’s Digital Limits, AI Commissars",
+          "link": "https://stratechery.com/2026/pacing-the-frontier-ais-digital-limits-ai-commissars/",
+          "source": "Stratechery",
+          "summary": "Ben Thompson critiques Dario Amodei's proposal to pace AI frontier development as politically motivated rather than technically sound, a relevant strategic debate for AI product teams planning roadmaps.",
+          "topic": "AI Strategy / Policy",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-14T10:00:00.000Z",
+          "addedOn": "2026-09-14"
+        }
+      ]
+    },
+    {
       "date": "2026-09-12",
       "summary": "Anthropic CEO Dario Amodei publicly called for slowing AI development and announced third-party safety evaluations via METR, a significant shift that coincided with a researcher resignation warning about existential risk from the company's own work. OpenAI faced dual controversies: an undisclosed attack on RubyGems by its agents and escalating conflict with mathematicians over intellectual property and benchmark integrity. Nvidia was framed as the systemic backbone of the entire AI economy, while robot training data startup Mecka AI neared a $500M valuation in a Sequoia-led round.",
       "items": [
@@ -1327,6 +2039,175 @@
           ],
           "publishedAt": "2026-09-10T17:45:00.000Z",
           "addedOn": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "summary": "OpenAI added prominent AI safety researcher Paul Christiano to its board, signaling a renewed alignment focus amid growing scrutiny of AI risk. Apple's fall event introduced the iPhone Duo foldable and several AI-powered features including an always-listening Apple Watch and AI-enhanced Health app, making it a significant product week. Cognition launched SWE-2, a new software engineering model competing with top coding AI benchmarks, adding pressure to the agentic coding space.",
+      "items": [
+        {
+          "id": "a62cdeb365",
+          "title": "OpenAI adds a prominent AI doomer to its board of directors",
+          "link": "https://techcrunch.com/2026/09/09/openai-adds-a-prominent-ai-doomer-to-its-board-of-directors/",
+          "source": "TechCrunch AI",
+          "summary": "Paul Christiano, a leading AI alignment researcher and self-described doomer, joining the OpenAI Foundation board is a material governance signal about how OpenAI is managing safety credibility under public scrutiny.",
+          "topic": "AI Governance & Safety",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-09T22:25:22.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "98b38ad8c0",
+          "title": "Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra",
+          "link": "https://cognition.com/blog/swe-2",
+          "source": "Hacker News",
+          "summary": "Cognition's SWE-2 model launch positions it as a direct competitor to leading coding AI models, relevant to PMs evaluating agentic software engineering tools and the competitive landscape for developer AI.",
+          "topic": "AI Coding Models",
+          "company": "Cognition",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-10T15:29:47.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "30c9efdd02",
+          "title": "Everything Apple announced at its fall iPhone event, from the foldable iPhone Duo to an always-listening Apple Watch",
+          "link": "https://techcrunch.com/2026/09/09/everything-apple-announced-at-its-fall-iphone-event-from-the-foldable-iphone-duo-to-an-always-listening-apple-watch/",
+          "source": "TechCrunch AI",
+          "summary": "Apple's fall event introduced the iPhone Duo foldable and multiple AI features across iPhone, Watch, and Health, representing a major integrated hardware-software AI product push that sets a new bar for consumer AI.",
+          "topic": "Apple AI Products",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-09T20:03:43.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "24345bcea5",
+          "title": "Apple Watch’s new AI features are normalizing the idea that technology is always listening",
+          "link": "https://techcrunch.com/2026/09/09/apple-watchs-new-ai-features-are-normalizing-the-idea-that-technology-is-always-listening/",
+          "source": "TechCrunch AI",
+          "summary": "Apple Watch's always-listening AI features that transcribe and summarize ambient conversation will force PMs to think about consent and privacy UX as ambient AI becomes mainstream consumer hardware.",
+          "topic": "AI Privacy & Consumer Products",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-09T20:24:48.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "f613fc1e89",
+          "title": "Universal Music is launching an AI music platform with ElevenLabs",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/993465/universal-music-elevenlabs-ai",
+          "source": "The Verge",
+          "summary": "Universal Music partnering with ElevenLabs on a licensed AI music platform sets a precedent for how major rights holders are choosing to engage with generative AI rather than litigate against it.",
+          "topic": "Generative AI & Media Licensing",
+          "company": "Universal Music Group",
+          "secondaryCompanies": [
+            "ElevenLabs"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-10T15:38:19.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "bdd2b8a250",
+          "title": "Meta’s Muse AI works and creeps me out",
+          "link": "https://www.theverge.com/tech/993391/meta-muse-ai-hands-on",
+          "source": "The Verge",
+          "summary": "Meta's Muse is the company's first real productivity-focused AI assistant, entering a space dominated by Microsoft Copilot and Google Gemini and signaling Meta's intent to compete in enterprise-adjacent AI tooling.",
+          "topic": "AI Assistants",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-10T15:00:00.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "cc47131960",
+          "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
+          "link": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
+          "source": "NVIDIA Blog",
+          "summary": "Skild AI using NVIDIA Physical AI to enable robots to learn new tasks from a single video is a practical advance in robot adaptability that could accelerate enterprise robotics deployments.",
+          "topic": "Physical AI & Robotics",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Skild AI"
+          ],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-09-10T16:30:35.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "e9590b50c0",
+          "title": "AI research startup Listen Labs scrubbed a $1.5B funding round for Salesforce talks",
+          "link": "https://techcrunch.com/2026/09/09/ai-research-startup-listen-labs-scrubbed-a-1-5b-funding-round-for-salesforce-talks/",
+          "source": "TechCrunch AI",
+          "summary": "Listen Labs abandoning a signed $1.5B Series C to pursue Salesforce acquisition talks illustrates how large platform acquirers are competing with VC funding rounds to capture AI research startups.",
+          "topic": "AI Startup M&A",
+          "company": "Listen Labs",
+          "secondaryCompanies": [
+            "Salesforce",
+            "Menlo Ventures"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-10T00:00:37.000Z",
+          "addedOn": "2026-09-10"
+        },
+        {
+          "id": "7540bc2c5d",
+          "title": "Massachusetts hits data centers with new clean power rules",
+          "link": "https://techcrunch.com/2026/09/09/massachusetts-hits-data-centers-with-new-clean-power-rules/",
+          "source": "TechCrunch AI",
+          "summary": "Massachusetts becoming the third state in three months to impose clean power rules on data centers signals a growing regulatory trend that will affect AI infrastructure planning and siting decisions.",
+          "topic": "AI Infrastructure Regulation",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-09-09T21:43:34.000Z",
+          "addedOn": "2026-09-10"
         }
       ]
     },

@@ -184,13 +184,12 @@ export function sortByImportance(items: Item[]): Item[] {
   );
 }
 
-export type RangeKey = "latest" | "7d" | "30d" | "all";
+export type RangeKey = "latest" | "7d" | "30d";
 
 export const RANGE_LABELS: Record<RangeKey, string> = {
   latest: "Latest brief",
-  "7d": "Past 7 days",
-  "30d": "Past 30 days",
-  all: "All time",
+  "7d": "Past 7 briefs",
+  "30d": "Past 30 briefs",
 };
 
 /**
@@ -204,13 +203,11 @@ export const RANGE_LABELS: Record<RangeKey, string> = {
 export function daysInRange(digest: Digest | null, range: RangeKey): Day[] {
   if (!digest || digest.days.length === 0) return [];
   const sorted = [...digest.days].sort((a, b) => (a.date < b.date ? 1 : -1));
-  if (range === "latest") return sorted.slice(0, 1);
-  if (range === "all") return sorted;
-
-  const span = range === "7d" ? 7 : 30;
-  const newest = parseYMD(sorted[0].date).getTime();
-  const cutoff = newest - (span - 1) * DAY_MS;
-  return sorted.filter((d) => parseYMD(d.date).getTime() >= cutoff);
+  // Counted in briefs, not calendar days. "Past 7 briefs" is the same
+  // promise whether or not the job missed a morning; a 7-day window quietly
+  // returned less whenever a run was skipped. All time lives on Archive,
+  // which already browses every brief with search.
+  return sorted.slice(0, range === "7d" ? 7 : 30);
 }
 
 /* ------------------------------------------------------------------ */

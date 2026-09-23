@@ -111,11 +111,11 @@ function HowItWorksPage() {
         stale={stale && !loading}
       />
 
-      <main className="mx-auto max-w-[65rem] px-5 py-10 sm:px-8">
-        <h2 className="font-display text-display font-extrabold">
+      <main className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
+        <h2 className="font-display text-head font-bold leading-[1.15] text-ink">
           How it works
         </h2>
-        <p className="measure mt-4 text-lede leading-[1.5] text-ink-2">
+        <p className="measure mt-3 text-body leading-[1.6] text-ink-2">
           Daybreak is a cron job, one model call, and a JSON file in a git
           repository. There is no backend to run and nothing to pay for beyond
           a few cents of tokens a day. The whole point is how little machinery

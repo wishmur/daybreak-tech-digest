@@ -1,16 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import {
-  allItems,
-  buildCompanyHistory,
-  longDate,
-  momentumFor,
-  sortByImportance,
-} from "@/lib/digest";
+import { useEffect, useMemo, useState } from "react";
+import { allItems, buildCompanyHistory } from "@/lib/digest";
 import { useDigest } from "@/lib/useDigest";
 import { useReadState } from "@/lib/useReadState";
 import { SiteFooter, TopBar } from "@/components/digest/Chrome";
-import { EmptyState, StoryRow, StorySkeleton } from "@/components/digest/Story";
+import { EmptyState, StorySkeleton } from "@/components/digest/Story";
+import { PageHeader, Pagination } from "@/components/digest/Layout";
+import { BriefList } from "@/components/digest/Brief";
 
 export const Route = createFileRoute("/archive")({
   head: () => ({
@@ -25,10 +21,13 @@ export const Route = createFileRoute("/archive")({
   component: ArchivePage,
 });
 
+/** Briefs per page. Lower than a story page: each row is a paragraph. */
+const ARCHIVE_PAGE_SIZE = 10;
+
 function ArchivePage() {
   const { digest, loading, stale } = useDigest();
-  const [open, setOpen] = useState<string | null>(null);
   const [q, setQ] = useState("");
+  const [page, setPage] = useState(1);
 
   const items = useMemo(() => allItems(digest), [digest]);
   const history = useMemo(() => buildCompanyHistory(items), [items]);
@@ -51,6 +50,16 @@ function ArchivePage() {
     );
   }, [digest, q]);
 
+  useEffect(() => setPage(1), [q]);
+
+  const totalPages = Math.max(1, Math.ceil(days.length / ARCHIVE_PAGE_SIZE));
+  const current = Math.min(page, totalPages);
+  const pageDays = useMemo(
+    () =>
+      days.slice((current - 1) * ARCHIVE_PAGE_SIZE, current * ARCHIVE_PAGE_SIZE),
+    [days, current],
+  );
+
   return (
     <div className="min-h-screen">
       <TopBar
@@ -62,17 +71,11 @@ function ArchivePage() {
         stale={stale && !loading}
       />
 
-      <main className="mx-auto max-w-[100rem] px-5 py-6 sm:px-8">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-rule pb-4">
-          <div>
-            <h2 className="font-display text-head-lg font-extrabold">
-              Every brief so far
-            </h2>
-            <p className="label mt-1">
-              {days.length} {days.length === 1 ? "issue" : "issues"}
-              {q.trim() ? " matching your search" : ""}
-            </p>
-          </div>
+      <main className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
+        <PageHeader
+          title="Every brief so far"
+          note={`${days.length} ${days.length === 1 ? "brief" : "briefs"}${q.trim() ? " matching your search" : ""}`}
+        >
           <label className="relative w-full sm:w-72">
             <span className="sr-only">Search the archive</span>
             <svg
@@ -93,7 +96,7 @@ function ArchivePage() {
               className="search-field w-full"
             />
           </label>
-        </div>
+        </PageHeader>
 
         {loading && !digest ? (
           <StorySkeleton rows={6} />
@@ -109,64 +112,26 @@ function ArchivePage() {
             onAction={q.trim() ? () => setQ("") : undefined}
           />
         ) : (
-          <div className="border-t border-rule">
-            {days.map((day) => {
-              const isOpen = open === day.date;
-              return (
-                <section key={day.date} className="border-b border-rule">
-                  <h3>
-                    <button
-                      onClick={() => setOpen(isOpen ? null : day.date)}
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start gap-4 py-5 text-left sm:gap-8"
-                    >
-                      <span className="data w-24 shrink-0 pt-1 sm:w-32">
-                        {longDate(day.date).replace(/,? \d{4}$/, "")}
-                      </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-body leading-[1.5] text-ink-2">
-                          {day.summary || "No summary was written for this day."}
-                        </span>
-                      </span>
-                      <span className="data flex shrink-0 items-center gap-2 pt-1">
-                        {day.items.length}
-                        <svg
-                          aria-hidden="true"
-                          width="10"
-                          height="10"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          className="shrink-0 transition-transform"
-                          style={{
-                            transform: isOpen ? "rotate(180deg)" : "none",
-                          }}
-                        >
-                          <path
-                            d="M3 4.5L6 7.5L9 4.5"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </h3>
-                  {isOpen && (
-                    <ul className="anim-in pb-4 sm:pl-32">
-                      {sortByImportance(day.items).map((it) => (
-                        <StoryRow
-                          key={it.id}
-                          item={it}
-                          momentum={momentumFor(it, history)}
-                          read={ready && seen.has(it.id)}
-                          onOpen={markRead}
-                        />
-                      ))}
-                    </ul>
-                  )}
-                </section>
-              );
-            })}
-          </div>
+          <>
+            <BriefList
+              days={pageDays}
+              history={history}
+              seen={seen}
+              markRead={markRead}
+              ready={ready}
+            />
+            <Pagination
+              page={current}
+              totalPages={totalPages}
+              total={days.length}
+              pageSize={ARCHIVE_PAGE_SIZE}
+              onChange={(p) => {
+                setPage(p);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              unit="briefs"
+            />
+          </>
         )}
       </main>
 

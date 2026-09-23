@@ -18,12 +18,15 @@ import {
 import { useDigest } from "@/lib/useDigest";
 import { useReadState } from "@/lib/useReadState";
 import { SiteFooter, TopBar, type NavKey } from "@/components/digest/Chrome";
+import { Pagination } from "@/components/digest/Layout";
+import { BriefList } from "@/components/digest/Brief";
 import {
   ActiveFilterChips,
   DEFAULT_FILTERS,
   FilterControls,
   FilterSheet,
   hasActiveFilters,
+  hasNarrowingFilters,
   type Filters,
 } from "@/components/digest/Filters";
 import {
@@ -63,9 +66,11 @@ function readStateFromURL(): { filters: Partial<Filters>; view: NavKey } {
   const p = new URLSearchParams(window.location.search);
   const f: Partial<Filters> = {};
 
+  // "all" was retired in favour of Archive; an old shared link falls back to
+  // the widest range that still exists rather than breaking.
   const range = p.get("range");
-  if (range === "latest" || range === "7d" || range === "30d" || range === "all")
-    f.range = range;
+  if (range === "latest" || range === "7d" || range === "30d") f.range = range;
+  else if (range === "all") f.range = "30d";
 
   const list = (k: string) => p.get(k)?.split(",").filter(Boolean);
   const c = list("companies");
@@ -306,6 +311,11 @@ function TechDigestPage() {
     }
   }, [latestDay]);
 
+  /* A range with no filter on it shows briefs; the stories are one click
+     inside each. With a filter active the reader is hunting a specific
+     story, so the flat list is still the right answer. */
+  const showBriefs = filters.range !== "latest" && !hasNarrowingFilters(filters);
+
   const totalMatched = matched.length;
   const totalPages = Math.max(1, Math.ceil(totalMatched / PAGE_SIZE));
   const current = Math.min(page, totalPages);
@@ -492,6 +502,29 @@ function TechDigestPage() {
                   actionLabel={active ? "Clear filters" : undefined}
                   onAction={active ? reset : undefined}
                 />
+              ) : showBriefs ? (
+                /* The newest brief is already the masthead above, so the list
+                   carries the ones behind it. Together they are the N briefs
+                   the range names. */
+                <section>
+                  <header className="lane-head mb-1">
+                    <h3 className="label-strong">Earlier briefs</h3>
+                  </header>
+                  {scopedDays.length > 1 ? (
+                    <BriefList
+                      days={scopedDays.slice(1)}
+                      history={history}
+                      seen={seen}
+                      markRead={markRead}
+                      ready={ready}
+                    />
+                  ) : (
+                    <EmptyState
+                      title="Only one brief so far"
+                      body="There is nothing behind today's brief yet. The archive fills in as the morning job runs."
+                    />
+                  )}
+                </section>
               ) : (
                 <>
                   {pageGroups.map(([day, dayItems]) => {
@@ -512,7 +545,7 @@ function TechDigestPage() {
                         momentum={momentumFor(it, history)}
                         read={ready && seen.has(it.id)}
                         onOpen={markRead}
-                        showDate={filters.range === "all"}
+                        showDate={filters.range !== "latest"}
                       />
                     );
 
@@ -612,90 +645,6 @@ function TechDigestPage() {
 /* ------------------------------------------------------------------ */
 /* Pagination                                                          */
 /* ------------------------------------------------------------------ */
-
-/**
- * Compact page list with gaps.
- *
- * Rewritten from a loop that reassigned its own counter mid-iteration to
- * jump to the end, which was very hard to reason about and one off-by-one
- * away from skipping the last page.
- */
-function pageWindow(page: number, total: number): (number | "gap")[] {
-  const span = 1;
-  const keep = new Set<number>([1, total]);
-  for (let i = page - span; i <= page + span; i++)
-    if (i >= 1 && i <= total) keep.add(i);
-
-  const out: (number | "gap")[] = [];
-  let prev = 0;
-  for (const n of [...keep].sort((a, b) => a - b)) {
-    if (prev && n - prev > 1) out.push("gap");
-    out.push(n);
-    prev = n;
-  }
-  return out;
-}
-
-function Pagination({
-  page,
-  totalPages,
-  total,
-  pageSize,
-  onChange,
-}: {
-  page: number;
-  totalPages: number;
-  total: number;
-  pageSize: number;
-  onChange: (p: number) => void;
-}) {
-  const from = (page - 1) * pageSize + 1;
-  const to = Math.min(total, page * pageSize);
-
-  return (
-    <nav
-      aria-label="Pagination"
-      className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-6 no-print"
-    >
-      <span className="data">
-        {from} to {to} of {total}
-      </span>
-      <div className="flex flex-wrap items-center gap-1.5">
-        <button
-          onClick={() => onChange(page - 1)}
-          disabled={page <= 1}
-          className="ctl"
-        >
-          Previous
-        </button>
-        {pageWindow(page, totalPages).map((p, i) =>
-          p === "gap" ? (
-            <span key={`g${i}`} className="data px-1">
-              &hellip;
-            </span>
-          ) : (
-            <button
-              key={p}
-              onClick={() => onChange(p)}
-              data-active={p === page}
-              aria-current={p === page ? "page" : undefined}
-              className="ctl min-w-[2.25rem] tabular-nums"
-            >
-              {p}
-            </button>
-          ),
-        )}
-        <button
-          onClick={() => onChange(page + 1)}
-          disabled={page >= totalPages}
-          className="ctl"
-        >
-          Next
-        </button>
-      </div>
-    </nav>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* Companies panel                                                     */

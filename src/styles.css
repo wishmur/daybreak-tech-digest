@@ -258,9 +258,12 @@
 
   /* Same control, laid out as a 2-column grid — for a narrow rail where a
      4-way single-row strip would wrap its own labels mid-word. */
+  /* One row per option. Three ranges in a 2-up grid left a dead cell, and
+     the labels ("Past 30 briefs") do not fit two-up on a 14rem rail
+     without wrapping mid-word. */
   .seg-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1px;
     background: var(--color-rule-2);
     border: 1px solid var(--color-rule-2);
@@ -274,9 +277,9 @@
     font-weight: 600;
     color: var(--color-ink-2);
     background: var(--color-paper);
-    padding: 0.4375rem 0.5rem;
+    padding: 0.4375rem 0.625rem;
     border: none;
-    text-align: center;
+    text-align: left;
     transition: background-color 120ms ease, color 120ms ease;
   }
 

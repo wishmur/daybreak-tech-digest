@@ -2,8 +2,17 @@ name: Daily Tech Digest
 
 on:
   schedule:
-    # 14:00 UTC = 10 AM ET during EDT. Switch to "0 15 * * *" for 10 AM EST in winter.
-    - cron: "0 14 * * *"
+    # Aimed at early morning US Pacific. GitHub queues scheduled jobs when it is
+    # busy: measured over 16 runs, this one started between 2h47m and 5h06m after
+    # its cron time, median 3h47m. 09:13 UTC therefore lands around 06:00 Pacific
+    # on a median day, 05:00-07:20 either side of it. The odd minute is
+    # deliberate; the top of the hour is the most contended slot.
+    #
+    # Do not move this earlier. The script stamps each day with the UTC date, so
+    # a run landing before 08:00 UTC would label it with tomorrow's date on the
+    # US West Coast. Starting at 09:13 UTC keeps the two in step year-round,
+    # through DST, with no seasonal edit.
+    - cron: "13 9 * * *"
   workflow_dispatch:
 
 permissions:

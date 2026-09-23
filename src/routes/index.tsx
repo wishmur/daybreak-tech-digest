@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Ten stories that matter to a product manager, picked every morning and posted by 10 AM ET.",
+          "Ten stories that matter to a product manager, picked and ranked by Claude every morning.",
       },
     ],
   }),

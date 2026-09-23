@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-09-20T17:19:47.928Z",
+  "lastUpdated": "2026-09-23T18:17:42.008Z",
   "days": [
+    {
+      "date": "2026-09-23",
+      "summary": "OpenAI and Anthropic both launched major new models today: OpenAI released GPT-6 Sol and Luna while Anthropic dropped Opus 5.5, described as its strongest model yet, setting up a direct competitive battle. Snorkel AI tripled its valuation to $3.5B with a $350M Series E, signaling continued investor appetite for AI training data infrastructure. AWS launched CloudWatch Omni with AI-powered observability purpose-built for agentic workloads, and Google released Gemini 3.8 text-to-speech alongside a wave of AI features across YouTube and YouTube Music.",
+      "items": [
+        {
+          "id": "d52a24ca50",
+          "title": "Anthropic releases Opus 5.5 with lower prices and Fable-level performance",
+          "link": "https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's Opus 5.5 claims the top spot on its own benchmarks with lower prices, directly challenging OpenAI's new models released the same day.",
+          "topic": "New AI Model Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-22T16:30:07.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "d5bcb149d5",
+          "title": "OpenAI launches GPT-6 Sol and Luna, boasting lower cost and fewer mistakes",
+          "link": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI launched GPT-6 Sol and Luna on the same day as Anthropic's Opus 5.5, emphasizing lower cost and fewer errors, intensifying the flagship model competition.",
+          "topic": "New AI Model Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-22T18:00:00.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "84a303211c",
+          "title": "Snorkel AI triples valuation to $3.5B as demand for AI training data booms",
+          "link": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/",
+          "source": "TechCrunch AI",
+          "summary": "Snorkel AI raised a $350M Series E at a $3.5B valuation, tripling its previous valuation and reflecting surging enterprise demand for high-quality AI training data.",
+          "topic": "AI Training Data Funding",
+          "company": "Snorkel AI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-09-22T21:56:43.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "4767997e75",
+          "title": "Introducing Amazon CloudWatch Omni: collaborative AI-powered observability for your applications",
+          "link": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-collaborative-ai-powered-observability-for-your-applications/",
+          "source": "AWS News",
+          "summary": "AWS launched CloudWatch Omni, an AI-powered observability platform designed specifically for generative AI and agentic workloads, giving teams unified tracing and evaluation across agent frameworks.",
+          "topic": "Cloud AI Observability",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-22T22:23:14.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "baae67cbe7",
+          "title": "Gemini 3.8 text-to-speech",
+          "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+          "source": "Hacker News",
+          "summary": "Google released Gemini 3.8 text-to-speech, extending Gemini's multimodal capabilities into high-quality audio generation, a competitive move against OpenAI's voice features.",
+          "topic": "AI Model Launch",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-23T15:29:23.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "3ecdce7d83",
+          "title": "ChatGPT mobile app gets voice-based agentic features",
+          "link": "https://techcrunch.com/2026/09/23/chatgpt-mobile-app-gets-voice-based-agentic-features/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is adding voice-based agentic features to ChatGPT's mobile app for Pro and Plus users, moving agentic AI from desktop into mobile workflows.",
+          "topic": "AI Product Feature",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-23T17:00:00.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "3e43c270c4",
+          "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
+          "link": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA released Isaac ROS 5.0, an open-source robotics framework update that adds new physical AI models and tools for building agentic, perception-capable robots.",
+          "topic": "Robotics AI Platform",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-09-22T12:00:41.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "ca7a2de7d1",
+          "title": "Ema raises $77M as AI starts eating into enterprise software and services",
+          "link": "https://techcrunch.com/2026/09/23/ema-raises-77m-as-ai-starts-eating-into-enterprise-software-and-services/",
+          "source": "TechCrunch AI",
+          "summary": "Ema raised $77M more in its Series B (total $140M) as enterprises accelerate replacement of traditional software and services with AI agents, with Google and Microsoft among customers.",
+          "topic": "Enterprise AI Funding",
+          "company": "Ema",
+          "secondaryCompanies": [
+            "Google",
+            "Microsoft"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-09-23T12:00:00.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "0869f53f8a",
+          "title": "YouTube will let you build your own algorithm with AI",
+          "link": "https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/",
+          "source": "TechCrunch AI",
+          "summary": "YouTube is using Gemini to let users describe their interests in natural language and build personalized content feeds, shifting algorithm control to users and signaling a broader product pattern for AI-driven personalization.",
+          "topic": "AI-Powered Product Feature",
+          "company": "Google",
+          "secondaryCompanies": [
+            "YouTube"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-23T14:30:00.000Z",
+          "addedOn": "2026-09-23"
+        },
+        {
+          "id": "8128309eed",
+          "title": "Claude Code reads AGENTS.md only when telemetry is on [fixed]",
+          "link": "https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on/",
+          "source": "Hacker News",
+          "summary": "A researcher found that Claude Code only read AGENTS.md configuration files when telemetry was enabled, raising trust and transparency concerns for developer tooling built on Anthropic's coding agent.",
+          "topic": "AI Tooling Trust Issue",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-09-23T12:15:33.000Z",
+          "addedOn": "2026-09-23"
+        }
+      ]
+    },
     {
       "date": "2026-09-20",
       "summary": "Google's Gemini was found capable of hacking other companies' systems in a controlled test, raising fresh questions about AI safety and model behavior at deployment. ChatGPT's integration of ad-collector data means it now has visibility into users' cross-site browsing behavior, a significant privacy and product trust issue for OpenAI. Alibaba's Qwen released a new compact image generation model, continuing the push from open-weight labs to challenge frontier model providers on multimodal tasks.",

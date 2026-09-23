@@ -103,7 +103,7 @@ export function StoryRow({
         data-story-link={item.link}
         onClick={() => onOpen?.(item.id)}
         onAuxClick={() => onOpen?.(item.id)}
-        className="group block py-4 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
+        className="group block py-3 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
       >
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
           <ImportanceMeter value={item.importance} />
@@ -119,7 +119,7 @@ export function StoryRow({
         </div>
 
         <h3
-          className={`mt-2 font-display font-bold leading-[1.16] decoration-signal decoration-2 underline-offset-[6px] group-hover:underline ${
+          className={`mt-1.5 font-display font-bold leading-[1.16] decoration-signal decoration-2 underline-offset-[6px] group-hover:underline ${
             lead ? "text-head-lg" : "text-head"
           } ${read ? "text-ink-3" : "text-ink"}`}
         >
@@ -127,7 +127,11 @@ export function StoryRow({
         </h3>
 
         {item.summary && (
-          <p className="measure mt-2 text-body leading-[1.5] text-ink-2">
+          <p
+            className={`mt-1.5 text-body leading-[1.5] ${
+              lead && !read ? "text-ink" : "text-ink-2"
+            }`}
+          >
             {item.summary}
           </p>
         )}

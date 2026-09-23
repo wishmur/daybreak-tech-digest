@@ -21,9 +21,14 @@ export const DEFAULT_FILTERS: Filters = {
   q: "",
 };
 
-export function hasActiveFilters(f: Filters): boolean {
+/**
+ * Filters that narrow what is inside the range, as opposed to the range
+ * itself, which chooses the scope. The digest shows briefs for a multi-day
+ * range only when nothing is narrowing it, so the two have to be asked
+ * separately.
+ */
+export function hasNarrowingFilters(f: Filters): boolean {
   return (
-    f.range !== DEFAULT_FILTERS.range ||
     f.companies.length > 0 ||
     f.topics.length > 0 ||
     f.sources.length > 0 ||
@@ -31,6 +36,10 @@ export function hasActiveFilters(f: Filters): boolean {
     f.minImportance !== 0 ||
     f.q.trim() !== ""
   );
+}
+
+export function hasActiveFilters(f: Filters): boolean {
+  return f.range !== DEFAULT_FILTERS.range || hasNarrowingFilters(f);
 }
 
 /* ------------------------------------------------------------------ */

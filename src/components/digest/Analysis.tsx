@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Area,
   AreaChart,
@@ -25,6 +25,7 @@ import {
 } from "@/lib/digest";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { EmptyState, ImportanceMeter, StorySkeleton, StoryRow } from "./Story";
+import { Pagination } from "./Layout";
 
 /* Board chart palette, matching the Strip Board token set in styles.css.
    SVG fills can't read CSS custom properties reliably across the
@@ -110,7 +111,7 @@ function SectionHead({
   return (
     <header className="mb-5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-rule pb-3">
       <div>
-        <h2 className="text-head font-semibold">{title}</h2>
+        <h2 className="font-display text-head font-bold leading-[1.15] text-ink">{title}</h2>
         {note && <p className="label mt-1">{note}</p>}
       </div>
       {children}
@@ -183,6 +184,9 @@ function dailyCounts(items: Item[], days: number): number[] {
 /* Companies                                                           */
 /* ------------------------------------------------------------------ */
 
+/** Matches the digest's page size so the two story lists feel the same. */
+const COMPANY_PAGE_SIZE = 12;
+
 export function CompaniesView({
   items,
   loading,
@@ -203,6 +207,11 @@ export function CompaniesView({
 
   const [selected, setSelected] = useState<string | undefined>(initial);
   const active = selected ?? ranked[0]?.[0];
+  const [page, setPage] = useState(1);
+
+  // Switching company must reset the page, or picking a company with fewer
+  // stories than the current offset lands on an empty list.
+  useEffect(() => setPage(1), [active]);
 
   const history = useMemo(() => buildCompanyHistory(items), [items]);
 
@@ -212,6 +221,14 @@ export function CompaniesView({
       .filter((it) => companiesOf(it).includes(active))
       .sort((a, b) => itemTs(b) - itemTs(a));
   }, [items, active]);
+
+  const totalPages = Math.max(1, Math.ceil(stories.length / COMPANY_PAGE_SIZE));
+  const current = Math.min(page, totalPages);
+  const pageStories = useMemo(
+    () =>
+      stories.slice((current - 1) * COMPANY_PAGE_SIZE, current * COMPANY_PAGE_SIZE),
+    [stories, current],
+  );
 
   const stats = useMemo(() => {
     if (!stories.length) return null;
@@ -239,14 +256,14 @@ export function CompaniesView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
         <StorySkeleton />
       </div>
     );
 
   if (!ranked.length)
     return (
-      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
         <EmptyState
           title="No companies yet"
           body="Once the morning job has run a few times, the companies it keeps naming will show up here."
@@ -255,7 +272,7 @@ export function CompaniesView({
     );
 
   return (
-    <main className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+    <main className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
       {/* Below md this is a scrolling chip row. It used to be a list box 70%
           of the viewport tall, which pushed the actual content off screen. */}
       <div className="scroll-x -mx-5 mb-6 flex gap-1.5 px-5 pb-2 md:hidden">
@@ -295,7 +312,9 @@ export function CompaniesView({
             <>
               <div className="mb-8 border-b border-rule pb-6">
                 <div className="flex flex-wrap items-end justify-between gap-4">
-                  <h2 className="text-head-lg font-semibold">{active}</h2>
+                  <h2 className="font-display text-head font-bold leading-[1.15] text-ink">
+                    {active}
+                  </h2>
                   <div className="flex items-center gap-2.5">
                     <Sparkline
                       values={stats.spark}
@@ -321,16 +340,27 @@ export function CompaniesView({
                   />
                 </dl>
               </div>
-              <ul>
-                {stories.map((it) => (
+              <ul className="grid gap-x-10 xl:grid-cols-2">
+                {pageStories.map((it) => (
                   <StoryRow
                     key={it.id}
                     item={it}
+                    lead={it.importance >= 5}
                     momentum={momentumFor(it, history)}
                     showDate
                   />
                 ))}
               </ul>
+              <Pagination
+                page={current}
+                totalPages={totalPages}
+                total={stories.length}
+                pageSize={COMPANY_PAGE_SIZE}
+                onChange={(p) => {
+                  setPage(p);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              />
             </>
           ) : (
             <EmptyState
@@ -438,14 +468,14 @@ export function CoOccurrenceView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
         <StorySkeleton />
       </div>
     );
 
   if (maxVal <= 1 && rankedPairs.length === 0)
     return (
-      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
         <EmptyState
           title="Not enough overlap yet"
           body="This fills in once the same companies start turning up in each other's stories."
@@ -467,7 +497,7 @@ export function CoOccurrenceView({
   };
 
   return (
-    <main className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+    <main className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
       <SectionHead
         title="Who appears together"
         note={`Top ${companies.length} companies. The strongest pair shares ${maxVal} stories.`}
@@ -593,7 +623,7 @@ export function CoOccurrenceView({
       {sel && (
         <section className="mt-10 border-t-2 border-ink pt-5">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h3 className="text-head font-semibold">
+            <h3 className="font-display text-head font-bold leading-[1.15] text-ink">
               {sel[0]} <span className="font-normal text-ink-3">and</span>{" "}
               {sel[1]}
             </h3>
@@ -754,7 +784,7 @@ export function TrendsView({
 
   if (loading)
     return (
-      <div className="mx-auto max-w-[100rem] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 pb-16 pt-7 sm:px-8">
         <StorySkeleton />
       </div>
     );
@@ -766,7 +796,7 @@ export function TrendsView({
   );
 
   return (
-    <main className="mx-auto max-w-[100rem] space-y-14 px-5 py-8 sm:px-8">
+    <main className="mx-auto max-w-[80rem] space-y-12 px-5 pb-16 pt-7 sm:px-8">
       <div className="scroll-x -mx-5 px-5 pb-1">
         <div className="seg inline-flex">
           {(["7d", "30d", "90d", "all"] as TrendRange[]).map((r) => (

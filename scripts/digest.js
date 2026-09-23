@@ -29,9 +29,10 @@ const MODEL          = "claude-sonnet-4-6";
 // The app serves this file at /data/digest.json, so it lives under public/.
 const DATA_PATH = process.env.DIGEST_DATA_PATH || "public/data/digest.json";
 
-// One-time migration: if the data file is missing, seed history from the old
-// standalone tech-digest repo. Safe to delete this line once the file exists.
-const LEGACY_SEED_URL = "https://raw.githubusercontent.com/wishmur/tech-digest/main/data/digest.json";
+// How long to wait on the curation call before giving up. Without this the
+// request is bounded only by undici's defaults, which is far too generous for
+// a job that has to finish inside a CI step.
+const CURATE_TIMEOUT_MS = 90_000;
 // ================================================================
 
 const { ANTHROPIC_API_KEY } = process.env;
@@ -86,7 +87,8 @@ const keywordFilter = items => {
 };
 
 async function curate(items) {
-  const list = items.slice(0, MAX_TO_CLAUDE)
+  const shortlist = items.slice(0, MAX_TO_CLAUDE);
+  const list = shortlist
     .map((it, idx) => `${idx}. [${it.source}] ${it.title}${it.snippet ? ` - ${it.snippet}` : ""}`)
     .join("\n");
 
@@ -106,6 +108,7 @@ async function curate(items) {
     method: "POST",
     headers: { "x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
     body: JSON.stringify({ model: MODEL, max_tokens: 2000, system, messages: [{ role: "user", content: `Headlines:\n${list}` }] }),
+    signal: AbortSignal.timeout(CURATE_TIMEOUT_MS),
   });
   if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${await res.text()}`);
 
@@ -120,7 +123,7 @@ async function curate(items) {
 
   const summary = (parsed.summary || "").trim();
   const picks = (parsed.items || []).map(p => {
-    const it = items[p.index];
+    const it = shortlist[p.index];
     if (!it) return null;
     return {
       id: shortHash(it.link || it.title),
@@ -145,20 +148,8 @@ async function loadDigest() {
     const raw = await fs.readFile(DATA_PATH, "utf8");
     return JSON.parse(raw);
   } catch (e) {
-    if (e.code !== "ENOENT") throw e;
-  }
-
-  // File not there yet. Try to carry the archive over from the old repo once.
-  try {
-    console.log(`No ${DATA_PATH} yet, seeding history from the legacy repo...`);
-    const res = await fetch(LEGACY_SEED_URL);
-    if (!res.ok) throw new Error(String(res.status));
-    const seeded = await res.json();
-    console.log(`seeded ${(seeded.days || []).length} day(s) of history`);
-    return seeded;
-  } catch (err) {
-    console.warn(`legacy seed failed (${err.message}), starting empty`);
-    return { lastUpdated: null, days: [] };
+    if (e.code === "ENOENT") return { lastUpdated: null, days: [] };
+    throw e;
   }
 }
 
@@ -218,4 +209,12 @@ async function main() {
   console.log(`Wrote ${DATA_PATH}: +${picks.length} items today, ${digest.days.length} day(s) on file.`);
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
+// rss-parser rejects a non-2xx feed response without draining or destroying it,
+// which leaks a referenced socket and keeps the event loop alive indefinitely.
+// A 429 from any single feed was enough to hang the job until GitHub's 6-hour
+// timeout cancelled it, skipping the commit step and losing that day's digest.
+// The work is fully awaited by the time main() resolves, so exit explicitly.
+main().then(
+  () => process.exit(0),
+  e => { console.error(e); process.exit(1); },
+);

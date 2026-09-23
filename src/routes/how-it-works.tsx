@@ -55,7 +55,7 @@ const STEPS = [
   {
     n: "04",
     title: "The result is committed",
-    body: "The ten picks are merged into data/digest.json and pushed back to the repository by the job itself. The file's git history is the archive, which means every brief is diffable and nothing can quietly change after the fact.",
+    body: "The ten picks are merged into public/data/digest.json and pushed back to the repository by the job itself. The file's git history is the archive, which means every brief is diffable and nothing can quietly change after the fact.",
   },
   {
     n: "05",

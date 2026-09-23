@@ -18,7 +18,7 @@ import {
  */
 export function ImportanceMeter({ value }: { value: number }) {
   const v = Math.max(0, Math.min(5, Math.round(value || 0)));
-  const fill = v >= 5 ? "bg-signal" : v >= 3 ? "bg-ink" : "bg-ink-3";
+  const fill = v >= 5 ? "bg-signal" : v >= 3 ? "bg-ink-3" : "bg-rule-2";
   return (
     <span
       className="inline-flex items-center gap-[2px] align-middle"
@@ -80,18 +80,13 @@ export function StoryRow({
   const bits: React.ReactNode[] = [];
   if (item.company)
     bits.push(
-      <span key="c" className="font-semibold text-ink">
+      <span key="c" className="font-medium text-ink-2">
         {item.company}
       </span>,
     );
   if (item.topic) bits.push(<span key="t">{item.topic}</span>);
   const mNote = momentumText(momentum);
-  if (mNote)
-    bits.push(
-      <span key="m" className="text-ink-2">
-        {mNote}
-      </span>,
-    );
+  if (mNote) bits.push(<span key="m">{mNote}</span>);
 
   return (
     <li className="border-b border-rule last:border-b-0">
@@ -103,9 +98,9 @@ export function StoryRow({
         data-story-link={item.link}
         onClick={() => onOpen?.(item.id)}
         onAuxClick={() => onOpen?.(item.id)}
-        className="group block py-3 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
+        className="group block py-4 no-underline transition-colors hover:bg-inset focus-visible:bg-inset sm:px-3 sm:-mx-3 data-[kbd=on]:bg-inset"
       >
-        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 opacity-80">
           <ImportanceMeter value={item.importance} />
           {item.importance >= 5 && (
             <span className="chip text-signal">Must read</span>
@@ -120,7 +115,7 @@ export function StoryRow({
 
         <h3
           className={`mt-1.5 font-display font-bold leading-[1.16] decoration-signal decoration-2 underline-offset-[6px] group-hover:underline ${
-            lead ? "text-head-lg" : "text-head"
+            lead ? "text-lede" : "text-body"
           } ${read ? "text-ink-3" : "text-ink"}`}
         >
           {item.title}
@@ -139,14 +134,14 @@ export function StoryRow({
         {/* Provenance on the left, subject tags on the right of a hairline.
             Without the divider the source, date and tags read as one
             undifferentiated string of words. */}
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 opacity-80">
           <span className="data">{item.source}</span>
           {showDate && <span className="data">{shortDate(item.addedOn)}</span>}
           {tags.length > 0 && (
             <span aria-hidden="true" className="h-3 w-px bg-rule" />
           )}
           {tags.map((t) => (
-            <span key={t} className="data text-ink-2">
+            <span key={t} className="data">
               {tagLabel(t)}
             </span>
           ))}

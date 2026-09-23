@@ -53,7 +53,7 @@ export function TopBar({
 
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
-      <div className="mx-auto max-w-[100rem] px-5 sm:px-8">
+      <div className="mx-auto max-w-[80rem] px-5 sm:px-8">
         {/* Row one: identity and status never contend with nav for room,
             so nav never has to shrink its labels to fit. */}
         <div className="flex items-center justify-between gap-4 pt-2.5">
@@ -142,7 +142,7 @@ export function TopBar({
 
 export function SiteFooter({ hint }: { hint?: string }) {
   return (
-    <footer className="mx-auto mt-16 max-w-[100rem] px-5 pb-14 sm:px-8">
+    <footer className="mx-auto mt-16 max-w-[80rem] px-5 pb-14 sm:px-8">
       <div className="flex flex-col gap-3 border-t border-rule pt-5 sm:flex-row sm:items-baseline sm:justify-between">
         <p className="label">
           Built by{" "}

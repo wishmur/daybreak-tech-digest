@@ -342,7 +342,7 @@ function TechDigestPage() {
       />
 
       {view === "digest" && (
-        <div className="mx-auto max-w-[100rem] px-5 sm:px-8">
+        <div className="mx-auto max-w-[80rem] px-5 sm:px-8">
           {/* ---- Brief ----
               The day's synthesis, not a status line: this is the one
               thing on the page that outranks the board below it, set in
@@ -356,14 +356,15 @@ function TechDigestPage() {
                   <div className="mt-2 h-3 w-2/3 max-w-xl bg-sunk" />
                 </div>
               ) : latestDay ? (
-                /* A masthead line, not a hero. The day, the day's numbers and
-                   the page actions sit on one rule; the brief runs beneath it
-                   in columns so three sentences cost three lines of height
-                   instead of seven. */
-                <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-baseline lg:gap-x-8">
+                /* The brief is the product, so it is the page's dominant
+                   block: full ink at lede size, given the width it needs. The
+                   date is metadata above it, the day's figures and the two
+                   utilities are a quiet utility column beside it. Nothing up
+                   here outranks the summary. */
+                <div className="grid gap-x-12 gap-y-5 lg:grid-cols-[minmax(0,1fr)_11rem]">
                   <div className="min-w-0">
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h2 className="font-display text-head font-extrabold leading-[1.1] tracking-[-0.012em] text-ink">
+                    <div className="flex flex-wrap items-baseline gap-x-2.5">
+                      <h2 className="font-ui text-micro font-semibold uppercase tracking-[0.07em] text-ink-2">
                         {["Today", "Yesterday"].includes(
                           relativeDayLabel(latestDay.date),
                         )
@@ -373,78 +374,32 @@ function TechDigestPage() {
                       {["Today", "Yesterday"].includes(
                         relativeDayLabel(latestDay.date),
                       ) && (
-                        <span className="font-ui text-meta text-ink-3">
+                        <span className="font-ui text-micro uppercase tracking-[0.07em] text-ink-3">
                           {longDate(latestDay.date)}
                         </span>
                       )}
-                      {stats && (
-                        <>
-                          <span aria-hidden className="hidden h-3 w-px bg-rule-2 sm:block" />
-                          <SignalReadout s={stats} />
-                        </>
-                      )}
                     </div>
+
+                    {latestDay.summary && (
+                      <p className="mt-2.5 max-w-[56rem] text-head font-normal leading-[1.45] text-ink">
+                        {latestDay.summary}
+                      </p>
+                    )}
                   </div>
 
-                  <div className="order-last flex flex-wrap items-center gap-x-4 gap-y-2 lg:order-none lg:shrink-0 lg:justify-end">
-                    <div className="flex items-center gap-2 no-print">
-                      {ready && unreadCount > 0 && !isFirstEverVisit && (
-                        <button onClick={markAllRead} className="ctl">
-                          {unreadCount} unread
-                        </button>
-                      )}
-                      <button
-                        onClick={copyBrief}
-                        className="ctl-primary inline-flex items-center gap-1.5"
-                      >
-                        {copied ? (
-                          <svg
-                            width="13"
-                            height="13"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M3.5 8.5L6.5 11.5L12.5 4.5"
-                              stroke="currentColor"
-                              strokeWidth="1.6"
-                            />
-                          </svg>
-                        ) : (
-                          <svg
-                            width="13"
-                            height="13"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            aria-hidden="true"
-                          >
-                            <rect
-                              x="5.5"
-                              y="5.5"
-                              width="8"
-                              height="8"
-                              rx="1"
-                              stroke="currentColor"
-                              strokeWidth="1.4"
-                            />
-                            <path
-                              d="M3.5 10.5V3.5a1 1 0 0 1 1-1H10.5"
-                              stroke="currentColor"
-                              strokeWidth="1.4"
-                            />
-                          </svg>
-                        )}
+                  <div className="order-last lg:order-none">
+                    {stats && <SignalReadout s={stats} />}
+                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 no-print">
+                      <button onClick={copyBrief} className="quiet-action">
                         {copied ? "Copied" : "Copy brief"}
                       </button>
+                      {ready && unreadCount > 0 && !isFirstEverVisit && (
+                        <button onClick={markAllRead} className="quiet-action">
+                          Mark {unreadCount} read
+                        </button>
+                      )}
                     </div>
                   </div>
-
-                  {latestDay.summary && (
-                    <p className="text-body leading-[1.55] text-ink-2 lg:col-span-2 lg:columns-2 lg:gap-10 xl:columns-3 xl:gap-12">
-                      {latestDay.summary}
-                    </p>
-                  )}
                 </div>
               ) : (
                 <EmptyState
@@ -456,7 +411,7 @@ function TechDigestPage() {
           </section>
 
           {/* ---- Board: control rail (filters + companies), story lanes ---- */}
-          <div className="grid grid-cols-1 gap-x-10 gap-y-4 py-4 lg:grid-cols-[14rem_minmax(0,1fr)]">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-4 pb-4 pt-7 lg:grid-cols-[14rem_minmax(0,1fr)]">
             <aside className="lg:sticky lg:top-4 lg:self-start">
               <div className="flex items-center gap-2 no-print lg:hidden">
                 <button
@@ -562,22 +517,22 @@ function TechDigestPage() {
                     );
 
                     return (
-                      <section key={day} className="mb-6 last:mb-0">
+                      <section key={day} className="mb-12 last:mb-0">
                         {filters.range !== "latest" && (
-                          <h3 className="label-strong mb-1 border-b border-ink pb-2">
+                          <h3 className="label-strong mb-4 border-b border-rule-2 pb-2">
                             {relativeDayLabel(day)}
                           </h3>
                         )}
                         {split ? (
                           <>
-                            <div className="band mb-1 mt-2 px-2.5 py-1">
+                            <div className="lane-head mb-3 mt-1">
                               <span className="chip text-signal">Lead</span>
                             </div>
                             <ul className="grid gap-x-10 xl:grid-cols-2">
                               {lead.map((it) => row(it, true))}
                             </ul>
-                            <div className="band mb-1 mt-5 px-2.5 py-1">
-                              <span className="chip text-lane">
+                            <div className="lane-head mb-3 mt-9">
+                              <span className="chip text-ink-3">
                                 Also in the brief
                               </span>
                             </div>
@@ -752,39 +707,25 @@ function Pagination({
  * the "Company" field in the control rail — this is a second way in, not a
  * second filter model.
  */
-/* The day's numbers read as a row of figures rather than a gray sentence.
-   Signal red stays on its one job: it appears here only when the day
-   actually has a must-read. */
+/* A quiet utility readout beside the brief, not a stat panel under it.
+   Signal red appears only when the day actually has a must-read. */
 function SignalReadout({ s }: { s: SignalStats }) {
-  const unit = (value: string, label: string, accent = false) => (
-    <span className="flex items-baseline gap-1.5">
+  const row = (value: string, label: string, accent = false) => (
+    <div className="flex items-baseline justify-between gap-3 border-b border-rule py-1.5 last:border-b-0">
+      <span className="font-ui text-micro uppercase tracking-[0.06em] text-ink-3">{label}</span>
       <span
-        className={`font-display text-meta font-bold tabular-nums ${
-          accent ? "text-signal" : "text-ink"
-        }`}
+        className={`font-display text-meta font-semibold tabular-nums ${accent ? "text-signal" : "text-ink-2"}`}
       >
         {value}
       </span>
-      <span className="font-ui text-micro uppercase tracking-[0.04em] text-ink-3">{label}</span>
-    </span>
+    </div>
   );
-  const rule = <span aria-hidden className="h-3 w-px bg-rule" />;
-  const trend = Math.abs(s.delta) < 0.15 ? "level with" : s.delta > 0 ? "above" : "below";
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-      {unit(String(s.todayCount), "stories")}
-      {rule}
-      {unit(String(s.mustReads), "must read", s.mustReads > 0)}
-      {rule}
-      {unit(s.todayAvg.toFixed(1), "avg")}
-      {s.baselineDays > 0 && (
-        <>
-          {rule}
-          <span className="font-ui text-micro text-ink-3">
-            {trend} {s.baselineDays}-day avg {s.baselineAvg.toFixed(1)}
-          </span>
-        </>
-      )}
+    <div className="border-t border-rule">
+      {row(String(s.todayCount), "stories")}
+      {row(String(s.mustReads), "must read", s.mustReads > 0)}
+      {row(s.todayAvg.toFixed(1), "avg signal")}
+      {s.baselineDays > 0 && row(s.baselineAvg.toFixed(1), `${s.baselineDays}-day avg`)}
     </div>
   );
 }
@@ -801,10 +742,10 @@ function CompanyPanel({
   if (companies.length === 0) return null;
   return (
     <div className="no-print">
-      <div className="band px-2.5 py-1.5">
+      <div className="lane-head">
         <p className="label-strong">Companies in range</p>
       </div>
-      <ul className="mt-1">
+      <ul className="mt-1.5">
         {companies.map(([name, count]) => (
           <li key={name}>
             <button

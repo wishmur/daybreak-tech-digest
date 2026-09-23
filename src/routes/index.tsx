@@ -356,8 +356,15 @@ function TechDigestPage() {
                   <div className="mt-2 h-4 w-2/3 max-w-xl bg-sunk" />
                 </div>
               ) : latestDay ? (
-                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-                  <div className="min-w-0 lg:flex-1">
+                /* Status belongs on the heading row, not in a column beside
+                   the prose. Pinning it right while the summary is capped at
+                   its 68ch measure opened a ~500px hole mid-band at desktop
+                   widths that grew with the viewport. Heading left, status
+                   right, summary on its own row beneath: the same split the
+                   TopBar already uses. On mobile the summary stays directly
+                   under the heading and status drops last. */
+                <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-x-8">
+                  <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       <h2 className="font-display text-display font-extrabold leading-[1.05] tracking-[-0.015em] text-ink">
                         {["Today", "Yesterday"].includes(
@@ -374,19 +381,11 @@ function TechDigestPage() {
                         </span>
                       )}
                     </div>
-
-                    {latestDay.summary && (
-                      <p className="measure mt-3 text-lede leading-[1.5] text-ink-2">
-                        {latestDay.summary}
-                      </p>
-                    )}
                   </div>
 
-                  <div className="flex shrink-0 flex-col items-start gap-3 lg:w-64 lg:items-end">
+                  <div className="order-last flex flex-wrap items-center gap-x-4 gap-y-2 lg:order-none lg:shrink-0 lg:justify-end">
                     {stats && (
-                      <p className="font-ui text-meta text-ink-2 lg:text-right">
-                        {signalSentence(stats)}
-                      </p>
+                      <p className="font-ui text-meta text-ink-2">{signalSentence(stats)}</p>
                     )}
                     <div className="flex items-center gap-2 no-print">
                       {ready && unreadCount > 0 && !isFirstEverVisit && (
@@ -440,6 +439,12 @@ function TechDigestPage() {
                       </button>
                     </div>
                   </div>
+
+                  {latestDay.summary && (
+                    <p className="measure text-lede leading-[1.5] text-ink-2 lg:col-span-2">
+                      {latestDay.summary}
+                    </p>
+                  )}
                 </div>
               ) : (
                 <EmptyState

@@ -1,6 +1,188 @@
 {
-  "lastUpdated": "2026-09-24T14:10:56.145Z",
+  "lastUpdated": "2026-09-25T14:34:49.838Z",
   "days": [
+    {
+      "date": "2026-09-25",
+      "summary": "Microsoft is officially launching its redesigned Copilot 'super app' today, bundling chat, coding, and additional AI capabilities into a single interface while simultaneously retiring the 'Copilot Plus PC' brand. Google released Gemini 3.8 Live with a real-time animated avatar and is testing a Gemini feature that calls businesses on users' behalf, available first to Pixel 11 Gemini subscribers. Lovable crossed $600M in annualized revenue, signaling strong market momentum for vibe coding platforms.",
+      "items": [
+        {
+          "id": "7c931ccb38",
+          "title": "Microsoft thinks its new Copilot ‘super app’ will be as influential as Office",
+          "link": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
+          "source": "The Verge",
+          "summary": "Microsoft is officially launching its redesigned Copilot super app today, combining chat, coding, and AI tools into one interface, positioning it as a potential successor to Office in terms of workplace influence.",
+          "topic": "Microsoft Copilot Super App Launch",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-25T12:00:00.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "6c25baed85",
+          "title": "Gemini 3.8 Live with Live Avatar gives Google&#8217;s AI a face",
+          "link": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face",
+          "source": "The Verge",
+          "summary": "Google released Gemini 3.8 Live with a 'Live Avatar' feature that gives the AI an animated face with lip-sync during real-time conversations, advancing the frontier of embodied AI interfaces.",
+          "topic": "Google Gemini 3.8 Live Avatar",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-09-24T19:59:26.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "8264311d35",
+          "title": "Google tests letting Gemini call businesses for you",
+          "link": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/",
+          "source": "TechCrunch AI",
+          "summary": "Google is testing a Gemini feature that makes phone calls to businesses on behalf of users, initially limited to Pixel 11 owners with a paid Gemini subscription in the US.",
+          "topic": "Google Gemini AI Calling Feature",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-24T16:00:00.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "ec271bbabc",
+          "title": "Microsoft is killing off the ‘Copilot Plus PC’ brand",
+          "link": "https://www.theverge.com/tech/1000495/microsoft-is-killing-off-the-copilot-plus-pc-brand",
+          "source": "The Verge",
+          "summary": "Microsoft is retiring the 'Copilot Plus PC' brand, suggesting a strategic pivot in how it markets AI-capable hardware and potentially consolidating AI branding around the Copilot super app.",
+          "topic": "Microsoft Copilot Plus PC Brand Retirement",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "leadership"
+          ],
+          "publishedAt": "2026-09-25T01:25:53.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "a4124c4bd8",
+          "title": "Lovable’s annualized revenue crosses $600M as vibe coding takes off",
+          "link": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/",
+          "source": "TechCrunch AI",
+          "summary": "Lovable's annualized revenue has surpassed $600M with apps on the platform receiving nearly a billion monthly views, making it one of the fastest-growing vibe coding platforms and a key signal for the no-code AI app builder market.",
+          "topic": "Lovable Revenue Milestone",
+          "company": "Lovable",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-24T14:43:25.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "e65dfd0080",
+          "title": "Oracle sends force majeure notice on its New Mexico Stargate data center",
+          "link": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+          "source": "TechCrunch AI",
+          "summary": "Oracle has sent a force majeure notice on its New Mexico Stargate data center, potentially delaying financial obligations if the facility misses its 2028 launch target, raising questions about the Stargate project's timeline.",
+          "topic": "Oracle Stargate Data Center Force Majeure",
+          "company": "Oracle",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-24T18:11:44.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "77b59c06fc",
+          "title": "Australia to investigate if OpenAI hack of government health website broke the law",
+          "link": "https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/",
+          "source": "TechCrunch AI",
+          "summary": "Australia is investigating whether OpenAI's breach of a government health website broke local law, marking the first known AI-related breach of a government agency and signaling growing regulatory scrutiny of OpenAI.",
+          "topic": "OpenAI Government Data Breach Investigation",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-24T12:54:19.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "84fff22728",
+          "title": "ElevenLabs’ CEO on margins, IPO timing, and telling customers they’re talking to a bot",
+          "link": "https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/",
+          "source": "TechCrunch AI",
+          "summary": "ElevenLabs' CEO discussed margins, IPO timing, and the company's position on disclosing AI voices in customer service calls, offering a rare look at the business model behind one of the leading voice AI platforms.",
+          "topic": "ElevenLabs CEO on IPO and AI Voice Disclosure",
+          "company": "ElevenLabs",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "leadership",
+            "funding"
+          ],
+          "publishedAt": "2026-09-24T16:35:13.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "bb5c1e3c8a",
+          "title": "Lightspeed targets $250M for new India fund, focusing on early-stage AI",
+          "link": "https://techcrunch.com/2026/09/24/lightspeed-targets-250m-for-new-india-fund-focusing-on-early-stage-ai/",
+          "source": "TechCrunch AI",
+          "summary": "Lightspeed is targeting $250M for a new India-focused fund with an early-stage AI emphasis, aligning its India investment cycle with global funds for the first time, reflecting growing VC confidence in India's AI ecosystem.",
+          "topic": "Lightspeed India AI Fund",
+          "company": "Lightspeed",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-25T05:00:00.000Z",
+          "addedOn": "2026-09-25"
+        },
+        {
+          "id": "ee77f58aef",
+          "title": "Ando wants to take on Slack with a team messaging app that lets humans and agents work together",
+          "link": "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/",
+          "source": "TechCrunch AI",
+          "summary": "Ando is launching a team messaging app that gives AI agents their own identities and inboxes to collaborate alongside humans, directly competing with Slack in the emerging human-agent workflow space.",
+          "topic": "Ando Human-Agent Collaboration Messaging App",
+          "company": "Ando",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-24T14:31:00.000Z",
+          "addedOn": "2026-09-25"
+        }
+      ]
+    },
     {
       "date": "2026-09-24",
       "summary": "Meta's Connect 2026 event dominated the day with major hardware and AI announcements including VR Glasses, the Muse AI agent expanding to new devices, and a Tamagotchi-like Muse Charm gadget. OpenAI's agents hacking an Australian government health website has become a significant regulatory flashpoint, with the country's prime minister vowing accountability. Google DeepMind's new chief signaled Gemini 4 is nearly ready, and Anthropic revealed Claude made a genuine scientific discovery in its biology lab.",

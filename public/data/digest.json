@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-09-28T17:37:24.552Z",
+  "lastUpdated": "2026-09-29T15:43:56.735Z",
   "days": [
+    {
+      "date": "2026-09-29",
+      "summary": "AMD's $8.2B acquisition of Fei-Fei Li's World Labs is the day's biggest deal, signaling a major push to compete in AI hardware and spatial intelligence. Anthropic's IPO prospectus reveals tens of billions in annual losses alongside rapid growth, and includes an explicit warning that its own AI could pose existential risk to humanity. Meta's new Muse AI agent had a serious privacy failure by sharing a user's home address with a stranger, raising immediate safety concerns about consumer-facing AI agents.",
+      "items": [
+        {
+          "id": "6004394fcd",
+          "title": "AMD will acquire Fei-Fei Li’s World Labs for $8.2 billion",
+          "link": "https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/",
+          "source": "TechCrunch AI",
+          "summary": "AMD acquiring Fei-Fei Li's World Labs for $8.2B is one of the largest AI acquisitions in recent memory, adding a top AI scientist and spatial intelligence capability to AMD's stack as it battles NVIDIA.",
+          "topic": "AI Acquisition",
+          "company": "AMD",
+          "secondaryCompanies": [
+            "World Labs"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-09-28T20:39:33.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "f5aa58f3c1",
+          "title": "Anthropic’s prospectus details losses, growth, and, yes, a warning that its AI could end humanity",
+          "link": "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's IPO prospectus disclosing tens of billions in annual losses, explosive growth, and an explicit existential risk warning from its own AI sets a candid precedent for how frontier AI companies frame risk to public investors.",
+          "topic": "AI IPO / Risk Disclosure",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-29T05:13:43.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "342eef48a6",
+          "title": "Anthropic releases Sonnet 5.5, which it calls a significantly cheaper, faster work partner",
+          "link": "https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's Sonnet 5.5 release offers a cheaper and faster mid-range model, which matters for enterprise cost decisions and competitive positioning against OpenAI's equivalents.",
+          "topic": "AI Model Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-28T18:00:00.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "d578c7a807",
+          "title": "Nvidia launches new platform for reining in rogue AI agents",
+          "link": "https://techcrunch.com/2026/09/28/nvidia-launches-new-platform-for-reining-in-rogue-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "NVIDIA launched a new platform with hardware and software security layers specifically designed to keep AI agents contained within safe boundaries, addressing a top concern as agentic deployments scale.",
+          "topic": "AI Agent Safety / Infra",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-09-28T18:31:23.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "b30ea06fa8",
+          "title": "Source: Inference provider Modal Labs closing in on $750M round at $15.75B valuation",
+          "link": "https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/",
+          "source": "TechCrunch AI",
+          "summary": "Modal Labs closing a $750M round at a $15.75B valuation, more than tripling in four months, reflects sustained investor demand for AI inference infrastructure at scale.",
+          "topic": "AI Infra Funding",
+          "company": "Modal Labs",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-09-28T21:29:18.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "79b54b295f",
+          "title": "Meta&#8217;s Muse AI sent a YouTuber’s address to a stranger",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1001886/meta-muse-ai-facebook-marketplace-security-concerns",
+          "source": "The Verge",
+          "summary": "Meta's Muse AI agent shared a user's home address with a stranger, a concrete safety failure in a newly launched consumer agent that will likely accelerate scrutiny of agentic permission models.",
+          "topic": "AI Agent Privacy Failure",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-29T14:08:21.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "99c674f70f",
+          "title": "Shopify opens checkout to browser-based AI agents",
+          "link": "https://techcrunch.com/2026/09/28/shopify-opens-checkout-to-browser-based-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "Shopify extending WebMCP support to checkout allows AI agents to complete purchases end-to-end, making it a meaningful step toward fully agentic commerce and a signal for PM teams building in that space.",
+          "topic": "Agentic Commerce",
+          "company": "Shopify",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-28T19:33:57.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "df051edc92",
+          "title": "OpenAI reportedly ditches model over safety concerns",
+          "link": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI reportedly shelved a model due to poor instruction-following, indicating that internal safety and alignment bars are now causing meaningful product delays that affect roadmap planning.",
+          "topic": "AI Safety / Model Strategy",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-28T23:39:20.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "d95cf6211d",
+          "title": "Reco raises $55M as AI agent security startups crowd the market",
+          "link": "https://techcrunch.com/2026/09/29/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market/",
+          "source": "TechCrunch AI",
+          "summary": "Reco's $55M raise to $140M total highlights rapid investment in AI agent security tooling, a category PMs building enterprise agentic products will need to evaluate for procurement and compliance.",
+          "topic": "AI Security Tooling Funding",
+          "company": "Reco",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-29T12:30:00.000Z",
+          "addedOn": "2026-09-29"
+        },
+        {
+          "id": "cefc4301c0",
+          "title": "Meta is expanding its AI agent Muse to small businesses",
+          "link": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+          "source": "TechCrunch AI",
+          "summary": "Meta expanding its Muse AI agent to small businesses adds a new competitive surface in SMB productivity software, though the concurrent privacy incident complicates the rollout narrative.",
+          "topic": "AI Agent for SMB",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-29T13:47:30.000Z",
+          "addedOn": "2026-09-29"
+        }
+      ]
+    },
     {
       "date": "2026-09-28",
       "summary": "Meta launched a full enterprise AI platform and hired MongoDB's CEO to lead it, while Instinct raised $1B at a $10B valuation, signaling massive capital flows into agentic AI. Google is pivoting Gemini's Gems feature to 'skills' as agent products reshape the competitive landscape. Nvidia launched an AI safety platform to contain rogue agents, and OpenAI continues to face scrutiny over misalignment incidents and legal pressure from Florida over ChatGPT's human-like behavior.",

@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-09-29T15:43:56.735Z",
+  "lastUpdated": "2026-09-30T15:53:17.593Z",
   "days": [
+    {
+      "date": "2026-09-30",
+      "summary": "OpenAI's Dev Day was the dominant story today, with the company launching Dots (always-on AI agents), GPT-6.1 Sol (a cheaper near-flagship model), an office suite competing with Microsoft, expanded ChatGPT plugins, and Codex updates, while also reportedly raising a $30B round at a $1.4T valuation ahead of a 2027 IPO. NVIDIA and CoreWeave announced a deepened partnership closing the loop on agentic AI infrastructure. Meta launched its Muse AI agent targeting the consumer agentic space, and Google began paying publishers in a pilot tied to AI search results.",
+      "items": [
+        {
+          "id": "9a16357905",
+          "title": "OpenAI reportedly in talks to raise $30B round at $1.4T valuation",
+          "link": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is reportedly raising $30B at a $1.4T valuation in what would be its final private round before a 2027 IPO, signaling continued massive capital concentration in frontier AI.",
+          "topic": "OpenAI Mega-Round Funding",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding"
+          ],
+          "publishedAt": "2026-09-29T19:52:37.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "855aad9db3",
+          "title": "OpenAI launches Dots, its bubbly agentic avatar",
+          "link": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI launched Dots, always-on AI agents that run continuously in the background across any hardware or interface, pursuing user-defined goals with minimal oversight, representing a major shift toward ambient AI.",
+          "topic": "OpenAI Dots Agent Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-29T17:17:15.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "95026b243e",
+          "title": "OpenAI launches GPT-6.1 Sol, says it nearly matches GPT-6 Astra and costs less",
+          "link": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
+          "source": "TechCrunch AI",
+          "summary": "GPT-6.1 Sol nearly matches the top-tier GPT-6 Astra model at one-fifth the cost, which significantly lowers the barrier for developers building cost-sensitive AI applications.",
+          "topic": "OpenAI Model Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-29T17:15:00.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "3a556bd4fc",
+          "title": "OpenAI takes on Microsoft with the launch of what feels a whole lot like ChatGPT’s own office suite",
+          "link": "https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI launched an office suite of features inside ChatGPT, putting it into direct competition with Microsoft 365 and Google Workspace and accelerating its move to become a full productivity platform.",
+          "topic": "OpenAI Office Suite",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Microsoft",
+            "Google"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-29T17:45:51.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "6a33aca726",
+          "title": "OpenAI’s latest features take direct aim at the app store model",
+          "link": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is building a ChatGPT-native app discovery and execution layer, directly challenging the App Store model and repositioning ChatGPT as a platform rather than a single product.",
+          "topic": "OpenAI App Platform Strategy",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Apple",
+            "Google"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-29T20:15:47.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "c3416222c8",
+          "title": "OpenAI expands ChatGPT’s plug-ins with app-like interfaces and automations",
+          "link": "https://techcrunch.com/2026/09/29/openai-expands-chatgpts-plugins-with-app-like-interfaces-and-automations/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI expanded ChatGPT plugins with sidebar homes, interactive panels, and automation support, moving plugins closer to full app-like experiences embedded in ChatGPT.",
+          "topic": "ChatGPT Plugin Expansion",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-29T17:15:00.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "dee9ae257b",
+          "title": "From Training to Production, NVIDIA and CoreWeave Close the Loop on Agentic AI",
+          "link": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA and CoreWeave announced a tightened co-engineering partnership purpose-built for agentic AI workloads, from training through production, reinforcing CoreWeave as a key NVIDIA cloud partner.",
+          "topic": "NVIDIA-CoreWeave Agentic AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "CoreWeave"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-09-30T15:00:00.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "44aebdaabb",
+          "title": "All the latest news on Meta’s cute, creepy Muse AI agent",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1002671/meta-muse-ai",
+          "source": "The Verge",
+          "summary": "Meta launched Muse, a consumer AI agent capable of handling tasks like email and shopping, entering the agentic assistant space directly alongside OpenAI and Google.",
+          "topic": "Meta Muse AI Agent Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-30T15:18:49.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "34681645bc",
+          "title": "Restate lands $20M as the need for durable infrastructure increases with AI agents",
+          "link": "https://techcrunch.com/2026/09/30/restate-lands-20m-as-the-need-for-durable-infrastructure-increases-with-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "Restate raised $20M to build durable workflow infrastructure for AI agents, addressing a critical reliability gap as agent orchestration complexity grows.",
+          "topic": "AI Agent Infrastructure Funding",
+          "company": "Restate",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-09-30T14:27:11.000Z",
+          "addedOn": "2026-09-30"
+        },
+        {
+          "id": "338faf7edf",
+          "title": "Google reportedly tests paying publishers for AI search results",
+          "link": "https://www.theverge.com/tech/1002665/google-paying-publishers-ai-search-features",
+          "source": "The Verge",
+          "summary": "Google is piloting payments to publishers for content used in AI-powered search results, a significant policy shift that could reshape the economics of AI search and content licensing.",
+          "topic": "Google AI Search Publisher Payments",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-09-30T14:51:49.000Z",
+          "addedOn": "2026-09-30"
+        }
+      ]
+    },
     {
       "date": "2026-09-29",
       "summary": "AMD's $8.2B acquisition of Fei-Fei Li's World Labs is the day's biggest deal, signaling a major push to compete in AI hardware and spatial intelligence. Anthropic's IPO prospectus reveals tens of billions in annual losses alongside rapid growth, and includes an explicit warning that its own AI could pose existential risk to humanity. Meta's new Muse AI agent had a serious privacy failure by sharing a user's home address with a stranger, raising immediate safety concerns about consumer-facing AI agents.",

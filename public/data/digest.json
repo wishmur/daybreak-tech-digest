@@ -1,6 +1,194 @@
 {
-  "lastUpdated": "2026-09-30T15:53:17.593Z",
+  "lastUpdated": "2026-10-01T16:22:04.083Z",
   "days": [
+    {
+      "date": "2026-10-01",
+      "summary": "Google released Gemini 4 Argon, its most powerful model yet, positioned for coding and cybersecurity work, intensifying the model competition with OpenAI. OpenAI's DevDay introduced a personal assistant agent ('Dot') and a Decisions API aimed at coordinating swarms of agents, signaling a clear pivot toward agentic products. ElevenLabs doubled its valuation to $22B on a $300M tender, and Flow Engineering raised at a $750M valuation, reflecting continued heavy investment in AI tooling and infrastructure.",
+      "items": [
+        {
+          "id": "b0e8a6f4f5",
+          "title": "Google releases Gemini 4 Argon, called its most powerful model yet",
+          "link": "https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/",
+          "source": "TechCrunch AI",
+          "summary": "Google released Gemini 4 Argon, marketed as its most capable model, focused on coding and cybersecurity, putting direct pressure on OpenAI and Anthropic in the developer and enterprise segments.",
+          "topic": "AI Model Release",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-09-30T23:43:07.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "cdc4b946eb",
+          "title": "OpenAI’s new agent is a shot at Meta — but can it compete with free?",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1003399/meta-openai-ai-agents-muse-dots-battle",
+          "source": "The Verge",
+          "summary": "OpenAI's DevDay introduced 'Dot,' a personal AI assistant agent, along with new developer APIs including a Decisions API for coordinating multi-agent systems, representing a significant product direction shift toward agentic AI.",
+          "topic": "OpenAI DevDay Launches",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-01T14:36:50.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "7b98304de6",
+          "title": "AI voice startup ElevenLabs doubles valuation to $22B",
+          "link": "https://techcrunch.com/2026/09/30/ai-voice-startup-elevenlabs-doubles-valuation-to-22b/",
+          "source": "TechCrunch AI",
+          "summary": "ElevenLabs doubled its valuation to $22B via a $300M employee tender co-led by Wellington and T. Rowe Price, confirming strong investor appetite for AI voice infrastructure.",
+          "topic": "AI Voice Startup Funding",
+          "company": "ElevenLabs",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "launch"
+          ],
+          "publishedAt": "2026-09-30T18:23:57.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "1531fa6060",
+          "title": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation",
+          "link": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/",
+          "source": "TechCrunch AI",
+          "summary": "Flow Engineering raised funding at a $750M valuation with backing from Sequoia, Valor, and Atreides to bring AI agents into hardware design, a largely untapped vertical for agentic AI.",
+          "topic": "AI Agent Funding",
+          "company": "Flow Engineering",
+          "secondaryCompanies": [
+            "Sequoia"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-09-30T21:07:40.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "b8d72f3674",
+          "title": "OpenAI’s Jev clone could help the frontier lab stop its swarming agents",
+          "link": "https://techcrunch.com/2026/09/30/openais-jev-clone-could-help-the-frontier-lab-stop-its-swarming-agents/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI's Decisions API mirrors the Jev model approach, validating fast and cheap intelligence as a core architectural requirement for managing fleets of AI agents.",
+          "topic": "AI Agent Infrastructure",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-30T19:00:57.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "8d5d6dc5b1",
+          "title": "Airbnb adds AI search, more social features",
+          "link": "https://techcrunch.com/2026/09/30/airbnb-adds-ai-search-more-social-features/",
+          "source": "TechCrunch AI",
+          "summary": "Airbnb launched AI-powered search and social features alongside new on-demand services, showing how a major consumer platform is embedding AI to expand its product surface.",
+          "topic": "Consumer AI Product",
+          "company": "Airbnb",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-09-30T12:00:00.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "68dcdac188",
+          "title": "DoorDash launches an AI agent you can text to order food",
+          "link": "https://techcrunch.com/2026/09/30/doordash-launches-an-ai-agent-you-can-text-to-order-food/",
+          "source": "TechCrunch AI",
+          "summary": "DoorDash launched an AI agent accessible via text message for food ordering, a direct competitive move against Uber Eats and Grubhub using conversational AI as a distribution channel.",
+          "topic": "AI Agent Product Launch",
+          "company": "DoorDash",
+          "secondaryCompanies": [
+            "Uber Eats",
+            "Grubhub"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-09-30T16:00:24.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "96de1cedcb",
+          "title": "The ugly economics of consumer AI",
+          "link": "https://techcrunch.com/2026/09/30/the-ugly-economics-of-consumer-ai/",
+          "source": "TechCrunch AI",
+          "summary": "An analysis of why consumer AI economics are unfavorable for frontier labs explains the hesitancy to invest in consumer-facing products despite capable underlying technology, relevant context for any PM building or pitching consumer AI.",
+          "topic": "Consumer AI Economics",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-09-30T17:24:45.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "09276384e4",
+          "title": "Amazon Aurora PostgreSQL now supports direct querying of Apache Iceberg and Parquet data in your data lake",
+          "link": "https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-now-supports-direct-querying-of-apache-iceberg-and-parquet-data-in-your-data-lake/",
+          "source": "AWS News",
+          "summary": "Amazon Aurora PostgreSQL now supports direct querying of Apache Iceberg and Parquet files in S3 data lakes without ETL, reducing data pipeline complexity for teams running analytics alongside operational databases.",
+          "topic": "AWS Data Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-09-30T17:22:31.000Z",
+          "addedOn": "2026-10-01"
+        },
+        {
+          "id": "052ead0cac",
+          "title": "Productive, Durable, Fungible: How NVIDIA AI Factories Maximize Return on Investment",
+          "link": "https://blogs.nvidia.com/blog/productive-durable-fungible-ai-factories/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA published a framework for maximizing ROI on AI factories, detailing how megawatt-scale GPU infrastructure should be architected for productivity, durability, and flexibility, useful context for PMs evaluating AI infra investments.",
+          "topic": "AI Infrastructure Strategy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-01T13:00:49.000Z",
+          "addedOn": "2026-10-01"
+        }
+      ]
+    },
     {
       "date": "2026-09-30",
       "summary": "OpenAI's Dev Day was the dominant story today, with the company launching Dots (always-on AI agents), GPT-6.1 Sol (a cheaper near-flagship model), an office suite competing with Microsoft, expanded ChatGPT plugins, and Codex updates, while also reportedly raising a $30B round at a $1.4T valuation ahead of a 2027 IPO. NVIDIA and CoreWeave announced a deepened partnership closing the loop on agentic AI infrastructure. Meta launched its Muse AI agent targeting the consumer agentic space, and Google began paying publishers in a pilot tied to AI search results.",

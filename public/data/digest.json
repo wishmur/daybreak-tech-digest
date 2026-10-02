@@ -1,6 +1,189 @@
 {
-  "lastUpdated": "2026-10-01T16:22:04.083Z",
+  "lastUpdated": "2026-10-02T15:44:43.801Z",
   "days": [
+    {
+      "date": "2026-10-02",
+      "summary": "OpenAI's GPT-6 Astra Ultrafast is now live on NVIDIA Blackwell GPUs, marking a significant model launch for both companies. ChatGPT added virtual try-on shopping features, and OpenAI also cut three safety researchers after an internal investigation. AWS launched a Well-Architected Agent for cloud optimization and published a notable public defense of AI data center expansion.",
+      "items": [
+        {
+          "id": "8efce2651a",
+          "title": "How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast",
+          "link": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+          "source": "NVIDIA Blog",
+          "summary": "GPT-6 Astra Ultrafast is now available via the OpenAI API on NVIDIA Blackwell GPUs, a major milestone for both companies in inference-optimized model deployment.",
+          "topic": "AI Model Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-01T23:44:13.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "a4548c3830",
+          "title": "ChatGPT can now virtually try on clothes for you",
+          "link": "https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/",
+          "source": "TechCrunch AI",
+          "summary": "ChatGPT now lets users virtually try on clothing using their own photos and save favorites, expanding OpenAI's push into consumer commerce and product discovery.",
+          "topic": "AI Product Feature",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-01T19:21:53.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "b56eb6fb25",
+          "title": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
+          "link": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI parted ways with three safety researchers following an internal investigation into mishandling of sensitive company information, raising questions about safety culture amid rapid scaling.",
+          "topic": "AI Safety / Leadership",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-01T18:14:42.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "d710ba74a0",
+          "title": "Announcing AWS Well-Architected Agent, an AI-powered intelligence to optimize your cloud environment (preview)",
+          "link": "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview/",
+          "source": "AWS News",
+          "summary": "AWS launched a public preview of its Well-Architected Agent, an AI tool that analyzes cloud environments and provides targeted optimization recommendations, directly useful for engineering and platform teams.",
+          "topic": "AI Tooling / Cloud",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-01T20:04:04.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "e9d4e012b4",
+          "title": "NVIDIA DGX Spark 64GB Gives Developers More Ways to Build and Scale Local AI",
+          "link": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA expanded the DGX Spark lineup with a 64GB model aimed at developers running AI agents and large open models locally, broadening accessible local AI compute options.",
+          "topic": "AI Hardware",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-02T13:00:39.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "53b624def7",
+          "title": "Amazon writes scary blog warning communities not to block data centers",
+          "link": "https://www.theverge.com/tech/1003929/amazon-ai-data-center-blog-warning",
+          "source": "The Verge",
+          "summary": "AWS CEO published a 3,000-word public argument framing AI data center opposition as a threat to US economic and national security, signaling aggressive lobbying for infrastructure expansion.",
+          "topic": "AI Infrastructure Policy",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-02T11:52:20.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "d807344c9c",
+          "title": "Amazon releases its own Jev clone as decision models flood the web",
+          "link": "https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon Web Services' Strand Labs released Strands Decider 2B, a decision model joining a growing wave of Jev-style autonomous decision-making models that PMs should track as agentic infrastructure matures.",
+          "topic": "AI Decision Models",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-01T16:49:22.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "4aa9873d30",
+          "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+          "link": "https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/",
+          "source": "TechCrunch AI",
+          "summary": "Shopify launched Canvas, an AI-powered store builder where merchants converse with the Sidekick agent to build and edit storefronts in real time, a practical example of agentic product UX.",
+          "topic": "AI Product Builder",
+          "company": "Shopify",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-01T16:44:35.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "e0ffe3730f",
+          "title": "Brian Chesky interview: AI agents need their own operating system",
+          "link": "https://techcrunch.com/2026/10/01/brian-chesky-interview-ai-agents-need-their-own-operating-system/",
+          "source": "TechCrunch AI",
+          "summary": "Airbnb CEO Brian Chesky argues AI agents need their own native operating system and is working to make Airbnb agent-friendly, a strategic signal about where consumer product platforms are heading.",
+          "topic": "AI Strategy / Product Vision",
+          "company": "Airbnb",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-01T15:12:00.000Z",
+          "addedOn": "2026-10-02"
+        },
+        {
+          "id": "3f4ea9f16a",
+          "title": "Photon held a funeral for mobile apps. Now it has $4.5M to help replace them with agents.",
+          "link": "https://techcrunch.com/2026/10/01/photon-held-a-funeral-for-mobile-apps-now-it-has-4-5m-to-help-replace-them-with-agents/",
+          "source": "TechCrunch AI",
+          "summary": "Photon raised $4.5M to build AI agents delivered over SMS, iMessage, and email instead of apps, a small but directionally notable bet on messaging as the new app distribution layer.",
+          "topic": "AI Agent Startup",
+          "company": "Photon",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-01T14:00:00.000Z",
+          "addedOn": "2026-10-02"
+        }
+      ]
+    },
     {
       "date": "2026-10-01",
       "summary": "Google released Gemini 4 Argon, its most powerful model yet, positioned for coding and cybersecurity work, intensifying the model competition with OpenAI. OpenAI's DevDay introduced a personal assistant agent ('Dot') and a Decisions API aimed at coordinating swarms of agents, signaling a clear pivot toward agentic products. ElevenLabs doubled its valuation to $22B on a $300M tender, and Flow Engineering raised at a $750M valuation, reflecting continued heavy investment in AI tooling and infrastructure.",

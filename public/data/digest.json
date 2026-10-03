@@ -1,6 +1,195 @@
 {
-  "lastUpdated": "2026-10-02T15:44:43.801Z",
+  "lastUpdated": "2026-10-03T14:17:50.032Z",
   "days": [
+    {
+      "date": "2026-10-03",
+      "summary": "OpenAI launched Dots, an enterprise agent platform with consumer features like dinner ordering, while Meta open sourced its Muse AI agent code to enable third-party gadget development. Apple is tightening macOS Full Disk Access controls in direct response to risks from increasingly capable AI agents, and Germany's Aleph Alpha released Kolibri, a sovereign open-weight model, signaling continued European push for AI independence.",
+      "items": [
+        {
+          "id": "edef5e5d62",
+          "title": "OpenAI’s Dot agent is enterprise software that can also order your dinner",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent",
+          "source": "The Verge",
+          "summary": "OpenAI launched Dots, an agent platform targeting enterprise users while also enabling everyday tasks like ordering food, indicating OpenAI is moving to own the agentic layer across work and consumer contexts.",
+          "topic": "AI Agent Platform Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-02T18:00:00.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "572d71e257",
+          "title": "Meta open sources code to let you make Muse AI gadgets",
+          "link": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link",
+          "source": "The Verge",
+          "summary": "Meta open sourced its Muse AI agent code, inviting developers and hardware makers to embed the agent into physical gadgets, a move that could accelerate ambient AI device adoption.",
+          "topic": "Meta Muse Open Source",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-02T21:08:37.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "6a225a11d9",
+          "title": "Apple says it’s tightening macOS ‘Full Disk Access’ controls due to new risks from AI agents",
+          "link": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "Apple is adding new macOS Full Disk Access restrictions specifically because AI agents pose substantial new risks to user data including files, messages, mail, and browsing history, a significant platform-level policy shift.",
+          "topic": "AI Security Platform Policy",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-02T18:11:27.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "acd05619cf",
+          "title": "Kolibri Has Landed: A Sovereign Open-Weight Model",
+          "link": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+          "source": "Hacker News",
+          "summary": "Aleph Alpha released Kolibri, a sovereign open-weight model positioned as Germany's national AI, reflecting growing momentum for region-specific AI infrastructure outside US hyperscalers.",
+          "topic": "Sovereign Open-Weight Model",
+          "company": "Aleph Alpha",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-03T09:36:04.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "f8f9945809",
+          "title": "Sean Parker is rebuilding Stability AI around music",
+          "link": "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/",
+          "source": "TechCrunch AI",
+          "summary": "Sean Parker has taken over Stability AI and is pivoting it toward music AI with backing from major record labels, representing a major leadership and strategic change at the struggling AI company.",
+          "topic": "Stability AI Leadership Pivot",
+          "company": "Stability AI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "product",
+            "funding"
+          ],
+          "publishedAt": "2026-10-02T21:09:14.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "398e0e7a69",
+          "title": "It’s not AI anymore, it’s ‘super intelligence’ (according to the White House)",
+          "link": "https://techcrunch.com/video/its-not-ai-anymore-its-super-intelligence-according-to-the-white-house/",
+          "source": "TechCrunch AI",
+          "summary": "The White House convened major tech CEOs including leaders from Anthropic, Meta, and Amazon to sign an AI safety pledge rebranded as 'super intelligence,' a political signal that could shape upcoming AI regulation.",
+          "topic": "AI Policy and Regulation",
+          "company": "White House",
+          "secondaryCompanies": [
+            "Anthropic",
+            "Meta",
+            "Amazon"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-02T17:48:16.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "d5cb8735d1",
+          "title": "From the creator of Redis; run LLM locally with ds4",
+          "link": "https://dwarfstar.sh/",
+          "source": "Hacker News",
+          "summary": "The creator of Redis launched Dwarfstar, a tool for running LLMs locally, addressing growing developer demand for on-device inference outside cloud dependencies.",
+          "topic": "Local LLM Tooling",
+          "company": "Dwarfstar",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-10-02T18:01:16.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "34ccb8032f",
+          "title": "Show HN: Offrun – manage every coding agent from one workspace",
+          "link": "https://offrun.dev/",
+          "source": "Hacker News",
+          "summary": "Offrun is a new workspace tool that lets developers run and manage multiple coding agents like Claude Code and Codex side by side, addressing a real coordination pain point as multi-agent coding workflows grow.",
+          "topic": "AI Coding Agent Tooling",
+          "company": "Offrun",
+          "secondaryCompanies": [
+            "Anthropic",
+            "OpenAI"
+          ],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-03T08:40:17.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "6c08f4cc37",
+          "title": "With most information hidden, the game Stratego had stumped AI until now",
+          "link": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/",
+          "source": "Hacker News",
+          "summary": "AI has now solved Stratego, a game with mostly hidden information, demonstrating advances in handling imperfect-information environments relevant to real-world agentic decision-making research.",
+          "topic": "AI Research Milestone",
+          "company": "DeepMind",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-02T14:11:24.000Z",
+          "addedOn": "2026-10-03"
+        },
+        {
+          "id": "cf700e0758",
+          "title": "Call it AI, call it Super Intelligence, only 2% of consumers are buying it",
+          "link": "https://techcrunch.com/podcast/call-it-ai-call-it-super-intelligence-only-2-of-consumers-are-buying-it/",
+          "source": "TechCrunch AI",
+          "summary": "Only 2% of consumers say they are actively buying AI or 'super intelligence' products despite massive industry investment, a key signal for PMs that consumer adoption remains far behind enterprise and developer enthusiasm.",
+          "topic": "AI Consumer Adoption",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-02T17:56:00.000Z",
+          "addedOn": "2026-10-03"
+        }
+      ]
+    },
     {
       "date": "2026-10-02",
       "summary": "OpenAI's GPT-6 Astra Ultrafast is now live on NVIDIA Blackwell GPUs, marking a significant model launch for both companies. ChatGPT added virtual try-on shopping features, and OpenAI also cut three safety researchers after an internal investigation. AWS launched a Well-Architected Agent for cloud optimization and published a notable public defense of AI data center expansion.",

@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-10-03T14:17:50.032Z",
+  "lastUpdated": "2026-10-04T14:46:52.355Z",
   "days": [
+    {
+      "date": "2026-10-04",
+      "summary": "An OpenAI safety employee resigned publicly this week, citing a broken internal culture and raising fresh concerns about the company's safety practices around model releases. AWS CEO pushed back on data center NDA criticism, signaling continued pressure on cloud infrastructure transparency. Anthropic met with religious scholars, reflecting growing efforts by frontier AI labs to engage external stakeholders on values and safety questions.",
+      "items": [
+        {
+          "id": "6b3471ffae",
+          "title": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+          "link": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+          "source": "TechCrunch AI",
+          "summary": "A former OpenAI safety employee resigned and went public with claims that the company's safety culture is broken, which is a material reputational and regulatory risk signal for any PM building on OpenAI's platform.",
+          "topic": "OpenAI Safety Culture",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-03T16:30:01.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "f8fc0aa18d",
+          "title": "An OpenAI safety employee has quit and is sounding the alarm",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1004408/openai-safety-quits-sounding-the-alarm",
+          "source": "The Verge",
+          "summary": "David Robinson, who authored OpenAI's safety reports for major model releases, resigned and is speaking out publicly, adding credibility and detail to concerns about how safety is weighed against shipping velocity at OpenAI.",
+          "topic": "OpenAI Safety Resignation",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-03T14:31:56.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "f31587f812",
+          "title": "Amazon responds to data center backlash, says it no longer uses NDAs",
+          "link": "https://techcrunch.com/2026/10/03/amazon-responds-to-data-center-backlash-says-it-no-longer-uses-ndas/",
+          "source": "TechCrunch AI",
+          "summary": "AWS CEO publicly addressed criticism around data center NDA practices, which matters to PMs evaluating cloud infrastructure partners as transparency and community relations increasingly affect enterprise procurement decisions.",
+          "topic": "AWS Data Center Transparency",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "AWS"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-03T18:43:57.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "ebc609f3c8",
+          "title": "OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again) | Tibo Sottiaux",
+          "link": "https://www.lennysnewsletter.com/p/openais-head-of-chatgpt-were-entering",
+          "source": "Lenny's Newsletter",
+          "summary": "OpenAI's Head of ChatGPT outlines why agents will dominate internet traffic and explains the strategic bets behind the Dots feature, offering PMs direct insight into where OpenAI sees the product heading.",
+          "topic": "ChatGPT Product Strategy",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-04T12:32:47.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "d90ae61a7b",
+          "title": "Religious scholars met with Anthropic",
+          "link": "https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html",
+          "source": "Hacker News",
+          "summary": "Anthropic held meetings with religious scholars, reflecting a deliberate effort to engage diverse external stakeholders on AI values, which signals the company's approach to governance and could influence future policy and product guardrails.",
+          "topic": "Anthropic External Engagement",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "research"
+          ],
+          "publishedAt": "2026-10-04T02:34:22.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "6664414c5e",
+          "title": "Agents don't need memory, they need documentation",
+          "link": "https://liao.gg/blog/agents-dont-need-memory",
+          "source": "Hacker News",
+          "summary": "A widely discussed post argues that AI agents fail not because of poor memory systems but because of inadequate documentation, which is a concrete and actionable design insight for PMs building agent-based products.",
+          "topic": "AI Agent Design Principles",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "tooling",
+            "research"
+          ],
+          "publishedAt": "2026-10-03T17:03:37.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "7b3aa5997c",
+          "title": "LeCun has \"zero concerns\" about AI wiping out humanity, recent \"rogue\" incidents",
+          "link": "https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/",
+          "source": "Hacker News",
+          "summary": "Yann LeCun publicly stated he has zero concerns about AI posing existential risk and dismissed recent agentic incidents, keeping alive a prominent counternarrative to safety-focused messaging from OpenAI and Anthropic.",
+          "topic": "AI Safety Debate",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-03T17:44:29.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "542400a00d",
+          "title": "What Meta got right with Muse",
+          "link": "https://metedata.substack.com/p/what-meta-got-right-with-muse",
+          "source": "Hacker News",
+          "summary": "Analysis of what Meta got right with Muse offers PMs a case study in how a major lab is approaching creative AI tooling and what product decisions made the launch resonate.",
+          "topic": "Meta Muse AI Product",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-03T18:23:48.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "6ae30ec75f",
+          "title": "All the AI agents that can live in your text messages",
+          "link": "https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/",
+          "source": "TechCrunch AI",
+          "summary": "A curated list of AI agents embedded in SMS and messaging surfaces provides PMs a market map of an emerging distribution channel for AI products that bypasses app stores entirely.",
+          "topic": "AI Agents in Messaging",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-03T14:00:00.000Z",
+          "addedOn": "2026-10-04"
+        },
+        {
+          "id": "60a6536fb4",
+          "title": "Show HN: AI search for every photo and every frame of video on macOS",
+          "link": "https://github.com/allenv0/SCM",
+          "source": "Hacker News",
+          "summary": "An open-source macOS tool enables AI-powered semantic search across all local photos and video frames, demonstrating a practical on-device AI use case that could inform product thinking around local-first AI features.",
+          "topic": "On-Device AI Search Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "open-source",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-04T09:24:52.000Z",
+          "addedOn": "2026-10-04"
+        }
+      ]
+    },
     {
       "date": "2026-10-03",
       "summary": "OpenAI launched Dots, an enterprise agent platform with consumer features like dinner ordering, while Meta open sourced its Muse AI agent code to enable third-party gadget development. Apple is tightening macOS Full Disk Access controls in direct response to risks from increasingly capable AI agents, and Germany's Aleph Alpha released Kolibri, a sovereign open-weight model, signaling continued European push for AI independence.",

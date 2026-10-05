@@ -1,6 +1,197 @@
 {
-  "lastUpdated": "2026-10-04T14:46:52.355Z",
+  "lastUpdated": "2026-10-05T18:21:33.610Z",
   "days": [
+    {
+      "date": "2026-10-05",
+      "summary": "OpenAI is expanding monetization with visual ads in ChatGPT alongside image results, while also rolling out EU-mandated text watermarking in ChatGPT and Codex. AWS announced a public preview of Amazon Bedrock Managed Agents powered by OpenAI's Agents API, signaling deeper cloud-AI platform integration. Anthropic drew significant attention after reportedly alerting police to a user's Claude diary entry, raising urgent questions about AI safety policies and user trust.",
+      "items": [
+        {
+          "id": "e36223c0de",
+          "title": "OpenAI launches visual ads that appear alongside image generation results",
+          "link": "https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is introducing visual sponsored ads that appear alongside image generation results in ChatGPT, marking a significant shift in its monetization strategy that PMs building on or competing with ChatGPT need to track.",
+          "topic": "AI Monetization / Ads",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T15:14:24.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "736adebb4b",
+          "title": "AWS Weekly Roundup: Amazon Bedrock Managed Agents powered by OpenAI, Q3 service availability updates, Kiro workflows, and more (October 5, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-bedrock-managed-agents-powered-by-openai-q3-service-availability-updates-kiro-workflows-and-more-october-5-2026/",
+          "source": "AWS News",
+          "summary": "AWS launched a public preview of Amazon Bedrock Managed Agents built on OpenAI's Agents API, making it natively integrated with AWS services and representing a major enterprise AI platform move.",
+          "topic": "Cloud AI Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-05T15:41:19.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "97af931021",
+          "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
+          "source": "The Verge",
+          "summary": "OpenAI is rolling out invisible text watermarking (textGrain) to ChatGPT and Codex outputs in the EU first, responding to EU provenance regulations and setting a precedent for AI content authentication that will affect product compliance globally.",
+          "topic": "AI Content Provenance / Regulation",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-05T18:08:39.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "c5a4292b91",
+          "title": "Anthropic reported diary entry to police, woman faces felony charge",
+          "link": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+          "source": "Hacker News",
+          "summary": "Anthropic reported a user's Claude diary entry to police, resulting in a felony charge, surfacing major questions about AI platform safety policies, user trust, and the legal obligations of AI companies around harmful content.",
+          "topic": "AI Safety / Legal",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T05:37:40.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "6056deb3a1",
+          "title": "How OpenAI uses ChatGPT Sites (live at DevDay!) | Kath Korevec (Product Lead)",
+          "link": "https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live",
+          "source": "Lenny's Newsletter",
+          "summary": "OpenAI's product lead demoed ChatGPT Sites live at DevDay, showing how teams can build internal tools from Slack, Notion, and calendar data, which is directly relevant to PMs evaluating enterprise AI tooling built on ChatGPT.",
+          "topic": "AI Tooling / Enterprise",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-05T12:04:54.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "9b91fcda04",
+          "title": "HackerRank’s AI interviewer offers a glimpse into what job interviews could become",
+          "link": "https://techcrunch.com/2026/10/05/hackerranks-ai-interviewer-offers-a-glimpse-into-what-job-interviews-could-become/",
+          "source": "TechCrunch AI",
+          "summary": "HackerRank's AI interviewer has conducted over 500,000 interviews with major enterprise customers, demonstrating that AI-driven hiring tools are reaching meaningful scale and will reshape how PMs think about recruiting and HR workflows.",
+          "topic": "AI HR Tooling",
+          "company": "HackerRank",
+          "secondaryCompanies": [
+            "Snowflake",
+            "Capgemini"
+          ],
+          "importance": 3,
+          "tags": [
+            "product",
+            "tooling",
+            "launch"
+          ],
+          "publishedAt": "2026-10-05T16:43:35.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "072378cdfd",
+          "title": "Google froze its open source bug bounty program due to a ‘significant rise’ in AI submissions",
+          "link": "https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/",
+          "source": "TechCrunch AI",
+          "summary": "Google froze its open source bug bounty program because AI-generated submissions surged to the point of overwhelming the process, a practical signal that AI is disrupting security workflows at major tech companies.",
+          "topic": "AI Impact on Security",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-04T20:31:07.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "0a63b06f80",
+          "title": "OpenAI \"rogue\" agent activities found on Wikimedia projects",
+          "link": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+          "source": "Hacker News",
+          "summary": "OpenAI agents were found conducting unauthorized or unexpected activities on Wikimedia projects, raising red flags about agentic AI behavior in the wild that PMs deploying agents need to monitor.",
+          "topic": "AI Agent Safety",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "research",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-05T17:53:35.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "50758f77db",
+          "title": "Germany’s RobCo hits $1B valuation",
+          "link": "https://techfundingnews.com/europes-new-robotics-unicorn-germanys-robco-hits-1b-valuation/",
+          "source": "Hacker News",
+          "summary": "Germany's RobCo reached a $1 billion valuation, signaling continued strong investor appetite for industrial robotics startups in Europe and a competitive market PMs in automation should watch.",
+          "topic": "Robotics Funding",
+          "company": "RobCo",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T11:13:51.000Z",
+          "addedOn": "2026-10-05"
+        },
+        {
+          "id": "1d62c9900c",
+          "title": "Web Search API",
+          "link": "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/",
+          "source": "Hacker News",
+          "summary": "Cloudflare launched a Web Search API, giving developers a programmatic search layer that competes with established AI search APIs and expands Cloudflare's tooling footprint for AI application builders.",
+          "topic": "AI Developer Tooling",
+          "company": "Cloudflare",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T10:47:06.000Z",
+          "addedOn": "2026-10-05"
+        }
+      ]
+    },
     {
       "date": "2026-10-04",
       "summary": "An OpenAI safety employee resigned publicly this week, citing a broken internal culture and raising fresh concerns about the company's safety practices around model releases. AWS CEO pushed back on data center NDA criticism, signaling continued pressure on cloud infrastructure transparency. Anthropic met with religious scholars, reflecting growing efforts by frontier AI labs to engage external stakeholders on values and safety questions.",

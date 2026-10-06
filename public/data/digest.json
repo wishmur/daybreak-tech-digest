@@ -1,6 +1,187 @@
 {
-  "lastUpdated": "2026-10-05T18:21:33.610Z",
+  "lastUpdated": "2026-10-06T15:53:52.201Z",
   "days": [
+    {
+      "date": "2026-10-06",
+      "summary": "Mistral AI released its 1-trillion-parameter Large 4 model today, positioning it as a direct competitor to both Western and Chinese frontier models, with strong traction on Hacker News. Google is restricting free Gemini access starting October 9th, forcing users onto Flash Lite unless they pay, which signals a broader monetization shift. OpenAI announced EU-compliant text watermarking for ChatGPT and Codex, and JetBrains posting its first-ever net loss reflects the growing competitive pressure AI coding tools are placing on traditional developer software vendors.",
+      "items": [
+        {
+          "id": "8653701588",
+          "title": "Mistral’s new 1T model aims to leapfrog closed and open rivals",
+          "link": "https://techcrunch.com/2026/10/06/mistrals-new-1t-model-aims-to-leapfrog-closed-and-open-rivals/",
+          "source": "TechCrunch AI",
+          "summary": "Mistral's 1-trillion-parameter Large 4 is a major multimodal release targeting both closed frontier models and Chinese open-weight rivals, making it immediately relevant to any team evaluating model providers.",
+          "topic": "AI Model Release",
+          "company": "Mistral AI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-06T14:33:16.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "8afef56570",
+          "title": "Google is about to remove free access to Gemini Flash and Pro",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1005451/google-gemini-free-flash-lite-only",
+          "source": "The Verge",
+          "summary": "Google is removing free access to Gemini Flash and Pro on October 9th, limiting free users to the weaker Flash Lite model, which will affect developer and consumer adoption curves for Gemini-based products.",
+          "topic": "AI Product Monetization",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-06T13:19:01.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "212da1d35e",
+          "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
+          "link": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI will add invisible watermarks to ChatGPT and Codex text outputs in the EU to comply with the AI Act, establishing a precedent for AI-generated content provenance that will affect product design in regulated markets.",
+          "topic": "AI Regulation Compliance",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-05T20:36:48.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "6b6eba6147",
+          "title": "JetBrains reported a net financial loss first time in its tracked history",
+          "link": "https://www.helgilibrary.com/companies/jetbrains",
+          "source": "Hacker News",
+          "summary": "JetBrains posted a net financial loss for the first time in its recorded history, widely attributed to AI coding assistants eroding demand for its IDE products, a concrete signal of AI's market displacement effect.",
+          "topic": "AI Competitive Impact",
+          "company": "JetBrains",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-06T11:45:55.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "13557b7579",
+          "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost",
+          "link": "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
+          "source": "TechCrunch AI",
+          "summary": "Reflection launched Beam, an open-weight model aimed at enterprises and sovereign nations wanting on-premise AI factories, expanding the competitive field for locally deployable frontier-class models.",
+          "topic": "AI Model Release",
+          "company": "Reflection",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T19:33:53.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "1278561c21",
+          "title": "TikTok rolls out an AI shopping assistant and one-click checkout",
+          "link": "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/",
+          "source": "TechCrunch AI",
+          "summary": "TikTok launched a conversational AI Shopping Assistant with one-click checkout, signaling that major consumer platforms are embedding agentic commerce directly into content feeds.",
+          "topic": "AI Product Launch",
+          "company": "TikTok",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-05T18:29:00.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "b70963ac4f",
+          "title": "Researchers are tracking a Chinese AI ‘agent fleet’",
+          "link": "https://techcrunch.com/2026/10/05/researchers-are-tracking-a-chinese-ai-agent-fleet/",
+          "source": "TechCrunch AI",
+          "summary": "Independent researchers identified a Chinese AI agent swarm operating on Tencent infrastructure and targeting Alibaba's mapping service, raising real-world concerns about adversarial agentic deployments.",
+          "topic": "AI Security",
+          "company": "Tencent",
+          "secondaryCompanies": [
+            "Alibaba"
+          ],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-05T14:35:09.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "0680a7205f",
+          "title": "Meta's Muse Is an Adorable Privacy and Security Dumpster Fire",
+          "link": "https://www.techdirt.com/2026/10/06/metas-muse-is-an-adorable-privacy-and-security-dumpster-fire/",
+          "source": "Hacker News",
+          "summary": "Meta's Muse product has been called out for significant privacy and security failures, a cautionary case study for PMs shipping social or consumer AI features under scrutiny.",
+          "topic": "AI Privacy & Security",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-06T12:45:49.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "5536204952",
+          "title": "Apple and a Hacker’s Future",
+          "link": "https://stratechery.com/2026/apple-and-a-hackers-future/",
+          "source": "Stratechery",
+          "summary": "Ben Thompson argues that Apple's platform protections, acceptable in the pre-AI era, now feel like limitations as AI capabilities require deeper system integration, framing a strategic tension relevant to any PM building on Apple's ecosystem.",
+          "topic": "Platform Strategy",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-05T10:00:00.000Z",
+          "addedOn": "2026-10-06"
+        },
+        {
+          "id": "2823d2b903",
+          "title": "LibreOffice says ‘no AI’ is now a software feature",
+          "link": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+          "source": "TechCrunch AI",
+          "summary": "LibreOffice is explicitly positioning the absence of built-in AI as a feature, a notable product stance that may resonate with privacy-conscious enterprise and government segments.",
+          "topic": "Product Strategy",
+          "company": "LibreOffice",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "product",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-06T15:25:00.000Z",
+          "addedOn": "2026-10-06"
+        }
+      ]
+    },
     {
       "date": "2026-10-05",
       "summary": "OpenAI is expanding monetization with visual ads in ChatGPT alongside image results, while also rolling out EU-mandated text watermarking in ChatGPT and Codex. AWS announced a public preview of Amazon Bedrock Managed Agents powered by OpenAI's Agents API, signaling deeper cloud-AI platform integration. Anthropic drew significant attention after reportedly alerting police to a user's Claude diary entry, raising urgent questions about AI safety policies and user trust.",

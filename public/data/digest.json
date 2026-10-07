@@ -1,6 +1,205 @@
 {
-  "lastUpdated": "2026-10-06T15:53:52.201Z",
+  "lastUpdated": "2026-10-07T16:23:20.965Z",
   "days": [
+    {
+      "date": "2026-10-07",
+      "summary": "Lambda, the Nvidia-backed AI compute startup, is raising $4 billion at a $14.5 billion valuation ahead of a 2027 IPO, signaling continued massive capital flows into AI infrastructure. Anthropic is actively courting startups with a free year of Claude Team plus $1,000 in credits, intensifying the developer ecosystem battle with OpenAI. Google launched a public SynthID verification site for AI-generated media and is experimenting with an AI game-creation platform called Playground, showing continued product surface expansion.",
+      "items": [
+        {
+          "id": "c6c0f9e409",
+          "title": "AI computing startup Lambda to raise $4B ahead of planned IPO",
+          "link": "https://techcrunch.com/2026/10/06/ai-computing-startup-lambda-to-raise-4b-ahead-of-planned-ipo/",
+          "source": "TechCrunch AI",
+          "summary": "Lambda is raising $4 billion at a $14.5 billion pre-money valuation ahead of a planned 2027 IPO, reflecting the ongoing surge in demand for AI compute infrastructure backed by Nvidia.",
+          "topic": "AI Infrastructure Funding",
+          "company": "Lambda",
+          "secondaryCompanies": [
+            "NVIDIA",
+            "Coatue",
+            "Blackstone"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-10-06T20:00:30.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "e5ed95e929",
+          "title": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+          "link": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic is offering startups a free year of Claude Team and $1,000 in API credits, a direct move to build developer loyalty and compete with OpenAI for the startup ecosystem.",
+          "topic": "AI Developer Ecosystem",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "product",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-10-06T16:00:00.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "230c231afc",
+          "title": "Google’s new SynthID website can identify AI-generated media",
+          "link": "https://techcrunch.com/2026/10/07/googles-new-synthid-website-can-identify-ai-generated-media/",
+          "source": "TechCrunch AI",
+          "summary": "Google launched a public SynthID website that lets anyone verify whether images, video, or audio were AI-generated, marking a meaningful step toward mainstream AI content provenance.",
+          "topic": "AI Content Verification",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-07T14:00:00.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "eea1e6b221",
+          "title": "Study: Claude, ChatGPT Offer Different Shopping Prices Based on Wealth",
+          "link": "https://www.bloomberg.com/news/newsletters/2026-10-07/study-claude-chatgpt-ai-bots-offer-different-shopping-prices-based-on-wealth",
+          "source": "Hacker News",
+          "summary": "A Bloomberg study found that Claude and ChatGPT surface different shopping prices based on inferred user wealth, raising significant fairness and trust concerns for AI-powered commerce products.",
+          "topic": "AI Bias in Commerce",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "research",
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-07T16:07:08.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "a238c94c5d",
+          "title": "Google invests millions in Mark Zuckerberg’s efforts to create a ‘virtual cell’",
+          "link": "https://www.theverge.com/tech/1006766/google-meta-biohub-investment-virtual-cell",
+          "source": "The Verge",
+          "summary": "Google DeepMind, Meta, and Isomorphic Labs are jointly investing $300 million into Biohub for a virtual cell project, a rare multi-company research bet on AI-driven biology.",
+          "topic": "AI Biology Research Investment",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [
+            "Meta",
+            "Isomorphic Labs"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "research"
+          ],
+          "publishedAt": "2026-10-07T14:40:52.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "159ed2438b",
+          "title": "The next hurdle for AI agents: getting websites to let them in",
+          "link": "https://techcrunch.com/2026/10/06/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/",
+          "source": "TechCrunch AI",
+          "summary": "Anti-bot defenses and deliberate website blocks are emerging as a structural barrier to AI agents completing tasks like shopping and booking, a core product challenge for agentic AI builders.",
+          "topic": "AI Agent Access",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-06T19:56:50.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "60862e24b9",
+          "title": "Google experiments with an AI-powered gaming platform",
+          "link": "https://techcrunch.com/2026/10/07/google-experiments-with-an-ai-powered-gaming-platform/",
+          "source": "TechCrunch AI",
+          "summary": "Google Labs is testing Playground, an AI-powered platform for building browser-based games via text prompts, expanding its consumer AI product surface into creative tooling.",
+          "topic": "AI Creative Platform",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-07T14:36:23.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "16b77fc8ab",
+          "title": "All the numbers: Amazon Prime Day 2026 powered by AWS",
+          "link": "https://aws.amazon.com/blogs/aws/all-the-numbers-amazon-prime-day-2026-powered-by-aws/",
+          "source": "AWS News",
+          "summary": "AWS published its Prime Day 2026 infrastructure numbers, offering a concrete benchmark for how large-scale AI-assisted commerce events are handled at cloud scale.",
+          "topic": "AWS Scale Benchmark",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "Amazon"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-06T16:09:36.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "fc38477a8a",
+          "title": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look",
+          "link": "https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/",
+          "source": "TechCrunch AI",
+          "summary": "Healthleap raised $38 million across seed and Series A rounds to build AI that identifies hospital patients needing closer monitoring, reflecting continued strong funding for clinical AI.",
+          "topic": "Healthcare AI Funding",
+          "company": "Healthleap",
+          "secondaryCompanies": [
+            "Sequoia Capital",
+            "First Round Capital",
+            "Hummingbird Ventures"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch"
+          ],
+          "publishedAt": "2026-10-07T15:07:08.000Z",
+          "addedOn": "2026-10-07"
+        },
+        {
+          "id": "aedc083d21",
+          "title": "How AI decision models could change content moderation",
+          "link": "https://techcrunch.com/2026/10/06/how-ai-decision-models-could-change-content-moderation/",
+          "source": "TechCrunch AI",
+          "summary": "Musubi released PolicyLM-1.7B, an open-weights lightweight decision model built for real-time content moderation, offering a practical alternative to large general-purpose models for trust and safety teams.",
+          "topic": "AI Content Moderation Tooling",
+          "company": "Musubi",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "tooling",
+            "launch"
+          ],
+          "publishedAt": "2026-10-06T20:35:20.000Z",
+          "addedOn": "2026-10-07"
+        }
+      ]
+    },
     {
       "date": "2026-10-06",
       "summary": "Mistral AI released its 1-trillion-parameter Large 4 model today, positioning it as a direct competitor to both Western and Chinese frontier models, with strong traction on Hacker News. Google is restricting free Gemini access starting October 9th, forcing users onto Flash Lite unless they pay, which signals a broader monetization shift. OpenAI announced EU-compliant text watermarking for ChatGPT and Codex, and JetBrains posting its first-ever net loss reflects the growing competitive pressure AI coding tools are placing on traditional developer software vendors.",

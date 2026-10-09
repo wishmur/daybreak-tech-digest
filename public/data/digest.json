@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-10-08T16:25:22.674Z",
+  "lastUpdated": "2026-10-09T16:08:35.349Z",
   "days": [
+    {
+      "date": "2026-10-09",
+      "summary": "LMArena nearly doubled its valuation to $3.1B after raising $200M, signaling strong investor appetite for AI evaluation infrastructure. OpenAI faces dual headwinds: its annualized revenue may be $20B below the previously reported $70B figure, and a public dispute over the firing of three safety researchers is raising governance concerns. Google pushed Gemini into full agentic territory for businesses, marking a significant product shift in enterprise AI.",
+      "items": [
+        {
+          "id": "494307aa91",
+          "title": "Popular AI leaderboard Arena nearly doubles valuation to $3.1B valuation in 10 months",
+          "link": "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/",
+          "source": "TechCrunch AI",
+          "summary": "LMArena raised $200M at a $3.1B valuation in under a year, and is expanding its AI benchmarking to cover alignment and honesty, making it increasingly influential in how models are evaluated and compared.",
+          "topic": "AI Benchmarking & Evaluation",
+          "company": "LMArena",
+          "secondaryCompanies": [
+            "Lightspeed",
+            "Khosla Ventures"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-08T18:19:45.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "c48d796055",
+          "title": "OpenAI’s revenue is reportedly $20 billion less than previously projected",
+          "link": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI's actual annualized revenue may be roughly $50B rather than the previously reported $70B, a $20B gap that matters for its valuation, investor expectations, and competitive positioning.",
+          "topic": "OpenAI Financials",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-08T18:19:42.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "a682e0b0de",
+          "title": "Fired OpenAI safety researchers dispute misconduct claims, warn of chilling effect",
+          "link": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+          "source": "TechCrunch AI",
+          "summary": "Three fired OpenAI safety researchers are publicly disputing misconduct allegations and warning the dismissals will discourage internal dissent on safety issues, creating reputational and governance risk for OpenAI.",
+          "topic": "AI Safety & Governance",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-08T20:04:26.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "f54a601ae6",
+          "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+          "source": "The Verge",
+          "summary": "OpenAI is standing by its decision to fire the safety researchers, framing it as a trust breach rather than retaliation, but the public back-and-forth is drawing sustained scrutiny to its safety culture.",
+          "topic": "AI Safety & Governance",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-09T09:48:26.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "ceca2e2c1a",
+          "title": "Google brings agentic AI to Gemini, starting with businesses",
+          "link": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+          "source": "TechCrunch AI",
+          "summary": "Google is rolling out agentic capabilities in Gemini for enterprise users, including task delegation to subagents, multi-model orchestration, and integration across business apps, competing directly with OpenAI and Microsoft Copilot.",
+          "topic": "Agentic AI",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-08T18:18:00.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "80297d65bd",
+          "title": "Anthropic changes usage policy to ban model abuse and election interference",
+          "link": "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic updated its Claude usage policy to explicitly ban model abuse and election interference, which sets a clearer compliance baseline for developers and enterprise customers building on the API.",
+          "topic": "AI Policy & Safety",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-08T18:16:24.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "d3870d60c1",
+          "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
+          "link": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA is showcasing how developers use frontier AI agents to build simulations in Omniverse, a signal of how NVIDIA is positioning its software platform as a destination for agentic AI workloads beyond just hardware.",
+          "topic": "AI Simulation & Tooling",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-08T21:06:35.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "bc18e99801",
+          "title": "Microsoft 365 Family subscribers will finally be able to share AI benefits",
+          "link": "https://www.theverge.com/news/1008581/microsoft-365-family-premium-shared-ai-features-storage-changes",
+          "source": "The Verge",
+          "summary": "Microsoft is extending AI feature access in Microsoft 365 Family plans to all members rather than just the primary holder, a product change that could meaningfully expand Copilot's active user base.",
+          "topic": "AI Product Expansion",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-09T07:14:32.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "49a73efd53",
+          "title": "Google releases a new local-first Granola competitor",
+          "link": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/",
+          "source": "TechCrunch AI",
+          "summary": "Google launched an offline, on-device AI meeting note-taker called Edge Foresight that competes with Granola, signaling Google's intent to compete in the local-first AI productivity tool space.",
+          "topic": "AI Productivity Tools",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Granola"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-08T13:28:39.000Z",
+          "addedOn": "2026-10-09"
+        },
+        {
+          "id": "4d4dd273a2",
+          "title": "Iranian campaign planted fake articles in real U.S. publications using ChatGPT",
+          "link": "https://www.washingtonpost.com/technology/2026/10/09/chatgpt-users-iran-planted-ai-generated-articles-us-news-media/",
+          "source": "Hacker News",
+          "summary": "An Iranian influence campaign used ChatGPT to generate fake articles that were planted in real U.S. publications, a concrete example of AI-enabled disinformation that regulators and platform PMs need to account for.",
+          "topic": "AI Misuse & Disinformation",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-09T12:21:24.000Z",
+          "addedOn": "2026-10-09"
+        }
+      ]
+    },
     {
       "date": "2026-10-08",
       "summary": "OpenAI launched GPT-6 with a new visual interface for all users, and Anthropic released Claude Haiku 5.5, making this a significant day for frontier model releases. Google announced a universal Gemini agent for workplace tasks and released an offline AI meeting note-taker, expanding its AI product footprint. OpenAI also withdrew three math papers, raising questions about research integrity, while China's Manus closed a $500M+ funding round signaling continued large-scale investment in AI agents.",

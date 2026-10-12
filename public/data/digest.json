@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-10-11T15:36:18.141Z",
+  "lastUpdated": "2026-10-12T18:57:25.369Z",
   "days": [
+    {
+      "date": "2026-10-12",
+      "summary": "Meta launched Muse Wonder, its first frontier-scale model family from its Superintelligence Labs division, signaling a more aggressive push into the top tier of the AI race. Microsoft announced its third-generation Maia 300 in-house AI inference chip, reducing its dependency on NVIDIA for running its own products and services. NVIDIA opened its Vera Rubin architecture at the OCP Global Summit, aiming to accelerate AI factory buildouts through open standards as infrastructure scales toward gigawatt-class deployments.",
+      "items": [
+        {
+          "id": "e41af6ba26",
+          "title": "Meta has some Wonder Full new AI models",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+          "source": "The Verge",
+          "summary": "Meta launched Muse Wonder, larger frontier models following Muse Spark, positioning the company more directly against OpenAI and Anthropic at the high-capability end of the market.",
+          "topic": "AI Model Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-12T17:00:00.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "d4b50bc6b2",
+          "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
+          "link": "https://www.theverge.com/news/1009465/microsoft-maia-300-chip-improvements-rollout",
+          "source": "The Verge",
+          "summary": "Microsoft's third-generation Maia 300 chip is now the primary AI inference system for its products, reducing reliance on NVIDIA and lowering compute costs for its own AI services.",
+          "topic": "AI Infrastructure",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-12T13:00:00.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "645ff95d08",
+          "title": "OCP Global Summit: Amid Ecosystem Adoption, NVIDIA Opens Vera Rubin Architecture to Help Scale AI Factories Worldwide",
+          "link": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA opened the Vera Rubin architecture at OCP Global Summit, promoting open standards to help partners scale AI factories from megawatts to gigawatts more efficiently.",
+          "topic": "AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-12T15:00:25.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "cc82babf92",
+          "title": "AI coding agents generate more code, but not more software",
+          "link": "https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/",
+          "source": "Hacker News",
+          "summary": "Research finds AI coding agents increase raw code output but do not proportionally increase working software delivered, a critical nuance for PMs evaluating developer productivity claims.",
+          "topic": "AI Tooling Effectiveness",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-12T17:14:01.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "5f9ecbed48",
+          "title": "Codex CLI installs a persistent, self-updating background daemon by default",
+          "link": "https://github.com/openai/codex/issues/48195",
+          "source": "Hacker News",
+          "summary": "OpenAI's Codex CLI installs a persistent self-updating background daemon by default without clear disclosure, raising transparency and trust concerns for enterprise and developer adopters.",
+          "topic": "AI Tooling",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "tooling",
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-12T18:29:04.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "63841978d9",
+          "title": "GLM-Legal",
+          "link": "https://z.ai/blog/glm-legal",
+          "source": "Hacker News",
+          "summary": "GLM-Legal is a new AI model targeting legal reasoning tasks, attracting significant community attention and signaling growing competition in domain-specific frontier models.",
+          "topic": "AI Model Launch",
+          "company": "z.ai",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-12T16:11:45.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "f1588e6ffb",
+          "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
+          "link": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
+          "source": "TechCrunch AI",
+          "summary": "A former Plaud exec raised $26M for an ambient AI app that continuously listens to users to build personal context, an early signal of where always-on personal AI assistants are heading.",
+          "topic": "AI Product Funding",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-12T12:47:59.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "83f755802a",
+          "title": "How Meta designed Muse: an AI agent people actually want to talk to | Alex Cornell (Design Director)",
+          "link": "https://www.lennysnewsletter.com/p/how-meta-designed-muse-an-ai-agent",
+          "source": "Lenny's Newsletter",
+          "summary": "Meta's design director explains how Muse was built to serve radically different user types with one interface, offering PMs a concrete case study in AI product design for broad audiences.",
+          "topic": "Product Management",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-12T12:03:55.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "e9c9ac8e21",
+          "title": "Microsoft president says UK is best placed to drive AI regulation",
+          "link": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft president Brad Smith publicly called for urgent AI regulation, citing the current lack of oversight compared to everyday consumer products, adding corporate pressure to the policy debate.",
+          "topic": "AI Regulation",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "leadership"
+          ],
+          "publishedAt": "2026-10-12T15:31:19.000Z",
+          "addedOn": "2026-10-12"
+        },
+        {
+          "id": "1adabc48a9",
+          "title": "Launch HN: Agent37 (YC F26) – Low-cost agent sandboxes for running agents",
+          "link": "https://news.ycombinator.com/item?id=50059096",
+          "source": "Hacker News",
+          "summary": "Agent37 launched out of YC with sandboxes for AI agents priced at under 10% of typical providers, addressing a real cost barrier for teams building and testing multi-agent systems.",
+          "topic": "AI Tooling",
+          "company": "Agent37",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "funding"
+          ],
+          "publishedAt": "2026-10-12T16:46:34.000Z",
+          "addedOn": "2026-10-12"
+        }
+      ]
+    },
     {
       "date": "2026-10-11",
       "summary": "Microsoft CEO Satya Nadella published a notable post calling for AI models to be treated as potentially compromised and arguing for a new trust architecture with an emergency brake mechanism, signaling growing executive-level concern about advanced AI safety. Apple disclosed a deal to hire the team and license technology from personalized podcast startup Huxe, hinting at an AI-generated audio content push ahead of its upcoming hardware event. A Google Labs leader's detailed interview on running AI product teams like research labs offers practical framing for PMs navigating fast-moving AI development cycles.",

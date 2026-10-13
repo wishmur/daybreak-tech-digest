@@ -1,6 +1,196 @@
 {
-  "lastUpdated": "2026-10-12T18:57:25.369Z",
+  "lastUpdated": "2026-10-13T16:55:05.685Z",
   "days": [
+    {
+      "date": "2026-10-13",
+      "summary": "Google launched Gemini 4 Argon today, its most capable frontier model yet and a direct challenge to OpenAI and Anthropic at the top of the market. Meta separately released its first frontier-class model, Muse Wonder, extending its AI model lineup beyond lightweight inference. Character.AI filed for Chapter 11 bankruptcy just five years after founding, selling assets to Disney for $20 million, signaling real consolidation pressure on consumer AI startups.",
+      "items": [
+        {
+          "id": "4b1e7d7541",
+          "title": "Google finally releases Gemini 4 Argon",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
+          "source": "The Verge",
+          "summary": "Google has launched Gemini 4 Argon, its most capable model to date, directly competing with GPT-4 and Claude at the frontier level after a period of perceived lag behind rivals.",
+          "topic": "Frontier AI Model Launch",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-13T16:00:00.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "15f0749a6d",
+          "title": "Meta releases its first frontier model, Muse Wonder",
+          "link": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+          "source": "TechCrunch AI",
+          "summary": "Meta released Muse Wonder, its first self-described frontier model, with higher benchmarks and stronger performance on complex tasks than its lighter Muse Spark predecessor.",
+          "topic": "Frontier AI Model Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-12T17:56:56.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "2448156efd",
+          "title": "AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova 2.5 Sonic, and more (October 13, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-prime-day-2026-by-the-numbers-claude-haiku-5-5-amazon-nova-2-5-sonic-and-more-october-13-2026/",
+          "source": "AWS News",
+          "summary": "The AWS weekly roundup highlights Claude Haiku 5.5 and Amazon Nova 2.5 Sonic as newly available models on AWS, alongside Prime Day 2026 infrastructure scale data relevant to cloud AI capacity planning.",
+          "topic": "AWS AI Model Updates",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-13T15:59:06.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "6e39baa365",
+          "title": "Announcing AWS Lambda Web Functions",
+          "link": "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/",
+          "source": "AWS News",
+          "summary": "AWS Lambda Web Functions is a new serverless compute primitive that runs HTTP frameworks natively with multi-concurrent execution and automated global distribution, simplifying how developers deploy AI-backed APIs.",
+          "topic": "Serverless Infra Launch",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-12T22:34:47.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "8e71e68ebc",
+          "title": "Just 5 years in, interactive chatbot platform Character.AI files for bankruptcy",
+          "link": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
+          "source": "TechCrunch AI",
+          "summary": "Character.AI has filed for Chapter 11 bankruptcy after five years and will sell assets to Disney for $20 million, illustrating how difficult it is to build a durable consumer AI product business without a strong distribution or monetization foundation.",
+          "topic": "Consumer AI Startup Failure",
+          "company": "Character.AI",
+          "secondaryCompanies": [
+            "Disney"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-13T12:23:42.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "65a5bbabec",
+          "title": "Amex introduces a framework to prevent AI agents from making unauthorized purchases",
+          "link": "https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/",
+          "source": "TechCrunch AI",
+          "summary": "American Express is launching an authorization framework for AI agents making purchases on behalf of users, an important early infrastructure piece for agentic commerce that PMs building agent workflows need to track.",
+          "topic": "Agentic AI Safety Framework",
+          "company": "American Express",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-13T13:00:00.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "05b845700b",
+          "title": "All Systems Go: Global PC App Ecosystem Ready for NVIDIA RTX Spark",
+          "link": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA RTX Spark is being positioned as an all-in-one personal AI supercomputer with up to 128GB of memory, and its global PC app ecosystem is now ready, marking a significant push into on-device AI for consumers and developers.",
+          "topic": "NVIDIA On-Device AI Hardware",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-13T12:00:49.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "b22fd54eec",
+          "title": "SpaceXSI bundles X Premium, Grok, and Cursor into one subscription",
+          "link": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/",
+          "source": "TechCrunch AI",
+          "summary": "X is bundling Grok and Cursor alongside X Premium into a single subscription tier up to $200 per month, a notable cross-product packaging move that signals how AI tools are being consolidated into platform subscriptions.",
+          "topic": "AI Subscription Bundling",
+          "company": "X",
+          "secondaryCompanies": [
+            "xAI",
+            "Cursor"
+          ],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-13T13:50:19.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "f02d3da809",
+          "title": "How to tell if a startup has a moat",
+          "link": "https://www.lennysnewsletter.com/p/how-to-tell-if-a-startup-has-a-moat",
+          "source": "Lenny's Newsletter",
+          "summary": "Lenny's Newsletter published a practical framework for evaluating startup moats, directly relevant for PMs assessing companies to join or compete against in an increasingly crowded AI product market.",
+          "topic": "Product Strategy Framework",
+          "company": "Lenny's Newsletter",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-10-13T12:45:41.000Z",
+          "addedOn": "2026-10-13"
+        },
+        {
+          "id": "4086b9cf2a",
+          "title": "Launch HN: Consus (YC F24) – LLM gateway for companies handling sensitive data",
+          "link": "https://news.ycombinator.com/item?id=50073471",
+          "source": "Hacker News",
+          "summary": "Consus, a YC F24 company, is launching an LLM gateway that routes AI requests through ITAR-compliant and CUI-compliant infrastructure, filling a real gap for defense and government-adjacent AI product teams.",
+          "topic": "AI Compliance Tooling",
+          "company": "Consus",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-13T15:41:00.000Z",
+          "addedOn": "2026-10-13"
+        }
+      ]
+    },
     {
       "date": "2026-10-12",
       "summary": "Meta launched Muse Wonder, its first frontier-scale model family from its Superintelligence Labs division, signaling a more aggressive push into the top tier of the AI race. Microsoft announced its third-generation Maia 300 in-house AI inference chip, reducing its dependency on NVIDIA for running its own products and services. NVIDIA opened its Vera Rubin architecture at the OCP Global Summit, aiming to accelerate AI factory buildouts through open standards as infrastructure scales toward gigawatt-class deployments.",

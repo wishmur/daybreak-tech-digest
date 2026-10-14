@@ -1,6 +1,193 @@
 {
-  "lastUpdated": "2026-10-13T16:55:05.685Z",
+  "lastUpdated": "2026-10-14T14:29:10.136Z",
   "days": [
+    {
+      "date": "2026-10-14",
+      "summary": "Google released Gemini 4 Argon, a significant model update that is generating heavy discussion in the AI community. On the product side, Google also launched a private app-building feature on Google Play using AI, and Meta introduced an algorithm-control feature called 'Your Algorithm' on Facebook. A federal judge ordered OpenAI to hand over hiring records to Apple in an ongoing trade secrets case, a legal development that could affect both companies.",
+      "items": [
+        {
+          "id": "a615b4c8f9",
+          "title": "Gemini 4 Argon",
+          "link": "https://deepmind.google/models/gemini/",
+          "source": "Hacker News",
+          "summary": "Gemini 4 Argon launched from Google DeepMind with nearly 1,400 upvotes on Hacker News, signaling it is a materially significant model release that PMs across the industry need to track.",
+          "topic": "AI Model Launch",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-13T16:03:16.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "025ffa23c0",
+          "title": "Judge orders OpenAI to turn over hiring records in Apple trade secrets case",
+          "link": "https://techcrunch.com/2026/10/13/judge-orders-openai-to-turn-over-hiring-records-in-apple-trade-secrets-case/",
+          "source": "TechCrunch AI",
+          "summary": "A federal judge ordered OpenAI to produce hiring records and private communications in Apple's trade secrets case, creating legal and reputational risk for OpenAI and signaling increased scrutiny of AI company hiring practices.",
+          "topic": "Legal/Regulation",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-13T20:36:44.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "0f96659c3b",
+          "title": "Google Play now lets anyone build private, vibe-coded apps that run on Android",
+          "link": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+          "source": "TechCrunch AI",
+          "summary": "Google Play now allows users to build and run private AI-generated Android apps without publishing them publicly, lowering the barrier to personal software creation and expanding the vibe-coding trend to mobile.",
+          "topic": "AI Product Launch",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-13T17:00:00.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "08346ce644",
+          "title": "Meta’s new ‘Muse Wonder’ model: good for AI agents, bad for design",
+          "link": "https://www.lennysnewsletter.com/p/metas-new-muse-wonder-model-good",
+          "source": "Lenny's Newsletter",
+          "summary": "Meta's new Muse Wonder model claims frontier agentic performance but an independent benchmark across nearly 20 tasks reveals it underdelivers for design work, which is useful signal for PMs evaluating AI agent tooling.",
+          "topic": "AI Model Evaluation",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-14T12:04:05.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "6e90ac03a9",
+          "title": "Facebook is giving users more control over their algorithm",
+          "link": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/",
+          "source": "TechCrunch AI",
+          "summary": "Meta launched 'Your Algorithm' on Facebook, giving users more visibility and control over their feed ranking, a product move that mirrors the earlier Instagram rollout and has implications for engagement and trust.",
+          "topic": "Product Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-13T18:05:24.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "4d1328cfb2",
+          "title": "Pluto Security raises $42M as AI gives enterprise security teams a new headache",
+          "link": "https://techcrunch.com/2026/10/13/pluto-security-raises-42m-as-ai-gives-enterprise-security-teams-a-new-headache/",
+          "source": "TechCrunch AI",
+          "summary": "Pluto Security raised $42M to address enterprise security risks introduced by widespread employee use of AI tools, reflecting a growing category of AI-specific security products that PMs need to account for in enterprise deployments.",
+          "topic": "AI Security Funding",
+          "company": "Pluto Security",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-13T17:18:25.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "63224a6807",
+          "title": "Apple HomeView, The New Apple TV, The App Story",
+          "link": "https://stratechery.com/2026/apple-homeview-the-new-apple-tv-the-app-story/",
+          "source": "Stratechery",
+          "summary": "Apple's HomeView device is now official, but Stratechery raises questions about market size given its high price and reliance on AI that is considered below par relative to competitors.",
+          "topic": "Product Launch",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-14T10:00:00.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "8a326a200e",
+          "title": "European Cities Deploy NVIDIA-Powered AI Agents to Run Smarter Urban Operations",
+          "link": "https://blogs.nvidia.com/blog/european-cities-agents-urban-operations/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA-powered AI agents are being deployed by European city governments for urban operations including road maintenance and energy management, demonstrating real enterprise traction for agentic AI on NVIDIA infrastructure.",
+          "topic": "AI Infrastructure Deployment",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-14T06:00:28.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "dcc9a8df4b",
+          "title": "TV4 postpones show after AI agent erases edited material",
+          "link": "https://swedenherald.com/article/tv4-postpones-the-challenge-until-2027-after-technical-failure-erases-edited-footage",
+          "source": "Hacker News",
+          "summary": "Swedish broadcaster TV4 postponed a show until 2027 after an AI agent deleted edited footage, a concrete example of agentic AI failure in production that PMs building or deploying AI agents should treat as a cautionary case.",
+          "topic": "AI Risk/Failure",
+          "company": "TV4",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-14T10:28:26.000Z",
+          "addedOn": "2026-10-14"
+        },
+        {
+          "id": "b982fab38e",
+          "title": "Cerebras CEO says we’re nearing a future where everyone has a personal AI assistant at home",
+          "link": "https://techcrunch.com/2026/10/13/cerebras-ceo-says-were-nearing-a-future-where-everyone-has-a-personal-ai-assistant-at-home/",
+          "source": "TechCrunch AI",
+          "summary": "Cerebras CEO Andrew Feldman outlined a near-future where personal AI assistants run on hybrid local-cloud infrastructure, a vision that has direct implications for AI product roadmaps and hardware strategy.",
+          "topic": "AI Strategy/Vision",
+          "company": "Cerebras",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "product",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-13T23:05:34.000Z",
+          "addedOn": "2026-10-14"
+        }
+      ]
+    },
     {
       "date": "2026-10-13",
       "summary": "Google launched Gemini 4 Argon today, its most capable frontier model yet and a direct challenge to OpenAI and Anthropic at the top of the market. Meta separately released its first frontier-class model, Muse Wonder, extending its AI model lineup beyond lightweight inference. Character.AI filed for Chapter 11 bankruptcy just five years after founding, selling assets to Disney for $20 million, signaling real consolidation pressure on consumer AI startups.",

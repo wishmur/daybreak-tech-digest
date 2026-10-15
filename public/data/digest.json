@@ -1,6 +1,193 @@
 {
-  "lastUpdated": "2026-10-14T14:29:10.136Z",
+  "lastUpdated": "2026-10-15T14:08:28.332Z",
   "days": [
+    {
+      "date": "2026-10-15",
+      "summary": "Amazon's Bee wearable line expanded with two new AI devices that now integrate shopping, signaling Amazon's push into ambient AI hardware. AWS deepened its developer ecosystem by making Amazon S3 natively available on Vercel and v0. Liquid AI released LFM2.5-24B-A2B, a 24B model optimized for fast on-device agents, which is worth tracking as edge AI inference becomes a competitive battleground.",
+      "items": [
+        {
+          "id": "c614e67028",
+          "title": "Amazon’s always-listening Bee wearable can now help you buy stuff",
+          "link": "https://www.theverge.com/tech/1011475/amazon-bee-frontier-eclipse-price-specs",
+          "source": "The Verge",
+          "summary": "Amazon expanded its Bee AI wearable lineup with commerce integration, showing how Amazon is building ambient AI hardware that connects listening, summarization, and shopping in a single device loop.",
+          "topic": "AI Hardware / Amazon Ecosystem",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Bee"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-15T12:00:00.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "3dc3120c87",
+          "title": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+          "link": "https://aws.amazon.com/blogs/aws/amazon-s3-vercel-marketplace-v0/",
+          "source": "AWS News",
+          "summary": "Amazon S3, including the newer S3 Tables and S3 Vectors products, is now natively integrated into Vercel's marketplace and v0, lowering the friction for developers to use AWS storage in AI-native app workflows.",
+          "topic": "Cloud Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "Vercel"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra"
+          ],
+          "publishedAt": "2026-10-14T19:30:48.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "83d869ed21",
+          "title": "LFM2.5-24B-A2B: Built for fast on-device agents",
+          "link": "https://www.liquid.ai/blog/lfm2-5-24b-a2b",
+          "source": "Hacker News",
+          "summary": "Liquid AI released LFM2.5-24B-A2B, a 24-billion-parameter model with only 2B active parameters designed for fast on-device agentic use, which could shift how PMs think about deploying lightweight agents at the edge.",
+          "topic": "AI Models / On-Device Inference",
+          "company": "Liquid AI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "research",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-14T23:59:37.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "74a5b05214",
+          "title": "Figma announces new features to define how agents work on its platform",
+          "link": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
+          "source": "TechCrunch AI",
+          "summary": "Figma is introducing agent-scoped features and releasing code layers in open beta, moves that matter for PMs overseeing design-to-development pipelines as agentic workflows become part of the product toolkit.",
+          "topic": "AI Tooling / Design",
+          "company": "Figma",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-15T04:30:00.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "72902d9fb0",
+          "title": "Google launches its &#8216;universal&#8217; online shopping cart ahead of the holidays",
+          "link": "https://www.theverge.com/tech/1011797/google-ai-universal-cart-shopping-tool-launch",
+          "source": "The Verge",
+          "summary": "Google launched a universal AI-powered shopping cart ahead of the holiday season, a direct move to capture purchase intent across the web and a signal of Google's intent to own more of the commerce funnel.",
+          "topic": "AI Product / E-commerce",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T13:00:00.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "e94f7f5d5e",
+          "title": "Zenzap raises $44M for its AI chat app that aims to replace WhatsApp in the workplace",
+          "link": "https://techcrunch.com/2026/10/14/zenzap-raises-44m-for-its-ai-chat-app-that-aims-to-replace-whatsapp-in-the-workplace/",
+          "source": "TechCrunch AI",
+          "summary": "Zenzap raised $44M for an AI-native workplace chat app used by Starbucks and Taco Bell, positioning it as a credible challenger to Slack and WhatsApp in enterprise messaging.",
+          "topic": "Funding / AI Productivity",
+          "company": "Zenzap",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-10-14T15:08:00.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "7624c31011",
+          "title": "Ricursive Intelligence is betting on AI-designed chips to help solve the compute crisis",
+          "link": "https://techcrunch.com/2026/10/14/ricursive-intelligence-is-betting-on-ai-designed-chips-to-help-solve-the-compute-crisis/",
+          "source": "TechCrunch AI",
+          "summary": "Ricursive Intelligence is building AI that designs chips iteratively, a potentially compounding approach to easing the compute bottleneck that every AI company faces.",
+          "topic": "AI Chip Design",
+          "company": "Ricursive Intelligence",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-10-15T01:01:32.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "7f10a36369",
+          "title": "Scimplify raises $25M to challenge China’s grip on critical materials with AI",
+          "link": "https://techcrunch.com/2026/10/14/scimplify-raises-25m-to-challenge-chinas-grip-on-critical-materials-with-ai/",
+          "source": "TechCrunch AI",
+          "summary": "Scimplify raised $25M and tripled its ARR to $200M annually by using AI to source critical materials domestically, addressing a supply chain risk that affects hardware and AI infrastructure buildout.",
+          "topic": "Funding / Supply Chain AI",
+          "company": "Scimplify",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-10-14T11:00:00.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "4d5bdcd4b5",
+          "title": "NVIDIA Announces New Investments in the UK Startup Ecosystem",
+          "link": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA announced new investments in UK startups across its full stack, continuing its strategy of seeding the ecosystem around its hardware and software platform in key geographies.",
+          "topic": "NVIDIA Ecosystem Expansion",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-10-14T06:04:15.000Z",
+          "addedOn": "2026-10-15"
+        },
+        {
+          "id": "8431ec80e6",
+          "title": "Nobody is safe from celebrity AI deepfakes",
+          "link": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
+          "source": "The Verge",
+          "summary": "The proliferation of celebrity AI deepfakes on social platforms is accelerating, creating regulatory and product safety pressure on platforms that PMs building content or social products need to account for.",
+          "topic": "AI Safety / Deepfakes",
+          "company": "",
+          "secondaryCompanies": [
+            "Instagram",
+            "Meta"
+          ],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-15T14:03:42.000Z",
+          "addedOn": "2026-10-15"
+        }
+      ]
+    },
     {
       "date": "2026-10-14",
       "summary": "Google released Gemini 4 Argon, a significant model update that is generating heavy discussion in the AI community. On the product side, Google also launched a private app-building feature on Google Play using AI, and Meta introduced an algorithm-control feature called 'Your Algorithm' on Facebook. A federal judge ordered OpenAI to hand over hiring records to Apple in an ongoing trade secrets case, a legal development that could affect both companies.",

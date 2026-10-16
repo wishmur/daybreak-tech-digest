@@ -1,6 +1,195 @@
 {
-  "lastUpdated": "2026-10-15T14:08:28.332Z",
+  "lastUpdated": "2026-10-16T13:55:23.334Z",
   "days": [
+    {
+      "date": "2026-10-16",
+      "summary": "Meta launched Muse Spark Open, an 816B open-weight model running locally on Apple silicon, marking a significant move in on-device AI. Anthropic granted METR independent researcher access with employee-level visibility and no veto over published findings, a notable step in third-party AI safety oversight. OpenAI's ChatGPT Chrome extension now reads open browser tabs, and NVIDIA released the Nemotron 3.5 Super VL and launched the RTX Spark PC, both pushing AI inference closer to the edge.",
+      "items": [
+        {
+          "id": "b79cf62ab2",
+          "title": "Meta launches an open-weight AI model that runs on Macs",
+          "link": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+          "source": "TechCrunch AI",
+          "summary": "Meta launched Muse Spark Open, an 816B open-weight model that runs locally on Apple silicon, signaling a major push for powerful on-device open models and a notable Apple-Meta collaboration.",
+          "topic": "Open-Weight AI Model Launch",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T20:04:53.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "6b32532a16",
+          "title": "Anthropic is letting METR researchers look under the hood with employee-level access",
+          "link": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic gave METR researchers employee-level access and relinquished veto rights over published safety assessments, setting a new standard for independent AI safety auditing.",
+          "topic": "AI Safety & Third-Party Oversight",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "METR"
+          ],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-15T19:14:26.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "953a262ff1",
+          "title": "ChatGPT can peek at your Chrome tabs now",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs",
+          "source": "The Verge",
+          "summary": "ChatGPT's Chrome extension can now read users' open browser tabs, expanding the assistant's context awareness directly in the browser without requiring a separate app.",
+          "topic": "AI Assistant Browser Integration",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Google"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T22:43:23.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "be032c0eec",
+          "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
+          "link": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA released Nemotron 3.5 Super VL (120B parameters) and new Bolt models, expanding its open model family optimized for always-on specialized agents with high efficiency.",
+          "topic": "Open AI Model Release",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-10-15T15:00:24.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "3eafdcc40d",
+          "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
+          "link": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-launch-event-invite/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA is launching RTX Spark, a Windows PC targeted at creators, gamers, and AI agents, marking NVIDIA's push into purpose-built AI PC hardware.",
+          "topic": "AI PC Hardware Launch",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-15T17:00:23.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "07840b4d49",
+          "title": "Google’s Universal Cart shopping tool launches in the US",
+          "link": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
+          "source": "TechCrunch AI",
+          "summary": "Google's Universal Cart shopping tool is now live in the US via Search and Gemini, integrating AI-powered shopping directly into Google's core consumer products.",
+          "topic": "AI-Powered Shopping Feature",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T14:29:33.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "2d7de87073",
+          "title": "Amazon’s Bee launches two new personal AI devices, starting at $75",
+          "link": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon's Bee launched two new AI wearable devices starting at $75, expanding Amazon's push into ambient personal AI hardware post-acquisition.",
+          "topic": "AI Wearable Device Launch",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-15T12:00:00.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "d37081d910",
+          "title": "Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps",
+          "link": "https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon devices chief Panos Panay outlined a vision where ambient AI replaces app-based interaction, relevant context for PMs thinking about the future of app and platform strategy.",
+          "topic": "AI Device Strategy",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T19:55:25.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "3133e9315d",
+          "title": "Krea 3 – An image model built for editing at scale",
+          "link": "https://www.krea.ai/krea-3",
+          "source": "Hacker News",
+          "summary": "Krea launched Krea 3, an image model built specifically for editing at scale, gaining significant traction on Hacker News as a new entrant in AI image tooling for professionals.",
+          "topic": "AI Image Editing Tool Launch",
+          "company": "Krea",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-15T16:04:05.000Z",
+          "addedOn": "2026-10-16"
+        },
+        {
+          "id": "62c95b03ad",
+          "title": "Replit’s CEO says the future of work is the ‘self-driving company’",
+          "link": "https://techcrunch.com/2026/10/16/replits-ceo-says-the-future-of-work-is-the-self-driving-company/",
+          "source": "TechCrunch AI",
+          "summary": "Replit's CEO publicly framed the near-term future as 'self-driving companies' where AI agents handle operations, a useful mental model for PMs evaluating AI agent product strategy.",
+          "topic": "AI Agents & Future of Work",
+          "company": "Replit",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-10-16T12:55:09.000Z",
+          "addedOn": "2026-10-16"
+        }
+      ]
+    },
     {
       "date": "2026-10-15",
       "summary": "Amazon's Bee wearable line expanded with two new AI devices that now integrate shopping, signaling Amazon's push into ambient AI hardware. AWS deepened its developer ecosystem by making Amazon S3 natively available on Vercel and v0. Liquid AI released LFM2.5-24B-A2B, a 24B model optimized for fast on-device agents, which is worth tracking as edge AI inference becomes a competitive battleground.",

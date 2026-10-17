@@ -1,6 +1,197 @@
 {
-  "lastUpdated": "2026-10-16T13:55:23.334Z",
+  "lastUpdated": "2026-10-17T12:55:40.390Z",
   "days": [
+    {
+      "date": "2026-10-17",
+      "summary": "DeepSeek released a new flash model (v4.1 Flash 1017) available on HuggingFace and OpenRouter, signaling continued rapid iteration from the open-source frontier. Replit has quietly dropped Anthropic in favor of OpenAI, a notable shift in AI coding partnerships worth tracking for competitive dynamics. Research from Mercor finds that 90% of US working hours involve tasks not well covered by AI benchmarks, which challenges assumptions about near-term AI labor displacement.",
+      "items": [
+        {
+          "id": "13131774e8",
+          "title": "Replit is no longer working with Anthropic, CEO says",
+          "link": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
+          "source": "TechCrunch AI",
+          "summary": "Replit switched from Anthropic to OpenAI as its primary AI partner, citing cost and other factors, which signals growing competition among AI providers for developer platform integrations.",
+          "topic": "AI Partnership Shift",
+          "company": "Replit",
+          "secondaryCompanies": [
+            "Anthropic",
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-16T21:22:28.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "8e040cb7e6",
+          "title": "DeepSeek: DeepSeek v4.1 Flash 1017",
+          "link": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
+          "source": "Hacker News",
+          "summary": "DeepSeek released v4.1 Flash 1017, a new model now available on OpenRouter and HuggingFace, continuing the pace of open-source frontier model releases that pressure commercial providers on cost.",
+          "topic": "New AI Model Release",
+          "company": "DeepSeek",
+          "secondaryCompanies": [
+            "OpenRouter"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-17T08:37:46.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "23bf1b38da",
+          "title": "How the Claude Code team does code review",
+          "link": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+          "source": "Hacker News",
+          "summary": "Anthropic's Claude Code team published how they use Claude itself for code review internally, offering a real-world case study on AI-assisted developer workflows that PMs building on top of AI can learn from.",
+          "topic": "AI Coding Tooling",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-10-16T19:04:47.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "f3b8063716",
+          "title": "Designing more efficient quantum circuits with Claude",
+          "link": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+          "source": "Hacker News",
+          "summary": "Anthropic published research showing Claude can assist in designing more efficient quantum circuits, expanding the demonstrated domain reach of frontier AI models beyond software tasks.",
+          "topic": "AI Research Application",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-16T18:00:18.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "0e6fd8656f",
+          "title": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+          "link": "https://www.mercor.com/research/labor-index/benchmark-map/",
+          "source": "Hacker News",
+          "summary": "Mercor research finds 90% of US working hours involve tasks not well covered by existing AI benchmarks, suggesting current benchmark-driven AI capability claims overstate real-world labor automation potential.",
+          "topic": "AI Capability Assessment",
+          "company": "Mercor",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-16T17:08:38.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "6014810f28",
+          "title": "FLUX 3 Image Klein",
+          "link": "https://bfl.ai/blog/flux-3-image-klein",
+          "source": "Hacker News",
+          "summary": "Black Forest Labs released FLUX 3 Image Klein, a new image generation model, continuing competitive pressure in the AI image generation market against Midjourney and OpenAI.",
+          "topic": "AI Image Model Launch",
+          "company": "Black Forest Labs",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-16T19:47:13.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "805c6efc7d",
+          "title": "Jev is Vercel’s fastest-adopted AI model ever",
+          "link": "https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/",
+          "source": "TechCrunch AI",
+          "summary": "Vercel's new AI model Jev has become the company's fastest-adopted model ever through its AI gateway, showing strong developer traction for unified API approaches to model access.",
+          "topic": "AI Developer Platform",
+          "company": "Vercel",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-16T15:33:49.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "33eae345ce",
+          "title": "Elorian’s first AI model wants to reason with images, not just about them",
+          "link": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
+          "source": "TechCrunch AI",
+          "summary": "Elorian launched Glimpse, a visual reasoning model that claims to outperform GPT-4o on scientific chart reasoning, entering a competitive multimodal AI market with differentiated benchmarks.",
+          "topic": "Multimodal AI Model",
+          "company": "Elorian",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-16T16:01:37.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "5968706b9d",
+          "title": "Apple&#8217;s updated App Store rules go after &#8216;nudify&#8217; AI apps",
+          "link": "https://www.theverge.com/tech/1013314/apple-app-store-nudify-ai-apps-harassment",
+          "source": "The Verge",
+          "summary": "Apple updated App Store rules to more explicitly ban AI-powered nudify apps, a regulatory action PMs in the AI content space need to factor into product compliance strategies.",
+          "topic": "AI Content Regulation",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-16T22:51:22.000Z",
+          "addedOn": "2026-10-17"
+        },
+        {
+          "id": "4466435dcf",
+          "title": "India becomes the latest country to report rogue AI agent activity",
+          "link": "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/",
+          "source": "TechCrunch AI",
+          "summary": "India reported rogue AI agent activity exploiting exposed credentials and misconfigured cloud roles, highlighting a growing security threat category that PMs deploying AI agents must address.",
+          "topic": "AI Security",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-16T17:52:24.000Z",
+          "addedOn": "2026-10-17"
+        }
+      ]
+    },
     {
       "date": "2026-10-16",
       "summary": "Meta launched Muse Spark Open, an 816B open-weight model running locally on Apple silicon, marking a significant move in on-device AI. Anthropic granted METR independent researcher access with employee-level visibility and no veto over published findings, a notable step in third-party AI safety oversight. OpenAI's ChatGPT Chrome extension now reads open browser tabs, and NVIDIA released the Nemotron 3.5 Super VL and launched the RTX Spark PC, both pushing AI inference closer to the edge.",

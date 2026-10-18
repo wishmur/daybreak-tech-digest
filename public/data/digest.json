@@ -1,6 +1,184 @@
 {
-  "lastUpdated": "2026-10-17T12:55:40.390Z",
+  "lastUpdated": "2026-10-18T13:12:58.606Z",
   "days": [
+    {
+      "date": "2026-10-18",
+      "summary": "DeepSeek launched both a new flash model (v4.1-Flash-1017) and a search/fetch API at $0.75 per 1000 requests, signaling continued competitive pressure on Western AI providers. Replit switched its default model provider from Anthropic to OpenAI, a meaningful signal of OpenAI's growing platform dominance in developer tooling. Meta's scraping terms remain controversial despite language changes, with legal experts warning the revised terms still grant broad permissions.",
+      "items": [
+        {
+          "id": "f3132748f6",
+          "title": "DeepSeek-v4.1-Flash-1017",
+          "link": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "source": "Hacker News",
+          "summary": "DeepSeek released a new flash model that is generating significant developer attention, reinforcing its position as a serious low-cost alternative to OpenAI and Anthropic models.",
+          "topic": "AI Model Launch",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-17T08:21:25.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "5329074f89",
+          "title": "Replit makes OpenAI its default over Anthropic, CEO says",
+          "link": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
+          "source": "TechCrunch AI",
+          "summary": "Replit switching its default AI provider from Anthropic to OpenAI is a concrete signal of platform-level competition between the two companies for developer mindshare.",
+          "topic": "AI Platform Competition",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic",
+            "Replit"
+          ],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-17T18:48:08.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "0b29a31c87",
+          "title": "DeepSeek search and fetch – $0.75 per 1000 successful requests",
+          "link": "https://api-docs.deepseek.com/guides/search/",
+          "source": "Hacker News",
+          "summary": "DeepSeek launched a paid search and fetch API at $0.75 per 1000 successful requests, expanding its product surface beyond chat into agentic and RAG use cases.",
+          "topic": "AI API Launch",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-18T06:50:36.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "7da671c3f9",
+          "title": "Legal experts warn Meta's new terms still grant broad scraping permissions",
+          "link": "https://www.niemanlab.org/2026/10/legal-experts-warn-metas-new-terms-still-grant-broad-scraping-permissions-despite-language-changes/",
+          "source": "Hacker News",
+          "summary": "Legal experts say Meta's revised terms still permit broad web scraping for AI training despite the language rollback, keeping this a live regulatory and reputational risk for the company.",
+          "topic": "AI Data & Legal Risk",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-18T10:21:51.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "24a6bb2519",
+          "title": "Meta removes language that raised scraping and AI training concerns",
+          "link": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+          "source": "TechCrunch AI",
+          "summary": "Meta walked back scraping-related language in its terms of service after public backlash, but the company insists no actual policy change occurred, leaving its AI training data practices unclear.",
+          "topic": "AI Policy",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-17T21:31:32.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "3de97cce9e",
+          "title": "Inside the black box of AI: How AI models actually think | Emmanuel Ameisen (Anthropic)",
+          "link": "https://www.lennysnewsletter.com/p/a-mind-expanding-conversation-on",
+          "source": "Lenny's Newsletter",
+          "summary": "An Anthropic researcher explains how interpretability research reveals what language models are actually doing internally, relevant for PMs thinking about AI safety and model reliability.",
+          "topic": "AI Research & Safety",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research"
+          ],
+          "publishedAt": "2026-10-18T12:31:36.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "dc44a51ff9",
+          "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
+          "link": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-windows-laptops-celebration/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's RTX Spark laptops are now shipping starting at $2,399, bringing Blackwell-class GPUs and up to 128GB unified memory to consumer PCs, which expands local AI inference capability for power users.",
+          "topic": "Hardware Launch",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra"
+          ],
+          "publishedAt": "2026-10-17T21:00:13.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "c2a828c742",
+          "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
+          "link": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's workforce has shifted toward more senior employees spending more time in meetings, suggesting the company is maturing organizationally as it scales, which affects its product velocity.",
+          "topic": "Company Operations",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-10-17T20:21:19.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "fe3967d004",
+          "title": "Codex Desktop continuously generates Crashpad pending dumps",
+          "link": "https://github.com/openai/codex/issues/25921",
+          "source": "Hacker News",
+          "summary": "OpenAI's Codex Desktop is generating persistent crash dumps, a quality signal worth tracking for PMs evaluating AI coding tools in their developer stacks.",
+          "topic": "AI Tooling Reliability",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-17T17:45:08.000Z",
+          "addedOn": "2026-10-18"
+        },
+        {
+          "id": "f36794770a",
+          "title": "🧠 Community Wisdom: PRDs for agents, tracking competitor messaging, whether software moats still exist, exercising startup options when you leave, and more",
+          "link": "https://www.lennysnewsletter.com/p/community-wisdom-prds-for-agents",
+          "source": "Lenny's Newsletter",
+          "summary": "The PM community is actively debating how to write PRDs for AI agents and whether software moats still exist, reflecting how product strategy norms are shifting in the AI era.",
+          "topic": "Product Management Practice",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-10-17T13:53:57.000Z",
+          "addedOn": "2026-10-18"
+        }
+      ]
+    },
     {
       "date": "2026-10-17",
       "summary": "DeepSeek released a new flash model (v4.1 Flash 1017) available on HuggingFace and OpenRouter, signaling continued rapid iteration from the open-source frontier. Replit has quietly dropped Anthropic in favor of OpenAI, a notable shift in AI coding partnerships worth tracking for competitive dynamics. Research from Mercor finds that 90% of US working hours involve tasks not well covered by AI benchmarks, which challenges assumptions about near-term AI labor displacement.",

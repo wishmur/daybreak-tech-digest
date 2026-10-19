@@ -1,6 +1,199 @@
 {
-  "lastUpdated": "2026-10-18T13:12:58.606Z",
+  "lastUpdated": "2026-10-19T16:25:39.127Z",
   "days": [
+    {
+      "date": "2026-10-19",
+      "summary": "Nvidia launched new open models for enterprise and on-device AI agents, signaling a push to own the agentic AI infrastructure stack. Mistral released Timestral, time-series foundation models with broad forecasting applications. Anthropic committed 5% of its shares to a public benefit fund, and Disney moved to acquire most of Character.AI's workforce, reshaping the consumer AI landscape.",
+      "items": [
+        {
+          "id": "938df27abb",
+          "title": "Nvidia launches new open models to run agents in the enterprise and on PCs",
+          "link": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia released open models targeting enterprise data centers and on-device AI agents, extending its AI platform beyond chips into model and software layers.",
+          "topic": "AI Models and Agents",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "open-source",
+            "product"
+          ],
+          "publishedAt": "2026-10-19T15:37:09.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "6bdcc866d4",
+          "title": "Timestral: Mistral release time-series foundation models",
+          "link": "https://mistral.ai/news/timestral/",
+          "source": "Hacker News",
+          "summary": "Mistral released Timestral, a set of time-series foundation models, entering a high-value vertical (forecasting, anomaly detection) where specialized models have strong enterprise demand.",
+          "topic": "AI Models",
+          "company": "Mistral",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-19T09:59:32.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "8768eef8ca",
+          "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+          "link": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic is transferring 5% of its equity to a public benefit fund, a governance move that signals its long-term intent to balance commercial growth with its stated mission.",
+          "topic": "AI Governance",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "leadership"
+          ],
+          "publishedAt": "2026-10-18T20:37:40.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "2f6c16309d",
+          "title": "Disney agrees to hire the majority of Character.AI’s workforce",
+          "link": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+          "source": "TechCrunch AI",
+          "summary": "Disney is acquiring most of Character.AI's workforce in a stalking horse bid, indicating major media companies are aggressively acquiring AI talent and product capability.",
+          "topic": "AI Talent Acquisition",
+          "company": "Disney",
+          "secondaryCompanies": [
+            "Character.AI"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-18T16:30:00.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "b9c5a4ff13",
+          "title": "AWS Weekly Roundup: AWS Lambda Web Functions, Amazon S3 on the Vercel Marketplace, and more (October 19, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-lambda-web-functions-amazon-s3-on-the-vercel-marketplace-and-more-october-19-2026/",
+          "source": "AWS News",
+          "summary": "AWS Lambda now supports running plain HTTP servers natively, and Amazon S3 is available on the Vercel Marketplace, reducing friction between existing code and production deployment.",
+          "topic": "Cloud Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "Vercel"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-19T15:34:59.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "f37af11a78",
+          "title": "Launch HN: Laminar (YC S24) – We trained a model to catch silent agent failures",
+          "link": "https://news.ycombinator.com/item?id=50154029",
+          "source": "Hacker News",
+          "summary": "Laminar (YC S24) released flow-1, a reinforcement-learning-trained model specifically designed to detect silent failures in AI agents, addressing a critical reliability gap in agentic systems.",
+          "topic": "AI Tooling",
+          "company": "Laminar",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-19T16:00:18.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "c71876af6d",
+          "title": "Harness2 by Google Research – Recursive Agent Harnessing",
+          "link": "https://github.com/google-research/harness2",
+          "source": "Hacker News",
+          "summary": "Google Research open-sourced Harness2, a recursive agent harnessing framework, which could become a foundational tool for building and evaluating complex multi-agent systems.",
+          "topic": "AI Agents",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-19T11:28:45.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "50e8daf773",
+          "title": "A hacker broke into John Deere and SharkNinja with an army of AI agents",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
+          "source": "The Verge",
+          "summary": "A hacker used autonomous AI agents to breach over 100 websites with minimal manual effort, providing a concrete proof-of-concept for AI-enabled offensive security threats that PMs building web products need to understand.",
+          "topic": "AI Security",
+          "company": "Norforge",
+          "secondaryCompanies": [
+            "John Deere",
+            "SharkNinja"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-19T13:58:41.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "fadf8b8c2d",
+          "title": "Amazon is funding a new nuclear plant in Indiana",
+          "link": "https://www.theverge.com/tech/1013735/amazon-x-energy-aep-nuclear-indiana",
+          "source": "The Verge",
+          "summary": "Amazon signed an agreement to fund a new nuclear plant in Indiana through X-energy, reinforcing that hyperscalers are making long-term energy infrastructure bets to power AI workloads.",
+          "topic": "AI Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "X-energy"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "funding"
+          ],
+          "publishedAt": "2026-10-19T15:44:20.000Z",
+          "addedOn": "2026-10-19"
+        },
+        {
+          "id": "e34b97a8f0",
+          "title": "If you don't run your own LLM proxy, how do you know whats going on?",
+          "link": "https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/",
+          "source": "Hacker News",
+          "summary": "A widely circulated post makes the case for running an internal LLM proxy to gain visibility into model usage, costs, and data flows, which is a practical concern for any team deploying LLMs in production.",
+          "topic": "AI Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-18T21:09:12.000Z",
+          "addedOn": "2026-10-19"
+        }
+      ]
+    },
     {
       "date": "2026-10-18",
       "summary": "DeepSeek launched both a new flash model (v4.1-Flash-1017) and a search/fetch API at $0.75 per 1000 requests, signaling continued competitive pressure on Western AI providers. Replit switched its default model provider from Anthropic to OpenAI, a meaningful signal of OpenAI's growing platform dominance in developer tooling. Meta's scraping terms remain controversial despite language changes, with legal experts warning the revised terms still grant broad permissions.",

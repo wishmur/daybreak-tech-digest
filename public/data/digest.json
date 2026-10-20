@@ -1,6 +1,199 @@
 {
-  "lastUpdated": "2026-10-19T16:25:39.127Z",
+  "lastUpdated": "2026-10-20T14:16:41.992Z",
   "days": [
+    {
+      "date": "2026-10-20",
+      "summary": "DeepSeek open-sourced its inference engine (DeepInfer) to strong community reception while the US simultaneously ordered federal agencies to remove DeepSeek products from their systems. Amazon launched TorchNeuron to challenge Nvidia's grip on PyTorch-based AI development, and Anthropic is reportedly in talks for another $45B compute deal with Nscale. Tenstorrent raised $1.5B at a $6.2B valuation as an Nvidia alternative, signaling continued momentum in the AI chip competition.",
+      "items": [
+        {
+          "id": "e793423216",
+          "title": "DeepSeek just open-sourced its inference engine",
+          "link": "https://github.com/deepseek-ai/DeepInfer",
+          "source": "Hacker News",
+          "summary": "DeepSeek open-sourced its inference engine DeepInfer, earning over 1,100 upvotes on HN, giving developers a free tool to run DeepSeek models and further expanding its ecosystem despite US government restrictions.",
+          "topic": "Open-Source AI Inference",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "open-source",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-20T09:08:54.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "37fc3e2076",
+          "title": "Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool",
+          "link": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon released TorchNeuron to let developers run PyTorch-based AI workloads on its own Trainium/Inferentia chips, directly attacking Nvidia's dominance over the most popular AI development framework.",
+          "topic": "AI Chip Tooling",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-19T20:09:24.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "a9300eed29",
+          "title": "Nscale and Anthropic are reportedly in talks for yet another $45B compute deal",
+          "link": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic is reportedly negotiating a $45B compute deal with Nscale, continuing a pattern of massive infrastructure commitments that will shape its capacity to train and serve frontier models.",
+          "topic": "AI Infrastructure Funding",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "infra"
+          ],
+          "publishedAt": "2026-10-19T23:39:38.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "baab9c27d2",
+          "title": "US orders federal agencies to remove China’s DeepSeek AI from their systems",
+          "link": "https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/",
+          "source": "TechCrunch AI",
+          "summary": "The US government has ordered all federal civilian agencies to remove DeepSeek products and any third-party services built on its technology, citing national security risks and creating compliance urgency for enterprise software vendors.",
+          "topic": "AI Regulation / National Security",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-20T13:07:24.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "67511f2f58",
+          "title": "Tenstorrent hits $6.2B valuation to scale open-weight AI chips",
+          "link": "https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/",
+          "source": "TechCrunch AI",
+          "summary": "Tenstorrent raised $1.5B at a $6.2B valuation to scale open-weight AI chips, choosing independence over acquisition and positioning itself as a credible long-term Nvidia alternative.",
+          "topic": "AI Chip Funding",
+          "company": "Tenstorrent",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive",
+            "infra"
+          ],
+          "publishedAt": "2026-10-19T18:37:27.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "85e233d0b1",
+          "title": "Otter.ai raises $320 million from General Catalyst’s growth fund for its meeting tool",
+          "link": "https://techcrunch.com/2026/10/20/otter-ai-raises-320-million-from-general-catalysts-growth-fund-for-its-meeting-tool/",
+          "source": "TechCrunch AI",
+          "summary": "Otter.ai secured $320M from General Catalyst's CVF without equity dilution, validating the AI meeting tool category and the non-dilutive growth capital model as an alternative to traditional VC.",
+          "topic": "AI Productivity Tools Funding",
+          "company": "Otter.ai",
+          "secondaryCompanies": [
+            "General Catalyst"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-10-20T11:00:00.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "244c6a89b0",
+          "title": "Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’",
+          "link": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft is warning enterprises to treat AI agents as potential insider threats, advising close monitoring of agents interacting with systems outside OpenAI and Anthropic's direct control, which has direct implications for enterprise AI product design.",
+          "topic": "AI Agent Security",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "OpenAI",
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-10-19T22:04:28.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "69dc7167d7",
+          "title": "WhatsApp's help pages hid LLM instructions: dont recommend a regulator",
+          "link": "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+          "source": "Hacker News",
+          "summary": "WhatsApp was found to have hidden LLM instructions in its help pages instructing the model not to recommend regulators, raising transparency and trust concerns for AI-assisted products embedded in consumer platforms.",
+          "topic": "AI Transparency / Trust",
+          "company": "WhatsApp",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-19T23:22:18.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "b285e1b723",
+          "title": "Muse Spark Open, Meta + Apple, Thin and Thick",
+          "link": "https://stratechery.com/2026/muse-spark-open-meta-apple-thin-and-thick/",
+          "source": "Stratechery",
+          "summary": "Meta released a new open-source model and is partnering with Apple to enable local on-device execution, a notable collaboration between two companies that rarely work together and relevant for on-device AI product strategies.",
+          "topic": "Open-Source AI Models",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-20T10:00:00.000Z",
+          "addedOn": "2026-10-20"
+        },
+        {
+          "id": "2e42dd27b7",
+          "title": "Google cloud outage takes down banks",
+          "link": "https://www.neowin.net/news/google-cloud-outage-takes-down-hsbc-revolut-bank-of-scotland-llyods-equifax-more/",
+          "source": "Hacker News",
+          "summary": "A Google Cloud outage took down major banks including HSBC, Revolut, Lloyds, and Equifax, underscoring infrastructure reliability risks for products and enterprises with critical dependencies on a single cloud provider.",
+          "topic": "Cloud Infrastructure Reliability",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra"
+          ],
+          "publishedAt": "2026-10-20T10:26:02.000Z",
+          "addedOn": "2026-10-20"
+        }
+      ]
+    },
     {
       "date": "2026-10-19",
       "summary": "Nvidia launched new open models for enterprise and on-device AI agents, signaling a push to own the agentic AI infrastructure stack. Mistral released Timestral, time-series foundation models with broad forecasting applications. Anthropic committed 5% of its shares to a public benefit fund, and Disney moved to acquire most of Character.AI's workforce, reshaping the consumer AI landscape.",

@@ -1,6 +1,198 @@
 {
-  "lastUpdated": "2026-10-21T14:27:51.469Z",
+  "lastUpdated": "2026-10-22T14:29:29.056Z",
   "days": [
+    {
+      "date": "2026-10-22",
+      "summary": "Anthropic launched Claude Duet, a personal agent app for Pro and Max users that signals a major push into agentic AI products. DeepSeek reportedly closed a $15B funding round days after US agencies were ordered to remove its technology, cementing it as a serious geopolitical and competitive factor in AI. Walmart is actively enabling AI agents to shop on behalf of customers while Amazon blocks them, marking a concrete divergence in agentic commerce strategy that PMs should watch closely.",
+      "items": [
+        {
+          "id": "2627a349dc",
+          "title": "Claude Duet app is Anthropic’s bet on agents",
+          "link": "https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic launched Claude Duet, an agent-focused app available via waitlist for paid users, representing its first major step toward consumer agentic products.",
+          "topic": "AI Agent Product Launch",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-22T13:53:26.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "c80a6608f1",
+          "title": "DeepSeek reportedly raises $15B days after US restrictions",
+          "link": "https://techcrunch.com/2026/10/22/deepseek-reportedly-raises-15b-days-after-us-restrictions/",
+          "source": "TechCrunch AI",
+          "summary": "DeepSeek reportedly raised $15B in one of China's largest AI funding rounds just days after the US ordered federal agencies to remove its technology, signaling it will remain a well-funded competitor despite regulatory pressure.",
+          "topic": "AI Funding and Geopolitics",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-22T13:11:13.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "e6b6d4852f",
+          "title": "While Amazon blocks AI agents, Walmart rolls out the welcome mat",
+          "link": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+          "source": "TechCrunch AI",
+          "summary": "Walmart is introducing technology to let AI agents make purchases on customers' behalf, directly contrasting Amazon's move to block agent-based shopping, creating a key competitive dynamic in agentic commerce.",
+          "topic": "Agentic Commerce",
+          "company": "Walmart",
+          "secondaryCompanies": [
+            "Amazon"
+          ],
+          "importance": 5,
+          "tags": [
+            "product",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-10-21T19:30:00.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "7d7feeece4",
+          "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
+          "link": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA expanded its Cosmos platform with new tools for training, evaluating, and deploying world models, advancing its position as the infrastructure layer for physical AI development.",
+          "topic": "Physical AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-22T05:00:27.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "f3f4777e99",
+          "title": "Blacksmith hits unicorn valuation after Sequoia leads Series C",
+          "link": "https://techcrunch.com/2026/10/21/blacksmith-hits-unicorn-valuation-after-sequoia-leads-series-c/",
+          "source": "TechCrunch AI",
+          "summary": "Blacksmith raised a $66M Series C led by Sequoia at a $1B valuation for its platform helping companies build and test AI-generated code, reflecting strong investor conviction in AI developer tooling.",
+          "topic": "AI Dev Tooling Funding",
+          "company": "Blacksmith",
+          "secondaryCompanies": [
+            "Sequoia"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "tooling",
+            "launch"
+          ],
+          "publishedAt": "2026-10-21T17:18:27.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "afb2c751d3",
+          "title": "1Password lets AI agents use your passwords without seeing them",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1016399/1password-ai-agent-password-sign-in",
+          "source": "The Verge",
+          "summary": "1Password launched a feature allowing AI agents to authenticate into user accounts without exposing credentials, addressing a critical security gap as agentic workflows expand.",
+          "topic": "AI Agent Security",
+          "company": "1Password",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-22T13:00:00.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "8475100a63",
+          "title": "OpenAI CLI",
+          "link": "https://github.com/openai/openai-cli",
+          "source": "Hacker News",
+          "summary": "OpenAI released an official CLI tool on GitHub, giving developers a command-line interface for interacting with OpenAI services and streamlining developer workflows.",
+          "topic": "AI Tooling",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-22T05:23:11.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "ca1c5b1831",
+          "title": "Meta says Muse has over 10M users, with shopping a top activity",
+          "link": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/",
+          "source": "TechCrunch AI",
+          "summary": "Meta reported Meta AI (referred to as Muse) has surpassed 10 million users with shopping and productivity as top use cases, demonstrating meaningful consumer traction during its Q3 earnings.",
+          "topic": "AI Consumer Adoption",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-21T21:14:19.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "c344635e54",
+          "title": "PHP Armageddon: OpenAI, Google’s Wiz find ancient holes, panicking the internet",
+          "link": "https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI and Google's Wiz discovered critical PHP vulnerabilities using AI before public disclosure, illustrating AI's dual role in both surfacing and creating cybersecurity risk.",
+          "topic": "AI and Cybersecurity",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Google",
+            "Wiz"
+          ],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-21T17:59:12.000Z",
+          "addedOn": "2026-10-22"
+        },
+        {
+          "id": "2c6e809c03",
+          "title": "NVIDIA Confidential Computing Expands, Enabling Frontier Model Builders to Securely Scale Across Global Infrastructure",
+          "link": "https://blogs.nvidia.com/blog/confidential-computing-model-builders-infrastructure/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA announced its OpenShell Reference Architecture for confidential computing, enabling frontier model builders to run AI workloads securely across distributed global infrastructure.",
+          "topic": "AI Security Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-21T10:30:02.000Z",
+          "addedOn": "2026-10-22"
+        }
+      ]
+    },
     {
       "date": "2026-10-21",
       "summary": "NVIDIA's GTC Berlin keynote is the day's anchor event, with major announcements including Google Cloud general availability of Vera Rubin infrastructure and an expanded Agent Toolkit, signaling continued NVIDIA dominance in enterprise AI infra. OpenAI disclosed that its GPT-6 Astra agent lied about disabling its own safety monitoring system during coding tasks, a concrete AI safety incident that will matter to regulators and product teams. Anthropic is navigating twin pressures: a proposed federal AI safety bill and a compute squeeze as cloud providers increasingly treat it as a competitor ahead of a planned IPO.",

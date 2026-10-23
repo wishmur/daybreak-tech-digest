@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-10-22T14:29:29.056Z",
+  "lastUpdated": "2026-10-23T14:12:16.691Z",
   "days": [
+    {
+      "date": "2026-10-23",
+      "summary": "OpenAI is raising $30B at a $1.25T valuation, which would make it the most valuable private company ever and signals an accelerating path to IPO. NVIDIA launched Minerva, an AIOps observability platform for AI factories, while AWS made its AI-powered code vulnerability scanner generally available. Uber rolled out ChatGPT Work to all 30,000 employees, and Sweden's government banned both ChatGPT and Claude from government offices, reflecting a growing regulatory divergence on enterprise AI adoption.",
+      "items": [
+        {
+          "id": "c4c762c6b7",
+          "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+          "link": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI seeking $30B at a $1.25T valuation would set a record for private company valuations and signals the company is positioning aggressively ahead of a public offering.",
+          "topic": "OpenAI Funding Round",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-22T22:08:24.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "4912996ff6",
+          "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+          "link": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA Minerva is a new AIOps platform providing end-to-end observability for AI factories, helping operators detect infrastructure and workload issues earlier, which matters as AI compute deployments scale rapidly.",
+          "topic": "NVIDIA AI Factory Observability",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-22T15:00:02.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "3d47170bd8",
+          "title": "AWS Continuum for code vulnerabilities is now generally available",
+          "link": "https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/",
+          "source": "AWS News",
+          "summary": "AWS Continuum for code vulnerabilities is now GA, using AI to automatically find, validate, prioritize, and generate fixes for code security issues, directly competing with AI-native security tooling startups.",
+          "topic": "AWS AI Security Tooling",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-22T20:33:10.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "73f5f9254a",
+          "title": "Uber puts all 30,000 employees on ChatGPT Work",
+          "link": "https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/",
+          "source": "TechCrunch AI",
+          "summary": "Uber deploying ChatGPT Work to all 30,000 employees is a significant enterprise AI adoption signal and validates OpenAI's enterprise go-to-market strategy at scale.",
+          "topic": "Enterprise AI Adoption",
+          "company": "Uber",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-10-22T16:00:00.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "8e6cfc2220",
+          "title": "OpenAI makes its Jev competitor widely available as decision model competition heats up",
+          "link": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is broadly launching its decision model to compete with alternatives, intensifying competition in the agentic reasoning and planning model segment.",
+          "topic": "OpenAI Decision Model Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-22T19:00:00.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "f1f8f8c749",
+          "title": "Swedish government offices to ban ChatGPT and Claude",
+          "link": "https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet",
+          "source": "Hacker News",
+          "summary": "Sweden's government is banning ChatGPT and Claude from government offices, a concrete regulatory action that signals European sovereign AI concerns are moving from policy discussion to enforcement.",
+          "topic": "Government AI Regulation",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-23T11:39:54.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "c1230fd401",
+          "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+          "link": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+          "source": "TechCrunch AI",
+          "summary": "1Password's new feature lets AI agents authenticate into user accounts without ever exposing credentials, addressing a critical identity and security gap that is blocking enterprise agentic deployments.",
+          "topic": "AI Agent Authentication",
+          "company": "1Password",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-22T19:07:09.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "591876a8e3",
+          "title": "Canva releases its first image generation model",
+          "link": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+          "source": "TechCrunch AI",
+          "summary": "Canva releasing its first proprietary image generation model gives it more control over quality, cost, and differentiation in its design platform, reducing dependence on third-party model providers.",
+          "topic": "Canva Image Generation Model",
+          "company": "Canva",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-22T19:00:00.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "bc91e34a23",
+          "title": "Microsoft’s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases ‘medical superintelligence’",
+          "link": "https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft's AI diagnostic system outperformed generalist doctors on hard medical cases in a Science-published study, though the gains appear driven by underlying foundation models rather than Microsoft's own architecture.",
+          "topic": "Microsoft Medical AI",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-22T18:43:53.000Z",
+          "addedOn": "2026-10-23"
+        },
+        {
+          "id": "9369e7d132",
+          "title": "Etsy is cracking down on AI slop listings",
+          "link": "https://www.theverge.com/tech/1017261/etsy-ai-rules-policies-restrictions-listing",
+          "source": "The Verge",
+          "summary": "Etsy tightening rules on AI-generated listings reflects a broader platform-level product challenge of maintaining trust and quality as AI-generated content floods marketplaces.",
+          "topic": "AI Content Quality on Platforms",
+          "company": "Etsy",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-23T00:09:58.000Z",
+          "addedOn": "2026-10-23"
+        }
+      ]
+    },
     {
       "date": "2026-10-22",
       "summary": "Anthropic launched Claude Duet, a personal agent app for Pro and Max users that signals a major push into agentic AI products. DeepSeek reportedly closed a $15B funding round days after US agencies were ordered to remove its technology, cementing it as a serious geopolitical and competitive factor in AI. Walmart is actively enabling AI agents to shop on behalf of customers while Amazon blocks them, marking a concrete divergence in agentic commerce strategy that PMs should watch closely.",

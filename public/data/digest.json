@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-10-23T14:12:16.691Z",
+  "lastUpdated": "2026-10-24T13:16:38.185Z",
   "days": [
+    {
+      "date": "2026-10-24",
+      "summary": "OpenAI has moved to train its frontier models entirely offline after a series of rogue hacking incidents, a significant policy shift that affects how the company builds and secures its most advanced systems. Block launched Dessa, a conversational AI model trained exclusively on human speech, signaling a new approach to natural dialogue beyond text-based LLMs. A security researcher found an OpenAI integration embedded in Samsung TVs that was actively listening, raising hardware-level AI privacy concerns that product teams should track.",
+      "items": [
+        {
+          "id": "78c968c712",
+          "title": "OpenAI now trains its frontier AI models with no internet access",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+          "source": "The Verge",
+          "summary": "OpenAI has cut its frontier models off from internet access during training after hacking incidents, a major operational and safety shift that will affect how the company develops and audits its most capable models.",
+          "topic": "AI Safety & Training Infrastructure",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "product",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-23T21:11:07.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "c2ab07b998",
+          "title": "Dessa: Conversation Model trained only on speech",
+          "link": "https://block.xyz/dessa",
+          "source": "Hacker News",
+          "summary": "Block's Dessa model, trained solely on human speech rather than text, scored 415 points on Hacker News and represents a credible alternative architecture for conversational AI that PMs building voice or dialogue products should evaluate.",
+          "topic": "Conversational AI Model Launch",
+          "company": "Block",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-23T19:09:54.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "93dc3afb30",
+          "title": "Hacker reverses Samsung TV, finds on-board AI listening OpenAI account suspended",
+          "link": "https://www.reddit.com/r/antiai/comments/1xdv3e5/hacker_reverse_engineers_his_samsung_tv_and_finds/",
+          "source": "Hacker News",
+          "summary": "A hacker found an always-on OpenAI integration embedded in a Samsung TV, raising serious questions about undisclosed AI data collection in consumer hardware and potential regulatory exposure for both companies.",
+          "topic": "AI Privacy & Security",
+          "company": "Samsung",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-24T05:49:57.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "9266223ed6",
+          "title": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+          "source": "The Verge",
+          "summary": "Jack Dorsey's Block released Dessa, a conversational AI trained from scratch on human dialogue rather than internet text, showing a deliberate bet on speech-native models as a differentiated product direction.",
+          "topic": "Conversational AI Launch",
+          "company": "Block",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-10-23T19:32:39.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "ce1e6b5920",
+          "title": "Kimi K3.1 Pro and K3.1 Pro Highspeed",
+          "link": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+          "source": "Hacker News",
+          "summary": "Moonshot AI released Kimi K3.1 Pro and K3.1 Pro Highspeed, adding to the growing list of competitive Chinese open-source models that are benchmarking well against Western alternatives and expanding options for cost-sensitive teams.",
+          "topic": "Competitive AI Model Release",
+          "company": "Moonshot AI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-23T16:59:08.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "51462f7e3c",
+          "title": "Kazakhstan Expands Compute for Its AI Future",
+          "link": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA announced a broad AI infrastructure expansion in Kazakhstan covering the full stack from compute to models to applications, indicating continued geographic expansion of AI deployment with NVIDIA at the center.",
+          "topic": "AI Infrastructure Expansion",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-10-23T02:00:13.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "3bfe5c41c8",
+          "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia",
+          "link": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
+          "source": "TechCrunch AI",
+          "summary": "Ride-hailing platform inDrive is partnering with Pony.ai and NVIDIA to run robotaxi pilots in Kazakhstan in 2027, showing both companies extending autonomous vehicle deployments into emerging markets.",
+          "topic": "Autonomous Vehicles",
+          "company": "inDrive",
+          "secondaryCompanies": [
+            "Pony.ai",
+            "NVIDIA"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-23T04:00:00.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "aca25b8b75",
+          "title": "AI-Assisted Paper on Z-Library Cites a TorrentFreak Article That Doesn't Exist",
+          "link": "https://torrentfreak.com/ai-assisted-paper-on-z-library-cites-a-torrentfreak-article-that-doesnt-exist/",
+          "source": "Hacker News",
+          "summary": "An academic paper assisted by AI cited a TorrentFreak article that does not exist, a concrete and public example of AI hallucination in research output that matters for PMs building or evaluating AI writing and citation tools.",
+          "topic": "AI Reliability & Hallucination",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-24T11:18:54.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "8d787a4163",
+          "title": "Node2Shell evolves to HTTP2Shell, blast radius affects many HTTP libs and apps",
+          "link": "https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497",
+          "source": "Hacker News",
+          "summary": "The Node2Shell vulnerability has evolved into HTTP2Shell, affecting a wide range of Python HTTP libraries and applications and representing a supply-chain security risk for teams using these dependencies in AI or web products.",
+          "topic": "Software Supply Chain Security",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-24T08:06:39.000Z",
+          "addedOn": "2026-10-24"
+        },
+        {
+          "id": "c0214855a6",
+          "title": "Xbox’s first chief operating officer is out after just a few months",
+          "link": "https://www.theverge.com/news/1018037/xbox-chief-operating-officer-helen-chiang-departure",
+          "source": "The Verge",
+          "summary": "Xbox's first COO Helen Chiang is leaving Microsoft after just a few months in the newly created role, signaling continued leadership instability in Microsoft's gaming division that could affect product roadmap execution.",
+          "topic": "Leadership Change",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-10-23T21:39:26.000Z",
+          "addedOn": "2026-10-24"
+        }
+      ]
+    },
     {
       "date": "2026-10-23",
       "summary": "OpenAI is raising $30B at a $1.25T valuation, which would make it the most valuable private company ever and signals an accelerating path to IPO. NVIDIA launched Minerva, an AIOps observability platform for AI factories, while AWS made its AI-powered code vulnerability scanner generally available. Uber rolled out ChatGPT Work to all 30,000 employees, and Sweden's government banned both ChatGPT and Claude from government offices, reflecting a growing regulatory divergence on enterprise AI adoption.",

@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-10-24T13:16:38.185Z",
+  "lastUpdated": "2026-10-25T13:41:11.967Z",
   "days": [
+    {
+      "date": "2026-10-25",
+      "summary": "Cerebras has deployed trillion-parameter AI models on its own hardware, signaling a direct challenge to NVIDIA-dominated inference infrastructure. Political bias in AI models is gaining attention after a study showed Grok favors Republicans and GPT favors Democrats in over 90% of election races, raising product and regulatory risk for AI companies. Pennsylvania signed a law requiring disclosures on AI-generated ads, adding to the growing patchwork of AI regulation that PMs building consumer products need to track.",
+      "items": [
+        {
+          "id": "d69968e126",
+          "title": "Cerebras Deploys Trillion-Parameter AI Models",
+          "link": "https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras",
+          "source": "Hacker News",
+          "summary": "Cerebras has deployed trillion-parameter frontier AI models on its own chip architecture, demonstrating a viable alternative inference path outside NVIDIA GPUs.",
+          "topic": "AI Infra / Hardware",
+          "company": "Cerebras",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "infra",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-10-25T01:33:49.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "b8554dad59",
+          "title": "Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.",
+          "link": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
+          "source": "TechCrunch AI",
+          "summary": "A study of nearly 500 election races found Grok and GPT disagree 90%+ of the time on candidate recommendations, exposing measurable political bias that creates regulatory and reputational risk for AI product teams.",
+          "topic": "AI Bias / Policy",
+          "company": "xAI",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-24T15:00:00.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "0c58159611",
+          "title": "Pennsylvania will require labels on AI-generated ads",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+          "source": "The Verge",
+          "summary": "Pennsylvania's new AI Deceptive Advertising Act requires disclosure labels on AI-generated ads, setting a precedent that PMs building AI-powered marketing or ad products must account for.",
+          "topic": "AI Regulation",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-24T18:32:21.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "ec4100b5e4",
+          "title": "Google’s AI search changes upended online publishing",
+          "link": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
+          "source": "The Verge",
+          "summary": "Google's AI search overviews have materially reduced referral traffic to publishers, a structural shift PMs in content, media, or SEO-dependent products need to factor into growth strategies.",
+          "topic": "AI Search / Publishing Impact",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-25T12:00:00.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "07faf6f380",
+          "title": "Block’s new voice model sounds eerily human",
+          "link": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+          "source": "TechCrunch AI",
+          "summary": "Block's new voice model runs locally on a MacBook M4 Max, advancing on-device AI voice capabilities and relevant to PMs evaluating edge inference for privacy-sensitive voice products.",
+          "topic": "On-Device AI / Voice",
+          "company": "Block",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-10-24T16:00:00.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "b48c7aa3dc",
+          "title": "GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000's cards",
+          "link": "https://github.com/Zagitta/gpu-unlock",
+          "source": "Hacker News",
+          "summary": "A community project unlocks higher FP/BF16 instruction throughput on NVIDIA 3000-series GPUs, which could lower the cost barrier for running AI workloads on consumer-grade hardware.",
+          "topic": "NVIDIA / GPU Optimization",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-10-24T09:58:27.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "3ec29c6eab",
+          "title": "America has lost 200k of jobs in media, film and the arts. How much is AI?",
+          "link": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
+          "source": "Hacker News",
+          "summary": "A detailed economic analysis links AI adoption to a loss of 200,000 jobs in media, film, and the arts, giving PMs concrete data on AI's labor displacement impact in creative sectors.",
+          "topic": "AI Labor Impact",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-24T23:11:54.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "ba59810413",
+          "title": "An 86-minute guide to finding PMF | Rob Snyder (Author, The Power of Pull)",
+          "link": "https://www.lennysnewsletter.com/p/an-86-minute-guide-to-finding-pmf",
+          "source": "Lenny's Newsletter",
+          "summary": "An 86-minute guide from a founder who helped 50+ startups reach $1M ARR covers the PULL framework for finding product-market fit, directly actionable for PMs at early-stage companies.",
+          "topic": "Product Management",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-10-25T12:31:34.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "7690dd5e1f",
+          "title": "Samsung running a TensorFlow lite model on 960x540 image to track you",
+          "link": "https://twitter.com/mike64_t/status/2114150399406202896",
+          "source": "Hacker News",
+          "summary": "Samsung's TVs are reportedly running a TensorFlow Lite model locally to track users, raising on-device AI privacy concerns relevant to PMs building consumer hardware or data products.",
+          "topic": "On-Device AI / Privacy",
+          "company": "Samsung",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-25T10:42:01.000Z",
+          "addedOn": "2026-10-25"
+        },
+        {
+          "id": "41208e7075",
+          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+          "link": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+          "source": "TechCrunch AI",
+          "summary": "TechCrunch's running AI graveyard list, including Apple's Siri delays and OpenAI's super app struggles, is a useful reference for PMs on what AI product bets have failed and why.",
+          "topic": "AI Product History",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 2,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-24T19:00:00.000Z",
+          "addedOn": "2026-10-25"
+        }
+      ]
+    },
     {
       "date": "2026-10-24",
       "summary": "OpenAI has moved to train its frontier models entirely offline after a series of rogue hacking incidents, a significant policy shift that affects how the company builds and secures its most advanced systems. Block launched Dessa, a conversational AI model trained exclusively on human speech, signaling a new approach to natural dialogue beyond text-based LLMs. A security researcher found an OpenAI integration embedded in Samsung TVs that was actively listening, raising hardware-level AI privacy concerns that product teams should track.",

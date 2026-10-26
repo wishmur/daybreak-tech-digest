@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-10-25T13:41:11.967Z",
+  "lastUpdated": "2026-10-26T16:04:48.352Z",
   "days": [
+    {
+      "date": "2026-10-26",
+      "summary": "Anthropic filed its S-1 IPO prospectus with the SEC, disclosing soaring revenue, significant losses, and an unusual governance structure that preserves founder control, making it the first major AI lab to go public ahead of OpenAI. Microsoft is offering mass buyouts to roughly a quarter of its workforce, a significant workforce restructuring signal for the broader tech industry. AWS highlighted new generative AI infrastructure updates including Amazon Polly's generative engine and TorchNeuron for Trainium, while Reddit's custom AI prototyping toolchain offers a practical product and tooling lesson for PMs.",
+      "items": [
+        {
+          "id": "75891430f0",
+          "title": "Anthropic S-1",
+          "link": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "source": "Hacker News",
+          "summary": "Anthropic's S-1 filing is the most significant AI company financial disclosure in years, revealing revenue trajectory, loss scale, governance details, and enterprise adoption data that will set benchmarks across the industry.",
+          "topic": "Anthropic IPO Filing",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-26T13:04:50.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "bb06af6daa",
+          "title": "Anthropic officially files for its public debut",
+          "link": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
+          "source": "TechCrunch AI",
+          "summary": "The IPO filing confirms Anthropic is racing OpenAI to public markets, with an unusual public benefit corporation governance structure that has direct implications for how the company balances safety versus commercial growth.",
+          "topic": "Anthropic IPO Governance",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-26T14:35:22.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "4aa5c31773",
+          "title": "Anthropic’s IPO filing lays out a plan to &#8216;revolutionize every area of human endeavor&#8217; with AI",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
+          "source": "The Verge",
+          "summary": "The Verge's analysis of Anthropic's S-1 highlights the company's stated mission to revolutionize every area of human endeavor, offering PMs a readable breakdown of the filing's strategic implications.",
+          "topic": "Anthropic IPO Strategy",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-26T13:32:49.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "49ae060475",
+          "title": "Microsoft offers mass buyouts for roughly a quarter of its workforce",
+          "link": "https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/",
+          "source": "Hacker News",
+          "summary": "Microsoft offering buyouts to roughly 25% of its workforce signals a major cost restructuring that likely reflects AI-driven productivity bets replacing headcount, with broad implications for enterprise software and talent markets.",
+          "topic": "Microsoft Workforce Restructuring",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-26T15:35:12.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "db41030c46",
+          "title": "AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/",
+          "source": "AWS News",
+          "summary": "AWS's weekly roundup covers Amazon Polly's new generative engine and TorchNeuron support for Trainium, relevant for PMs evaluating AWS AI infrastructure for voice and model training workloads.",
+          "topic": "AWS AI Infrastructure Updates",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-10-26T15:02:24.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "71c43854f4",
+          "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
+          "link": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+          "source": "TechCrunch AI",
+          "summary": "An Apollo economist's finding that AI has delivered zero financial payoff to most companies outside of tech is a critical data point for PMs building business cases around AI investments and ROI expectations.",
+          "topic": "AI ROI and Business Value",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-25T16:57:32.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "3f3d3f73c2",
+          "title": "Why Reddit built its own AI prototyping tool | Blair Metcalf",
+          "link": "https://www.lennysnewsletter.com/p/why-reddit-built-its-own-ai-prototyping",
+          "source": "Lenny's Newsletter",
+          "summary": "Reddit built a custom Figma MCP and Cursor pipeline that takes designers from blank slate to production-shaped prototype in minutes, a practical tooling model PMs can advocate for in their own orgs.",
+          "topic": "AI Prototyping Toolchain",
+          "company": "Reddit",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-26T12:04:20.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "5e9bf11704",
+          "title": "Fixing Tool-Call Accuracy in vLLM",
+          "link": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "source": "Hacker News",
+          "summary": "Ubicloud's work fixing tool-call accuracy in vLLM addresses a known reliability gap in open-source LLM serving that directly affects AI agents and function-calling products built on top of vLLM.",
+          "topic": "LLM Serving Reliability",
+          "company": "Ubicloud",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "tooling",
+            "infra"
+          ],
+          "publishedAt": "2026-10-26T12:59:48.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "8eb1e6dcfc",
+          "title": "Brown student maps the hidden global labor powering AI",
+          "link": "https://www.brown.edu/news/2026-10-26/ai-data-workers",
+          "source": "Hacker News",
+          "summary": "A Brown University study mapping the hidden global labor behind AI data annotation surfaces supply chain and ethical sourcing risks that PMs at AI companies need to account for in vendor and compliance decisions.",
+          "topic": "AI Data Labor",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "regulation"
+          ],
+          "publishedAt": "2026-10-26T12:58:27.000Z",
+          "addedOn": "2026-10-26"
+        },
+        {
+          "id": "0384f20033",
+          "title": "🎙️ How I AI: Claude Duet honest review + Why Reddit built its own AI prototyping tool",
+          "link": "https://www.lennysnewsletter.com/p/how-i-ai-claude-duet-honest-review",
+          "source": "Lenny's Newsletter",
+          "summary": "Lenny's newsletter reviews Claude Duet alongside Reddit's AI prototyping story, giving PMs a practical perspective on current AI coding and design tools from a product management lens.",
+          "topic": "AI Tools for PMs",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Reddit"
+          ],
+          "importance": 2,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-26T15:00:53.000Z",
+          "addedOn": "2026-10-26"
+        }
+      ]
+    },
     {
       "date": "2026-10-25",
       "summary": "Cerebras has deployed trillion-parameter AI models on its own hardware, signaling a direct challenge to NVIDIA-dominated inference infrastructure. Political bias in AI models is gaining attention after a study showed Grok favors Republicans and GPT favors Democrats in over 90% of election races, raising product and regulatory risk for AI companies. Pennsylvania signed a law requiring disclosures on AI-generated ads, adding to the growing patchwork of AI regulation that PMs building consumer products need to track.",

@@ -1,6 +1,189 @@
 {
-  "lastUpdated": "2026-10-27T15:18:47.783Z",
+  "lastUpdated": "2026-10-28T15:58:56.560Z",
   "days": [
+    {
+      "date": "2026-10-28",
+      "summary": "Google DeepMind's Genie 4 world model is generating significant buzz with major improvements to physics, audio, and scene consistency, signaling a step change in interactive world simulation. Amazon's deep ownership stake in Anthropic is coming into fuller view as IPO note conversions reveal the scale of its position. Nvidia released a new open multilingual transcription model, and Anthropic published early results showing Claude accelerating drug discovery, both concrete product and research milestones worth tracking.",
+      "items": [
+        {
+          "id": "39155253f5",
+          "title": "Genie 4",
+          "link": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "source": "Hacker News",
+          "summary": "Google DeepMind's Genie 4 is the most-discussed AI research story of the day, with 986 HN points and 562 comments, showing real gains in world simulation quality, physics, and audio that matter for gaming and robotics applications.",
+          "topic": "AI World Models",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-27T16:06:01.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "c372745ec7",
+          "title": "VCs will make billions on Anthropic’s IPO, but Amazon is set to make much (much) more",
+          "link": "https://techcrunch.com/2026/10/27/vcs-will-make-billions-on-anthropics-ipo-but-amazon-is-set-to-make-much-much-more/",
+          "source": "TechCrunch AI",
+          "summary": "Note conversions ahead of Anthropic's IPO reveal Amazon holds a far larger ownership stake than previously understood, making it the dominant financial beneficiary of Anthropic's growth and clarifying the competitive dynamics between Amazon and other cloud providers.",
+          "topic": "Anthropic IPO / Amazon Stake",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Amazon"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-28T01:15:28.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "9e22205eaa",
+          "title": "Early progress on accelerating drug development with Claude",
+          "link": "https://www.anthropic.com/research/early-progress-drug-development",
+          "source": "Hacker News",
+          "summary": "Anthropic published early research showing Claude can meaningfully accelerate drug development workflows, which is a concrete demonstration of high-value enterprise use cases beyond general productivity and strengthens the case for AI in regulated industries.",
+          "topic": "AI in Drug Discovery",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-10-27T20:50:42.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "4de33f2bcc",
+          "title": "Voice AI in vogue: Nvidia releases new open transcription model",
+          "link": "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia released a free, open speech-to-text model supporting 40 languages for recorded audio, directly useful for meeting transcription and medical documentation products and expanding Nvidia's footprint beyond hardware into AI tooling.",
+          "topic": "Voice AI / Transcription",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-28T15:00:00.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "092cb86201",
+          "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+          "link": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+          "source": "TechCrunch AI",
+          "summary": "A family is suing OpenAI alleging GPT-4o gave their daughter harmful medical advice that contributed to her death, a high-stakes liability case that could shape how AI companies must warn users and constrain health-related use cases.",
+          "topic": "AI Liability / Safety",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-10-27T23:34:27.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "0ec9dae751",
+          "title": "Who’s really in charge at Anthropic after the IPO?",
+          "link": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
+          "source": "TechCrunch AI",
+          "summary": "A detailed breakdown of Anthropic's post-IPO governance structure is important for PMs and investors to understand who controls product and safety decisions at one of the most consequential AI labs.",
+          "topic": "Anthropic Governance",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-10-27T21:38:28.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "fc5f9bdbfc",
+          "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
+          "link": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/",
+          "source": "TechCrunch AI",
+          "summary": "Disruptive's new $10B fund targeting at least 10 large bets, with prior investments in Groq and ElevenLabs, signals continued large-scale capital flowing into AI infrastructure and application companies.",
+          "topic": "AI Venture Funding",
+          "company": "Disruptive",
+          "secondaryCompanies": [
+            "Groq",
+            "ElevenLabs"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding"
+          ],
+          "publishedAt": "2026-10-27T18:55:35.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "29723c5192",
+          "title": "Amazon to buy satellite firm Globalstar in $11.57B deal",
+          "link": "https://www.reuters.com/business/media-telecom/amazon-signs-1157-billion-deal-satellite-firm-globalstar-challenge-starlink-2026-04-14/1157-billion-deal-satellite-firm-globalstar-challenge-starlink-2026-04-14/",
+          "source": "Hacker News",
+          "summary": "Amazon's $11.57B acquisition of Globalstar positions it to compete directly with SpaceX's Starlink in satellite connectivity, which has implications for AWS edge and IoT infrastructure and the broader cloud-to-satellite race.",
+          "topic": "Amazon Satellite / Infra",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Globalstar",
+            "SpaceX"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-28T11:54:23.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "636498a83a",
+          "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
+          "link": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI claims its models helped refute the Exponential Time Hypothesis, a significant theoretical computer science result that, if verified, would be one of the most concrete examples of AI advancing fundamental math and CS research.",
+          "topic": "AI Research Milestone",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research"
+          ],
+          "publishedAt": "2026-10-27T17:08:08.000Z",
+          "addedOn": "2026-10-28"
+        },
+        {
+          "id": "c5b2b1db1c",
+          "title": "Inside Amazon’s Echo hardware event",
+          "link": "https://www.theverge.com/tech/1020388/inside-amazons-echo-hardware-event",
+          "source": "The Verge",
+          "summary": "Amazon held a smaller, more focused Echo hardware event under Panos Panay, signaling a strategic shift in how the company positions its Alexa device lineup as AI assistants become the central use case for smart home hardware.",
+          "topic": "Amazon Echo / Alexa",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-28T12:46:42.000Z",
+          "addedOn": "2026-10-28"
+        }
+      ]
+    },
     {
       "date": "2026-10-27",
       "summary": "Anthropic filed its S-1, revealing a cross-selling strategy that ties enterprise customers to both the Claude Platform and first-party apps, with the Stratechery analysis noting strong unit economics but serious competitive pressure on margins. OpenAI launched 'dots', an always-on personal assistant spun out of its coding tools, signaling a push into ambient AI assistants beyond chat. General Compute raised $100M betting on non-Nvidia inference chips, while SpaceX locked in a $40B GPU financing deal with Apollo, both pointing to continued infrastructure scale-up outside traditional funding channels.",

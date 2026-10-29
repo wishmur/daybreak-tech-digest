@@ -1,6 +1,198 @@
 {
-  "lastUpdated": "2026-10-28T15:58:56.560Z",
+  "lastUpdated": "2026-10-29T16:02:29.872Z",
   "days": [
+    {
+      "date": "2026-10-29",
+      "summary": "Gemini 4 Carbon has taken the top spot on the Artificial Analysis Intelligence Index, signaling a meaningful shift in frontier model rankings that PMs should factor into vendor decisions. Anthropic's S-1 filing reveals its AGI-or-bust business strategy alongside new spending transparency tools for enterprise customers, making its competitive positioning clearer ahead of a planned IPO. Mistral released Large 4 as open weights, adding another capable open-source option to the market, while Microsoft disclosed $10B in OpenAI-linked revenue and Azure's first-ever dollar revenue figure of $33.2B, underlining the scale of the current AI infrastructure buildout.",
+      "items": [
+        {
+          "id": "15f5bd9660",
+          "title": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
+          "link": "https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1",
+          "source": "Hacker News",
+          "summary": "Gemini 4 Carbon has taken the top ranking on the Artificial Analysis Intelligence Index v5, a benchmark PMs use to compare frontier models, signaling Google has a credible claim to the best-performing model right now.",
+          "topic": "AI Model Benchmarks",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-29T12:41:56.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "cedcf6b5d1",
+          "title": "Anthropic’s business plan: Build God or die trying",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1021476/anthropic-s-1-compute-recursive",
+          "source": "The Verge",
+          "summary": "Anthropic's S-1 filing frames its strategy as spending maximally on compute to reach AGI first, giving PMs a clearer view of where the company is headed and how it justifies its capital requirements to investors.",
+          "topic": "Anthropic IPO Filing",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-29T13:30:00.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "aa6b452fb6",
+          "title": "Mistral Large 4 (Le Chonk) is now Open Weight",
+          "link": "https://mistral.ai/news/mistral-large-4-oss/",
+          "source": "Hacker News",
+          "summary": "Mistral released Large 4 as open weights, giving developers and enterprises a new high-capability open-source model option that could reduce reliance on proprietary APIs.",
+          "topic": "Open-Source AI Models",
+          "company": "Mistral",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T14:13:21.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "65911ac3f4",
+          "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+          "link": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft disclosed $10B in revenue from its commercial arrangements with OpenAI in a single quarter, quantifying how central the partnership is to Microsoft's AI business and signaling durable demand for OpenAI-powered products.",
+          "topic": "Microsoft-OpenAI Financials",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-28T21:34:30.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "b2173123b9",
+          "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+          "link": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic launched new tools that show enterprise customers exactly how their AI spend is allocated across model usage, which helps PMs justify AI budgets and aligns with Anthropic's pre-IPO push to grow enterprise revenue.",
+          "topic": "AI Spend Transparency Tooling",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-28T19:19:58.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "7d5ffdad90",
+          "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+          "link": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+          "source": "TechCrunch AI",
+          "summary": "Microsoft disclosed Azure quarterly revenue at $33.2B for the first time, giving the market a concrete basis for comparing its cloud business to AWS and illustrating how close the AI-driven cloud race has become.",
+          "topic": "Cloud Revenue Disclosure",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "AWS"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "infra"
+          ],
+          "publishedAt": "2026-10-28T21:58:32.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "7fbbcf0aac",
+          "title": "As AI agents reshape the web, Google opens Gemini and Search to more apps",
+          "link": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
+          "source": "TechCrunch AI",
+          "summary": "Google is opening Gemini and Search to third-party apps through a new developer platform, which could shift how users discover products and represents a meaningful distribution channel PMs need to evaluate.",
+          "topic": "AI Agent Platform",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-28T17:00:00.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "34b53368a5",
+          "title": "Google expands AI Search ads globally as core ad growth slows",
+          "link": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+          "source": "TechCrunch AI",
+          "summary": "Google is expanding AI-powered Search ads globally as organic ad growth slows, which directly affects how PMs think about paid acquisition strategy and product discoverability in AI-mediated search.",
+          "topic": "AI Search Advertising",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-28T21:48:37.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "0fbe2d6925",
+          "title": "DoorDash is acquiring Instacart for $17B",
+          "link": "https://about.doordash.com/en-us/news/doordash-to-acquire-instacart",
+          "source": "Hacker News",
+          "summary": "DoorDash is acquiring Instacart for $17B, a major consolidation in on-demand delivery that will reshape the competitive landscape for grocery, retail, and logistics-adjacent product teams.",
+          "topic": "Major Acquisition",
+          "company": "DoorDash",
+          "secondaryCompanies": [
+            "Instacart"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T14:40:43.000Z",
+          "addedOn": "2026-10-29"
+        },
+        {
+          "id": "6364a0999f",
+          "title": "Deepgram acquires Pipecat-maker Daily to bolster its voice AI infrastructure",
+          "link": "https://techcrunch.com/2026/10/29/deepgram-acquires-pipecat-maker-daily-to-bolster-its-voice-ai-infrastructure/",
+          "source": "TechCrunch AI",
+          "summary": "Deepgram acquired Daily, the maker of the open-source Pipecat voice AI framework, consolidating key voice AI infrastructure under one vendor while committing to keep Pipecat open source.",
+          "topic": "Voice AI Infrastructure",
+          "company": "Deepgram",
+          "secondaryCompanies": [
+            "Daily"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "open-source"
+          ],
+          "publishedAt": "2026-10-29T13:00:00.000Z",
+          "addedOn": "2026-10-29"
+        }
+      ]
+    },
     {
       "date": "2026-10-28",
       "summary": "Google DeepMind's Genie 4 world model is generating significant buzz with major improvements to physics, audio, and scene consistency, signaling a step change in interactive world simulation. Amazon's deep ownership stake in Anthropic is coming into fuller view as IPO note conversions reveal the scale of its position. Nvidia released a new open multilingual transcription model, and Anthropic published early results showing Claude accelerating drug discovery, both concrete product and research milestones worth tracking.",

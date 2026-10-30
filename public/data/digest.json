@@ -1,6 +1,199 @@
 {
-  "lastUpdated": "2026-10-29T16:02:29.872Z",
+  "lastUpdated": "2026-10-30T15:51:30.061Z",
   "days": [
+    {
+      "date": "2026-10-30",
+      "summary": "A backdoor was discovered in the Claude Code VS Code extension on the Cursor Marketplace, a significant security incident for Anthropic and its developer tooling. AWS CEO Andy Jassy projected AWS will become a $1 trillion business through continued heavy AI capex spending. OpenAI-backed Thrive Holdings acquired ADT for $15.3 billion, signaling OpenAI's portfolio companies are moving into AI-powered physical security at scale.",
+      "items": [
+        {
+          "id": "6890dfa24a",
+          "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+          "link": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+          "source": "Hacker News",
+          "summary": "A backdoor was found in the Claude Code extension for VS Code on the Cursor Marketplace, representing a serious supply-chain security incident affecting Anthropic's developer tooling ecosystem.",
+          "topic": "AI Tooling Security Breach",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Cursor"
+          ],
+          "importance": 5,
+          "tags": [
+            "product",
+            "tooling",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-30T07:09:12.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "ee09513d3b",
+          "title": "AWS will be a $1T business, Jassy says — but first, it will spend big",
+          "link": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon CEO Andy Jassy stated AWS is on track to become a $1 trillion revenue business, but will require sustained heavy capital expenditure on AI infrastructure to get there.",
+          "topic": "AWS AI Cloud Strategy",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "infra",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T23:42:22.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "db83db5c21",
+          "title": "OpenAI-backed Thrive Holdings acquires ADT",
+          "link": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI-backed Thrive Holdings is acquiring home security company ADT for $15.3 billion, with plans to integrate AI into physical home security products and services.",
+          "topic": "AI-Powered Home Security Acquisition",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "ADT",
+            "Thrive Holdings"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-29T19:56:19.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "f4d2fa0b48",
+          "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+          "link": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+          "source": "TechCrunch AI",
+          "summary": "Mistral released weights for its trillion-parameter model targeting cybersecurity, arguing open-source access gives organizations more control over their AI-driven defenses than closed models allow.",
+          "topic": "Open-Source AI Model Release",
+          "company": "Mistral",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T17:00:00.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "804bc5d490",
+          "title": "US investigated Chinese spy plot aimed at Nvidia CEO",
+          "link": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
+          "source": "TechCrunch AI",
+          "summary": "The US investigated a plot by a Chinese spy allegedly embedded in a Singapore AI cloud company to illegally export Nvidia chips to China, highlighting ongoing chip security risks for Nvidia.",
+          "topic": "Nvidia Chip Export Security",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T16:42:32.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "6aefc31ba6",
+          "title": "Sharp Tech on Video: Anthropic’s S-1 and What It Means for Meta and Muse, You Can See Everything, and Brewers!",
+          "link": "https://stratechery.com/2026/sharp-tech-on-video-anthropics-s-1-and-what-it-means-for-meta-and-muse-you-can-see-everything-and-brewers/",
+          "source": "Stratechery",
+          "summary": "Stratechery published analysis of Anthropic's S-1 filing and its implications for Meta and the broader AI competitive landscape, offering strategic framing PMs should understand.",
+          "topic": "Anthropic S-1 Analysis",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-10-30T10:00:00.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "5d9d780845",
+          "title": "Meta quietly launches an AI fashion app called Style Sketch",
+          "link": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+          "source": "TechCrunch AI",
+          "summary": "Meta quietly launched Style Sketch, an AI fashion app that integrates with Instagram to create virtual closets, indicating Meta is expanding AI product experimentation into consumer lifestyle verticals.",
+          "topic": "Meta AI Consumer App Launch",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-29T19:14:36.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "cd84a165e5",
+          "title": "Wabi, the AI agent that builds mini apps, now valued at $1.25B after latest round",
+          "link": "https://techcrunch.com/2026/10/29/wabi-the-ai-agent-that-builds-mini-apps-now-valued-at-1-25b-after-latest-round/",
+          "source": "TechCrunch AI",
+          "summary": "AI agent app Wabi raised $55 million at a $1.25 billion valuation, rebranding itself as a personal agent platform that builds mini apps, reflecting continued investor appetite for AI agent products.",
+          "topic": "AI Agent Platform Funding",
+          "company": "Wabi",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-29T14:35:26.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "60144b1613",
+          "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+          "link": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+          "source": "TechCrunch AI",
+          "summary": "Reddit is shifting toward a logged-in experience as AI search tools reduce open-web traffic, a structural platform change PMs should watch as AI erodes traditional SEO-driven distribution.",
+          "topic": "AI Impact on Search and Platform Strategy",
+          "company": "Reddit",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-29T20:08:31.000Z",
+          "addedOn": "2026-10-30"
+        },
+        {
+          "id": "b2c76de6c6",
+          "title": "Ex-Palantir execs launch Dream with $17M from a16z to build AI world models for construction",
+          "link": "https://techcrunch.com/2026/10/29/ex-palantir-execs-launch-dream-with-17m-from-a16z-to-build-ai-world-models-for-construction/",
+          "source": "TechCrunch AI",
+          "summary": "Ex-Palantir executives raised $17 million from a16z to build AI world models for construction, trained on over 100 million square feet of building data, targeting a large and underserved vertical.",
+          "topic": "AI World Models for Construction",
+          "company": "Dream",
+          "secondaryCompanies": [
+            "Andreessen Horowitz",
+            "Palantir"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-10-29T16:21:00.000Z",
+          "addedOn": "2026-10-30"
+        }
+      ]
+    },
     {
       "date": "2026-10-29",
       "summary": "Gemini 4 Carbon has taken the top spot on the Artificial Analysis Intelligence Index, signaling a meaningful shift in frontier model rankings that PMs should factor into vendor decisions. Anthropic's S-1 filing reveals its AGI-or-bust business strategy alongside new spending transparency tools for enterprise customers, making its competitive positioning clearer ahead of a planned IPO. Mistral released Large 4 as open weights, adding another capable open-source option to the market, while Microsoft disclosed $10B in OpenAI-linked revenue and Azure's first-ever dollar revenue figure of $33.2B, underlining the scale of the current AI infrastructure buildout.",

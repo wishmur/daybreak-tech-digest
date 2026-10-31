@@ -1,6 +1,203 @@
 {
-  "lastUpdated": "2026-10-30T15:51:30.061Z",
+  "lastUpdated": "2026-10-31T15:16:44.911Z",
   "days": [
+    {
+      "date": "2026-10-31",
+      "summary": "A security researcher found a way to take over ChatGPT accounts, a significant vulnerability for OpenAI's flagship product. Anthropic is expected to receive a junk credit rating ahead of its IPO, raising questions about the sustainability of its massive spending. Broader signals suggest cracks forming in the AI spending boom, with debt and negative cash flow drawing investor scrutiny across the sector.",
+      "items": [
+        {
+          "id": "cf9827198c",
+          "title": "We Took over ChatGPT Accounts",
+          "link": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+          "source": "Hacker News",
+          "summary": "Researchers discovered an account takeover vulnerability in ChatGPT, a serious security issue for OpenAI's core consumer product used by hundreds of millions.",
+          "topic": "AI Security Vulnerability",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-31T10:30:11.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "d12607a6e4",
+          "title": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says",
+          "link": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic is expected to receive a high junk credit rating following its IPO, which would increase borrowing costs and constrain its ability to fund the massive compute spending required to compete at the frontier.",
+          "topic": "Anthropic IPO & Credit Rating",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Blackstone"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "leadership"
+          ],
+          "publishedAt": "2026-10-30T21:52:03.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "d2ae3dfb1d",
+          "title": "Cracks are emerging in the AI spending boom",
+          "link": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+          "source": "TechCrunch AI",
+          "summary": "A broader analysis shows mounting debt, negative cash flow, and growing investor skepticism around Big Tech AI infrastructure spending, relevant context for any PM making bets on AI platform stability.",
+          "topic": "AI Spending Sustainability",
+          "company": "",
+          "secondaryCompanies": [
+            "Google",
+            "Microsoft",
+            "Amazon",
+            "Meta"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-30T21:17:40.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "18ea57daed",
+          "title": "The biggest names in AI are backing a new way to opt out of scraping",
+          "link": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out",
+          "source": "The Verge",
+          "summary": "OpenAI, Google, Microsoft, and Anthropic are backing a new standard that lets publishers opt out of AI scraping, which could reshape training data access and content licensing strategies across the industry.",
+          "topic": "AI Scraping Opt-Out Standard",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Google",
+            "Microsoft",
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-10-30T20:26:10.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "ec65015625",
+          "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+          "link": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia is considering cosigning the loan for Nscale's AI data center in West Virginia, signaling how far Nvidia is willing to go to ensure demand for its chips even as investor confidence in AI infrastructure wavers.",
+          "topic": "Nvidia Data Center Financing",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Nscale"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-31T01:20:05.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "ffe1ba5a47",
+          "title": "Apple Intelligence is finally coming to China with iOS 27.3",
+          "link": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+          "source": "The Verge",
+          "summary": "Apple Intelligence is coming to China with iOS 27.3, a major market expansion that opens Apple's AI features to one of its largest customer bases after regulatory delays.",
+          "topic": "Apple Intelligence China Launch",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-30T22:32:53.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "d4c3a95810",
+          "title": "Google’s first data center satellite is online and writing poetry",
+          "link": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+          "source": "TechCrunch AI",
+          "summary": "Google's first data center satellite is operational and running a DeepMind Gemma 4 model in orbit, a notable milestone for edge AI infrastructure at a previously unprecedented scale.",
+          "topic": "Google Satellite AI Infrastructure",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Google DeepMind"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-10-30T17:00:00.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "753305c8ca",
+          "title": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+          "link": "https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/",
+          "source": "Hacker News",
+          "summary": "Cisco gave an engineer unlimited AI tokens to rewrite legacy code, a concrete enterprise example of how AI tooling is being deployed to address technical debt and reshape entry-level engineering roles.",
+          "topic": "AI Coding Tooling in Enterprise",
+          "company": "Cisco",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-10-30T14:08:20.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "30b5f07a33",
+          "title": "DoorDash said it’s only received ‘several hundred’ orders from AI agents",
+          "link": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+          "source": "TechCrunch AI",
+          "summary": "DoorDash reports only several hundred AI agent orders so far but signals openness to third-party agent integrations, providing an early real-world data point on agentic commerce adoption.",
+          "topic": "AI Agents in Consumer Commerce",
+          "company": "DoorDash",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-30T13:54:25.000Z",
+          "addedOn": "2026-10-31"
+        },
+        {
+          "id": "12c5b28f85",
+          "title": "Can AI data centers be mass-produced like cars? This startup aims to find out",
+          "link": "https://techcrunch.com/2026/10/30/can-ai-data-centers-be-mass-produced-like-cars-and-online-in-48-hours-this-startup-aims-to-find-out/",
+          "source": "TechCrunch AI",
+          "summary": "Runware is building prefabricated AI data centers on an assembly line, an approach that could lower costs and speed deployment if it scales, relevant for PMs evaluating infrastructure options.",
+          "topic": "Prefabricated AI Data Centers",
+          "company": "Runware",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-10-30T13:00:00.000Z",
+          "addedOn": "2026-10-31"
+        }
+      ]
+    },
     {
       "date": "2026-10-30",
       "summary": "A backdoor was discovered in the Claude Code VS Code extension on the Cursor Marketplace, a significant security incident for Anthropic and its developer tooling. AWS CEO Andy Jassy projected AWS will become a $1 trillion business through continued heavy AI capex spending. OpenAI-backed Thrive Holdings acquired ADT for $15.3 billion, signaling OpenAI's portfolio companies are moving into AI-powered physical security at scale.",

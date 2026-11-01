@@ -1,6 +1,185 @@
 {
-  "lastUpdated": "2026-10-31T15:16:44.911Z",
+  "lastUpdated": "2026-11-01T15:58:00.804Z",
   "days": [
+    {
+      "date": "2026-11-01",
+      "summary": "OpenAI is reportedly lowering its funding target for its latest round, suggesting investor appetite may be softening despite the company's valuation ambitions. An NAACP lawsuit against xAI over data center pollution has been cleared to proceed, adding regulatory and reputational risk to Elon Musk's AI operation. On the research side, a small team of open-source Qwen models outperformed a leading closed model on hard coding benchmarks, continuing the trend of smaller open models closing the gap on frontier systems.",
+      "items": [
+        {
+          "id": "149be8f745",
+          "title": "OpenAI reportedly lowers funding target for new round",
+          "link": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is reportedly lowering its fundraising target, which signals that investor confidence or valuation expectations may be misaligned, a key signal for anyone tracking AI market dynamics and competitive funding.",
+          "topic": "OpenAI Funding Round",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-31T16:12:55.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "ace8a6b3d5",
+          "title": "Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard",
+          "link": "https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve",
+          "source": "Hacker News",
+          "summary": "A team of five Qwen 3.8-27B open-source models beat a leading closed-source model on LiveCodeBench Hard, demonstrating that multi-agent open-source setups are increasingly competitive with frontier proprietary models for coding tasks.",
+          "topic": "Open-Source AI Model Performance",
+          "company": "Alibaba",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-31T22:46:12.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "9a46afb49d",
+          "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+          "link": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+          "source": "TechCrunch AI",
+          "summary": "A federal judge allowing the NAACP's Clean Air Act lawsuit against xAI's data center to proceed creates a legal precedent that could slow or complicate AI infrastructure buildouts more broadly.",
+          "topic": "xAI Data Center Regulation",
+          "company": "xAI",
+          "secondaryCompanies": [
+            "SpaceX"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-10-31T21:17:03.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "8462b9fc71",
+          "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+          "link": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+          "source": "TechCrunch AI",
+          "summary": "Apple's CEO articulated a deliberate, quality-over-speed AI strategy, which matters for PMs benchmarking how major platforms are positioning their AI product philosophy against competitors like Google and OpenAI.",
+          "topic": "Apple AI Strategy",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-10-31T21:41:00.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "f8fdc7215c",
+          "title": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy",
+          "link": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+          "source": "Hacker News",
+          "summary": "A controlled experiment releasing 50 AI agents in Minecraft to build a civilization failed due to coordination and bureaucracy problems, offering concrete lessons for PMs designing multi-agent AI product architectures.",
+          "topic": "Multi-Agent AI Research",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-11-01T13:47:24.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "00e1179c13",
+          "title": "The AI cost of JavaScript frameworks",
+          "link": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+          "source": "Hacker News",
+          "summary": "Analysis shows that popular JavaScript frameworks significantly increase token costs when used with AI coding tools, a practical tooling consideration for PMs overseeing AI-assisted engineering workflows.",
+          "topic": "AI Tooling and Development Cost",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "infra"
+          ],
+          "publishedAt": "2026-11-01T06:06:19.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "437d380586",
+          "title": "🧠 Community Wisdom: The biggest sources of interruptions for PMs, hiring junior PMs with case studies vs. behavioral interviews, building a product harness for AI-driven development, and more",
+          "link": "https://www.lennysnewsletter.com/p/community-wisdom-the-biggest-sources",
+          "source": "Lenny's Newsletter",
+          "summary": "Lenny's PM community surfaces practical topics including how to build a product harness for AI-driven development and junior PM hiring practices, directly relevant to teams scaling AI product work.",
+          "topic": "Product Management Practices",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-10-31T16:14:41.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "4b515c911a",
+          "title": "How a 19-year-old intern built the growth engine behind this $2B AI company | Hector Serrano",
+          "link": "https://www.lennysnewsletter.com/p/how-a-19-year-old-intern-built-the",
+          "source": "Lenny's Newsletter",
+          "summary": "Wispr Flow's growth story, driven by a 19-year-old intern using paid UGC, offers a case study in low-cost, high-impact growth for AI consumer products that PMs at early-stage AI companies should study.",
+          "topic": "AI Product Growth Strategy",
+          "company": "Wispr Flow",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-01T13:31:36.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "cd4d9b44dd",
+          "title": "Prop 45 in California could be hiding a loophole for data centers",
+          "link": "https://www.theverge.com/policy/1023877/prop-45-california-data-centers-energy",
+          "source": "The Verge",
+          "summary": "A California ballot measure intended to fast-track infrastructure approvals may contain a loophole letting data center developers bypass environmental review, which has direct implications for AI infrastructure expansion in a critical state.",
+          "topic": "AI Infrastructure Regulation",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-01T13:00:00.000Z",
+          "addedOn": "2026-11-01"
+        },
+        {
+          "id": "0289b26f17",
+          "title": "I built an AI Tamagotchi before Meta could",
+          "link": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code",
+          "source": "The Verge",
+          "summary": "Meta's Muse Charm, a wearable AI companion device, represents a new product category move that PMs in consumer AI hardware and social platforms should track as a signal of where Meta is taking embodied AI.",
+          "topic": "Meta AI Hardware",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-10-31T16:05:00.000Z",
+          "addedOn": "2026-11-01"
+        }
+      ]
+    },
     {
       "date": "2026-10-31",
       "summary": "A security researcher found a way to take over ChatGPT accounts, a significant vulnerability for OpenAI's flagship product. Anthropic is expected to receive a junk credit rating ahead of its IPO, raising questions about the sustainability of its massive spending. Broader signals suggest cracks forming in the AI spending boom, with debt and negative cash flow drawing investor scrutiny across the sector.",

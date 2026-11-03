@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-11-01T15:58:00.804Z",
+  "lastUpdated": "2026-11-03T16:59:29.135Z",
   "days": [
+    {
+      "date": "2026-11-03",
+      "summary": "Anthropic publicly warned it is close to recursive self-improvement capability, a significant safety signal that affects how the industry thinks about near-term AI risk. AWS released a weekly roundup highlighting GPT-6.1 Terra on Bedrock and Step Functions as agent tools, reinforcing the pace of agentic infrastructure development. Apple's earnings call signaled it plans to monetize third-party AI apps, and OpenAI is consolidating ChatGPT's interface while merging usage allocation for Chat and Codex.",
+      "items": [
+        {
+          "id": "b86b88ec9c",
+          "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+          "link": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic says it is approaching recursive self-improvement, where AI can train itself and accelerate its own capability gains, making this a material safety and strategic signal for the industry.",
+          "topic": "AI Safety Milestone",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-02T22:14:50.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "6018d9ccf8",
+          "title": "AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more (November 2, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/",
+          "source": "AWS News",
+          "summary": "AWS Bedrock now hosts GPT-6.1 Terra and Step Functions can serve as agent tools, expanding the reach and orchestration capabilities of agentic workloads on AWS infrastructure.",
+          "topic": "Cloud AI Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-02T16:45:48.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "dc645454d4",
+          "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+          "link": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+          "source": "TechCrunch AI",
+          "summary": "Apple hinted during its earnings call at monetizing third-party AI apps, which could reshape how AI companies distribute and charge for products on iOS.",
+          "topic": "AI Monetization Strategy",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-03T01:49:52.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "e0d9533470",
+          "title": "OpenAI is finally merging ChatGPT’s Chat and Work tabs",
+          "link": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is merging ChatGPT's Chat and Work tabs and unifying the usage pool for ChatGPT and Codex, simplifying the product experience and resource allocation for users.",
+          "topic": "ChatGPT Product Update",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-02T13:57:53.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "c368c304bd",
+          "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+          "link": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/",
+          "source": "TechCrunch AI",
+          "summary": "Trajectory raised $45M at a $300M valuation to make AI model training accessible to non-technical users, targeting a significant gap in the AI tooling market.",
+          "topic": "AI Tooling Funding",
+          "company": "Trajectory",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-02T23:13:53.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "917416f537",
+          "title": "How Figma’s PMs actually use AI every day | Ezra Mechaber (PM, Figma)",
+          "link": "https://www.lennysnewsletter.com/p/how-figmas-pms-actually-use-ai-every",
+          "source": "Lenny's Newsletter",
+          "summary": "Figma's growth PM details how a team of 60+ PMs uses an AI-powered 31-skill repo and an autonomous agent for running growth experiments, offering concrete PM workflow patterns.",
+          "topic": "AI in Product Management",
+          "company": "Figma",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-02T13:04:11.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "06e89f8a26",
+          "title": "Google Earnings, Facebook Déjà Vu, The Agent Play",
+          "link": "https://stratechery.com/2026/google-earnings-facebook-deja-vu-the-agent-play/",
+          "source": "Stratechery",
+          "summary": "Stratechery's analysis argues Google's earnings miss mirrors Facebook's 2022 pivot moment and that Google is more aggressively repositioning around AI than the market acknowledges.",
+          "topic": "Google AI Strategy",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "research"
+          ],
+          "publishedAt": "2026-11-02T11:00:00.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "b6e2d45456",
+          "title": "42AI comes out of stealth with $62.5M and a world model that can ‘predict human behavior’",
+          "link": "https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/",
+          "source": "TechCrunch AI",
+          "summary": "42AI emerged from stealth with $62.5M to build a world model that predicts human behavior, a capability with broad implications for product personalization and recommendation systems.",
+          "topic": "AI Startup Launch",
+          "company": "42AI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-11-02T16:30:00.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "a7a0eeaf87",
+          "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+          "link": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+          "source": "TechCrunch AI",
+          "summary": "Google is bundling AI into Search for schools in a way that forces districts to either accept AI features or lose Search access entirely, a product decision with policy and procurement implications.",
+          "topic": "AI Product Policy",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-03T16:30:34.000Z",
+          "addedOn": "2026-11-03"
+        },
+        {
+          "id": "a72f414af3",
+          "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+          "link": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+          "source": "TechCrunch AI",
+          "summary": "The New York Times is suing Brave for scraping and distributing copyrighted content to customers including Anthropic and Perplexity, adding to the growing legal surface area around AI training data.",
+          "topic": "AI Copyright Litigation",
+          "company": "Brave",
+          "secondaryCompanies": [
+            "Anthropic",
+            "Perplexity",
+            "New York Times"
+          ],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-02T19:19:17.000Z",
+          "addedOn": "2026-11-03"
+        }
+      ]
+    },
     {
       "date": "2026-11-01",
       "summary": "OpenAI is reportedly lowering its funding target for its latest round, suggesting investor appetite may be softening despite the company's valuation ambitions. An NAACP lawsuit against xAI over data center pollution has been cleared to proceed, adding regulatory and reputational risk to Elon Musk's AI operation. On the research side, a small team of open-source Qwen models outperformed a leading closed model on hard coding benchmarks, continuing the trend of smaller open models closing the gap on frontier systems.",

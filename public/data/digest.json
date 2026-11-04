@@ -1,6 +1,200 @@
 {
-  "lastUpdated": "2026-11-03T16:59:29.135Z",
+  "lastUpdated": "2026-11-04T17:09:17.572Z",
   "days": [
+    {
+      "date": "2026-11-04",
+      "summary": "Fal, an AI inference startup, raised $1.3 billion at a $16 billion valuation, signaling continued investor appetite for inference infrastructure. OpenAI is acquiring Pierre Computer, extending its hardware ambitions. Anthropic's compute costs are worsening despite scale, raising questions about the economics of frontier AI, while the company is also developing FlashProve to authenticate AI model identity. On the infrastructure side, data center projects faced political setbacks at the midterms and a reported NVIDIA RTX Spark firmware issue is cutting Linux inference performance to 35% of expected speed.",
+      "items": [
+        {
+          "id": "0018ea6e46",
+          "title": "AI inference startup Fal doubles its valuation to $16B as demand surges",
+          "link": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
+          "source": "TechCrunch AI",
+          "summary": "Fal raised $1.3 billion at a $16 billion valuation, making it one of the most highly valued AI inference infrastructure companies and reflecting strong market demand for fast, scalable model serving.",
+          "topic": "AI Inference Infrastructure Funding",
+          "company": "Fal",
+          "secondaryCompanies": [
+            "Bessemer"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-11-03T19:34:43.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "429cf44dea",
+          "title": "Pierre Computer is being acquired by OpenAI",
+          "link": "https://twitter.com/pierrecomputer/status/2117999036175188183",
+          "source": "Hacker News",
+          "summary": "OpenAI is acquiring Pierre Computer, continuing its push into hardware and expanding beyond software-only AI products.",
+          "topic": "OpenAI Hardware Acquisition",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Pierre Computer"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T15:21:21.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "741c3465b3",
+          "title": "Anthropic is still grappling with the economics of compute",
+          "link": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's compute margins are deteriorating rather than improving at scale, which signals structural cost challenges that could affect pricing, product strategy, and fundraising runway.",
+          "topic": "AI Economics and Compute Costs",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "infra",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-03T17:07:01.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "bf81805a5a",
+          "title": "Anthropic is working on a system to prove AI models’ identity",
+          "link": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic's FlashProve system would let users verify that an AI response genuinely came from a claimed model, addressing trust and authentication concerns that matter for enterprise product adoption.",
+          "topic": "AI Model Authentication",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch",
+            "research"
+          ],
+          "publishedAt": "2026-11-03T22:41:03.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "c3c7537eb8",
+          "title": "Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux",
+          "link": "https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop",
+          "source": "Hacker News",
+          "summary": "NVIDIA's RTX Spark laptop GPU ships with encrypted firmware that throttles inference speed to 35% on Linux, a significant developer experience issue for teams deploying local AI workloads on that platform.",
+          "topic": "NVIDIA Firmware and Linux Inference Performance",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-11-04T08:46:29.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "668e659f8e",
+          "title": "Kimi K3.1 Pro model weights are out",
+          "link": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+          "source": "Hacker News",
+          "summary": "Moonshot AI released the weights for Kimi K3.1 Pro, adding another capable open-weight model to the competitive landscape that PMs evaluating model choices should track.",
+          "topic": "Open-Weight Model Release",
+          "company": "Moonshot AI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T15:30:30.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "3180016924",
+          "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+          "link": "https://news.ycombinator.com/item?id=50363461",
+          "source": "Hacker News",
+          "summary": "Google uses personal Gemini chat history for model training with no opt-out option for subscribers unless they disable history, a data privacy issue that could affect enterprise and consumer trust in the product.",
+          "topic": "Gemini Data Privacy",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T10:10:27.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "9664e71d19",
+          "title": "AI on the Ballot",
+          "link": "https://stratechery.com/2026/ai-on-the-ballot/",
+          "source": "Stratechery",
+          "summary": "Data center ballot measures failed across multiple jurisdictions in the midterms, creating a more restrictive regulatory environment for AI infrastructure buildout that will affect capacity timelines for cloud and AI providers.",
+          "topic": "Data Center Regulation and Policy",
+          "company": "",
+          "secondaryCompanies": [
+            "AWS",
+            "Google",
+            "Microsoft",
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-04T11:00:00.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "33440c9f48",
+          "title": "Google faces backlash for plan that would turn off Search for schools that restrict AI",
+          "link": "https://techcrunch.com/2026/11/04/google-faces-backlash-for-plan-that-would-turn-off-search-for-schools-that-restrict-ai/",
+          "source": "TechCrunch AI",
+          "summary": "Google faced political pushback for a plan to disable Search access in schools that restrict AI tools, raising antitrust concerns that could attract regulatory scrutiny of Google's bundling practices.",
+          "topic": "Google Search and AI Antitrust",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-04T16:17:22.000Z",
+          "addedOn": "2026-11-04"
+        },
+        {
+          "id": "3196c5909d",
+          "title": "Uber only fulfilled 4 rides from AI agents last quarter",
+          "link": "https://www.theverge.com/transportation/1026306/uber-ai-agents-q3-earnings-disintermediation",
+          "source": "The Verge",
+          "summary": "Uber reported only four rides completed via third-party AI agents in Q3 2026, providing a concrete data point on the actual current adoption rate of agentic commerce versus the prevailing hype.",
+          "topic": "AI Agent Real-World Adoption",
+          "company": "Uber",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T15:58:45.000Z",
+          "addedOn": "2026-11-04"
+        }
+      ]
+    },
     {
       "date": "2026-11-03",
       "summary": "Anthropic publicly warned it is close to recursive self-improvement capability, a significant safety signal that affects how the industry thinks about near-term AI risk. AWS released a weekly roundup highlighting GPT-6.1 Terra on Bedrock and Step Functions as agent tools, reinforcing the pace of agentic infrastructure development. Apple's earnings call signaled it plans to monetize third-party AI apps, and OpenAI is consolidating ChatGPT's interface while merging usage allocation for Chat and Codex.",

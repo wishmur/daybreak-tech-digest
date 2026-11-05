@@ -1,6 +1,195 @@
 {
-  "lastUpdated": "2026-11-04T17:09:17.572Z",
+  "lastUpdated": "2026-11-05T17:20:31.817Z",
   "days": [
+    {
+      "date": "2026-11-05",
+      "summary": "Dropbox made the day's biggest deal, acquiring Tigris Data for $350M to build AI infrastructure for agents and developers. Meta quietly acquired AI coding startup Conductor to accelerate its multi-agent software development capabilities. OpenAI launched a new cybersecurity model and updated its model spec, signaling ongoing product expansion, while real-world AI agent adoption data from Uber shows consumer uptake remains extremely low despite industry hype.",
+      "items": [
+        {
+          "id": "939524e97f",
+          "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
+          "link": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+          "source": "TechCrunch AI",
+          "summary": "Dropbox's $350M acquisition of Tigris Data is a significant infrastructure bet on AI agent storage, directly building toward its DBX Agent Cloud platform for developers.",
+          "topic": "AI Infrastructure Acquisition",
+          "company": "Dropbox",
+          "secondaryCompanies": [
+            "Tigris Data"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-11-05T15:19:05.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "421e2b40f3",
+          "title": "Meta acquires AI coding startup Conductor",
+          "link": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+          "source": "TechCrunch AI",
+          "summary": "Meta acquiring Conductor gives it proprietary multi-agent coding orchestration technology, intensifying competition with GitHub Copilot and other AI dev tools.",
+          "topic": "AI Coding Acquisition",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Conductor"
+          ],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T21:10:56.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "8d55da85fc",
+          "title": "OpenAI says its new cybersecurity model is better at not hacking other companies",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch",
+          "source": "The Verge",
+          "summary": "OpenAI's GPT-6 Cyber launch expands its product line into enterprise security, with safety guardrails specifically designed to prevent the model from autonomously attacking external systems.",
+          "topic": "AI Cybersecurity Product Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-05T17:00:00.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "781e4656d3",
+          "title": "Box taps Nvidia’s Nemotron for new agent-first content retrieval system",
+          "link": "https://techcrunch.com/2026/11/05/box-taps-nvidias-nemotron-for-new-agent-first-content-retrieval-system/",
+          "source": "TechCrunch AI",
+          "summary": "Box integrating NVIDIA Nemotron for 4x faster query responses with 90% fewer tokens signals how enterprise content platforms are embedding GPU-optimized models to cut costs and improve agent performance.",
+          "topic": "Enterprise AI Integration",
+          "company": "Box",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-11-05T14:00:00.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "d13217a5b4",
+          "title": "Almost no one uses AI agents to book their Uber, company says",
+          "link": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+          "source": "TechCrunch AI",
+          "summary": "Uber's data showing only four users booked rides via AI agent in its busiest week is a critical reality check on actual consumer adoption of agentic AI, relevant to any PM building agent-first products.",
+          "topic": "AI Agent Adoption",
+          "company": "Uber",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-04T21:56:01.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "730f4b537b",
+          "title": "An updated Model Spec for more capable and beneficial AI",
+          "link": "https://openai.com/index/updated-model-spec/",
+          "source": "Hacker News",
+          "summary": "OpenAI's updated Model Spec formalizes behavioral expectations for more capable future models, which will directly affect how products built on OpenAI APIs behave and what constraints developers face.",
+          "topic": "AI Model Governance",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation",
+            "research"
+          ],
+          "publishedAt": "2026-11-05T15:31:43.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "87cd57a95f",
+          "title": "Apple is reportedly cutting budgets for its internal AI usage",
+          "link": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
+          "source": "TechCrunch AI",
+          "summary": "Apple cutting internal AI usage budgets reflects a broader enterprise shift toward token rationing as AI costs scaled faster than expected, a signal for PMs managing AI feature economics.",
+          "topic": "AI Cost Management",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-11-05T01:26:22.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "66f1edd61f",
+          "title": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge",
+          "link": "https://blogs.nvidia.com/blog/memory-full-stack-codesign/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's full-stack codesign approach to GPU memory pressure is a foundational constraint for PMs building large-context or agentic AI products, as memory bottlenecks affect model selection and cost.",
+          "topic": "AI Hardware Constraints",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-11-05T16:00:00.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "bb4ba55311",
+          "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+          "link": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/",
+          "source": "AWS News",
+          "summary": "AWS enabling managed Hive-to-Iceberg migration in S3 Tables removes a significant data engineering barrier for teams modernizing lakehouse architectures to support AI workloads.",
+          "topic": "AWS Data Infrastructure",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-04T23:34:52.000Z",
+          "addedOn": "2026-11-05"
+        },
+        {
+          "id": "2685c0ac97",
+          "title": "Open source AI is booming. Hugging Face explains who profits.",
+          "link": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
+          "source": "TechCrunch AI",
+          "summary": "Hugging Face's analysis of who profits from open source AI is essential context for PMs evaluating build-vs-buy decisions, as enterprises increasingly adopt open models for cost and control reasons.",
+          "topic": "Open Source AI Economics",
+          "company": "Hugging Face",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-04T19:30:04.000Z",
+          "addedOn": "2026-11-05"
+        }
+      ]
+    },
     {
       "date": "2026-11-04",
       "summary": "Fal, an AI inference startup, raised $1.3 billion at a $16 billion valuation, signaling continued investor appetite for inference infrastructure. OpenAI is acquiring Pierre Computer, extending its hardware ambitions. Anthropic's compute costs are worsening despite scale, raising questions about the economics of frontier AI, while the company is also developing FlashProve to authenticate AI model identity. On the infrastructure side, data center projects faced political setbacks at the midterms and a reported NVIDIA RTX Spark firmware issue is cutting Linux inference performance to 35% of expected speed.",

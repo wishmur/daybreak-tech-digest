@@ -1,6 +1,200 @@
 {
-  "lastUpdated": "2026-11-05T17:20:31.817Z",
+  "lastUpdated": "2026-11-06T16:43:12.719Z",
   "days": [
+    {
+      "date": "2026-11-06",
+      "summary": "Google released Gemini Omni 1.2 Flash, a notable model update for developers to watch. Anthropic added a Personal Finance tool to Claude via Plaid integration, expanding its consumer product surface, while OpenAI released a new cybersecurity model and its president signaled a 2027 IPO target. AI spending data from Ramp shows growth plateauing despite rising usage, a signal PMs and investors building around AI revenue assumptions should take seriously.",
+      "items": [
+        {
+          "id": "4eabb5f277",
+          "title": "Gemini Omni 1.2 Flash",
+          "link": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "source": "Hacker News",
+          "summary": "Google released Gemini Omni 1.2 Flash, a multimodal model update that developers and PMs building on Google's AI stack should evaluate for speed and cost tradeoffs.",
+          "topic": "AI Model Launch",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-06T13:35:27.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "ecdcd39295",
+          "title": "Claude can now analyze your spending with its new Personal Finance tool",
+          "link": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic launched a Personal Finance feature in Claude that connects to bank and card accounts via Plaid, moving Claude into consumer fintech and expanding its product utility beyond chat.",
+          "topic": "AI Product Feature",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Plaid"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-05T18:00:00.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "7b5a2965d8",
+          "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+          "link": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+          "source": "TechCrunch AI",
+          "summary": "Ramp spending data shows AI expenditure has plateaued among large customers despite rising usage, suggesting price compression and efficiency gains are eroding revenue growth assumptions that underpin AI valuations.",
+          "topic": "AI Market Dynamics",
+          "company": "Anthropic",
+          "secondaryCompanies": [
+            "Ramp"
+          ],
+          "importance": 5,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-06T15:54:47.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "3cbf932ea5",
+          "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
+          "link": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI president Greg Brockman said the company could be IPO-ready in 2027 and highlighted enterprise traction, setting a public benchmark for the company's commercial maturity.",
+          "topic": "OpenAI IPO",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-11-05T18:02:27.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "2bf787a301",
+          "title": "OpenAI released a new cybersecurity model. Is that enough?",
+          "link": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI released a dedicated cybersecurity AI model, entering a specialized vertical market and signaling its intent to compete with security-focused AI vendors.",
+          "topic": "AI Security Model",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-05T19:06:12.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "00be108b6d",
+          "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
+          "link": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's Vera CPU platform is being positioned to handle the CPU-intensive steps in agentic AI workflows, addressing a real bottleneck in agent performance that PMs building agent products need to understand.",
+          "topic": "AI Infra for Agents",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-05T20:00:41.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "aa3547203e",
+          "title": "Palo Alto Networks in talks to buy AI agent security startup Clutch for $500M",
+          "link": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/",
+          "source": "TechCrunch AI",
+          "summary": "Palo Alto Networks is in talks to acquire AI agent security startup Clutch for $500M, a 6x markup on its last valuation, reflecting strong demand for tooling that secures AI agents in enterprise environments.",
+          "topic": "AI Security Acquisition",
+          "company": "Palo Alto Networks",
+          "secondaryCompanies": [
+            "Clutch",
+            "Lightspeed",
+            "SignalFire"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-06T06:28:32.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "0d25458fd6",
+          "title": "Big Tech lost big in the 2026 election",
+          "link": "https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast",
+          "source": "The Verge",
+          "summary": "The 2026 US elections went strongly against Big Tech and AI infrastructure, with voters backing Democrats who are likely to push harder on data center regulation, which could affect cloud and AI expansion plans.",
+          "topic": "AI Regulation and Politics",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Google",
+            "Amazon",
+            "Microsoft"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-06T16:38:02.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "560f077b27",
+          "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
+          "link": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+          "source": "TechCrunch AI",
+          "summary": "Airbnb announced an AI travel agent launching in the first half of 2027 that will handle trip planning, comparisons, and booking management, signaling a major product strategy shift toward agentic commerce.",
+          "topic": "AI Agent Product",
+          "company": "Airbnb",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-05T22:40:55.000Z",
+          "addedOn": "2026-11-06"
+        },
+        {
+          "id": "92e87df294",
+          "title": "Fox bought Roku",
+          "link": "https://www.theverge.com/streaming/1028629/fox-roku-acquisition-close",
+          "source": "The Verge",
+          "summary": "Fox closed its $22 billion acquisition of Roku, giving it control of a streaming platform with over 100 million users, a major media consolidation move with implications for streaming product and ad strategies.",
+          "topic": "Media Acquisition",
+          "company": "Fox",
+          "secondaryCompanies": [
+            "Roku"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "product"
+          ],
+          "publishedAt": "2026-11-06T15:00:56.000Z",
+          "addedOn": "2026-11-06"
+        }
+      ]
+    },
     {
       "date": "2026-11-05",
       "summary": "Dropbox made the day's biggest deal, acquiring Tigris Data for $350M to build AI infrastructure for agents and developers. Meta quietly acquired AI coding startup Conductor to accelerate its multi-agent software development capabilities. OpenAI launched a new cybersecurity model and updated its model spec, signaling ongoing product expansion, while real-world AI agent adoption data from Uber shows consumer uptake remains extremely low despite industry hype.",

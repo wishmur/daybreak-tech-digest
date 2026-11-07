@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-11-06T16:43:12.719Z",
+  "lastUpdated": "2026-11-07T15:37:46.203Z",
   "days": [
+    {
+      "date": "2026-11-07",
+      "summary": "OpenAI has raised an additional $11 billion at a $1.25 trillion valuation, cementing its position as one of the world's most valuable companies while rival Anthropic nears an IPO. Anthropic is also drawing attention for using AI to automate its own AI development, a practice researchers find alarming given the pace of capability improvement. Google acquired Crusoe's Wyoming data center site, underscoring how aggressively major players are competing for AI infrastructure as midterm ballot results signal growing public scrutiny of data center expansion.",
+      "items": [
+        {
+          "id": "41cd6da548",
+          "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+          "link": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI raising $11 billion at a $1.25 trillion valuation makes it one of the world's most valuable companies and sets a new benchmark for AI startup financing that will shape competitive dynamics and investor expectations across the industry.",
+          "topic": "OpenAI Funding Round",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-06T22:53:46.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "d36485a6e1",
+          "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+          "source": "The Verge",
+          "summary": "Anthropic using its own AI models to accelerate AI development is a material signal about the pace of capability growth and raises concrete safety and oversight questions that PMs building on Anthropic APIs should understand.",
+          "topic": "Anthropic AI-Assisted Development",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-07T12:30:00.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "53c8a40c52",
+          "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+          "source": "The Verge",
+          "summary": "The combined news of OpenAI's $1.25 trillion valuation and Anthropic approaching IPO marks a turning point where leading AI labs transition from growth-stage startups to publicly accountable entities, affecting partnership and procurement decisions for enterprise PMs.",
+          "topic": "AI Lab Valuations and IPO",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-06T23:46:18.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "bfdaf195a2",
+          "title": "Crusoe sells troubled Wyoming data center project to Google",
+          "link": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+          "source": "TechCrunch AI",
+          "summary": "Google acquiring Crusoe's Wyoming data center site shows major cloud providers are actively scooping up AI infrastructure assets, which affects the competitive supply of GPU capacity available to independent developers and cloud customers.",
+          "topic": "Google Data Center Acquisition",
+          "company": "Google",
+          "secondaryCompanies": [
+            "Crusoe"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-07T01:40:28.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "421fa7063f",
+          "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+          "link": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+          "source": "The Verge",
+          "summary": "China's intelligence agency reportedly recruiting a spy to gather information on NVIDIA CEO Jensen Huang highlights the geopolitical risk around NVIDIA's leadership and chip supply chain, relevant to any PM planning AI infrastructure strategy.",
+          "topic": "NVIDIA Espionage Threat",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-06T23:00:44.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "90b9a34769",
+          "title": "The Components of Agent Memory",
+          "link": "https://www.anthropic.com/research/components-of-agent-memory",
+          "source": "Hacker News",
+          "summary": "Anthropic's research on the components of agent memory is a practical reference for PMs designing agentic AI products, covering how agents store and retrieve information across interactions.",
+          "topic": "Agent Memory Research",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-07T06:39:04.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "39eb6389cd",
+          "title": "How a Blue Wave midterm might reshape the AI industry",
+          "link": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+          "source": "TechCrunch AI",
+          "summary": "Democratic midterm victories and voters rejecting nearly all 41 data center ballot measures signal a shift in the regulatory and community environment for AI infrastructure buildout, with implications for siting and permitting timelines.",
+          "topic": "Post-Midterm AI Regulation",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-06T18:00:00.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "dcfedcc744",
+          "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+          "link": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+          "source": "TechCrunch AI",
+          "summary": "Meta's new Spaces feature for Muse agents introduces a collaborative workspace layer on top of its AI assistant, a product pattern worth tracking as social and enterprise AI interfaces converge.",
+          "topic": "Meta Muse Agent Collaboration Feature",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-06T18:44:20.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "bacb3f0e9b",
+          "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+          "link": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+          "source": "TechCrunch AI",
+          "summary": "Amazon enabling text-based shopping via Alexa, reportedly after blocking Meta's Muse, signals an accelerating battle over AI-powered commerce assistants and the gatekeeping role major platforms play in competitor access.",
+          "topic": "Amazon Alexa Text Shopping",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-06T14:10:00.000Z",
+          "addedOn": "2026-11-07"
+        },
+        {
+          "id": "7f8ff11a75",
+          "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
+          "link": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA open-sourcing tools for 6G network development expands its footprint beyond compute into wireless infrastructure software, a strategic move PMs in telecom or edge AI should monitor.",
+          "topic": "NVIDIA Open Source 6G Tools",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-11-06T16:00:35.000Z",
+          "addedOn": "2026-11-07"
+        }
+      ]
+    },
     {
       "date": "2026-11-06",
       "summary": "Google released Gemini Omni 1.2 Flash, a notable model update for developers to watch. Anthropic added a Personal Finance tool to Claude via Plaid integration, expanding its consumer product surface, while OpenAI released a new cybersecurity model and its president signaled a 2027 IPO target. AI spending data from Ramp shows growth plateauing despite rising usage, a signal PMs and investors building around AI revenue assumptions should take seriously.",

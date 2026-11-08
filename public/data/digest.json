@@ -1,6 +1,190 @@
 {
-  "lastUpdated": "2026-11-07T15:37:46.203Z",
+  "lastUpdated": "2026-11-08T15:55:49.722Z",
   "days": [
+    {
+      "date": "2026-11-08",
+      "summary": "OpenAI raised $11B at a $1.25T valuation, below its initially sought $1.4T, signaling some investor pushback even as it remains the dominant AI player. Apple is internally pushing for a more ambitious AI strategy, with CEO Tim Cook pressing software leadership and iOS 27 beta code hinting at chatbot integration in HomeKit. A serious security vulnerability in Claude Code's 'Don't Ask Again' feature has exposed passwords in over 1,000 public GitHub repos, which is an immediate concern for teams using AI coding agents.",
+      "items": [
+        {
+          "id": "68dda95905",
+          "title": "OpenAI raises $11B at a $1.25T valuation",
+          "link": "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/",
+          "source": "Hacker News",
+          "summary": "OpenAI closed an $11B round at a $1.25T valuation, coming in below the $1.4T it initially sought, which suggests valuation resistance is emerging even at the top of the AI market.",
+          "topic": "AI Funding",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-08T14:49:23.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "431ec630cd",
+          "title": "Apple CEO Presses Software Chief to Pursue More Ambitious AI Strategy",
+          "link": "https://www.bloomberg.com/news/newsletters/2026-11-08/apple-explores-turning-siri-ai-into-chatgpt-dots-like-agent-ios-28-shake-up",
+          "source": "Hacker News",
+          "summary": "Apple's CEO is pushing its software chief to pursue a more aggressive AI strategy, reportedly including turning Siri into a ChatGPT-style agent, indicating Apple may finally accelerate its lagging AI roadmap.",
+          "topic": "Apple AI Strategy",
+          "company": "Apple",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-08T15:19:51.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "5844634015",
+          "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+          "link": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "source": "Hacker News",
+          "summary": "Claude Code's 'Don't Ask Again' permission feature has caused AI agents to commit secrets and passwords to over 1,100 public GitHub repos, a concrete security risk for any team using AI coding tools in production.",
+          "topic": "AI Tooling Security",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "tooling",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-07T20:45:32.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "e256f79db0",
+          "title": "Chatbots might be coming to Apple’s HomeView",
+          "link": "https://www.theverge.com/tech/1029526/chatbots-might-be-coming-to-apples-homeview",
+          "source": "The Verge",
+          "summary": "iOS 27.3 beta code reveals a 'Conversational Apps' category in Apple's HomeKit hub, suggesting Apple is building infrastructure to support third-party AI chatbots in its smart home ecosystem.",
+          "topic": "Apple AI Products",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-08T15:00:30.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "711cf4766e",
+          "title": "What it actually takes to build frontier models | Tulsee Doshi (Head of Product for Gemini)",
+          "link": "https://www.lennysnewsletter.com/p/what-it-actually-takes-to-build-frontier",
+          "source": "Lenny's Newsletter",
+          "summary": "Google's Head of Product for Gemini shares her framework for shipping frontier AI products, including how she balances quantitative evals with qualitative judgment, relevant for any PM working on AI features.",
+          "topic": "AI Product Management",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-08T13:31:32.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "6f25ac9278",
+          "title": "The US let Nvidia sell chips to an empty office in China",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+          "source": "The Verge",
+          "summary": "Reports show Nvidia chips sold to what turned out to be an empty office in China, raising compliance and reputational risk questions for Nvidia and signaling gaps in US export control enforcement.",
+          "topic": "NVIDIA Export Controls",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-07T15:43:45.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "f4f061dd3e",
+          "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+          "link": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+          "source": "TechCrunch AI",
+          "summary": "A US intelligence memo alleges China's MSS recruited a tech executive to spy on Nvidia's CEO Jensen Huang, highlighting escalating geopolitical targeting of key AI hardware companies.",
+          "topic": "NVIDIA Security",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-07T21:17:08.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "d86624c8bd",
+          "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+          "link": "https://github.com/synchopate/llama-modchip",
+          "source": "Hacker News",
+          "summary": "An open-source project demonstrates running DeepSeek's 284B parameter model on 64GB RAM with no GPU, which if reproducible at scale lowers the hardware bar for deploying large models significantly.",
+          "topic": "Open-Source AI Infra",
+          "company": "DeepSeek",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-11-08T10:22:04.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "d2ac7c707c",
+          "title": "Agent memory needs its OpenTelemetry moment",
+          "link": "https://www.lorekit.io/blog/open-agent-memory-format",
+          "source": "Hacker News",
+          "summary": "A developer argues that agent memory lacks a shared standard analogous to OpenTelemetry for observability, and proposes an open format, relevant for PMs building multi-agent products that need persistent context.",
+          "topic": "AI Agent Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "infra",
+            "open-source"
+          ],
+          "publishedAt": "2026-11-08T08:40:23.000Z",
+          "addedOn": "2026-11-08"
+        },
+        {
+          "id": "1dd53774aa",
+          "title": "MaxxBench – \"Nice DeepSWE score. But is it true?\"",
+          "link": "https://maxxbench.unlap.ai/research/why-maxxbench/",
+          "source": "Hacker News",
+          "summary": "MaxxBench challenges inflated AI coding benchmark scores, specifically targeting DeepSWE results, which matters for PMs evaluating AI coding tools because published benchmarks may not reflect real-world performance.",
+          "topic": "AI Benchmarking",
+          "company": "MaxxBench",
+          "secondaryCompanies": [
+            "DeepSeek"
+          ],
+          "importance": 3,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-07T17:19:00.000Z",
+          "addedOn": "2026-11-08"
+        }
+      ]
+    },
     {
       "date": "2026-11-07",
       "summary": "OpenAI has raised an additional $11 billion at a $1.25 trillion valuation, cementing its position as one of the world's most valuable companies while rival Anthropic nears an IPO. Anthropic is also drawing attention for using AI to automate its own AI development, a practice researchers find alarming given the pace of capability improvement. Google acquired Crusoe's Wyoming data center site, underscoring how aggressively major players are competing for AI infrastructure as midterm ballot results signal growing public scrutiny of data center expansion.",

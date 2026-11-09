@@ -1,6 +1,189 @@
 {
-  "lastUpdated": "2026-11-08T15:55:49.722Z",
+  "lastUpdated": "2026-11-09T19:44:36.268Z",
   "days": [
+    {
+      "date": "2026-11-09",
+      "summary": "Anthropic launched two new models, Claude Fable 5.2 and Mythos 5.2, targeting advanced coding, reasoning, and vision tasks. Nvidia's board is investigating CEO Jensen Huang over an affair with a suspected Chinese spy, with his job status now uncertain and China market access at risk. Meta also released Muse Ember, a cheap lightweight agent-execution model at $0.10 per million input tokens, adding new competitive pressure in the efficiency model segment.",
+      "items": [
+        {
+          "id": "c301a0197f",
+          "title": "Anthropic launches new Claude Fable and Mythos 5.2 models",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2",
+          "source": "The Verge",
+          "summary": "Anthropic released Claude Fable 5.2 and Mythos 5.2, claiming improvements in coding, reasoning, and vision that position them against leading frontier models.",
+          "topic": "New AI Models",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-09T19:00:00.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "d417e4f215",
+          "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+          "link": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia's board opened a formal investigation into CEO Jensen Huang after he admitted to an affair with a person suspected of being a Chinese spy, creating leadership and geopolitical risk for the company.",
+          "topic": "NVIDIA Leadership Crisis",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-08T21:00:11.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "13f4eae921",
+          "title": "Is Jensen Huang’s job on the line? Yale’s Jeffrey Sonnenfeld estimates it’s ‘about a 50-50’",
+          "link": "https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/",
+          "source": "TechCrunch AI",
+          "summary": "Yale professor Jeffrey Sonnenfeld estimates a roughly 50-50 chance Jensen Huang loses his CEO role, signaling serious board-level pressure that could affect Nvidia's strategic direction.",
+          "topic": "NVIDIA CEO Job Status",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-09T05:26:29.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "9b99d3e8fb",
+          "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+          "link": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+          "source": "TechCrunch AI",
+          "summary": "Meta released Muse Ember, a lightweight agent-execution model priced at $0.10 per million input tokens, making it significantly cheaper than Anthropic Haiku and competitive alternatives for agentic workflows.",
+          "topic": "Lightweight AI Model Launch",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-09T18:00:00.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "f3c522ff77",
+          "title": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
+          "link": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic committed $3.4 billion to natural gas turbines for AI compute infrastructure, signaling massive capital expenditure ambitions but raising energy and financial risk questions.",
+          "topic": "AI Infrastructure Investment",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "funding"
+          ],
+          "publishedAt": "2026-11-09T16:56:54.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "c81f482fdf",
+          "title": "Jensen Huang’s affair with alleged Chinese spy puts Nvidia’s China ambitions under scrutiny",
+          "link": "https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang's alleged relationship with a suspected Chinese spy may undermine Nvidia's lobbying efforts to relax U.S. chip export controls, putting billions in China revenue at risk.",
+          "topic": "NVIDIA China Market Risk",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-09T18:09:52.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "e221bdd5b2",
+          "title": "AWS Weekly Roundup: AgentCore Runtime V2, Amazon DynamoDB bulk put items, and more (November 9, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentcore-runtime-v2-amazon-dynamodb-bulk-put-items-and-more-november-9-2026/",
+          "source": "AWS News",
+          "summary": "AWS released AgentCore Runtime V2 and simplified Hive-to-Iceberg table migration via Amazon S3 Tables, reducing weeks of engineering work for data infrastructure teams.",
+          "topic": "AWS Platform Update",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-09T17:55:26.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "f9c4955a36",
+          "title": "Disney and Adobe are building generative AI tools together",
+          "link": "https://www.theverge.com/tech/1029773/disney-adobe-generative-ai-partnership",
+          "source": "The Verge",
+          "summary": "Disney and Adobe are co-developing proprietary artist-led generative AI models, a notable enterprise adoption signal for creative-industry AI tooling.",
+          "topic": "Enterprise Generative AI Partnership",
+          "company": "Adobe",
+          "secondaryCompanies": [
+            "Disney"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-09T15:38:56.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "7bf546edea",
+          "title": "Trump’s 60 Minutes interview touched on AI safety, threat to arrest an AI exec",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1029802/trump-60-minutes-ai",
+          "source": "The Verge",
+          "summary": "Trump publicly downplayed AI safety risks on 60 Minutes and suggested arresting AI executives who warn about model dangers, indicating a continued regulatory stance that may shape U.S. AI policy.",
+          "topic": "AI Regulation and Policy",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation"
+          ],
+          "publishedAt": "2026-11-09T15:50:38.000Z",
+          "addedOn": "2026-11-09"
+        },
+        {
+          "id": "5223c7a831",
+          "title": "Apple’s $50 Intelligence Usage Packs extend access to some AI features",
+          "link": "https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro",
+          "source": "The Verge",
+          "summary": "Apple introduced $50 one-time usage packs for Apple Intelligence features in Logic Pro, testing a pay-for-AI-access model that could influence how consumer AI is monetized.",
+          "topic": "AI Feature Monetization",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-09T19:09:58.000Z",
+          "addedOn": "2026-11-09"
+        }
+      ]
+    },
     {
       "date": "2026-11-08",
       "summary": "OpenAI raised $11B at a $1.25T valuation, below its initially sought $1.4T, signaling some investor pushback even as it remains the dominant AI player. Apple is internally pushing for a more ambitious AI strategy, with CEO Tim Cook pressing software leadership and iOS 27 beta code hinting at chatbot integration in HomeKit. A serious security vulnerability in Claude Code's 'Don't Ask Again' feature has exposed passwords in over 1,000 public GitHub repos, which is an immediate concern for teams using AI coding agents.",

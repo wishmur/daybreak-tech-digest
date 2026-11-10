@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-11-09T19:44:36.268Z",
+  "lastUpdated": "2026-11-10T16:59:30.788Z",
   "days": [
+    {
+      "date": "2026-11-10",
+      "summary": "Anthropic's IPO is set at a $70-$78 per share range implying a $1.4 trillion valuation, one of the largest tech listings ever. Google launched Gemini 4 Carbon with an agent swarm feature, and DeepMind released AlphaProof Code for formal mathematical reasoning. The Nvidia CEO controversy deepened as Jensen Huang withdrew from public events amid a board investigation into his ties to a suspected Chinese spy, with lawsuits beginning to emerge.",
+      "items": [
+        {
+          "id": "8e00065e3e",
+          "title": "Anthropic targets $1.4 trillion IPO",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1030703/anthropic-ipo-1-4-trillion",
+          "source": "The Verge",
+          "summary": "Anthropic's IPO pricing at $70-$78 per share targeting a $1.4 trillion valuation would make it one of the largest tech listings in history, signaling massive institutional confidence in frontier AI.",
+          "topic": "Anthropic IPO",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "launch"
+          ],
+          "publishedAt": "2026-11-10T14:06:54.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "78900e4e72",
+          "title": "Google releases Gemini 4 Carbon with agent ‘swarm’ feature",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
+          "source": "The Verge",
+          "summary": "Google released Gemini 4 Carbon to the public with a multi-agent swarm capability, claiming it is its strongest model yet, raising the competitive bar for agentic AI products.",
+          "topic": "Gemini 4 Carbon Launch",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-10T16:00:00.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "dd875e3abb",
+          "title": "AlphaProof Code",
+          "link": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "source": "Hacker News",
+          "summary": "DeepMind's AlphaProof Code brings formal mathematical proof generation to code, representing a significant research advance in AI reasoning that could affect future model capabilities.",
+          "topic": "AlphaProof Code",
+          "company": "Google DeepMind",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "launch"
+          ],
+          "publishedAt": "2026-11-10T12:11:12.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "e7ff3531a3",
+          "title": "The race is on to sue Nvidia",
+          "link": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia faces securities lawsuits after its stock dropped more than 4% following a board investigation into Jensen Huang's relationship with a suspected Chinese spy, creating material risk for one of AI's most critical infrastructure companies.",
+          "topic": "Nvidia CEO Controversy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-09T22:23:42.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "b20e22a5ec",
+          "title": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
+          "link": "https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/",
+          "source": "Hacker News",
+          "summary": "Amazon reportedly saved millions by replacing Anthropic's Claude Sonnet with its own Strands Decider agent framework, illustrating how hyperscalers are moving to cut AI API costs with in-house alternatives.",
+          "topic": "Amazon AI Cost Reduction",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "infra"
+          ],
+          "publishedAt": "2026-11-10T06:01:08.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "6373e497a4",
+          "title": "Adobe is going all in on agentic AI",
+          "link": "https://www.theverge.com/tech/1030593/adobe-max-ai-agents-mcp-firefly-assistant-updates",
+          "source": "The Verge",
+          "summary": "Adobe is embedding AI agents across Photoshop, Premiere, and Firefly to automate creative workflows and compete directly with Figma via a new prototype builder, reshaping the creative tools market.",
+          "topic": "Adobe Agentic AI",
+          "company": "Adobe",
+          "secondaryCompanies": [
+            "Figma"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-10T14:00:00.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "9d2e28e73a",
+          "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+          "link": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+          "source": "TechCrunch AI",
+          "summary": "Anthropic released new Mythos and Fable models with improvements in coding, reasoning, and vision, expanding its model lineup ahead of its IPO.",
+          "topic": "Anthropic Model Releases",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-09T19:24:51.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "dbd95550e9",
+          "title": "Fireworks AI security breach impacts Notion and their customers",
+          "link": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+          "source": "Hacker News",
+          "summary": "A security breach at Fireworks AI, a third-party AI vendor, exposed Notion customer data, highlighting supply-chain security risks when enterprises rely on AI infrastructure vendors.",
+          "topic": "AI Vendor Security Breach",
+          "company": "Fireworks AI",
+          "secondaryCompanies": [
+            "Notion"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-10T07:19:38.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "9f3af8cb6c",
+          "title": "State of the tech job market: late 2026",
+          "link": "https://www.lennysnewsletter.com/p/state-of-the-tech-job-market-late",
+          "source": "Lenny's Newsletter",
+          "summary": "A job market analysis finds PMs are gaining ground in the AI era while engineers are plateauing and designers are losing share, giving PMs direct context on hiring dynamics and role positioning.",
+          "topic": "Tech Job Market Trends",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-11-10T15:04:03.000Z",
+          "addedOn": "2026-11-10"
+        },
+        {
+          "id": "af325a1322",
+          "title": "Google broadens its AI hardware portfolio with two new specialized chips",
+          "link": "https://techcrunch.com/2026/11/10/google-broadens-its-ai-hardware-portfolio-with-two-new-specialized-chips/",
+          "source": "TechCrunch AI",
+          "summary": "Google unveiled two new TPUs targeting confidential model training and high-memory workloads, expanding the chip options available for AI infrastructure at scale.",
+          "topic": "Google TPU Expansion",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-11-10T15:54:08.000Z",
+          "addedOn": "2026-11-10"
+        }
+      ]
+    },
     {
       "date": "2026-11-09",
       "summary": "Anthropic launched two new models, Claude Fable 5.2 and Mythos 5.2, targeting advanced coding, reasoning, and vision tasks. Nvidia's board is investigating CEO Jensen Huang over an affair with a suspected Chinese spy, with his job status now uncertain and China market access at risk. Meta also released Muse Ember, a cheap lightweight agent-execution model at $0.10 per million input tokens, adding new competitive pressure in the efficiency model segment.",

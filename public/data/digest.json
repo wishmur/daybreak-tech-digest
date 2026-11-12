@@ -1,6 +1,181 @@
 {
-  "lastUpdated": "2026-11-11T17:04:02.709Z",
+  "lastUpdated": "2026-11-12T17:31:54.759Z",
   "days": [
+    {
+      "date": "2026-11-12",
+      "summary": "Jensen Huang has resigned as Nvidia CEO following a board investigation into extramarital affairs with an alleged Chinese intelligence agent and an Nvidia subordinate, with CFO Colette Kress stepping in as interim CEO. This is the most consequential leadership event in AI infrastructure this year, given Nvidia's central role in AI chip supply and U.S.-China tech competition. Separately, AWS released an open-source local emulator for testing against AWS services, and Fractile raised $720M to build purpose-built AI chips.",
+      "items": [
+        {
+          "id": "48e6dc76dc",
+          "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+          "source": "The Verge",
+          "summary": "Jensen Huang resigned as Nvidia CEO after the board opened an investigation into multiple extramarital affairs, including one with a person suspected of Chinese intelligence ties, leaving the most critical AI chip company without its founding leader.",
+          "topic": "Nvidia CEO Resignation",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T15:01:31.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "1466abfe66",
+          "title": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement?",
+          "link": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia CFO Colette Kress is now interim CEO, and the company has no formal succession plan, creating significant uncertainty for Nvidia's strategic direction in AI chips, data center buildout, and U.S.-China export policy.",
+          "topic": "Nvidia Interim Leadership",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-12T15:37:29.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "4eeb3832c0",
+          "title": "Five ways Jensen Huang’s ouster from Nvidia could damage the AI industry",
+          "link": "https://techcrunch.com/2026/11/12/five-ways-jensen-huangs-ouster-from-nvidia-could-damage-the-ai-industry/",
+          "source": "TechCrunch AI",
+          "summary": "Huang's departure matters beyond scandal because he was personally driving specific bets on AI infrastructure, chip architecture, and sovereign AI deals that may not continue under new leadership.",
+          "topic": "Nvidia Strategic Impact",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T16:32:33.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "f401ed4cd1",
+          "title": "Test your applications against AWS locally with AWS Emulator",
+          "link": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+          "source": "AWS News",
+          "summary": "AWS released a free open-source local emulator written in Rust that lets developers test against nearly all AWS services using the standard CLI and SDK, reducing friction in the dev-test loop for cloud-native applications.",
+          "topic": "AWS Local Development Tooling",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "tooling",
+            "open-source"
+          ],
+          "publishedAt": "2026-11-11T19:00:44.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "69792f3c80",
+          "title": "With $720M round, Britain’s Fractile gets a leg up in the race for AI chips",
+          "link": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/",
+          "source": "TechCrunch AI",
+          "summary": "UK startup Fractile raised $720M to build purpose-built AI chips, making it one of the best-funded challengers to Nvidia's GPU dominance at a moment when Nvidia's leadership is in flux.",
+          "topic": "AI Chip Funding",
+          "company": "Fractile",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-11T19:34:55.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "a8b4ef01f1",
+          "title": "Norwest pushes deeper into AI with new $4B fund",
+          "link": "https://techcrunch.com/2026/11/12/norwest-pushes-deeper-into-ai-with-new-4b-fund/",
+          "source": "TechCrunch AI",
+          "summary": "Norwest Venture Partners raised a $4B fund, its largest ever, with an explicit focus on AI, signaling continued institutional appetite for AI investment despite market uncertainty.",
+          "topic": "AI Venture Funding",
+          "company": "Norwest Venture Partners",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "funding"
+          ],
+          "publishedAt": "2026-11-12T15:18:14.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "546c365caa",
+          "title": "CoreWeave turns to customer prepayments, shorter contracts to fund AI growth",
+          "link": "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/",
+          "source": "TechCrunch AI",
+          "summary": "CoreWeave is shifting to customer prepayments and shorter contracts to fund growth, which signals tightening financial conditions for AI cloud infrastructure providers and potential price increases for customers.",
+          "topic": "AI Cloud Infrastructure Finance",
+          "company": "CoreWeave",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-11T19:54:00.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "7e494307f0",
+          "title": "AI chatbots are recommending fake retail websites, study finds",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1032020/gemini-chatgpt-perplexity-shopping-test-risky-fake-websites-citations",
+          "source": "The Verge",
+          "summary": "A study found AI chatbots are directing shoppers to fake or risky retail websites, a concrete product safety and trust issue that PMs building AI shopping or recommendation features need to account for.",
+          "topic": "AI Chatbot Safety",
+          "company": "Podqi",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-12T17:00:00.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "4b8a3ddcbb",
+          "title": "Meta is losing its longtime head of  infrastructure",
+          "link": "https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/",
+          "source": "TechCrunch AI",
+          "summary": "Meta's longtime infrastructure chief Santosh Janardhan is stepping down after 16 years, removing a key leader at a time when Meta is making massive AI data center investments.",
+          "topic": "Meta Infrastructure Leadership",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "leadership",
+            "infra"
+          ],
+          "publishedAt": "2026-11-11T20:12:01.000Z",
+          "addedOn": "2026-11-12"
+        },
+        {
+          "id": "55bf40a54c",
+          "title": "SoftBank’s billion-dollar loss may have put a cap on AI’s natural gas ambitions",
+          "link": "https://techcrunch.com/2026/11/12/softbanks-billion-dollar-loss-may-have-put-a-cap-on-ais-natural-gas-ambitions/",
+          "source": "TechCrunch AI",
+          "summary": "SoftBank lost over $3B on pre-ordered natural gas turbines for AI data centers, highlighting the financial and logistical risks of betting on AI power infrastructure before demand is confirmed.",
+          "topic": "AI Data Center Power",
+          "company": "SoftBank",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "funding"
+          ],
+          "publishedAt": "2026-11-12T17:00:52.000Z",
+          "addedOn": "2026-11-12"
+        }
+      ]
+    },
     {
       "date": "2026-11-11",
       "summary": "Anthropic's IPO is the day's biggest financial story, with shares priced at $70-$78 for an implied valuation of $1.4 trillion and each of the seven founders set to cash out roughly $250 million. OpenAI continues its revenue surge, crossing $10 billion quarterly for the first time, a nearly 50% jump, while also launching business profiles for ChatGPT and acquiring a travel startup. Nvidia's corporate governance crisis deepens as reporting links CEO Jensen Huang to a Chinese national with alleged intelligence ties, drawing scrutiny from governance experts.",

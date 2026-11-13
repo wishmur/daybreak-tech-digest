@@ -1,6 +1,195 @@
 {
-  "lastUpdated": "2026-11-12T17:31:54.759Z",
+  "lastUpdated": "2026-11-13T17:08:46.955Z",
   "days": [
+    {
+      "date": "2026-11-13",
+      "summary": "Jensen Huang's resignation from Nvidia following a spy affair scandal dominates today's news, with Congress launching investigations and Huang agreeing to testify, creating major uncertainty for Nvidia's leadership, open-source AI commitments, and the $12.9B Hugging Face acquisition. OpenAI launched ChatGPT Wallet for agentic shopping while United Airlines moved to block AI agents from booking flights, highlighting the emerging tension between agentic AI capabilities and enterprise resistance. Google upgraded its AI Mode search with Gemini 4 Hydrogen for complex queries, and a 145B local AI model launch signals continued progress in on-device frontier AI.",
+      "items": [
+        {
+          "id": "9c558a7ae3",
+          "title": "The unfolding Jensen Huang scandal: a timeline",
+          "link": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang's resignation from Nvidia over a spy affair is the most consequential leadership event in AI infrastructure this year, with broad implications for U.S.-China AI competition, Nvidia's strategy, and open-source commitments.",
+          "topic": "NVIDIA Leadership Crisis",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-13T15:58:00.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "8f90ee8071",
+          "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
+          "link": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
+          "source": "TechCrunch AI",
+          "summary": "A second Congressional investigation into Nvidia's China sales practices and Trump dealings adds regulatory and legal risk to an already unstable post-Huang Nvidia, which could affect AI chip supply chains and product roadmaps.",
+          "topic": "NVIDIA Regulatory Risk",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T22:42:51.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "cf0abceb6a",
+          "title": "Hugging Face CEO vows to keep fighting for open source AI after Jensen Huang’s exit",
+          "link": "https://techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit/",
+          "source": "TechCrunch AI",
+          "summary": "Hugging Face's CEO publicly pledging to continue the open-source AI fight after Huang's exit raises real questions about whether Nvidia's $12.9B acquisition will proceed or shift in direction under new leadership.",
+          "topic": "Open Source AI Uncertainty",
+          "company": "Hugging Face",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T17:36:40.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "a89e405114",
+          "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+          "link": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+          "source": "TechCrunch AI",
+          "summary": "ChatGPT Wallet enables AI agents to complete purchases autonomously on users' behalf, marking a significant step toward commercial agentic AI and a new monetization and product surface for OpenAI.",
+          "topic": "Agentic Commerce",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-13T16:00:12.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "0deb78fa34",
+          "title": "United Airlines blocks AI agents from booking flights, citing cybersecurity risks",
+          "link": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/",
+          "source": "TechCrunch AI",
+          "summary": "United Airlines blocking AI agents from booking flights signals that incumbent enterprises are beginning to actively resist agentic AI access, which will shape where and how agentic products can operate at scale.",
+          "topic": "Enterprise AI Agent Resistance",
+          "company": "United Airlines",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-12T17:17:58.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "ff1cec4cf3",
+          "title": "Google’s latest Search upgrade promises better answers to your most complicated questions",
+          "link": "https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/",
+          "source": "TechCrunch AI",
+          "summary": "Google's AI Mode search upgrade powered by Gemini 4 Hydrogen improves handling of complex queries with richer visual responses, strengthening Google's AI search position against OpenAI and Perplexity.",
+          "topic": "Google AI Search Upgrade",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T19:27:45.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "2c7a6e6b19",
+          "title": "Claude’s Duet agent is a little neurotic and surprisingly helpful",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on",
+          "source": "The Verge",
+          "summary": "Anthropic's Claude Duet agent is receiving hands-on coverage from The Verge as a genuinely useful AI agent, providing real-world product signal about how agentic AI assistants are landing with users.",
+          "topic": "Anthropic Agent Product",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-13T14:00:00.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "1e7a3aca41",
+          "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+          "link": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer",
+          "source": "Hacker News",
+          "summary": "Edge0-145B claims to bring frontier-level AI capabilities to local hardware, which is significant for enterprise and developer workflows that require on-premise or offline AI without cloud dependency.",
+          "topic": "Local AI Model Launch",
+          "company": "Edge0",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "open-source",
+            "infra"
+          ],
+          "publishedAt": "2026-11-12T23:06:17.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "076e5b9907",
+          "title": "Nebius tests the neocloud playbook with $40 billion in planned spending",
+          "link": "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/",
+          "source": "TechCrunch AI",
+          "summary": "Nebius plans $40B in AI infrastructure spending funded through customer prepayments and loans, a high-risk neocloud model that tests whether demand is strong enough to front-load massive GPU capacity.",
+          "topic": "AI Infrastructure Funding",
+          "company": "Nebius",
+          "secondaryCompanies": [
+            "Microsoft"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-12T21:27:10.000Z",
+          "addedOn": "2026-11-13"
+        },
+        {
+          "id": "65c7db6bef",
+          "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+          "link": "https://status.claude.com/incidents/nn11wk485zfn",
+          "source": "Hacker News",
+          "summary": "Claude.ai, Claude Code, and the Anthropic API all experienced elevated errors simultaneously, a reliability incident that matters for PMs evaluating Anthropic as a production infrastructure dependency.",
+          "topic": "Anthropic Platform Outage",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-13T10:18:13.000Z",
+          "addedOn": "2026-11-13"
+        }
+      ]
+    },
     {
       "date": "2026-11-12",
       "summary": "Jensen Huang has resigned as Nvidia CEO following a board investigation into extramarital affairs with an alleged Chinese intelligence agent and an Nvidia subordinate, with CFO Colette Kress stepping in as interim CEO. This is the most consequential leadership event in AI infrastructure this year, given Nvidia's central role in AI chip supply and U.S.-China tech competition. Separately, AWS released an open-source local emulator for testing against AWS services, and Fractile raised $720M to build purpose-built AI chips.",

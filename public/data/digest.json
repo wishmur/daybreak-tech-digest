@@ -1,6 +1,183 @@
 {
-  "lastUpdated": "2026-11-13T17:08:46.955Z",
+  "lastUpdated": "2026-11-14T15:45:05.943Z",
   "days": [
+    {
+      "date": "2026-11-14",
+      "summary": "Jensen Huang's departure from Nvidia is the dominant story today, with ripple effects on AI startup funding, chip supply concerns, and strategic uncertainty across the ecosystem. OpenAI launched ChatGPT Wallet, enabling its Dots agents to make purchases for Pro subscribers, marking a concrete step toward agentic commerce. Reports that China's most advanced AI models were trained on export-banned Nvidia chips add regulatory and geopolitical pressure to an already turbulent week.",
+      "items": [
+        {
+          "id": "8d23e88a0f",
+          "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
+          "link": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+          "source": "TechCrunch AI",
+          "summary": "Jensen Huang leaving Nvidia is expected to reduce startup investment activity and compress valuations since Nvidia's funding was a major demand signal for the AI ecosystem.",
+          "topic": "NVIDIA Leadership Change",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-13T22:43:00.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "b5d8e3ece7",
+          "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+          "source": "The Verge",
+          "summary": "OpenAI's ChatGPT Wallet lets its Dots AI agents make real purchases on behalf of users, turning agentic AI from a productivity tool into a transactional commerce layer.",
+          "topic": "AI Agent Commerce",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-13T20:45:10.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "3bcb8ca81c",
+          "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!",
+          "link": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+          "source": "TechCrunch AI",
+          "summary": "Research confirming China's top AI models were built on export-banned Nvidia chips signals that US export controls are failing and may trigger stricter enforcement affecting the global AI supply chain.",
+          "topic": "AI Export Controls",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-13T18:40:30.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "367373c4db",
+          "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+          "link": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+          "source": "Hacker News",
+          "summary": "Allegations that Nvidia engineered GPU scarcity by funding AI startups to buy its own chips raises antitrust and market integrity concerns that could affect how PMs and investors view Nvidia's ecosystem dominance.",
+          "topic": "NVIDIA Market Practices",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-14T02:52:59.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "26d265ce67",
+          "title": "AI agent startup LangChain hits $3B valuation",
+          "link": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+          "source": "TechCrunch AI",
+          "summary": "LangChain reaching a $3B valuation with 7,000 enterprise customers validates that model-agnostic agent management tooling is becoming a standard infrastructure layer for AI product teams.",
+          "topic": "AI Tooling Funding",
+          "company": "LangChain",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "funding",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-13T19:37:57.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "e906ce588c",
+          "title": "The OpenAI board member who fired Sam Altman says we still can&#8217;t trust AI CEOs",
+          "link": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
+          "source": "The Verge",
+          "summary": "Helen Toner, the board member who voted to fire Sam Altman, publicly argues AI CEOs still cannot be trusted, keeping governance and board accountability top of mind for anyone building on OpenAI's platform.",
+          "topic": "AI Governance",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-14T15:00:00.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "4f9a42ba49",
+          "title": "Amazon has a plan to index the world’s online shopping data",
+          "link": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+          "source": "The Verge",
+          "summary": "Amazon's plan to index all online product data globally positions it to dominate e-commerce intelligence and could reshape how third-party sellers and rival platforms compete for discovery.",
+          "topic": "Amazon Data Strategy",
+          "company": "Amazon",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-13T23:49:11.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "e965dd4c7d",
+          "title": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+          "link": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/",
+          "source": "Hacker News",
+          "summary": "Serving a large language model at over 600 tokens per second across two DGX stations with vLLM demonstrates a practical multi-node inference pattern that infrastructure-focused PMs should track for scaling deployments.",
+          "topic": "AI Inference Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-14T14:09:25.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "c6494705d3",
+          "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+          "link": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+          "source": "TechCrunch AI",
+          "summary": "ElevenLabs entering the enterprise meeting notes and dictation space with ElevenAI brings strong voice AI capabilities into a crowded productivity category, increasing competitive pressure on existing tools.",
+          "topic": "AI Productivity Tools",
+          "company": "ElevenLabs",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-13T14:44:48.000Z",
+          "addedOn": "2026-11-14"
+        },
+        {
+          "id": "c0513a3e99",
+          "title": "Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
+          "link": "https://unsloth.ai/docs/models/qwen3.8",
+          "source": "Hacker News",
+          "summary": "Unsloth releasing optimized quantizations for Qwen3.8-27B lowers the hardware cost to run capable open-weight models locally, expanding options for PMs evaluating on-device or cost-sensitive AI deployments.",
+          "topic": "Open-Source Model Optimization",
+          "company": "Unsloth",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-14T00:06:04.000Z",
+          "addedOn": "2026-11-14"
+        }
+      ]
+    },
     {
       "date": "2026-11-13",
       "summary": "Jensen Huang's resignation from Nvidia following a spy affair scandal dominates today's news, with Congress launching investigations and Huang agreeing to testify, creating major uncertainty for Nvidia's leadership, open-source AI commitments, and the $12.9B Hugging Face acquisition. OpenAI launched ChatGPT Wallet for agentic shopping while United Airlines moved to block AI agents from booking flights, highlighting the emerging tension between agentic AI capabilities and enterprise resistance. Google upgraded its AI Mode search with Gemini 4 Hydrogen for complex queries, and a 145B local AI model launch signals continued progress in on-device frontier AI.",

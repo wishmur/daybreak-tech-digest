@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-11-14T15:45:05.943Z",
+  "lastUpdated": "2026-11-15T16:18:00.645Z",
   "days": [
+    {
+      "date": "2026-11-15",
+      "summary": "The dominant story today is Nvidia CEO Jensen Huang's resignation amid personal relationship controversies and chip-smuggling concerns, with Asian governments scrambling to secure chip supply commitments and over 115,000 signatures on a reinstatement petition. Lovable, a popular AI app-building platform, exposed passport details and 200,000+ private messages in a major security failure that matters for any PM evaluating AI tooling. A debate is heating up around whether AI-generated code should be open-source, touching intellectual property questions that will affect product and engineering teams.",
+      "items": [
+        {
+          "id": "0cbac1debe",
+          "title": "Where was Nvidia’s security team?",
+          "link": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+          "source": "TechCrunch AI",
+          "summary": "Nvidia's security chief left quietly in August before CEO Jensen Huang stepped down, raising questions about governance at the most critical chip company in AI infrastructure.",
+          "topic": "Nvidia Leadership Crisis",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-15T00:08:07.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "7502b262d9",
+          "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+          "link": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+          "source": "TechCrunch AI",
+          "summary": "A public petition with 115,000+ signatures including major tech executives calling for Jensen Huang's reinstatement signals how central Huang is seen to AI industry confidence.",
+          "topic": "Nvidia CEO Reinstatement Petition",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-14T21:41:22.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "4392222fa3",
+          "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
+          "link": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
+          "source": "TechCrunch AI",
+          "summary": "Asian governments are moving to lock in chip supply commitments following Huang's exit, showing how Nvidia's leadership instability has immediate geopolitical and supply chain consequences for AI development worldwide.",
+          "topic": "Nvidia Geopolitical Fallout",
+          "company": "Nvidia",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-14T16:34:15.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "ea5383b602",
+          "title": "Lutnick Pushed to Weaken Chip Rules That Overlap with His Family Business",
+          "link": "https://www.nytimes.com/2026/11/15/us/politics/lutnick-pushed-to-weaken-chip-rules-that-overlap-with-his-family-business.html",
+          "source": "Hacker News",
+          "summary": "Commerce Secretary Lutnick reportedly pushed to weaken chip export rules that intersect with his family business, adding political risk to the already volatile chip supply and export control environment.",
+          "topic": "Chip Export Control Politics",
+          "company": "",
+          "secondaryCompanies": [
+            "Nvidia"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-15T11:40:51.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "2db116e6db",
+          "title": "Lovable apps expose passport details and more than 200K private messages",
+          "link": "https://www.crissyfield.de/research/lovable-en/",
+          "source": "Hacker News",
+          "summary": "Lovable, a widely used AI-powered app builder, exposed passport details and over 200,000 private messages due to security flaws, a critical red flag for PMs evaluating AI coding and app-generation tools.",
+          "topic": "AI Tooling Security Failure",
+          "company": "Lovable",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "tooling",
+            "product",
+            "launch"
+          ],
+          "publishedAt": "2026-11-14T17:43:10.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "e096839007",
+          "title": "Meta’s Muse: How we launched the most successful consumer product this year | Mona Sarantakos",
+          "link": "https://www.lennysnewsletter.com/p/metas-muse-how-we-launched-the-most",
+          "source": "Lenny's Newsletter",
+          "summary": "Meta's AI product reportedly became the fastest-growing consumer AI product this year, and a PM who shipped it details the launch process, offering directly relevant lessons for consumer AI product development.",
+          "topic": "Meta AI Consumer Product Launch",
+          "company": "Meta",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-15T13:31:28.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "56cbb2e72e",
+          "title": "🧠 Community Wisdom: When you become the bottleneck for your AI agents, the PULL framework for PMs, product growth vs. growth marketing, boosting feedback response rates, and more",
+          "link": "https://www.lennysnewsletter.com/p/community-wisdom-when-you-become",
+          "source": "Lenny's Newsletter",
+          "summary": "Lenny's community surfaces the PULL framework for PMs managing AI agents and discusses when PMs become the bottleneck in agentic workflows, practical guidance as AI agents enter the product development process.",
+          "topic": "PM Frameworks for AI Agents",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-14T21:15:46.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "370c927f56",
+          "title": "All AI-generated code should be Open Source",
+          "link": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+          "source": "Hacker News",
+          "summary": "A widely discussed argument that all AI-generated code should be open-source has garnered significant community debate, touching on IP ownership questions that product and legal teams at software companies will need to address.",
+          "topic": "AI Code IP and Open Source",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-15T14:46:58.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "17dd6d1646",
+          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+          "link": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+          "source": "TechCrunch AI",
+          "summary": "TechCrunch's running AI graveyard list now includes Apple's delayed Siri AI and OpenAI's failed super-app launch, providing useful context on what product bets are not paying off in the current AI cycle.",
+          "topic": "AI Product Failures",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Apple"
+          ],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-14T17:30:00.000Z",
+          "addedOn": "2026-11-15"
+        },
+        {
+          "id": "54c132d185",
+          "title": "Tesla is inviting some people to buy a Cybercab ‘for personal use’ — but read the fine print",
+          "link": "https://www.theverge.com/transportation/1033844/tesla-personal-cybercab-orders-299-subscription-fine-print",
+          "source": "The Verge",
+          "summary": "Tesla is offering select customers the chance to buy a Cybercab for personal use, though the fine print limits full autonomous capability at launch, a signal of how Tesla is managing expectations around its robotaxi product.",
+          "topic": "Tesla Cybercab Launch",
+          "company": "Tesla",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-14T14:18:36.000Z",
+          "addedOn": "2026-11-15"
+        }
+      ]
+    },
     {
       "date": "2026-11-14",
       "summary": "Jensen Huang's departure from Nvidia is the dominant story today, with ripple effects on AI startup funding, chip supply concerns, and strategic uncertainty across the ecosystem. OpenAI launched ChatGPT Wallet, enabling its Dots agents to make purchases for Pro subscribers, marking a concrete step toward agentic commerce. Reports that China's most advanced AI models were trained on export-banned Nvidia chips add regulatory and geopolitical pressure to an already turbulent week.",

@@ -1,6 +1,199 @@
 {
-  "lastUpdated": "2026-11-15T16:18:00.645Z",
+  "lastUpdated": "2026-11-16T19:30:57.506Z",
   "days": [
+    {
+      "date": "2026-11-16",
+      "summary": "NVIDIA's Vera Rubin platform swept MLPerf benchmarks at SC26 while the company simultaneously navigates the fallout from Jensen Huang's resignation, with the board reportedly not considering his return. The US tightened AI chip export controls to restrict Chinese access to compute, adding regulatory pressure to an already volatile AI infrastructure landscape. OpenAI made two notable safety moves: embedding independent evaluators to monitor AI subversion and releasing tools to combat CSAM deepfakes.",
+      "items": [
+        {
+          "id": "6132135c1f",
+          "title": "NVIDIA Sweeps MLPerf Training and Endpoints as Vera Rubin Debuts With Leading Performance",
+          "link": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's new Vera Rubin platform swept all MLPerf training and inference benchmarks on its debut, reinforcing NVIDIA's dominance in AI compute even amid leadership uncertainty.",
+          "topic": "AI Hardware Benchmarks",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "infra"
+          ],
+          "publishedAt": "2026-11-16T16:00:25.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "725c1dccea",
+          "title": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
+          "link": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+          "source": "TechCrunch AI",
+          "summary": "New US interim rules require licenses to export AI chips to firms that may provide compute access to China, directly affecting cloud providers and chip suppliers with global customers.",
+          "topic": "AI Chip Export Controls",
+          "company": "US Government",
+          "secondaryCompanies": [
+            "NVIDIA"
+          ],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-16T15:02:34.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "c496ea6e1e",
+          "title": "NVIDIA Announces Rubin HPC — A New GPU to Accelerate Agents for Science, Engineering and Analytics",
+          "link": "https://blogs.nvidia.com/blog/rubin-hpc/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA announced Rubin HPC at SC26, a new GPU variant targeting scientific simulation and data processing workloads, expanding the Vera Rubin platform beyond standard AI training.",
+          "topic": "New GPU Announcement",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-16T16:00:01.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "f2c3c92b0a",
+          "title": "OpenAI will embed safety researchers to investigate AI subversion",
+          "link": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI is embedding Apollo Research evaluators to monitor whether its models engage in subversive behavior, though access restrictions limit their true independence and raise credibility questions.",
+          "topic": "AI Safety",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Apollo Research"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "research",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-16T17:02:43.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "51595064fa",
+          "title": "Nvidia’s board is reportedly ‘not considering’ hiring Jensen Huang back",
+          "link": "https://www.theverge.com/tech/1034501/nvidia-board-jensen-huang-not-bringing-back",
+          "source": "The Verge",
+          "summary": "Nvidia's board is not considering reinstating Jensen Huang as CEO and remains focused on the ongoing investigation, creating sustained leadership uncertainty at the world's most critical AI chip company.",
+          "topic": "NVIDIA Leadership",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-16T18:43:35.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "c241de6853",
+          "title": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM",
+          "link": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
+          "source": "TechCrunch AI",
+          "summary": "OpenAI released a CSAM image classifier and added ChatGPT account warnings, signaling proactive investment in trust and safety tooling that regulators and enterprise customers increasingly demand.",
+          "topic": "AI Safety Tooling",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "regulation",
+            "launch"
+          ],
+          "publishedAt": "2026-11-16T17:00:00.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "24d2cb5c63",
+          "title": "AWS Weekly Roundup: AWS Nitro Sandboxes, AWS Emulator, and more (November 16, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-nitro-sandboxes-aws-emulator-and-more-november-16-2026/",
+          "source": "AWS News",
+          "summary": "AWS's weekly roundup highlights Nitro Sandboxes and a new emulator, expanding developer tooling for local testing and secure compute isolation on AWS infrastructure.",
+          "topic": "AWS Developer Tooling",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-11-16T17:55:46.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "67c0dbdc21",
+          "title": "Freshworks alums raise $53M to take on Salesforce, HubSpot with AI-native CRM",
+          "link": "https://techcrunch.com/2026/11/16/freshworks-alums-raise-53m-to-take-on-salesforce-hubspot-with-ai-native-crm/",
+          "source": "TechCrunch AI",
+          "summary": "Freshworks alumni raised $53M for Dreamteam, an AI-native CRM with 100+ customers across 13 countries, representing a credible competitive threat to Salesforce and HubSpot in the SMB segment.",
+          "topic": "AI CRM Funding",
+          "company": "Dreamteam",
+          "secondaryCompanies": [
+            "Salesforce",
+            "HubSpot",
+            "Freshworks"
+          ],
+          "importance": 3,
+          "tags": [
+            "funding",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-16T12:30:00.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "13db3cf78d",
+          "title": "Apple is testing daily usage limits for more complex Siri AI interactions",
+          "link": "https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription",
+          "source": "The Verge",
+          "summary": "Apple is testing daily usage limits on more complex Siri and Apple Intelligence features in iOS 27.3 beta, suggesting compute cost management is constraining on-device AI feature rollout.",
+          "topic": "Apple AI Product",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-11-16T19:24:40.000Z",
+          "addedOn": "2026-11-16"
+        },
+        {
+          "id": "760ece4be0",
+          "title": "Lambda Boosts AI Factory Resiliency and Efficiency With NVIDIA Photonics",
+          "link": "https://blogs.nvidia.com/blog/lambda-photonics/",
+          "source": "NVIDIA Blog",
+          "summary": "Lambda is deploying NVIDIA co-packaged photonics to improve GPU cluster networking resilience and efficiency, an infrastructure advancement relevant to anyone building or buying AI factory capacity.",
+          "topic": "AI Infra Networking",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Lambda"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "launch"
+          ],
+          "publishedAt": "2026-11-16T16:00:51.000Z",
+          "addedOn": "2026-11-16"
+        }
+      ]
+    },
     {
       "date": "2026-11-15",
       "summary": "The dominant story today is Nvidia CEO Jensen Huang's resignation amid personal relationship controversies and chip-smuggling concerns, with Asian governments scrambling to secure chip supply commitments and over 115,000 signatures on a reinstatement petition. Lovable, a popular AI app-building platform, exposed passport details and 200,000+ private messages in a major security failure that matters for any PM evaluating AI tooling. A debate is heating up around whether AI-generated code should be open-source, touching intellectual property questions that will affect product and engineering teams.",

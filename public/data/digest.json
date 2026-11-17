@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-11-16T19:30:57.506Z",
+  "lastUpdated": "2026-11-17T18:29:11.228Z",
   "days": [
+    {
+      "date": "2026-11-17",
+      "summary": "OpenAI has introduced GPT-6.2 with two variants (Astra and Sol), marking a significant model release that PMs should track for capability and competitive implications. NVIDIA's Jensen Huang situation continues to dominate tech news, with DOJ and Commerce Department investigations into Megaspeed and Huang signaling willingness to return as CEO, creating meaningful uncertainty around the company's leadership and strategic direction. Anthropic's Claude Code team published their approach to verification, offering useful insight into how agentic coding tools handle trust and safety at the product level.",
+      "items": [
+        {
+          "id": "be7d752441",
+          "title": "GPT‑6.2 Astra and Sol",
+          "link": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "source": "Hacker News",
+          "summary": "OpenAI released GPT-6.2 in two variants, Astra and Sol, representing a major new frontier model launch that will shift competitive benchmarks and likely affect product decisions across the AI tooling ecosystem.",
+          "topic": "New AI Model Launch",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-17T17:46:43.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "94c0b202b4",
+          "title": "Jensen Huang says he’s willing to return as Nvidia CEO",
+          "link": "https://www.theverge.com/tech/1035420/jensen-huang-nvidia-return-as-ceo-statement",
+          "source": "The Verge",
+          "summary": "Jensen Huang has stated he would return as NVIDIA CEO if the board requested it, prolonging leadership uncertainty at the world's most critical AI infrastructure company and signaling the board has not yet acted decisively.",
+          "topic": "NVIDIA Leadership Crisis",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-17T16:09:57.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "7b71401651",
+          "title": "The DOJ says it’s investigating Megaspeed",
+          "link": "https://www.theverge.com/policy/1035410/doj-megaspeed-nvidia-investigation-update",
+          "source": "The Verge",
+          "summary": "The DOJ and Commerce Department are investigating Megaspeed, the Singapore-based data center company linked to Jensen Huang's resignation, raising regulatory and supply chain risk questions for NVIDIA's business.",
+          "topic": "NVIDIA Regulatory Investigation",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "leadership"
+          ],
+          "publishedAt": "2026-11-17T16:19:03.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "654b49e71b",
+          "title": "How the Claude Code team thinks about verification",
+          "link": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+          "source": "Hacker News",
+          "summary": "Anthropic's Claude Code team published their internal thinking on verification for agentic coding tasks, which is directly relevant to PMs building or evaluating AI coding tools and understanding how safety is handled at the product layer.",
+          "topic": "AI Coding Tool Design",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product",
+            "tooling",
+            "research"
+          ],
+          "publishedAt": "2026-11-17T10:20:40.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "79a7335e7a",
+          "title": "NVIDIA DGX Spark Developer Kit Turns a Desk Into a Supercomputing Lab",
+          "link": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA launched the DGX Spark HPC Developer Kit at SC26, a four-node supercomputing setup for researchers and developers, expanding the DGX line into smaller-scale HPC use cases at the desk level.",
+          "topic": "NVIDIA Hardware Launch",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-16T23:00:05.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "72fb42c83b",
+          "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
+          "link": "https://blogs.nvidia.com/blog/ian-buck-sc26/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA's Ian Buck announced new AI agent tools at SC26 designed to plan experiments, run code, and validate results on researchers' own systems, pushing agentic AI into scientific computing workflows.",
+          "topic": "AI Agents for Science",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-17T14:00:10.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "cddf734648",
+          "title": "Show HN: TrnRT – An open-source LLM inference engine for AWS Trainium",
+          "link": "https://github.com/RunanywhereAI/trnrt",
+          "source": "Hacker News",
+          "summary": "YC W26 startup RunAnywhere open-sourced TrnRT, an LLM inference engine for AWS Trainium, giving developers an alternative inference path on AWS hardware outside of standard SageMaker or Bedrock routes.",
+          "topic": "Open-Source LLM Inference on AWS",
+          "company": "RunAnywhere",
+          "secondaryCompanies": [
+            "AWS"
+          ],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-17T16:01:04.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "4e5b122a6f",
+          "title": "What is the best harness for each model?",
+          "link": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+          "source": "Hacker News",
+          "summary": "FrontierHarness released eval v1.1 benchmarking which test harness works best per model, a practical resource for PMs and engineers choosing evaluation frameworks when building LLM-powered products.",
+          "topic": "LLM Evaluation Tooling",
+          "company": "Runta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-11-17T14:53:43.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "6a6d6b063a",
+          "title": "NVIDIA Expands Slurm to Bring Quantum Computing Into Supercomputing",
+          "link": "https://blogs.nvidia.com/blog/slurm-quantum-computing-supercomputing/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA expanded Slurm to integrate quantum computing into supercomputing workflows, reflecting growing adoption of quantum processors at HPC centers and NVIDIA's move to orchestrate hybrid classical-quantum workloads.",
+          "topic": "Quantum-HPC Integration",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-11-16T16:00:47.000Z",
+          "addedOn": "2026-11-17"
+        },
+        {
+          "id": "1b92a0d00a",
+          "title": "Inside Microsoft’s giant Outlook outage",
+          "link": "https://www.theverge.com/tech/1035364/microsoft-outlook-outage-notepad",
+          "source": "The Verge",
+          "summary": "Microsoft suffered one of its worst Outlook outages, cutting off email and meetings for a significant period, a reminder of cloud reliability risks that PMs building on Microsoft infrastructure should factor into continuity planning.",
+          "topic": "Cloud Infrastructure Outage",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-17T17:00:00.000Z",
+          "addedOn": "2026-11-17"
+        }
+      ]
+    },
     {
       "date": "2026-11-16",
       "summary": "NVIDIA's Vera Rubin platform swept MLPerf benchmarks at SC26 while the company simultaneously navigates the fallout from Jensen Huang's resignation, with the board reportedly not considering his return. The US tightened AI chip export controls to restrict Chinese access to compute, adding regulatory pressure to an already volatile AI infrastructure landscape. OpenAI made two notable safety moves: embedding independent evaluators to monitor AI subversion and releasing tools to combat CSAM deepfakes.",

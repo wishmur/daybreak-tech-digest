@@ -1,6 +1,202 @@
 {
-  "lastUpdated": "2026-11-17T18:29:11.228Z",
+  "lastUpdated": "2026-11-18T17:58:27.162Z",
   "days": [
+    {
+      "date": "2026-11-18",
+      "summary": "Nvidia shipped the Vera Rubin NVL72, its most advanced AI computing system, in what it calls the fastest product ramp in company history, while simultaneously halting all advanced chip sales to China. Microsoft launched seven new AI models at Ignite 2026, and a broad coalition of scientists and legal scholars publicly challenged Anthropic's safety claims. These three developments together signal accelerating AI infrastructure competition, tightening geopolitical constraints on hardware, and growing external scrutiny of frontier AI labs.",
+      "items": [
+        {
+          "id": "ca77971be0",
+          "title": "Remember the frontier AI pause? Chip companies don’t either",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1036549/nvidia-amd-earnings-fall-2026-chips-pause-frontier-models",
+          "source": "The Verge",
+          "summary": "Nvidia shipped the Vera Rubin NVL72, its most powerful AI compute system, marking a critical milestone in the AI hardware race that directly affects cloud and AI product infrastructure timelines.",
+          "topic": "AI Hardware Launch",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "OpenAI"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-18T15:44:02.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "39185064ad",
+          "title": "Nvidia isn’t selling any more AI chips to China",
+          "link": "https://www.theverge.com/tech/1036445/nvidia-h200-ai-chips-china-stop-selling",
+          "source": "The Verge",
+          "summary": "Nvidia has stopped exporting advanced AI chips to China despite prior White House approval, a major geopolitical shift that will constrain Chinese AI development and reshape global AI supply chains.",
+          "topic": "AI Chip Export Controls",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-18T13:01:05.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "59f76ddea9",
+          "title": "Microsoft AI: Seven new world-class models at scalable price-performance",
+          "link": "https://microsoft.ai/news/microsoft-ignite-2026/",
+          "source": "Hacker News",
+          "summary": "Microsoft announced seven new AI models at Ignite 2026 targeting scalable price-performance, expanding its model portfolio in direct competition with OpenAI, Anthropic, and Google.",
+          "topic": "AI Model Launch",
+          "company": "Microsoft",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-18T16:08:24.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "861b99aca9",
+          "title": "Nvidia Earnings; Office Convergence; OS Wars, AI Edition",
+          "link": "https://stratechery.com/2026/nvidia-earnings-office-convergence-os-wars-ai-edition/",
+          "source": "Stratechery",
+          "summary": "Stratechery's analysis of Nvidia's earnings and dueling OS updates from Microsoft and Anthropic highlights the emerging battle for AI operating system dominance, a key strategic layer for product builders.",
+          "topic": "AI Platform Strategy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Microsoft",
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-18T11:00:00.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "0b2d783ec9",
+          "title": "\"Anthropic Is Not a Safe AI Company\" – Coalition Challenges Anthropic Safety",
+          "link": "https://www.businesswire.com/news/home/20261118974464/en/Anthropic-is-Not-a-Safe-AI-Company---Broad-Coalition-of-Scientists-Legal-Scholars-and-Tech-Leaders-Challenge-Anthropics-Safety-Branding-Ahead-of-IPO",
+          "source": "Hacker News",
+          "summary": "A broad coalition of scientists, legal scholars, and tech leaders publicly challenged Anthropic's safety branding, which could affect regulatory positioning, enterprise trust, and partnership decisions for AI products built on Anthropic's models.",
+          "topic": "AI Safety Accountability",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-18T16:41:22.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "00973b1bcf",
+          "title": "NVIDIA RTX Spark Compact Desktops Out Now",
+          "link": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA RTX Spark compact desktops from ASUS, Dell, and MSI are now shipping with up to 128GB memory, enabling local AI agents and model fine-tuning on dedicated Windows PCs and expanding the edge AI hardware market.",
+          "topic": "Edge AI Hardware",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "ASUS",
+            "Dell",
+            "MSI",
+            "Microsoft"
+          ],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-11-18T14:00:31.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "8e52d0e780",
+          "title": "AI Agents Ask Better Questions Than KPMG Accountants in Landmark Audit Trial",
+          "link": "https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/",
+          "source": "Hacker News",
+          "summary": "AI agents outperformed KPMG accountants in audit question quality in a landmark trial, a concrete benchmark that signals AI is reaching professional-grade performance in knowledge work relevant to PM-adjacent tooling.",
+          "topic": "AI Agent Capability",
+          "company": "KPMG",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-18T15:49:34.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "973b4ece5f",
+          "title": "Launch HN: Maritime (YC F26) – The managed cloud for production AI agents",
+          "link": "https://news.ycombinator.com/item?id=50549188",
+          "source": "Hacker News",
+          "summary": "Maritime (YC F26) launched a managed cloud platform purpose-built for production AI agents, addressing a real infrastructure gap as more teams move from prototyping to deploying agents at scale.",
+          "topic": "AI Agent Infrastructure",
+          "company": "Maritime",
+          "secondaryCompanies": [
+            "Y Combinator"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-18T17:26:28.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "891bf8a138",
+          "title": "Apple Permissions Update, The New App Paradigm, My iPhone Duo Review",
+          "link": "https://stratechery.com/2026/apple-permissions-update-the-new-app-paradigm-my-iphone-duo-review/",
+          "source": "Stratechery",
+          "summary": "Apple's latest permissions update falls short of solving the AI agent problem, raising strategic questions about whether Apple's app-centric paradigm can compete as agent-native platforms emerge.",
+          "topic": "AI Platform Strategy",
+          "company": "Apple",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-17T11:00:00.000Z",
+          "addedOn": "2026-11-18"
+        },
+        {
+          "id": "a4f76ab249",
+          "title": "Instagram’s ‘school safety’ push was also a way to get more teens on the app",
+          "link": "https://www.theverge.com/tech/1036517/instagram-school-safety-program-project-gryffindor",
+          "source": "The Verge",
+          "summary": "Internal Meta documents show Instagram's teen safety initiative was partly driven by user acquisition goals, a reputational and regulatory risk relevant to PMs building consumer products involving minors.",
+          "topic": "Platform Trust and Regulation",
+          "company": "Meta",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-11-18T14:59:05.000Z",
+          "addedOn": "2026-11-18"
+        }
+      ]
+    },
     {
       "date": "2026-11-17",
       "summary": "OpenAI has introduced GPT-6.2 with two variants (Astra and Sol), marking a significant model release that PMs should track for capability and competitive implications. NVIDIA's Jensen Huang situation continues to dominate tech news, with DOJ and Commerce Department investigations into Megaspeed and Huang signaling willingness to return as CEO, creating meaningful uncertainty around the company's leadership and strategic direction. Anthropic's Claude Code team published their approach to verification, offering useful insight into how agentic coding tools handle trust and safety at the product level.",

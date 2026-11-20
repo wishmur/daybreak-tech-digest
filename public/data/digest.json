@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-11-19T18:12:16.721Z",
+  "lastUpdated": "2026-11-20T17:44:34.445Z",
   "days": [
+    {
+      "date": "2026-11-20",
+      "summary": "An Anthropic mathematician claims to have proved the Riemann Hypothesis using Claude, which would be one of the most significant mathematical breakthroughs in history and a direct demonstration of AI-assisted research at the highest level. NVIDIA and Microsoft announced an expanded full-stack collaboration spanning Azure infrastructure down to Windows PCs, signaling deeper integration of accelerated computing across the enterprise stack. A research paper showing language models can rewrite their own weights has emerged as a high-signal AI safety and capability development, while an AI-designed CPU architecture called Frostbite points to AI moving into hardware design.",
+      "items": [
+        {
+          "id": "e7bc21e40b",
+          "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+          "source": "The Verge",
+          "summary": "An Anthropic employee claims to have proved the Riemann Hypothesis with help from Claude, which if verified would be the most consequential demonstration of AI-assisted scientific discovery to date and a major credibility moment for Anthropic.",
+          "topic": "AI-Assisted Research",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-20T16:34:13.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "9d1da816f0",
+          "title": "Anthropic employee claims general proof of the Riemann Hypothesis [pdf]",
+          "link": "https://alpo.ge/remark.pdf",
+          "source": "Hacker News",
+          "summary": "The Hacker News thread on the Riemann Hypothesis proof PDF has 1,408 points and 959 comments, indicating the research community is actively scrutinizing the claim and making this a live, high-signal event.",
+          "topic": "AI-Assisted Research",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-20T14:16:21.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "f207b41a67",
+          "title": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
+          "link": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/",
+          "source": "NVIDIA Blog",
+          "summary": "NVIDIA and Microsoft are deepening their full-stack partnership to cover AI application deployment from Azure cloud infrastructure down to Windows PCs, expanding the addressable surface for NVIDIA accelerated computing.",
+          "topic": "Cloud and PC AI Infrastructure",
+          "company": "NVIDIA",
+          "secondaryCompanies": [
+            "Microsoft"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-19T20:00:15.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "0270b6d9d4",
+          "title": "Language Models Can Rewrite Their Own Weights",
+          "link": "https://arxiv.org/abs/2611.21885",
+          "source": "Hacker News",
+          "summary": "A paper showing language models can rewrite their own weights is a significant capability and safety research signal, with direct implications for how AI systems might self-improve or be updated without traditional fine-tuning.",
+          "topic": "AI Model Research",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-11-20T16:29:06.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "b2e90aac5d",
+          "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+          "link": "https://architectlabs.com/blog/frostbite",
+          "source": "Hacker News",
+          "summary": "Architect Labs claims an AI fully discovered, designed, and verified a new CPU architecture called Frostbite, representing a meaningful expansion of AI into hardware design that could affect how compute is built in the future.",
+          "topic": "AI Hardware Design",
+          "company": "Architect Labs",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "launch",
+            "infra"
+          ],
+          "publishedAt": "2026-11-20T10:01:41.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "da5d0e9421",
+          "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+          "source": "The Verge",
+          "summary": "Signal is blocking Gemini and Siri from reading on-screen content in its iOS app, drawing a direct privacy boundary against Google and Apple AI assistants that PMs building AI-integrated products need to account for.",
+          "topic": "AI Privacy and Product Policy",
+          "company": "Signal",
+          "secondaryCompanies": [
+            "Google",
+            "Apple"
+          ],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-20T12:30:47.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "f130ef095a",
+          "title": "Sharp Tech on Video: Jensen’s Not Coming Back, AI Shopping, The iPhone Duo",
+          "link": "https://stratechery.com/2026/sharp-tech-on-video-jensens-not-coming-back-ai-shopping-the-iphone-duo/",
+          "source": "Stratechery",
+          "summary": "Stratechery's Sharp Tech episode covers Jensen Huang's strategic posture and AI shopping trends, offering useful framing for PMs tracking where NVIDIA and AI commerce are heading.",
+          "topic": "AI Strategy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "competitive",
+            "product"
+          ],
+          "publishedAt": "2026-11-20T11:00:00.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "1f898bd117",
+          "title": "Google Workers Tell Their Employer Not to Punish Schools That Don't Want AI",
+          "link": "https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/",
+          "source": "Hacker News",
+          "summary": "Google employees are petitioning against penalizing schools that reject Gemini, signaling internal friction around AI adoption mandates that could affect how Google deploys AI products in education markets.",
+          "topic": "AI Adoption and Internal Policy",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation",
+            "leadership"
+          ],
+          "publishedAt": "2026-11-20T16:59:27.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "74339577d6",
+          "title": "What people are building, discovered through new domains",
+          "link": "https://startups.novumsignals.com/",
+          "source": "Hacker News",
+          "summary": "A tool surfacing what founders are building based on new domain registrations provides a lightweight competitive intelligence signal useful for PMs tracking early-stage product trends.",
+          "topic": "Product Intelligence Tooling",
+          "company": "Novum Signals",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-11-20T09:54:33.000Z",
+          "addedOn": "2026-11-20"
+        },
+        {
+          "id": "d0ecde2f1b",
+          "title": "If you can't explain something in simple terms, you don't understand it (2017)",
+          "link": "https://kottke.org/17/06/if-you-cant-explain-something-in-simple-terms-you-dont-understand-it",
+          "source": "Hacker News",
+          "summary": "A widely circulated essay on the value of simple explanations as a test of understanding is relevant for PMs who communicate complex AI and technical concepts to stakeholders.",
+          "topic": "Product Management Practice",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-11-20T09:43:19.000Z",
+          "addedOn": "2026-11-20"
+        }
+      ]
+    },
     {
       "date": "2026-11-19",
       "summary": "Anthropic went public on Nasdaq with a $2 trillion valuation, marking a landmark moment for AI companies on public markets. Claude also solved two open physics problems related to black holes, signaling expanding frontier research capabilities. AWS added GPU support to Lambda for serverless ML inference, and OpenAI shipped Live Dictation in ChatGPT for real-time audio transcription.",

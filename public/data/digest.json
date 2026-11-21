@@ -1,6 +1,183 @@
 {
-  "lastUpdated": "2026-11-20T17:44:34.445Z",
+  "lastUpdated": "2026-11-21T16:44:53.844Z",
   "days": [
+    {
+      "date": "2026-11-21",
+      "summary": "The biggest mathematical story in years may be unfolding as a claimed proof of the Generalized Riemann Hypothesis is drawing serious attention, though its relevance to PM work is indirect. Anthropic's IPO and the tension between its safety mission and commercial pressures is the most material AI story today, with direct implications for how the lab prioritizes product versus research. A new AI coding agent targeting DOS (ClawDOS) and the Inkling 2 Mini hardware launch round out the applied AI tooling signals worth tracking.",
+      "items": [
+        {
+          "id": "3f8dc1fbea",
+          "title": "Can Anthropic afford to put safety first?",
+          "link": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+          "source": "The Verge",
+          "summary": "Anthropic's IPO raises concrete questions about whether a safety-first AI lab can sustain that posture under public market pressure, which affects how PMs should think about Claude's product roadmap reliability.",
+          "topic": "Anthropic IPO and Safety Mission",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership",
+            "product",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-21T15:00:00.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "33f1c89959",
+          "title": "Hurried Announcement: Alessandro Masullo GRH",
+          "link": "https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/",
+          "source": "Hacker News",
+          "summary": "A claimed proof of the Generalized Riemann Hypothesis is circulating with enough credibility to generate major academic buzz, which if validated would have downstream implications for cryptography and security infrastructure underlying most software products.",
+          "topic": "Generalized Riemann Hypothesis Claimed Proof",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research"
+          ],
+          "publishedAt": "2026-11-20T18:33:14.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "46f23bce9e",
+          "title": "Inkling 2 Mini",
+          "link": "https://thinkingmachines.ai/news/inkling-2-mini/",
+          "source": "Hacker News",
+          "summary": "Thinking Machines AI launched the Inkling 2 Mini, a new AI hardware device that generated significant Hacker News traction, signaling continued market interest in purpose-built AI edge devices.",
+          "topic": "AI Hardware Launch",
+          "company": "Thinking Machines AI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product",
+            "infra"
+          ],
+          "publishedAt": "2026-11-20T20:12:19.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "bb26c35d25",
+          "title": "ClawDOS – An AI coding agent for DOS",
+          "link": "http://ricapar.net/ClawDOS/",
+          "source": "Hacker News",
+          "summary": "ClawDOS is an AI coding agent built for DOS environments, a niche but illustrative example of AI coding agents being applied to legacy and constrained computing contexts that many enterprises still run.",
+          "topic": "AI Coding Agent for Legacy Systems",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "tooling",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-21T05:38:01.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "a7cab6a5ca",
+          "title": "FBI reportedly investigating apparent hack of its criminal database",
+          "link": "https://www.bbc.com/news/articles/cvze7de86pk3o",
+          "source": "Hacker News",
+          "summary": "The FBI is investigating an apparent hack of its criminal database, a significant security breach that underscores ongoing vulnerabilities in government and law enforcement data infrastructure.",
+          "topic": "FBI Criminal Database Hack",
+          "company": "FBI",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation"
+          ],
+          "publishedAt": "2026-11-21T10:33:57.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "75d173e1a6",
+          "title": "RCE in Gnupg",
+          "link": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html",
+          "source": "Hacker News",
+          "summary": "A remote code execution vulnerability in GnuPG has been disclosed, which matters for any product team relying on GnuPG for encryption, signing, or secure communications in their stack.",
+          "topic": "GnuPG RCE Vulnerability",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "infra"
+          ],
+          "publishedAt": "2026-11-21T08:32:58.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "82d061e5ee",
+          "title": "YouTube is reportedly preparing to settle social media addiction claims for $3 billion",
+          "link": "https://www.theverge.com/streaming/1039096/youtube-social-media-addiction-school-districts-settlement",
+          "source": "The Verge",
+          "summary": "YouTube is reportedly preparing a $3 billion settlement with school districts over addictive design claims, setting a potential precedent for how engagement-driven product design is treated legally.",
+          "topic": "YouTube Addictive Design Settlement",
+          "company": "Google",
+          "secondaryCompanies": [
+            "YouTube"
+          ],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-11-20T20:43:52.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "849c3e9c81",
+          "title": "We promoted developers into architects without informing them",
+          "link": "https://manidoraisamy.com/developer-to-architect.html",
+          "source": "Hacker News",
+          "summary": "A widely-read post on the hidden costs of promoting developers into architect roles without deliberate transition support is relevant for PMs managing or collaborating with engineering org structure changes.",
+          "topic": "Engineering Career Ladders and Org Design",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-20T18:17:51.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "6554f65087",
+          "title": "Rockstar says GTA VI made $3.79 billion in its first day",
+          "link": "https://www.theverge.com/games/1036279/gta-vi-sales",
+          "source": "The Verge",
+          "summary": "GTA VI earned $3.79 billion on its first day, the largest single-day revenue in entertainment history, which resets benchmarks for what a major consumer product launch can achieve at scale.",
+          "topic": "GTA VI Launch Revenue Record",
+          "company": "Rockstar Games",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-20T19:35:06.000Z",
+          "addedOn": "2026-11-21"
+        },
+        {
+          "id": "e114239168",
+          "title": "Harbinger is building the unsexy EVs that keep the economy moving",
+          "link": "https://www.theverge.com/transportation/1038448/harbinger-ev-startup-240m-series-d-fedex-army-trucks",
+          "source": "The Verge",
+          "summary": "EV truck startup Harbinger closed a $240 million Series D to build commercial medium-duty electric trucks, a segment legacy automakers are deprioritizing, which is a relevant signal for fleet and logistics product planners.",
+          "topic": "EV Startup Funding",
+          "company": "Harbinger",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "funding",
+            "launch"
+          ],
+          "publishedAt": "2026-11-21T12:00:00.000Z",
+          "addedOn": "2026-11-21"
+        }
+      ]
+    },
     {
       "date": "2026-11-20",
       "summary": "An Anthropic mathematician claims to have proved the Riemann Hypothesis using Claude, which would be one of the most significant mathematical breakthroughs in history and a direct demonstration of AI-assisted research at the highest level. NVIDIA and Microsoft announced an expanded full-stack collaboration spanning Azure infrastructure down to Windows PCs, signaling deeper integration of accelerated computing across the enterprise stack. A research paper showing language models can rewrite their own weights has emerged as a high-signal AI safety and capability development, while an AI-designed CPU architecture called Frostbite points to AI moving into hardware design.",

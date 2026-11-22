@@ -1,6 +1,186 @@
 {
-  "lastUpdated": "2026-11-21T16:44:53.844Z",
+  "lastUpdated": "2026-11-22T17:04:52.918Z",
   "days": [
+    {
+      "date": "2026-11-22",
+      "summary": "Anthropic's data centers are projected to run on 87% gas and 11% coal power by 2028, raising significant sustainability concerns for one of the leading AI labs. OpenRouter disclosed data processing incidents across multiple inference providers, a signal that AI infrastructure reliability remains a live risk for teams building on third-party model APIs. For PMs, a Lenny's Newsletter piece from Sherif Mansour offers concrete thinking on what the AI era demands from the role, worth reading alongside community discussion on managing multi-agent workflows.",
+      "items": [
+        {
+          "id": "86d5f034b2",
+          "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+          "link": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+          "source": "Hacker News",
+          "summary": "Anthropic's projected power mix for 2028 is 87% gas and 11% coal, exposing a major sustainability gap for one of the most prominent AI safety companies and likely to invite regulatory and reputational scrutiny.",
+          "topic": "AI Energy & Sustainability",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-22T08:57:34.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "f5bc923b70",
+          "title": "Data Processing Incidents on Inference Providers",
+          "link": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+          "source": "Hacker News",
+          "summary": "OpenRouter disclosed data processing incidents across multiple inference providers, indicating that routing AI workloads through third-party APIs carries real data integrity and privacy risks that PMs and engineers need to account for.",
+          "topic": "AI Infrastructure Incidents",
+          "company": "OpenRouter",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-22T02:14:14.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "33c13f2054",
+          "title": "First principles: What it takes to be a great product manager in the AI era | Sherif Mansour",
+          "link": "https://www.lennysnewsletter.com/p/first-principles-what-it-takes-to",
+          "source": "Lenny's Newsletter",
+          "summary": "Sherif Mansour's first-principles breakdown of what makes a great PM in the AI era covers the shifting leverage points for the role, relevant for any PM rethinking their workflow or team structure.",
+          "topic": "Product Management",
+          "company": "Lenny's Newsletter",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "product"
+          ],
+          "publishedAt": "2026-11-22T13:31:53.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "b7d6acc247",
+          "title": "🧠 Community Wisdom: Handling context switching with multiple agents, giving feedback on AI-generated designs, getting AI to write less like AI, why PMs don’t share what they’re really working on",
+          "link": "https://www.lennysnewsletter.com/p/community-wisdom-handling-context",
+          "source": "Lenny's Newsletter",
+          "summary": "Community discussion on managing context switching across multiple agents, giving feedback on AI-generated designs, and reducing AI writing tells offers practical tactical guidance for PMs actively using AI in their workflows.",
+          "topic": "AI Tooling for PMs",
+          "company": "Lenny's Newsletter",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "tooling",
+            "product"
+          ],
+          "publishedAt": "2026-11-21T16:49:56.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "a6c4255afc",
+          "title": "Pandex – Official European Law for AI Agents, over MCP",
+          "link": "https://www.pandex.io",
+          "source": "Hacker News",
+          "summary": "Pandex is a new tool implementing official European law compliance for AI agents over MCP, relevant to any team shipping agentic products into EU markets where regulation is tightening.",
+          "topic": "AI Regulation & Compliance",
+          "company": "Pandex",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "tooling",
+            "launch"
+          ],
+          "publishedAt": "2026-11-21T20:47:41.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "d4e6dd6b21",
+          "title": "Inkling-2-Mini in 5.4 GB Memory",
+          "link": "https://github.com/ShinMegamiBoson/lookatmyquant",
+          "source": "Hacker News",
+          "summary": "Inkling-2-Mini runs in 5.4 GB of memory, demonstrating continued progress in highly quantized small models that can run on consumer hardware, expanding on-device AI product possibilities.",
+          "topic": "Small Language Models",
+          "company": "ShinMegamiBoson",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "launch"
+          ],
+          "publishedAt": "2026-11-21T18:02:19.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "564b8081b7",
+          "title": "The vibe-coding revolution is coming to all the gadgets",
+          "link": "https://www.theverge.com/column/1039139/vibe-coding-gadgets-tv-camera",
+          "source": "The Verge",
+          "summary": "The Verge's Stepback column argues vibe-coding is expanding beyond software into physical gadgets, signaling a broader shift in how non-engineers will interact with hardware product development.",
+          "topic": "AI-Assisted Development",
+          "company": "The Verge",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-22T13:00:00.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "0a2e9e2641",
+          "title": "The UN fails to agree on rules regulating ‘killer robots’",
+          "link": "https://www.theverge.com/tech/1039554/un-regulations-killer-robots",
+          "source": "The Verge",
+          "summary": "The UN failed to agree on rules for autonomous weapons, leaving a significant regulatory vacuum for AI-powered defense and robotics products that PMs in those sectors need to monitor.",
+          "topic": "AI Regulation",
+          "company": "United Nations",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation"
+          ],
+          "publishedAt": "2026-11-21T20:03:37.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "fb8e404799",
+          "title": "The FBI and USDA were reportedly hacked",
+          "link": "https://www.theverge.com/tech/1039543/fbi-usda-hacked",
+          "source": "The Verge",
+          "summary": "Both the FBI and USDA were reportedly hacked, the second breach of the FBI in recent memory, underscoring the ongoing severity of federal cybersecurity vulnerabilities that affect data-sharing partnerships with tech companies.",
+          "topic": "Cybersecurity",
+          "company": "FBI",
+          "secondaryCompanies": [
+            "USDA"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-21T17:42:27.000Z",
+          "addedOn": "2026-11-22"
+        },
+        {
+          "id": "2df9c52b7c",
+          "title": "Lean verification of the Riemann Hypothesis",
+          "link": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+          "source": "Hacker News",
+          "summary": "The Lean theorem prover community has posted a formal machine-verified proof of the Riemann Hypothesis, which if confirmed would be a landmark result for both mathematics and AI-assisted formal verification.",
+          "topic": "AI-Assisted Research",
+          "company": "Lean Prover Community",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "open-source"
+          ],
+          "publishedAt": "2026-11-21T14:36:45.000Z",
+          "addedOn": "2026-11-22"
+        }
+      ]
+    },
     {
       "date": "2026-11-21",
       "summary": "The biggest mathematical story in years may be unfolding as a claimed proof of the Generalized Riemann Hypothesis is drawing serious attention, though its relevance to PM work is indirect. Anthropic's IPO and the tension between its safety mission and commercial pressures is the most material AI story today, with direct implications for how the lab prioritizes product versus research. A new AI coding agent targeting DOS (ClawDOS) and the Inkling 2 Mini hardware launch round out the applied AI tooling signals worth tracking.",

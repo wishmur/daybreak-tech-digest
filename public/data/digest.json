@@ -1,6 +1,185 @@
 {
-  "lastUpdated": "2026-11-22T17:04:52.918Z",
+  "lastUpdated": "2026-11-23T21:15:16.525Z",
   "days": [
+    {
+      "date": "2026-11-23",
+      "summary": "Jensen Huang has been reinstated as Nvidia CEO after a brief resignation, returning to applause at headquarters. Anthropic launched Claude Ship, enabling Claude to autonomously review pull requests and ship code fixes. A Yann LeCun tweet accusing Anthropic's Dario Amodei of hyping AI dangers to suppress open-source competition is generating significant debate, touching a live regulatory and competitive nerve for PMs tracking the AI policy landscape.",
+      "items": [
+        {
+          "id": "e27c29bc7a",
+          "title": "Nvidia Reinstates Jensen Huang as CEO",
+          "link": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+          "source": "Hacker News",
+          "summary": "Jensen Huang is back as Nvidia CEO after a resignation that nearly ended his tenure at one of AI's most critical companies, restoring leadership stability at the firm central to AI infrastructure.",
+          "topic": "NVIDIA Leadership",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-23T14:00:18.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "35042d77f6",
+          "title": "Jensen Huang says he’ll be a ‘better CEO’ as staff applauds his return",
+          "link": "https://www.theverge.com/tech/1040487/nvidia-ceo-jensen-huang-staff-applauds-return",
+          "source": "The Verge",
+          "summary": "Huang's return to Nvidia's office with a public pledge to be a 'better CEO' signals a quick resolution to the leadership crisis and reassures partners, customers, and investors.",
+          "topic": "NVIDIA Leadership",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-23T19:58:27.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "ef51e937b5",
+          "title": "Claude AI can review pull requests and ship fixes on its own now",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+          "source": "The Verge",
+          "summary": "Anthropic's new Claude Ship product lets Claude autonomously review, fix, and approve pull requests, moving the product from coding assistant to autonomous software agent with direct impact on developer workflows.",
+          "topic": "AI Code Agents",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-23T20:00:00.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "0d8cc8030c",
+          "title": "Dario is hyping the dangers so OSS models are illegal and he stays in control",
+          "link": "https://twitter.com/ylecun/status/2124550037912920090",
+          "source": "Hacker News",
+          "summary": "Yann LeCun publicly accused Anthropic CEO Dario Amodei of inflating AI safety risks to push for regulations that would criminalize open-source models and entrench closed incumbents, a claim with direct competitive and regulatory implications.",
+          "topic": "AI Regulation and Open Source",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-23T17:07:26.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "9a96f0eef9",
+          "title": "Amazon Earnings, The Chip Question, About Agents",
+          "link": "https://stratechery.com/2026/amazon-earnings-the-chip-question-about-agents/",
+          "source": "Stratechery",
+          "summary": "Stratechery's analysis of Amazon earnings examines AWS's positioning as a unique compute provider willing to sacrifice margin to support frontier AI, relevant to PMs evaluating cloud and agent infrastructure strategy.",
+          "topic": "AWS / Amazon AI Strategy",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "AWS"
+          ],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-23T11:00:00.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "3a133cd71e",
+          "title": "How Jensen Huang ended up as Nvidia CEO again",
+          "link": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return",
+          "source": "The Verge",
+          "summary": "The backstory of Huang's near-departure reveals governance and succession risks at Nvidia that PMs and enterprise buyers should factor into their long-term AI infrastructure dependency assessments.",
+          "topic": "NVIDIA Leadership",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "leadership"
+          ],
+          "publishedAt": "2026-11-23T19:57:18.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "a891b76437",
+          "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+          "link": "https://z.ai/blog/glm-5.4",
+          "source": "Hacker News",
+          "summary": "GLM-5.4 introduces a 'loop transformer' architecture aimed at generalized coding, with strong Hacker News traction suggesting it is a credible new open-source model for agentic coding use cases.",
+          "topic": "Open-Source AI Models",
+          "company": "Z.ai",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "launch"
+          ],
+          "publishedAt": "2026-11-23T10:06:43.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "5440160064",
+          "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+          "link": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+          "source": "Hacker News",
+          "summary": "NariQ achieves near-BF16 quality on a 27B model in a 10 GB file using aggressive quantization, lowering the hardware bar for running capable open-source models locally and in edge products.",
+          "topic": "Open-Source Model Efficiency",
+          "company": "NariQ",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "research",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-23T13:42:38.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "f86f1a2de0",
+          "title": "How should an LLM see a computer?",
+          "link": "https://www.greptile.com/blog/trex-computer-use",
+          "source": "Hacker News",
+          "summary": "The Greptile blog post on how LLMs should perceive a computer addresses a core design challenge for computer-use agents, relevant to PMs building or evaluating agentic products.",
+          "topic": "AI Agents and Computer Use",
+          "company": "Greptile",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-23T17:19:25.000Z",
+          "addedOn": "2026-11-23"
+        },
+        {
+          "id": "ced394d4b6",
+          "title": "Nothing’s upcoming Ear Note is a pair of earbuds with AI transcription",
+          "link": "https://www.theverge.com/gadgets/1040357/nothing-ear-note-earbuds-ai-recording",
+          "source": "The Verge",
+          "summary": "Nothing's Ear Note earbuds with AI transcription represent an early consumer hardware product combining ambient recording and AI summarization, a product category PMs in wearables or productivity tools should track.",
+          "topic": "AI Hardware / Consumer Devices",
+          "company": "Nothing",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-23T19:04:52.000Z",
+          "addedOn": "2026-11-23"
+        }
+      ]
+    },
     {
       "date": "2026-11-22",
       "summary": "Anthropic's data centers are projected to run on 87% gas and 11% coal power by 2028, raising significant sustainability concerns for one of the leading AI labs. OpenRouter disclosed data processing incidents across multiple inference providers, a signal that AI infrastructure reliability remains a live risk for teams building on third-party model APIs. For PMs, a Lenny's Newsletter piece from Sherif Mansour offers concrete thinking on what the AI era demands from the role, worth reading alongside community discussion on managing multi-agent workflows.",

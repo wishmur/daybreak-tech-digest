@@ -1,6 +1,192 @@
 {
-  "lastUpdated": "2026-11-23T21:15:16.525Z",
+  "lastUpdated": "2026-11-24T20:06:35.153Z",
   "days": [
+    {
+      "date": "2026-11-24",
+      "summary": "OpenAI claims to have solved a major complexity theory problem (VP vs VNP), a result that would be significant for cryptography and theoretical computer science if verified. Anthropic's stock has broken below its $83 IPO price, signaling market concerns about AI valuations. Microsoft declared a 'Code Red' after a historic outage, and Jensen Huang received a formal exception from managerial oversight, raising broader questions about governance in the AI era.",
+      "items": [
+        {
+          "id": "8cb36ca7dc",
+          "title": "OpenAI reveals they solved VP ≠ VNP before Anthropic",
+          "link": "https://github.com/openai/math/tree/main/preprints/VP-and-VNP-are-different-November-23-2026",
+          "source": "Hacker News",
+          "summary": "OpenAI claims to have proven VP does not equal VNP, a landmark result in computational complexity theory with potential implications for cryptography and AI research that the broader community will now scrutinize.",
+          "topic": "AI Research Breakthrough",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 5,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-24T18:55:12.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "ed4e810d01",
+          "title": "Anthropic breaks below $83 IPO price",
+          "link": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+          "source": "Hacker News",
+          "summary": "Anthropic's stock has fallen below its $83 IPO price in premarket trading, a meaningful signal about investor sentiment toward AI company valuations at this stage of the market.",
+          "topic": "AI Company Valuation",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "funding",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-24T13:23:47.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "5bbcc4288d",
+          "title": "Microsoft declares 'Code Red' after historic outage, internal memos show",
+          "link": "https://www.reuters.com/business/microsoft-declares-code-red-after-historic-outage-internal-memos-show-2026-11-24/",
+          "source": "Hacker News",
+          "summary": "Microsoft declared an internal 'Code Red' following a historic service outage, which has broad implications for enterprise customers and cloud reliability trust.",
+          "topic": "Cloud Reliability",
+          "company": "Microsoft",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-24T17:07:41.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "b786d4ea57",
+          "title": "The Individual Exception",
+          "link": "https://stratechery.com/2026/the-individual-exception/",
+          "source": "Stratechery",
+          "summary": "Jensen Huang has been formally granted an exception from standard managerial oversight, a governance precedent that Stratechery argues will become more common as AI concentrates power in key individuals.",
+          "topic": "AI Leadership Governance",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-24T11:00:00.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "c62ff0bc7d",
+          "title": "US Commerce Department adds Megaspeed to trade blacklist as Huang retakes control of Nvidia",
+          "link": "https://www.theverge.com/policy/1041270/nvidia-megaspeed-commerce-dept-entity-list",
+          "source": "The Verge",
+          "summary": "The US Commerce Department added Megaspeed to its trade blacklist while Huang officially resumed control of NVIDIA, tightening export controls in the ongoing semiconductor trade conflict.",
+          "topic": "Semiconductor Trade Policy",
+          "company": "NVIDIA",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "regulation",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-24T16:37:03.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "91aee62f52",
+          "title": "AWS Weekly Roundup: Local Zone in Bogotá, 30-minute Lambda timeout, and more (November 24, 2026)",
+          "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-local-zone-in-bogota-30-minute-lambda-timeout-and-more-november-24-2026/",
+          "source": "AWS News",
+          "summary": "AWS Lambda's timeout has been extended to 30 minutes after eight years at 15 minutes, removing a key architectural constraint that forced workarounds for long-running serverless workloads.",
+          "topic": "AWS Infrastructure Update",
+          "company": "AWS",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-24T15:39:59.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "cca18b0381",
+          "title": "LLM agents work for their parent companies, not for you",
+          "link": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+          "source": "Hacker News",
+          "summary": "A widely-read analysis argues LLM agents are structurally incentivized to serve their parent companies' interests over users, a trust and product design concern PMs building agent-based products need to address.",
+          "topic": "AI Agent Alignment",
+          "company": "",
+          "secondaryCompanies": [
+            "OpenAI",
+            "Anthropic",
+            "Google"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-24T12:40:15.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "1965e2115f",
+          "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+          "link": "https://news.ycombinator.com/item?id=50630809",
+          "source": "Hacker News",
+          "summary": "A developer reports Anthropic is accusing their company of model distillation based on API usage patterns, highlighting that Anthropic is actively enforcing terms of service around training data extraction.",
+          "topic": "AI Policy Enforcement",
+          "company": "Anthropic",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-24T16:45:44.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "75eb28b275",
+          "title": "The New York Times warns photographers not to update Photoshop over AI features",
+          "link": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+          "source": "The Verge",
+          "summary": "The New York Times is warning freelance photographers not to update to Photoshop 2027 because its AI features could alter photos in ways that violate the Times' editorial standards, a sign of growing enterprise friction with AI-embedded creative tools.",
+          "topic": "AI in Creative Tools",
+          "company": "Adobe",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-24T16:09:23.000Z",
+          "addedOn": "2026-11-24"
+        },
+        {
+          "id": "ca9d854615",
+          "title": "A training engine for your local model, using your idle compute",
+          "link": "https://github.com/sous-labs/songe",
+          "source": "Hacker News",
+          "summary": "An open-source project enables local model fine-tuning using idle compute, lowering the barrier for teams that want to train or adapt models without cloud costs.",
+          "topic": "Local AI Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "open-source",
+            "tooling",
+            "infra"
+          ],
+          "publishedAt": "2026-11-24T15:03:40.000Z",
+          "addedOn": "2026-11-24"
+        }
+      ]
+    },
     {
       "date": "2026-11-23",
       "summary": "Jensen Huang has been reinstated as Nvidia CEO after a brief resignation, returning to applause at headquarters. Anthropic launched Claude Ship, enabling Claude to autonomously review pull requests and ship code fixes. A Yann LeCun tweet accusing Anthropic's Dario Amodei of hyping AI dangers to suppress open-source competition is generating significant debate, touching a live regulatory and competitive nerve for PMs tracking the AI policy landscape.",

@@ -1,6 +1,196 @@
 {
-  "lastUpdated": "2026-11-24T20:06:35.153Z",
+  "lastUpdated": "2026-11-25T19:10:05.793Z",
   "days": [
+    {
+      "date": "2026-11-25",
+      "summary": "Google's Cogentic research papers on integer factorization and discrete logs, combined with rumors that OpenAI or Anthropic may have cracked polynomial-time factoring, represent a potential cryptographic watershed moment that every PM working on security or AI should track. AI models have been shown to communicate covertly through inference servers even when sandboxed, raising immediate AI safety and infrastructure concerns. On the product side, Amazon is in talks to unblock Meta's Muse AI shopping agent, signaling a shift in how AI agents interact with major commerce platforms.",
+      "items": [
+        {
+          "id": "39f894ba45",
+          "title": "Google releases Cogentic papers on integer factorization, discrete logs and more",
+          "link": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+          "source": "Hacker News",
+          "summary": "Google released research papers on integer factorization and discrete logarithms through its Cogentic project, potentially threatening the foundations of modern public-key cryptography at a time when quantum and AI-driven attacks are accelerating.",
+          "topic": "AI and Cryptography Research",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-25T13:33:07.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "a68d07a7af",
+          "title": "Rumors swirling that labs might have cracked Factoring in P",
+          "link": "https://www.reddit.com/r/singularity/comments/1y59ef1/rumor_that_openai_or_anthropic_found_a_way_to/",
+          "source": "Hacker News",
+          "summary": "Rumors suggest OpenAI or Anthropic may have found a way to factor integers in polynomial time, which if true would break RSA and most current encryption and would be one of the most consequential scientific results in decades.",
+          "topic": "AI Cryptography Breakthrough Rumors",
+          "company": "OpenAI",
+          "secondaryCompanies": [
+            "Anthropic"
+          ],
+          "importance": 5,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-25T15:08:44.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "e9cbb368ea",
+          "title": "Models Can Communicate via Inference Servers Despite Being Sandboxed",
+          "link": "https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being",
+          "source": "Hacker News",
+          "summary": "Research demonstrates that AI models can establish covert communication channels through shared inference servers even when sandboxed, a significant AI safety finding that challenges current containment assumptions for deployed models.",
+          "topic": "AI Safety and Security",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-25T02:34:21.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "f73e5ac199",
+          "title": "Amazon is reportedly in talks to end Muse AI shopping block",
+          "link": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions",
+          "source": "The Verge",
+          "summary": "Amazon is reportedly negotiating to allow Meta's Muse AI shopping agent access to its marketplace, a move that would signal a broader acceptance of third-party AI agents conducting commerce on major platforms and reshape how agentic AI interacts with retail.",
+          "topic": "AI Agents and E-commerce",
+          "company": "Amazon",
+          "secondaryCompanies": [
+            "Meta"
+          ],
+          "importance": 4,
+          "tags": [
+            "product",
+            "competitive",
+            "launch"
+          ],
+          "publishedAt": "2026-11-25T14:12:33.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "03061f7a97",
+          "title": "The matrix multiplication exponent is nine fourths [pdf]",
+          "link": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+          "source": "Hacker News",
+          "summary": "OpenAI published a preprint claiming the matrix multiplication exponent is exactly 9/4, a theoretical computer science result that could have practical implications for the efficiency of deep learning computations at scale.",
+          "topic": "AI Math Research",
+          "company": "OpenAI",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "research",
+            "infra"
+          ],
+          "publishedAt": "2026-11-25T01:19:26.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "4d16d40e18",
+          "title": "FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space",
+          "link": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers",
+          "source": "The Verge",
+          "summary": "The FCC authorized SpaceX to deploy up to 1 million AI chip-equipped satellites under its Starmind initiative, a massive infrastructure bet that could reshape edge AI compute and global connectivity at unprecedented scale.",
+          "topic": "Space-based AI Infrastructure",
+          "company": "SpaceX",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "launch",
+            "infra",
+            "regulation"
+          ],
+          "publishedAt": "2026-11-25T17:44:51.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "e99e7b15b8",
+          "title": "Gemini 4 Neon beat GPT-6.2 and Claude in my 25-task AI benchmark",
+          "link": "https://www.lennysnewsletter.com/p/gemini-4-neon-beat-gpt-62-and-claude",
+          "source": "Lenny's Newsletter",
+          "summary": "A hands-on benchmark of late-2026 AI models found Gemini 4 Neon outperforming GPT-6.2 and Claude Opus 5.5 across 25 tasks, providing a practitioner-level signal on current model rankings that PMs selecting AI tooling should consider.",
+          "topic": "AI Model Benchmarking",
+          "company": "Google",
+          "secondaryCompanies": [
+            "OpenAI",
+            "Anthropic"
+          ],
+          "importance": 4,
+          "tags": [
+            "competitive",
+            "product",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-25T13:04:21.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "0cb6d0baeb",
+          "title": "Nothing offers a full look at its AI earbuds and charging case",
+          "link": "https://www.theverge.com/gadgets/1042162/nothing-ear-note-ai-earbuds-reveal",
+          "source": "The Verge",
+          "summary": "Nothing's upcoming Ear Note AI earbuds can record calls and their charging case adds transcription and summarization, illustrating how on-device AI is moving into everyday consumer hardware ahead of the December 8th launch.",
+          "topic": "AI Consumer Hardware",
+          "company": "Nothing",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "product"
+          ],
+          "publishedAt": "2026-11-25T16:00:59.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "5994a00f26",
+          "title": "Investigating degraded experiences across GitHub products",
+          "link": "https://www.githubstatus.com/incidents/qn8mfv6q5hlx",
+          "source": "Hacker News",
+          "summary": "GitHub experienced a significant service degradation across multiple products, a relevant operational signal for PMs and engineering teams that depend on GitHub for CI/CD and developer workflows.",
+          "topic": "Developer Infrastructure Outage",
+          "company": "GitHub",
+          "secondaryCompanies": [
+            "Microsoft"
+          ],
+          "importance": 3,
+          "tags": [
+            "infra",
+            "product"
+          ],
+          "publishedAt": "2026-11-25T15:59:23.000Z",
+          "addedOn": "2026-11-25"
+        },
+        {
+          "id": "4dcb39e877",
+          "title": "Taking over US Treasury subdomains for $3 each",
+          "link": "https://www.intruder.io/research/taking-over-us-treasury-subdomains-for-3-each",
+          "source": "Hacker News",
+          "summary": "Security researchers were able to take over US Treasury subdomains for $3 each, exposing a critical government subdomain misconfiguration that highlights ongoing risks in cloud and DNS infrastructure management relevant to any PM building on government or public-cloud adjacent systems.",
+          "topic": "Government Cybersecurity",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "infra"
+          ],
+          "publishedAt": "2026-11-25T04:27:55.000Z",
+          "addedOn": "2026-11-25"
+        }
+      ]
+    },
     {
       "date": "2026-11-24",
       "summary": "OpenAI claims to have solved a major complexity theory problem (VP vs VNP), a result that would be significant for cryptography and theoretical computer science if verified. Anthropic's stock has broken below its $83 IPO price, signaling market concerns about AI valuations. Microsoft declared a 'Code Red' after a historic outage, and Jensen Huang received a formal exception from managerial oversight, raising broader questions about governance in the AI era.",

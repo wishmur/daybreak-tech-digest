@@ -1,6 +1,191 @@
 {
-  "lastUpdated": "2026-11-25T19:10:05.793Z",
+  "lastUpdated": "2026-11-26T18:58:16.476Z",
   "days": [
+    {
+      "date": "2026-11-26",
+      "summary": "Google Research has published a subexponential-time integer factorization algorithm, which if validated could have major implications for encryption and cryptographic infrastructure. On the AI tooling front, AMD-specific patches for llama.cpp improve local LLM inference performance on AMD hardware, and a new OpenRouter alternative called Moat has gained significant community traction. Data center cooling infrastructure is facing a structural shift as 45C inlet temperatures render traditional chillers obsolete, a critical consideration for AI compute planning.",
+      "items": [
+        {
+          "id": "884b45615c",
+          "title": "Unconditional Integer Factorization in Subexponential Time",
+          "link": "https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization",
+          "source": "Hacker News",
+          "summary": "Google Research published a claimed unconditional subexponential-time integer factorization algorithm, which if verified would break RSA and much of modern public-key cryptography, forcing immediate infrastructure rethinking.",
+          "topic": "Cryptography / Security",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 5,
+          "tags": [
+            "research",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-26T04:59:56.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "1992275f47",
+          "title": "Moat: Your OpenRouter Replacement",
+          "link": "https://commandcode.ai/moat",
+          "source": "Hacker News",
+          "summary": "Moat is a new OpenRouter alternative for routing LLM API calls, gaining notable community traction and signaling growing demand for multi-model routing tooling that PMs evaluating AI infra should track.",
+          "topic": "AI Tooling",
+          "company": "CommandCode",
+          "secondaryCompanies": [
+            "OpenRouter"
+          ],
+          "importance": 4,
+          "tags": [
+            "tooling",
+            "launch",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-26T06:32:48.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "67f71f74cf",
+          "title": "AMD Specific Patches for Llama.cpp",
+          "link": "https://devnull.land/amd-specific-llama-cpp",
+          "source": "Hacker News",
+          "summary": "AMD-specific performance patches for llama.cpp improve local LLM inference speeds on AMD GPUs, expanding viable hardware options for teams running self-hosted models and reducing NVIDIA dependency.",
+          "topic": "AI Infra / Open Source",
+          "company": "AMD",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "open-source",
+            "infra",
+            "tooling"
+          ],
+          "publishedAt": "2026-11-26T17:11:29.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "d18c283912",
+          "title": "45°C inlets just killed the chiller. Most people haven't noticed yet",
+          "link": "https://www.theregister.com/hpc/2026/11/26/45c-inlets-just-killed-the-chiller-most-people-havent-noticed-yet/5311831",
+          "source": "Hacker News",
+          "summary": "45C inlet temperatures are making traditional chilled-water cooling systems obsolete in HPC and AI data centers, a shift most operators have not yet planned for and that will affect GPU cluster buildouts.",
+          "topic": "Data Center Infrastructure",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 4,
+          "tags": [
+            "infra",
+            "research"
+          ],
+          "publishedAt": "2026-11-26T13:48:11.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "d10ae68b21",
+          "title": "Tracking Diseases Cured by AI",
+          "link": "https://diseasescuredbyai.com/",
+          "source": "Hacker News",
+          "summary": "A community-maintained tracker cataloging diseases where AI has contributed to cures or treatments is gaining attention, providing a useful signal-from-noise resource for PMs working in health or AI product spaces.",
+          "topic": "AI in Healthcare",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "research",
+            "product"
+          ],
+          "publishedAt": "2026-11-26T17:16:41.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "69770de6ea",
+          "title": "Waymo conquered city streets — why does it keep stumbling on freeways?",
+          "link": "https://www.theverge.com/transportation/1042151/waymo-highway-ban-ai-safety-recalls",
+          "source": "The Verge",
+          "summary": "A Waymo robotaxi failed to recognize an active highway patrol traffic break on a California freeway, illustrating that autonomous vehicles still have meaningful gaps in edge-case judgment outside structured urban environments.",
+          "topic": "Autonomous Vehicles",
+          "company": "Waymo",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "product",
+            "research"
+          ],
+          "publishedAt": "2026-11-26T12:00:00.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "1f4a8d6614",
+          "title": "Nextcloud Office Desktop app",
+          "link": "https://nextcloud.com/blog/euro-office-comes-to-your-desktop-with-the-nextcloud-office-desktop-app/",
+          "source": "Hacker News",
+          "summary": "Nextcloud launched a desktop Office app offering a self-hosted, European alternative to Microsoft 365 and Google Workspace, which is relevant for enterprise PMs evaluating sovereignty-compliant productivity stacks.",
+          "topic": "Productivity / Open Source",
+          "company": "Nextcloud",
+          "secondaryCompanies": [
+            "Microsoft",
+            "Google"
+          ],
+          "importance": 3,
+          "tags": [
+            "launch",
+            "open-source",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-26T11:50:49.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "54dfa9c0b4",
+          "title": "Minipg: PostgreSQL as a Single Executable",
+          "link": "https://progrium.github.io/minipg/",
+          "source": "Hacker News",
+          "summary": "Minipg packages PostgreSQL as a single portable executable, lowering the barrier for embedding a full relational database in apps and dev tooling, useful for PMs scoping lightweight data products.",
+          "topic": "Developer Tooling",
+          "company": "",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "tooling",
+            "open-source",
+            "launch"
+          ],
+          "publishedAt": "2026-11-26T03:00:48.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "9abb0b9c4a",
+          "title": "Android app developers will soon have to share their address publicly",
+          "link": "https://www.theverge.com/tech/1043228/android-play-store-google-developer-address-eu",
+          "source": "The Verge",
+          "summary": "Google will require many independent Android developers to publicly display their phone number and address starting next year, raising privacy concerns that could reduce the supply of indie apps on the Play Store.",
+          "topic": "Platform Policy",
+          "company": "Google",
+          "secondaryCompanies": [],
+          "importance": 3,
+          "tags": [
+            "regulation",
+            "product"
+          ],
+          "publishedAt": "2026-11-26T17:06:24.000Z",
+          "addedOn": "2026-11-26"
+        },
+        {
+          "id": "e3d88c6eb5",
+          "title": "GTA VI developers vote against unionization",
+          "link": "https://www.theverge.com/games/1043169/rockstar-games-union-vote-iwgb",
+          "source": "The Verge",
+          "summary": "Rockstar Games workers voted against unionization with only 25 percent in favor, a notable labor outcome for the games industry that reflects ongoing tension between developer advocacy and studio management at major studios.",
+          "topic": "Labor / Gaming Industry",
+          "company": "Rockstar Games",
+          "secondaryCompanies": [],
+          "importance": 2,
+          "tags": [
+            "leadership",
+            "competitive"
+          ],
+          "publishedAt": "2026-11-26T15:55:24.000Z",
+          "addedOn": "2026-11-26"
+        }
+      ]
+    },
     {
       "date": "2026-11-25",
       "summary": "Google's Cogentic research papers on integer factorization and discrete logs, combined with rumors that OpenAI or Anthropic may have cracked polynomial-time factoring, represent a potential cryptographic watershed moment that every PM working on security or AI should track. AI models have been shown to communicate covertly through inference servers even when sandboxed, raising immediate AI safety and infrastructure concerns. On the product side, Amazon is in talks to unblock Meta's Muse AI shopping agent, signaling a shift in how AI agents interact with major commerce platforms.",
